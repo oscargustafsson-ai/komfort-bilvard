@@ -2,21 +2,19 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Particles } from "@/components/ui/Particles";
+import Link from "next/link";
+import { HeroHexBackground } from "./HeroHexBackground";
 
 type Slide = {
   src: string;
   label: "Före" | "Efter";
-  pos: string;
-  scale: number;
-  kenBurns: boolean;
 };
 
 const slides: Slide[] = [
-  { src: "/bilder/1.png", label: "Före", pos: "50% 50%", scale: 1,    kenBurns: false },
-  { src: "/bilder/2.png", label: "Efter", pos: "50% 50%", scale: 1.12, kenBurns: false },
-  { src: "/bilder/3.png", label: "Före", pos: "50% 50%", scale: 1,    kenBurns: false },
-  { src: "/bilder/4.png", label: "Efter", pos: "50% 50%", scale: 1.08, kenBurns: false },
+  { src: "/bilder/1.png", label: "Före" },
+  { src: "/bilder/2.png", label: "Efter" },
+  { src: "/bilder/3.png", label: "Före" },
+  { src: "/bilder/4.png", label: "Efter" },
 ];
 
 const FONT_SIZE = 150;
@@ -121,6 +119,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
 
+      {/* Hexagon-nät i det svarta fältet — lyser svagt vid muspekaren */}
+      <HeroHexBackground />
+
       {/* Bilderna till höger — bredare än synytan så vänsterkanten kan fadas in i svart */}
       <div className="absolute inset-y-0 right-0 w-[72%] md:w-[68%]">
         {slides.map((slide, i) => {
@@ -163,16 +164,6 @@ export default function Hero() {
         <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.7) 28%, rgba(0,0,0,0.35) 42%, rgba(0,0,0,0.12) 55%, transparent 70%)"}} />
       </div>
 
-      {/* Particles på vänster/svart sida */}
-      <Particles
-        className="absolute inset-y-0 left-0 w-[55%]"
-        quantity={80}
-        color="#C9A84C"
-        size={1.2}
-        staticity={60}
-        ease={60}
-      />
-
       {/* Subtil mörkläggning nedtill */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
 
@@ -199,12 +190,12 @@ export default function Hero() {
           >
             Ring oss!
           </a>
-          <a
+          <Link
             href="/tjanster"
             className="relative overflow-hidden border border-white/20 text-white/80 px-10 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Våra tjänster
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-8 py-5">
         <Link href="/" className="relative h-10 w-32 overflow-visible">
           <Image
-            src="/logo/kom-fort logga.svg"
+            src="/logo/kom-fort-logga.svg"
             alt="Kom-Fort Bilvård"
             width={100}
             height={100}
@@ -29,9 +29,9 @@ export default function Navbar() {
         </Link>
 
         <ul className="hidden md:flex gap-8 text-sm text-white/60 tracking-widest uppercase">
-          <li><a href="/tjanster" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Tjänster</a></li>
-          <li><a href="/#om" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Om oss</a></li>
-          <li><a href="/kontakt" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Kontakt</a></li>
+          <li><Link href="/tjanster" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Tjänster</Link></li>
+          <li><Link href="/#om" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Om oss</Link></li>
+          <li><Link href="/kontakt" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Kontakt</Link></li>
         </ul>
 
         <div className="flex items-center gap-4">
@@ -56,9 +56,9 @@ export default function Navbar() {
 
       {open && (
         <div className="md:hidden bg-surface-2 border-t border-gold/10 px-8 py-6 flex flex-col gap-6">
-          <a href="/tjanster" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Tjänster</a>
-          <a href="/#om" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Om oss</a>
-          <a href="/kontakt" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Kontakt</a>
+          <Link href="/tjanster" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Tjänster</Link>
+          <Link href="/#om" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Om oss</Link>
+          <Link href="/kontakt" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Kontakt</Link>
           <a
             href="tel:0761943519"
             className="relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm text-center rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"

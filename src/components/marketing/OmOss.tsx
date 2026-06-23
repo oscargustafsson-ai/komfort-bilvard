@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 const stats = [
   { num: "100%", label: "Handtvätt" },
   { num: "100%", label: "Skräddarsytt" },
   { num: "Örebro", label: "Södra Lindhult" },
-  { num: "Alltid", label: "Öppet" },
+  { num: "2 år", label: "Erfarenhet" },
 ];
 
 export default function OmOss() {
@@ -23,12 +24,12 @@ export default function OmOss() {
           <p className="text-white/60 leading-relaxed mb-10">
             Vi finns på Lindtorpsvägen 10 i södra Örebro, nära E20 avfart 110 Adolfsberg.
           </p>
-          <a
+          <Link
             href="/kontakt"
             className="relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm inline-block rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Kontakta oss
-          </a>
+          </Link>
         </FadeIn>
 
         <div className="grid grid-cols-2 gap-4">

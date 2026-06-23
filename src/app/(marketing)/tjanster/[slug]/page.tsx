@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { tjanster, getTjanstBySlug } from "@/data/tjanster";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { JsonLd, serviceSchema } from "@/components/marketing/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -14,9 +15,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const t = getTjanstBySlug(slug);
   if (!t) return {};
+  const title = `${t.title} i Örebro`;
   return {
-    title: `${t.title} i Örebro – KOM-FORT Bilvård AB`,
+    title, // företagsnamnet läggs på via title.template i layouten
     description: t.metaDesc,
+    alternates: { canonical: `/tjanster/${t.slug}` },
+    openGraph: { title, description: t.metaDesc, type: "article" },
   };
 }
 
@@ -27,6 +31,10 @@ export default async function TjanstPage({ params }: Props) {
 
   return (
     <main className="min-h-screen overflow-x-hidden">
+
+      {serviceSchema(t).map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
 
       {/* Hero */}
       <section className="pt-40 pb-20 px-8 bg-surface-1 border-b border-gold/10">
@@ -91,7 +99,7 @@ export default async function TjanstPage({ params }: Props) {
           <FadeIn delay={0.15}>
             <div className="border border-gold/20 bg-gold/5 p-10 flex flex-col gap-6">
               <p className="text-white/80 text-lg leading-relaxed font-light">
-                "Vi behandlar varje bil som om det vore vår egen. Kvalitet och noggrannhet är aldrig förhandlingsbart."
+                &ldquo;Vi behandlar varje bil som om det vore vår egen. Kvalitet och noggrannhet är aldrig förhandlingsbart.&rdquo;
               </p>
               <div>
                 <p className="text-gold font-bold tracking-wide">KOM-FORT Bilvård AB</p>
