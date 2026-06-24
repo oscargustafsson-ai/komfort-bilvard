@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-06-23
+Last updated: 2026-06-24
 
 ---
 
@@ -45,7 +45,7 @@ src/
     marketing/
       Hero.tsx                 Image slideshow hero (see below)
       HeroHexBackground.tsx    Interactive hexagon grid behind hero text (mouse glow)
-      Navbar.tsx               Fixed nav, scroll-aware, mobile menu
+      Navbar.tsx               Fixed nav, scroll-aware; mobile menu is a full-screen overlay (solid bg, fade, body scroll-lock)
       Footer.tsx               4-column footer; dynamic copyright year; social links
       Tjanster.tsx             Services grid (3 + 2 cards) from data/tjanster
       OmOss.tsx                About section + stats grid

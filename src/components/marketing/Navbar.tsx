@@ -14,6 +14,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${scrolled ? "bg-surface-1/90 backdrop-blur-md border-gold/10" : "bg-transparent border-transparent"}`}>
       <div className="flex justify-between items-center px-8 py-5">
@@ -54,19 +61,21 @@ export default function Navbar() {
         </div>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-surface-2 border-t border-gold/10 px-8 py-6 flex flex-col gap-6">
-          <Link href="/tjanster" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Tjänster</Link>
-          <Link href="/#om" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Om oss</Link>
-          <Link href="/kontakt" onClick={() => setOpen(false)} className="text-white/70 tracking-widest uppercase text-sm hover:text-gold transition-colors">Kontakt</Link>
+      <div
+        className={`md:hidden fixed inset-0 top-[72px] z-40 bg-surface-1 transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      >
+        <div className="flex flex-col h-full px-8 pt-12 pb-12 gap-8">
+          <Link href="/tjanster" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Tjänster</Link>
+          <Link href="/#om" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Om oss</Link>
+          <Link href="/kontakt" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Kontakt</Link>
           <a
             href="tel:0761943519"
-            className="relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm text-center rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            className="relative overflow-hidden mt-auto bg-gold text-black px-8 py-4 font-bold tracking-widest uppercase text-sm text-center rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Ring – 076-194 35 19
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
