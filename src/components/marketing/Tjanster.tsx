@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export default function Tjanster() {
   return (
-    <section id="tjanster" className="py-32 px-8 bg-surface-2">
+    <section id="tjanster" className="py-32 px-8 bg-polished-alt">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Vad vi erbjuder</p>
@@ -14,7 +14,7 @@ export default function Tjanster() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           {tjanster.slice(0, 3).map((s, i) => (
             <FadeIn key={s.num} delay={i * 0.07}>
-              <Link href={`/tjanster/${s.slug}`} className="group block h-full border border-white/15 hover:border-gold/50 bg-surface-2 hover:bg-surface-1 transition-all duration-300 p-8">
+              <Link href={`/tjanster/${s.slug}`} className="group block h-full border border-white/15 hover:border-gold/50 bg-black/20 hover:bg-black/40 backdrop-blur-sm transition-all duration-300 p-8">
                 <p className="text-gold/40 text-xs font-mono tracking-widest mb-4">{s.num}</p>
                 <h3 className="text-xl font-bold tracking-wide mb-3 group-hover:text-gold transition-colors">{s.title}</h3>
                 <p className="text-white/40 text-sm leading-relaxed mb-6">{s.shortDesc}</p>
@@ -27,7 +27,7 @@ export default function Tjanster() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:w-2/3 md:mx-auto">
           {tjanster.slice(3).map((s, i) => (
             <FadeIn key={s.num} delay={(i + 3) * 0.07}>
-              <Link href={`/tjanster/${s.slug}`} className="group block h-full border border-white/15 hover:border-gold/50 bg-surface-2 hover:bg-surface-1 transition-all duration-300 p-8">
+              <Link href={`/tjanster/${s.slug}`} className="group block h-full border border-white/15 hover:border-gold/50 bg-black/20 hover:bg-black/40 backdrop-blur-sm transition-all duration-300 p-8">
                 <p className="text-gold/40 text-xs font-mono tracking-widest mb-4">{s.num}</p>
                 <h3 className="text-xl font-bold tracking-wide mb-3 group-hover:text-gold transition-colors">{s.title}</h3>
                 <p className="text-white/40 text-sm leading-relaxed mb-6">{s.shortDesc}</p>

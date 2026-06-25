@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { HexagonPattern } from "@/components/ui/HexagonPattern";
 
 const stats = [
   { num: "100%", label: "Handtvätt" },
@@ -10,8 +13,15 @@ const stats = [
 
 export default function OmOss() {
   return (
-    <section id="om" className="py-32 px-8 bg-surface-1">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <section id="om" className="relative py-32 px-8 bg-polished overflow-hidden">
+      <hr className="section-divider absolute top-0 left-0 right-0" />
+      <HexagonPattern
+        radius={46}
+        className="text-gold/[0.04] [mask-image:radial-gradient(70%_70%_at_50%_50%,black,transparent)]"
+        stroke="currentColor"
+        strokeWidth={1}
+      />
+      <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <FadeIn>
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Om oss</p>
           <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide mb-8">

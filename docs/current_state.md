@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-06-24
+Last updated: 2026-06-25
 
 ---
 
@@ -32,6 +32,8 @@ src/
   app/
     layout.tsx                 Root layout: fonts (Geist, Bebas Neue, Instrument Sans), <html lang="sv">
     globals.css                Tailwind import + theme tokens + hero text stroke-draw animation
+                               + .bg-polished / .bg-polished-alt (gold-tinted radial glows for section depth)
+                               + .section-divider (soft gold gradient hairline between sections)
     actions.ts                 Server action: submitContact() — sends email via Resend
     sitemap.ts                 Generates /sitemap.xml from static pages + tjänster
     robots.ts                  Generates /robots.txt (blocks indexing until real domain set)
@@ -47,8 +49,8 @@ src/
       HeroHexBackground.tsx    Interactive hexagon grid behind hero text (mouse glow)
       Navbar.tsx               Fixed nav, scroll-aware; mobile menu is a full-screen overlay (solid bg, fade, body scroll-lock)
       Footer.tsx               4-column footer; dynamic copyright year; social links
-      Tjanster.tsx             Services grid (3 + 2 cards) from data/tjanster
-      OmOss.tsx                About section + stats grid
+      Tjanster.tsx             Services grid (3 + 2 cards) from data/tjanster; bg-polished-alt bg, translucent blur cards
+      OmOss.tsx                About section + stats grid (client component); bg-polished bg + faint hexagon pattern + top gold section-divider
       Kontakt.tsx              Contact cards + form (useActionState) + Google Maps embed
       JsonLd.tsx               JSON-LD helpers: localBusinessSchema(), serviceSchema()
     ui/
@@ -78,6 +80,18 @@ public/
   whole `<section>` (not just the hex layer) so the gold glow follows the cursor even
   behind the text; the glow only lights up in the black field, not over the car.
 - First image uses `preload` (Next 16 replaced `priority`).
+
+### Section backgrounds / visual rhythm (home page)
+- Home stacks Hero → Tjanster → OmOss. To avoid two flat-black sections reading as
+  one block, sections are distinguished by **structure and light, not by lightening the
+  grey** (a near-black grey shift was tried and rejected — it drifts away from the
+  brand black and barely reads).
+- `Tjanster` uses `.bg-polished-alt`; its cards are translucent (`bg-black/20` + blur)
+  so they sit on the glow rather than as opaque tiles.
+- `OmOss` uses `.bg-polished`, plus a faint gold `HexagonPattern` (~4% opacity, radial
+  mask fades it toward the edges, ties back to the hero motif) and a top `.section-divider`
+  (soft gold hairline) marking the transition from Tjanster. Both sections keep true
+  brand black; the gold radial glows in `.bg-polished*` are kept subtle (top glow ~6%).
 
 ### Contact form (`actions.ts` + `Kontakt.tsx`)
 - `submitContact` server action sends email via Resend.
