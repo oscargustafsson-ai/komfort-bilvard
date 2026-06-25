@@ -49,7 +49,9 @@ src/
       HeroHexBackground.tsx    Interactive hexagon grid behind hero text (mouse glow)
       Navbar.tsx               Fixed nav, scroll-aware; mobile menu is a full-screen overlay (solid bg, fade, body scroll-lock)
       Footer.tsx               4-column footer; dynamic copyright year; social links
-      Tjanster.tsx             Services grid (3 + 2 cards) from data/tjanster; bg-polished-alt bg, translucent blur cards
+      Tjanster.tsx             Services grid (3 + 2 cards) from data/tjanster; bg-polished-alt bg. Renders <ServiceCard> (server component)
+      ServiceCard.tsx          Client card: per-service icon, mouse-following gold spotlight (--mx/--my CSS vars, no re-render), hover lift + ring glow
+      tjanstIkoner.tsx         Inline SVG gold icons mapped by slug (car/sparkle/shield/drop/seat); no deps
       OmOss.tsx                About section + stats grid (client component); bg-polished bg + faint hexagon pattern + top gold section-divider
       Kontakt.tsx              Contact cards + form (useActionState) + Google Maps embed
       JsonLd.tsx               JSON-LD helpers: localBusinessSchema(), serviceSchema()
@@ -92,6 +94,15 @@ public/
   mask fades it toward the edges, ties back to the hero motif) and a top `.section-divider`
   (soft gold hairline) marking the transition from Tjanster. Both sections keep true
   brand black; the gold radial glows in `.bg-polished*` are kept subtle (top glow ~6%).
+
+### Service cards (`Tjanster.tsx` + `ServiceCard.tsx` + `tjanstIkoner.tsx`)
+- Each card shows a gold service icon (by slug), title, short desc, "Läs mer".
+- Hover: card lifts, a mouse-following gold spotlight fades in (radial gradient at
+  `--mx/--my`, set imperatively on mousemove so there is no React re-render per move),
+  an inset gold ring appears, and the icon scales + glows.
+- **Restore point:** the simpler pre-icon card design is tagged `fore-tjanstekort`
+  (commit 3960bbb). To revert just the cards: `git checkout fore-tjanstekort -- src/components/marketing/Tjanster.tsx`
+  and delete `ServiceCard.tsx` + `tjanstIkoner.tsx`.
 
 ### Contact form (`actions.ts` + `Kontakt.tsx`)
 - `submitContact` server action sends email via Resend.
