@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-06-25
+Last updated: 2026-06-29
 
 ---
 
@@ -41,7 +41,7 @@ src/
       layout.tsx               Navbar + Footer wrapper; site-wide metadata (title template, OG, metadataBase)
       page.tsx                 Home: <JsonLd LocalBusiness> + Hero + Tjanster + OmOss
       kontakt/page.tsx         Contact page (renders <Kontakt>)
-      tjanster/page.tsx        Services listing
+      tjanster/page.tsx        Services listing — renders the same <ServiceCard> as the home Tjanster section
       tjanster/[slug]/page.tsx Per-service page: generateStaticParams + generateMetadata + Service/FAQ JSON-LD
   components/
     marketing/
@@ -50,7 +50,7 @@ src/
       Navbar.tsx               Fixed nav, scroll-aware; mobile menu is a full-screen overlay (solid bg, fade, body scroll-lock)
       Footer.tsx               4-column footer; dynamic copyright year; social links
       Tjanster.tsx             Services grid (3 + 2 cards) from data/tjanster; bg-polished-alt bg. Renders <ServiceCard> (server component)
-      ServiceCard.tsx          Client card: per-service icon, mouse-following gold spotlight (--mx/--my CSS vars, no re-render), hover lift + ring glow
+      ServiceCard.tsx          Client card: standalone gold icon (no box, no number), clean type, mouse-following gold spotlight (--mx/--my CSS vars, no re-render), hover lift + growing gold accent line
       tjanstIkoner.tsx         Inline SVG gold icons mapped by slug (car/sparkle/shield/drop/seat); no deps
       OmOss.tsx                About section + stats grid (client component); bg-polished bg + faint hexagon pattern + top gold section-divider
       Kontakt.tsx              Contact cards + form (useActionState) + Google Maps embed
@@ -88,7 +88,7 @@ public/
   one block, sections are distinguished by **structure and light, not by lightening the
   grey** (a near-black grey shift was tried and rejected — it drifts away from the
   brand black and barely reads).
-- `Tjanster` uses `.bg-polished-alt`; its cards are translucent (`bg-black/20` + blur)
+- `Tjanster` uses `.bg-polished-alt`; its cards are translucent (`bg-white/[0.015]` + blur)
   so they sit on the glow rather than as opaque tiles.
 - `OmOss` uses `.bg-polished`, plus a faint gold `HexagonPattern` (~4% opacity, radial
   mask fades it toward the edges, ties back to the hero motif) and a top `.section-divider`
@@ -96,10 +96,16 @@ public/
   brand black; the gold radial glows in `.bg-polished*` are kept subtle (top glow ~6%).
 
 ### Service cards (`Tjanster.tsx` + `ServiceCard.tsx` + `tjanstIkoner.tsx`)
-- Each card shows a gold service icon (by slug), title, short desc, "Läs mer".
-- Hover: card lifts, a mouse-following gold spotlight fades in (radial gradient at
+- Used in two places: the home `Tjanster` section and the `/tjanster` listing page —
+  both render the same `<ServiceCard>` so they look identical.
+- Each card shows a standalone gold service icon (by slug, **no boxed frame**), title,
+  short desc, a growing gold accent line, and "Läs mer". **No 01–05 index numbers** —
+  services are a menu, not a sequence; the numbers and the boxed icons were removed
+  because they read as a generic template.
+- Sharp corners (no rounded), translucent fill, premium feel: long/soft 500ms easing.
+- Hover: card lifts, a small mouse-following gold spotlight fades in (radial gradient at
   `--mx/--my`, set imperatively on mousemove so there is no React re-render per move),
-  an inset gold ring appears, and the icon scales + glows.
+  the gold accent line at the foot grows, and icon/title shift to full gold.
 - **Restore point:** the simpler pre-icon card design is tagged `fore-tjanstekort`
   (commit 3960bbb). To revert just the cards: `git checkout fore-tjanstekort -- src/components/marketing/Tjanster.tsx`
   and delete `ServiceCard.tsx` + `tjanstIkoner.tsx`.

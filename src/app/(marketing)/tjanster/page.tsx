@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { tjanster } from "@/data/tjanster";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ServiceCard } from "@/components/marketing/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Våra Tjänster – KOM-FORT Bilvård AB i Örebro",
@@ -25,12 +25,7 @@ export default function TjansterPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             {tjanster.slice(0, 3).map((t, i) => (
               <FadeIn key={t.slug} delay={i * 0.07}>
-                <Link href={`/tjanster/${t.slug}`} className="group flex flex-col h-full border border-white/15 hover:border-gold/50 bg-surface-1 hover:bg-surface-2 transition-all duration-300 p-8">
-                  <p className="text-gold/40 text-xs font-mono tracking-widest mb-4">{t.num}</p>
-                  <h2 className="text-xl font-bold tracking-wide mb-3 group-hover:text-gold transition-colors">{t.title}</h2>
-                  <p className="text-white/40 text-sm leading-relaxed flex-1">{t.shortDesc}</p>
-                  <p className="text-gold/0 group-hover:text-gold text-xs tracking-widest uppercase font-mono mt-6 transition-all duration-300">Läs mer →</p>
-                </Link>
+                <ServiceCard s={t} />
               </FadeIn>
             ))}
           </div>
@@ -38,12 +33,7 @@ export default function TjansterPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:w-2/3 md:mx-auto">
             {tjanster.slice(3).map((t, i) => (
               <FadeIn key={t.slug} delay={(i + 3) * 0.07}>
-                <Link href={`/tjanster/${t.slug}`} className="group flex flex-col h-full border border-white/15 hover:border-gold/50 bg-surface-1 hover:bg-surface-2 transition-all duration-300 p-8">
-                  <p className="text-gold/40 text-xs font-mono tracking-widest mb-4">{t.num}</p>
-                  <h2 className="text-xl font-bold tracking-wide mb-3 group-hover:text-gold transition-colors">{t.title}</h2>
-                  <p className="text-white/40 text-sm leading-relaxed flex-1">{t.shortDesc}</p>
-                  <p className="text-gold/0 group-hover:text-gold text-xs tracking-widest uppercase font-mono mt-6 transition-all duration-300">Läs mer →</p>
-                </Link>
+                <ServiceCard s={t} />
               </FadeIn>
             ))}
           </div>
