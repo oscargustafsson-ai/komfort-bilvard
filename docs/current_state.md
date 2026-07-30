@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-06-29
+Last updated: 2026-07-30
 
 ---
 
@@ -34,6 +34,7 @@ src/
     globals.css                Tailwind import + theme tokens + hero text stroke-draw animation
                                + .bg-polished / .bg-polished-alt (gold-tinted radial glows for section depth)
                                + .section-divider (soft gold gradient hairline between sections)
+                               + .grain / .grain-section / .grain-card (SVG turbulence noise system)
     actions.ts                 Server action: submitContact() — sends email via Resend
     sitemap.ts                 Generates /sitemap.xml from static pages + tjänster
     robots.ts                  Generates /robots.txt (blocks indexing until real domain set)
@@ -41,74 +42,69 @@ src/
       layout.tsx               Navbar + Footer wrapper; site-wide metadata (title template, OG, metadataBase)
       page.tsx                 Home: <JsonLd LocalBusiness> + Hero + Tjanster + OmOss
       kontakt/page.tsx         Contact page (renders <Kontakt>)
-      tjanster/page.tsx        Services listing — renders the same <ServiceCard> as the home Tjanster section
+      tjanster/page.tsx        Services listing — uses <ServiceCard> components
       tjanster/[slug]/page.tsx Per-service page: generateStaticParams + generateMetadata + Service/FAQ JSON-LD
   components/
     marketing/
-      Hero.tsx                 Image slideshow hero (see below)
-      HeroHexBackground.tsx    Interactive hexagon grid behind hero text (mouse glow)
+      Hero.tsx                 PixelImage 2×2 grid + HexagonPattern, animated SVG headline, CTA buttons
+      HeroHexBackground.tsx    Interactive hexagon grid (mouse glow) — kept for reference
       Navbar.tsx               Fixed nav, scroll-aware; mobile menu is a full-screen overlay (solid bg, fade, body scroll-lock)
       Footer.tsx               4-column footer; dynamic copyright year; social links
-      Tjanster.tsx             Services grid (3 + 2 cards) from data/tjanster; bg-polished-alt bg. Renders <ServiceCard> (server component)
-      ServiceCard.tsx          Client card: standalone gold icon (no box, no number), clean type, mouse-following gold spotlight (--mx/--my CSS vars, no re-render), hover lift + growing gold accent line
-      tjanstIkoner.tsx         Inline SVG gold icons mapped by slug (car/sparkle/shield/drop/seat); no deps
-      OmOss.tsx                About section + stats grid (client component); bg-polished bg + faint hexagon pattern + top gold section-divider
+      Tjanster.tsx             Services grid (3 + 2 cards) — renders <ServiceCard>; bg-polished-alt bg
+      ServiceCard.tsx          Client card: standalone gold icon, mouse-following gold spotlight, hover lift + accent line
+      tjanstIkoner.tsx         Inline SVG gold icons mapped by slug; no deps
+      OmOss.tsx                About section + stats grid; bg-polished bg + faint HexagonPattern + section-divider
       Kontakt.tsx              Contact cards + form (useActionState) + Google Maps embed
       JsonLd.tsx               JSON-LD helpers: localBusinessSchema(), serviceSchema()
     ui/
       FadeIn.tsx               motion wrapper: fade+rise on whileInView (once, -80px margin)
       HexagonPattern.tsx       SVG hexagon tiling pattern (numbers normalized via fmt() to avoid hydration mismatch)
+      PixelImage.tsx           Pixel-reveal grid effect component
   data/
-    tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[]
+    tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[], pricing
   lib/
     site.ts                    Central config: base URL, business info, geo, social; hasRealDomain flag
   proxy.ts                     Portal-path auth redirect stub (PORTAL_PATHS -> /logga-in)
 public/
-  bilder/1-4.png               Hero slideshow images (1170x1450 portrait): dirty/clean rear + dirty/clean interior
+  bilder/1-4.png               Hero images (1170x1450 portrait): dirty/clean rear + dirty/clean interior
   logo/kom-fort-logga.svg      Logo (renamed: no spaces in filename, crawlable)
+  models/                      3D model assets
 ```
 
 ## Key components / behavior
 
-### Hero (`Hero.tsx` + `HeroHexBackground.tsx`)
-- Right side: image slideshow in natural proportion (container `w-[72%]`, wider than the
-  visible field so the left edge fades into black with no hard seam). Crossfade only on
-  opacity (GPU-composited). 5s interval, 1.2s fade.
-- Slide order: `1.png` (dirty rear) → `2.png` (clean rear) → `3.png` (dirty interior)
-  → `4.png` (clean interior). Pair transitions (1→2, 3→4) crossfade; scene cuts
-  (2→3, 4→1) dip through black to avoid double-exposure ghosting.
-- All four images mounted permanently (no `src` swap mid-animation).
-- Left side: black field with a subtle hexagon grid. Mouse movement is tracked on the
-  whole `<section>` (not just the hex layer) so the gold glow follows the cursor even
-  behind the text; the glow only lights up in the black field, not over the car.
-- First image uses `preload` (Next 16 replaced `priority`).
+### Hero (`Hero.tsx`)
+- Right panel: `HexagonPattern` SVG + `PixelImage` 2×2 grid (static, no slideshow).
+- Left side: animated SVG stroke-draw headline, body copy, two CTA buttons.
+- `PixelImage` component: `src/components/ui/PixelImage.tsx` — pixel-reveal grid effect.
 
 ### Section backgrounds / visual rhythm (home page)
-- Home stacks Hero → Tjanster → OmOss. To avoid two flat-black sections reading as
-  one block, sections are distinguished by **structure and light, not by lightening the
-  grey** (a near-black grey shift was tried and rejected — it drifts away from the
-  brand black and barely reads).
-- `Tjanster` uses `.bg-polished-alt`; its cards are translucent (`bg-white/[0.015]` + blur)
-  so they sit on the glow rather than as opaque tiles.
+- Home stacks Hero → Tjanster → OmOss. Sections are distinguished by **structure and light**.
+- `Tjanster` uses `.bg-polished-alt`; its cards are rendered by `<ServiceCard>`.
 - `OmOss` uses `.bg-polished`, plus a faint gold `HexagonPattern` (~4% opacity, radial
-  mask fades it toward the edges, ties back to the hero motif) and a top `.section-divider`
-  (soft gold hairline) marking the transition from Tjanster. Both sections keep true
-  brand black; the gold radial glows in `.bg-polished*` are kept subtle (top glow ~6%).
+  mask fades toward edges) and a top `.section-divider` (soft gold hairline).
 
 ### Service cards (`Tjanster.tsx` + `ServiceCard.tsx` + `tjanstIkoner.tsx`)
-- Used in two places: the home `Tjanster` section and the `/tjanster` listing page —
-  both render the same `<ServiceCard>` so they look identical.
-- Each card shows a standalone gold service icon (by slug, **no boxed frame**), title,
-  short desc, a growing gold accent line, and "Läs mer". **No 01–05 index numbers** —
-  services are a menu, not a sequence; the numbers and the boxed icons were removed
-  because they read as a generic template.
-- Sharp corners (no rounded), translucent fill, premium feel: long/soft 500ms easing.
-- Hover: card lifts, a small mouse-following gold spotlight fades in (radial gradient at
-  `--mx/--my`, set imperatively on mousemove so there is no React re-render per move),
-  the gold accent line at the foot grows, and icon/title shift to full gold.
-- **Restore point:** the simpler pre-icon card design is tagged `fore-tjanstekort`
-  (commit 3960bbb). To revert just the cards: `git checkout fore-tjanstekort -- src/components/marketing/Tjanster.tsx`
-  and delete `ServiceCard.tsx` + `tjanstIkoner.tsx`.
+- Used in two places: the home `Tjanster` section and the `/tjanster` listing page.
+- Each card: standalone gold service icon (by slug), title, short desc, growing gold accent line, "Läs mer".
+- Hover: card lifts, mouse-following gold spotlight (radial gradient via `--mx/--my` CSS vars,
+  set imperatively on mousemove — no React re-render per move), gold accent line grows.
+- **Restore point:** simpler pre-icon card design tagged `fore-tjanstekort` (commit 3960bbb).
+
+### Grain system (`globals.css`)
+
+Three CSS utility classes using SVG turbulence noise via `::before` pseudo-element:
+- `.grain` — strong (opacity 0.18), for gold primary buttons — brushed metal feel
+- `.grain-section` — whisper-thin (opacity 0.06), for section backgrounds — cinematic film
+- `.grain-card` — medium (opacity 0.10), for bordered cards and ghost buttons
+
+Uses `mix-blend-mode: overlay` so it works on both dark surfaces and gold. Applied to:
+- All gold `bg-gold` buttons (Navbar, Hero, OmOss, Kontakt, tjanster pages)
+- Ghost/secondary border buttons (Hero, slug page)
+- Section `<section>` elements (Hero, Kontakt)
+- Stat cards (OmOss), contact cards (Kontakt)
+- `::before` chosen deliberately to avoid conflict with Tailwind's `after:` hover slide utility
+- Hidden for `prefers-reduced-motion` users
 
 ### Contact form (`actions.ts` + `Kontakt.tsx`)
 - `submitContact` server action sends email via Resend.

@@ -11,6 +11,63 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ─── Grain system ─────────────────────────────────────────────────────────
+   SVG turbulence noise rendered as a pseudo-element overlay.
+   Three intensities: btn (strong, tactile), section (subtle, atmospheric),
+   card (medium, depth on bordered surfaces).
+   Uses mix-blend-mode: overlay so it works on both dark and gold surfaces.
+   pointer-events: none + no user-select keeps it invisible to interaction.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.grain,
+.grain-section,
+.grain-card {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Grain uses ::before so it never conflicts with Tailwind's after: hover utilities */
+.grain::before,
+.grain-section::before,
+.grain-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  border-radius: inherit;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Button grain — strong, tactile (gold buttons feel like brushed metal) */
+.grain::before {
+  opacity: 0.18;
+}
+
+/* Section grain — whisper-thin atmospheric film */
+.grain-section::before {
+  opacity: 0.06;
+  background-size: 220px 220px;
+}
+
+/* Card/border grain — medium, adds depth to dark surface cards */
+.grain-card::before {
+  opacity: 0.10;
+  background-size: 160px 160px;
+}
+
+/* Respect reduced-motion: grain is purely decorative */
+@media (prefers-reduced-motion: reduce) {
+  .grain::before,
+  .grain-section::before,
+  .grain-card::before {
+    display: none;
+  }
+}
+
 body {
   color: white;
 }

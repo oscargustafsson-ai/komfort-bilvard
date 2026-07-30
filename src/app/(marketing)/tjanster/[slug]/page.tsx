@@ -45,7 +45,16 @@ export default async function TjanstPage({ params }: Props) {
             </Link>
             <p className="text-gold text-xs tracking-[0.4em] uppercase mb-5 font-mono">{t.num} — KOM-FORT Bilvård AB · Örebro</p>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">{t.hero}</h1>
-            <p className="text-white/50 text-lg max-w-2xl leading-relaxed font-light">{t.intro}</p>
+            <p className="text-white/50 text-lg max-w-2xl leading-relaxed font-light mb-10">{t.intro}</p>
+
+            <div className="inline-flex flex-wrap items-end gap-x-4 gap-y-2 border border-gold/25 bg-gold/5 px-7 py-5">
+              <span className="text-white/40 text-xs tracking-widest uppercase font-mono">Fr</span>
+              <span className="text-4xl md:text-5xl font-black tracking-tighter text-gold leading-none">{t.pricing.fromPrice}</span>
+              <span className="text-white/50 text-sm mb-1">{t.pricing.unit ?? "kr"}</span>
+            </div>
+            {t.pricing.note && (
+              <p className="text-white/40 text-sm mt-3 max-w-md">{t.pricing.note}</p>
+            )}
           </FadeIn>
         </div>
       </section>
@@ -77,8 +86,34 @@ export default async function TjanstPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Pris & tillägg */}
+      {t.pricing.addons && t.pricing.addons.length > 0 && (
+        <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-16 items-start">
+            <FadeIn>
+              <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Pris</p>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-6">Grundpris & tillägg</h2>
+              <p className="text-white/50 leading-relaxed max-w-md">
+                Grundpaketet börjar från <span className="text-gold font-bold">{t.pricing.fromPrice} {t.pricing.unit ?? "kr"}</span>. Vill du ha ett djupare resultat eller längre skydd finns följande tillägg.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <div className="flex flex-col gap-px bg-gold/10 border border-gold/10">
+                {t.pricing.addons.map((addon, i) => (
+                  <div key={i} className="bg-surface-1 flex items-center justify-between gap-6 px-6 py-5 hover:bg-surface-2 transition-colors">
+                    <span className="text-white/70 text-sm md:text-base">{addon.label}</span>
+                    <span className="text-gold font-bold tracking-wide whitespace-nowrap">{addon.price}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-white/30 text-xs mt-4 font-mono">* Slutpris beror på bilens storlek och skick.</p>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
       {/* Varför välja oss */}
-      <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
+      <section className="py-24 px-8 bg-surface-2 border-t border-gold/10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Varför oss</p>
@@ -111,7 +146,7 @@ export default async function TjanstPage({ params }: Props) {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 px-8 bg-surface-2 border-t border-gold/10">
+      <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
         <div className="max-w-3xl mx-auto">
           <FadeIn>
             <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Vanliga frågor</p>
@@ -131,7 +166,7 @@ export default async function TjanstPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
+      <section className="py-24 px-8 bg-surface-2 border-t border-gold/10">
         <FadeIn>
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
@@ -141,13 +176,13 @@ export default async function TjanstPage({ params }: Props) {
             <div className="flex gap-4 flex-wrap shrink-0">
               <a
                 href="tel:0761943519"
-                className="relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+                className="grain relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
               >
                 Ring – 076-194 35 19
               </a>
               <Link
                 href="/kontakt"
-                className="relative overflow-hidden border border-white/20 text-white/70 px-8 py-3 tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+                className="grain-card relative overflow-hidden border border-white/20 text-white/70 px-8 py-3 tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
               >
                 Skicka förfrågan
               </Link>

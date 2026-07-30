@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href="tel:0761943519"
-            className="relative overflow-hidden hidden md:block bg-gold text-black px-8 py-3 text-sm font-bold tracking-widest uppercase rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            className="grain relative overflow-hidden hidden md:block bg-gold text-black px-8 py-3 text-sm font-bold tracking-widest uppercase rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Boka nu
           </a>
@@ -70,7 +70,7 @@ export default function Navbar() {
           <Link href="/kontakt" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Kontakt</Link>
           <a
             href="tel:0761943519"
-            className="relative overflow-hidden mt-auto bg-gold text-black px-8 py-4 font-bold tracking-widest uppercase text-sm text-center rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            className="grain relative overflow-hidden mt-auto bg-gold text-black px-8 py-4 font-bold tracking-widest uppercase text-sm text-center rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Ring – 076-194 35 19
           </a>

@@ -13,7 +13,7 @@ const stats = [
 
 export default function OmOss() {
   return (
-    <section id="om" className="relative py-32 px-8 bg-polished overflow-hidden">
+    <section id="om" className="grain-section relative py-32 px-8 bg-polished overflow-hidden">
       <hr className="section-divider absolute top-0 left-0 right-0" />
       <HexagonPattern
         radius={46}
@@ -36,7 +36,7 @@ export default function OmOss() {
           </p>
           <Link
             href="/kontakt"
-            className="relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm inline-block rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            className="grain relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm inline-block rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Kontakta oss
           </Link>
@@ -45,7 +45,7 @@ export default function OmOss() {
         <div className="grid grid-cols-2 gap-4">
           {stats.map((s, i) => (
             <FadeIn key={s.label} delay={0.1 + i * 0.08}>
-              <div className="border border-gold/20 p-8 text-center hover:border-gold/60 transition-colors">
+              <div className="grain-card border border-gold/20 p-8 text-center hover:border-gold/60 transition-colors">
                 <p className="text-gold text-3xl font-black mb-2">{s.num}</p>
                 <p className="text-white/40 text-xs tracking-widest uppercase">{s.label}</p>
               </div>

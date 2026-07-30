@@ -4,7 +4,7 @@ import { ServiceCard } from "./ServiceCard";
 
 export default function Tjanster() {
   return (
-    <section id="tjanster" className="py-32 px-8 bg-polished-alt">
+    <section id="tjanster" className="grain-section py-32 px-8 bg-polished-alt">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Vad vi erbjuder</p>

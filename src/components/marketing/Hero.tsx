@@ -4,17 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroHexBackground } from "./HeroHexBackground";
+import { PixelImage } from "@/components/ui/PixelImage";
 
-type Slide = {
-  src: string;
-  label: "Före" | "Efter";
-};
-
-const slides: Slide[] = [
-  { src: "/bilder/1.png", label: "Före" },
-  { src: "/bilder/2.png", label: "Efter" },
-  { src: "/bilder/3.png", label: "Före" },
-  { src: "/bilder/4.png", label: "Efter" },
+const slides = [
+  { src: "/bilder/1.png", alt: "Bilvård Örebro" },
+  { src: "/bilder/2.png", alt: "Bilrekond Örebro" },
+  { src: "/bilder/3.png", alt: "Polering Örebro" },
+  { src: "/bilder/4.png", alt: "Lackskydd Örebro" },
 ];
 
 const FONT_SIZE = 150;
@@ -84,100 +80,87 @@ function AnimatedHeroText() {
 
 export default function Hero() {
   const [active, setActive] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
-  const [badgeIndex, setBadgeIndex] = useState(0);
-  const [badgeHidden, setBadgeHidden] = useState(false);
+  // Pixel overlay: visible on load, fades out after reveal completes
+  const [pixelFading, setPixelFading] = useState(false);
+  const [pixelGone, setPixelGone] = useState(false);
+
+  useEffect(() => {
+    // Pixel reveal takes ~1400ms (800 delay + 600 fade). Then fade the overlay out.
+    const t1 = setTimeout(() => setPixelFading(true), 1400);
+    const t2 = setTimeout(() => setPixelGone(true), 1900);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBadgeHidden(true);
-      setActive((cur) => {
-        setPrev(cur);
-        return (cur + 1) % slides.length;
-      });
+      setActive((cur) => (cur + 1) % slides.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (active === badgeIndex) return;
-    const t = setTimeout(() => {
-      setBadgeIndex(active);
-      setBadgeHidden(false);
-    }, 900);
-    return () => clearTimeout(t);
-  }, [active, badgeIndex]);
-
-  const badgeLabel = slides[badgeIndex].label;
-
-  // Scenbyten (2→3 och 4→1) dippar genom svart.
-  // Parbyten (1→2 och 3→4) crossfadar direkt.
-  const isSceneCut = prev !== null && (
-    (prev === 1 && active === 2) || (prev === 3 && active === 0)
-  );
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <section className="grain-section relative min-h-screen flex items-center overflow-hidden bg-black">
 
-      {/* Hexagon-nät i det svarta fältet — lyser svagt vid muspekaren */}
+      {/* Full-section interactive hex — gold glow follows cursor everywhere */}
       <HeroHexBackground />
 
-      {/* Bilderna till höger — bredare än synytan så vänsterkanten kan fadas in i svart */}
-      <div className="absolute inset-y-0 right-0 w-[72%] md:w-[68%]">
-        {slides.map((slide, i) => {
-          const isActive = i === active;
-          const isOut = i === prev && prev !== active;
-          let transition: string;
-          if (isSceneCut) {
-            if (isActive) {
-              transition = "opacity 700ms cubic-bezier(0.4,0,0.2,1) 450ms";
-            } else if (isOut) {
-              transition = "opacity 500ms cubic-bezier(0.4,0,0.2,1)";
-            } else {
-              transition = "none";
-            }
-          } else {
-            transition = "opacity 1200ms cubic-bezier(0.4,0,0.2,1)";
-          }
+      {/* Right panel — z-[1] keeps it above the hex layer; mask fades left edge so hex shows through */}
+      <div
+        className="absolute inset-y-0 right-0 w-[60%] md:w-[57%] z-[1]"
+        style={{
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 30%)",
+          maskImage: "linear-gradient(to right, transparent 0%, black 30%)",
+        }}
+      >
 
-          return (
+        {/* Rounded image container */}
+        <div className="absolute inset-14 md:inset-16 lg:inset-20 rounded-2xl overflow-hidden">
+
+          {/* Smooth crossfading slideshow */}
+          {slides.map((slide, i) => (
             <div
               key={slide.src}
               className="absolute inset-0"
-              aria-hidden={!isActive}
-              style={{ opacity: isActive ? 1 : 0, transition, willChange: "opacity" }}
+              style={{
+                opacity: active === i ? 1 : 0,
+                transition: "opacity 1200ms cubic-bezier(0.4,0,0.2,1)",
+              }}
             >
               <Image
                 src={slide.src}
-                alt={slide.label}
+                alt={slide.alt}
                 fill
-                sizes="55vw"
-                className="object-cover object-center"
-                preload={i === 0}
-                loading={i === 0 ? undefined : "eager"}
+                sizes="57vw"
+                className="object-cover"
+                priority={i === 0}
               />
             </div>
-          );
-        })}
+          ))}
 
-        {/* Mjuk fade — helt svart vid vänsterkanten, tonar gradvis ut in i bilden */}
-        <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.7) 28%, rgba(0,0,0,0.35) 42%, rgba(0,0,0,0.12) 55%, transparent 70%)"}} />
+          {/* Pixel reveal overlay — plays once on page load then disappears */}
+          {!pixelGone && (
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ opacity: pixelFading ? 0 : 1, transition: "opacity 500ms ease" }}
+            >
+              <PixelImage
+                src={slides[0].src}
+                alt=""
+                customGrid={{ rows: 6, cols: 9 }}
+                className="w-full h-full"
+                pixelFadeInDuration={600}
+                maxAnimationDelay={800}
+              />
+            </div>
+          )}
+        </div>
+
       </div>
 
-      {/* Subtil mörkläggning nedtill */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+      {/* Section bottom vignette */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
-      {/* Före/Efter-badge */}
-      <div
-        className="absolute top-28 right-8 md:right-16 z-10"
-        style={{ opacity: badgeHidden ? 0 : 1, transition: "opacity 600ms ease" }}
-      >
-        <span className={`text-[10px] font-mono tracking-[0.3em] uppercase px-3 py-1.5 border ${badgeLabel === "Efter" ? "border-gold/50 text-gold bg-gold/10" : "border-white/20 text-white/50 bg-black/30"}`}>
-          {badgeLabel}
-        </span>
-      </div>
-
-      {/* Text till vänster */}
+      {/* Text — left side */}
       <div className="relative z-10 px-8 md:px-20 max-w-xl">
         <AnimatedHeroText />
         <p className="text-white/60 text-lg max-w-md mb-7 leading-snug font-light text-left">
@@ -186,13 +169,13 @@ export default function Hero() {
         <div className="flex gap-4 flex-wrap">
           <a
             href="tel:0761943519"
-            className="relative overflow-hidden bg-gold text-black px-10 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            className="grain relative overflow-hidden bg-gold text-black px-10 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Ring oss!
           </a>
           <Link
             href="/tjanster"
-            className="relative overflow-hidden border border-white/20 text-white/80 px-10 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            className="grain-card relative overflow-hidden border border-white/20 text-white/80 px-10 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
             Våra tjänster
           </Link>

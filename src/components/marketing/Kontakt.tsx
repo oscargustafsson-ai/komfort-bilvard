@@ -45,7 +45,7 @@ export default function Kontakt() {
   const [state, action, pending] = useActionState(submitContact, null);
 
   return (
-    <section id="kontakt" className="py-32 px-8 bg-surface-2 border-t border-gold/10">
+    <section id="kontakt" className="grain-section py-32 px-8 bg-surface-2 border-t border-gold/10">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <FadeIn>
@@ -61,7 +61,7 @@ export default function Kontakt() {
           <div className="flex flex-col gap-4">
             {contactInfo.map((c, i) => {
               const inner = (
-                <div className="relative overflow-hidden flex items-center gap-6 p-7 border border-white/8 bg-white/[0.03] group-hover:border-gold/50 group-hover:bg-gold/[0.06] transition-all duration-400">
+                <div className="grain-card relative overflow-hidden flex items-center gap-6 p-7 border border-white/8 bg-white/[0.03] group-hover:border-gold/50 group-hover:bg-gold/[0.06] transition-all duration-400">
                   {/* Large faded icon background */}
                   <div className="absolute right-5 top-1/2 -translate-y-1/2 text-white/[0.04] group-hover:text-gold/10 transition-colors duration-400 pointer-events-none">
                     <div className="w-20 h-20 [&>svg]:w-full [&>svg]:h-full">{c.icon}</div>
@@ -140,7 +140,7 @@ export default function Kontakt() {
                 <button
                   type="submit"
                   disabled={pending}
-                  className="relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all disabled:opacity-50 after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+                  className="grain relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all disabled:opacity-50 after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
                 >
                   {pending ? "Skickar..." : "Skicka förfrågan →"}
                 </button>
