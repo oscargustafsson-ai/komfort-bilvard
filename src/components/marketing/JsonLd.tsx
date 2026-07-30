@@ -56,6 +56,12 @@ export function serviceSchema(t: Tjanst) {
       url: site.url,
     },
     url: `${site.url}/tjanster/${t.slug}`,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "SEK",
+      price: t.pricing.fromPrice.replace(/\s/g, ""),
+      url: `${site.url}/tjanster/${t.slug}`,
+    },
   };
 
   const faq = {

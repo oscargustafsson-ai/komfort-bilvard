@@ -42,6 +42,12 @@ export function ServiceCard({ s }: { s: Tjanst }) {
         }}
       />
 
+      {s.pricing.popular && (
+        <span className="absolute top-0 right-0 z-10 bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-black">
+          Populärast
+        </span>
+      )}
+
       <div className="relative z-10 flex h-full flex-col">
         {/* Fristående guld-ikon — ingen ruta */}
         <TjanstIkon
@@ -57,6 +63,15 @@ export function ServiceCard({ s }: { s: Tjanst }) {
         {/* Beskrivning */}
         <p className="mt-3 text-sm leading-relaxed text-white/55">
           {s.shortDesc}
+        </p>
+
+        {/* Pris */}
+        <p className="mt-5 font-mono text-xs uppercase tracking-widest text-white/35">
+          Fr{" "}
+          <span className="text-base normal-case tracking-normal font-bold text-gold">
+            {s.pricing.fromPrice}
+          </span>{" "}
+          {s.pricing.unit ?? "kr"}
         </p>
 
         {/* Foten: guld-accentstreck + länk, alltid längst ner */}

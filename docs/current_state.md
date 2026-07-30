@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-07-30
+Last updated: 2026-07-30 (later same-day update: pricing data + hero hex removal)
 
 ---
 
@@ -46,8 +46,7 @@ src/
       tjanster/[slug]/page.tsx Per-service page: generateStaticParams + generateMetadata + Service/FAQ JSON-LD
   components/
     marketing/
-      Hero.tsx                 PixelImage 2×2 grid + HexagonPattern, animated SVG headline, CTA buttons
-      HeroHexBackground.tsx    Interactive hexagon grid (mouse glow) — kept for reference
+      Hero.tsx                 PixelImage 2×2 grid, animated SVG headline, CTA buttons (hex background removed)
       Navbar.tsx               Fixed nav, scroll-aware; mobile menu is a full-screen overlay (solid bg, fade, body scroll-lock)
       Footer.tsx               4-column footer; dynamic copyright year; social links
       Tjanster.tsx             Services grid (3 + 2 cards) — renders <ServiceCard>; bg-polished-alt bg
@@ -61,7 +60,7 @@ src/
       HexagonPattern.tsx       SVG hexagon tiling pattern (numbers normalized via fmt() to avoid hydration mismatch)
       PixelImage.tsx           Pixel-reveal grid effect component
   data/
-    tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[], pricing
+    tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[], pricing{fromPrice, unit, note, addons[], popular}
   lib/
     site.ts                    Central config: base URL, business info, geo, social; hasRealDomain flag
   proxy.ts                     Portal-path auth redirect stub (PORTAL_PATHS -> /logga-in)
@@ -74,7 +73,7 @@ public/
 ## Key components / behavior
 
 ### Hero (`Hero.tsx`)
-- Right panel: `HexagonPattern` SVG + `PixelImage` 2×2 grid (static, no slideshow).
+- Right panel: crossfading image slideshow behind a `PixelImage` reveal overlay on load (no hex/glow background — removed).
 - Left side: animated SVG stroke-draw headline, body copy, two CTA buttons.
 - `PixelImage` component: `src/components/ui/PixelImage.tsx` — pixel-reveal grid effect.
 
@@ -90,6 +89,17 @@ public/
 - Hover: card lifts, mouse-following gold spotlight (radial gradient via `--mx/--my` CSS vars,
   set imperatively on mousemove — no React re-render per move), gold accent line grows.
 - **Restore point:** simpler pre-icon card design tagged `fore-tjanstekort` (commit 3960bbb).
+
+### Pricing (`data/tjanster.ts` + `[slug]/page.tsx`)
+- Each service has a `pricing` object: `fromPrice` (e.g. "2 495"), `unit` (default "kr"),
+  optional `note`, optional `addons[]` ({label, price}), optional `popular` flag.
+- Prices sourced from a WhatsApp price list (2026-07-27); mapped to closest-fit service —
+  not 1:1 literal package names, so treat as approximate/"fr" (från) pricing, not a rigid quote engine.
+- Rekonditionering is flagged `popular: true` → renders a "Populärast" gold ribbon on cards.
+- Service detail page shows a gold-framed price badge in the hero + a "Grundpris & tillägg"
+  section listing `addons` (only rendered if addons exist).
+- Overview/home cards show a compact "Fr [price] kr" line (rendered inside `ServiceCard.tsx` —
+  verify current `ServiceCard.tsx` includes this if pricing display seems missing after a refactor).
 
 ### Grain system (`globals.css`)
 

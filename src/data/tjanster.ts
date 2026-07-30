@@ -1,3 +1,13 @@
+export type PriceAddon = { label: string; price: string };
+
+export type Pricing = {
+  fromPrice: string;
+  unit?: string;
+  note?: string;
+  addons?: PriceAddon[];
+  popular?: boolean;
+};
+
 export type Tjanst = {
   slug: string;
   num: string;
@@ -9,6 +19,7 @@ export type Tjanst = {
   included: { heading: string; text: string }[];
   why: string[];
   faq: { q: string; a: string }[];
+  pricing: Pricing;
 };
 
 export const tjanster: Tjanst[] = [
@@ -37,8 +48,19 @@ export const tjanster: Tjanst[] = [
     faq: [
       { q: "Hur lång tid tar en rekonditionering?", a: "En komplett rekond tar vanligtvis 4–8 timmar beroende på bilens storlek och skick. Vi bokar in bilen för hela dagen." },
       { q: "Hur ofta bör man rekonditionera sin bil?", a: "Vi rekommenderar en komplett rekond en gång per år, gärna inför sommaren eller efter vintern." },
-      { q: "Vad kostar en rekonditionering?", a: "Priset varierar beroende på bilens storlek och skick. Kontakta oss för en kostnadsfri offert." },
+      { q: "Vad kostar en rekonditionering?", a: "Grundpaketet börjar från 2 495 kr och inkluderar en 1-stegs polering. Slutpriset beror på bilens storlek och skick – kontakta oss för en kostnadsfri offert." },
     ],
+    pricing: {
+      fromPrice: "2 495",
+      unit: "kr",
+      note: "Vår mest sålda tjänst. Inkluderar 1-stegs polering.",
+      popular: true,
+      addons: [
+        { label: "Uppgradering till 2-stegs polering", price: "+995 kr" },
+        { label: "Uppgradering till 3-stegs polering", price: "+1 795 kr" },
+        { label: "Tillägg: Keramiskt lackskydd", price: "+1 995 kr" },
+      ],
+    },
   },
   {
     slug: "polering",
@@ -65,6 +87,15 @@ export const tjanster: Tjanst[] = [
       { q: "Försvinner lacken av polering?", a: "Polering tar bort ett mycket tunt lager lack. Vi mäter alltid lacktjockleken innan för att säkerställa att det finns marginal. Med professionell polering är det helt säkert." },
       { q: "Hur länge håller resultatet?", a: "Med rätt eftervård och ett skyddande lackförsegling håller resultatet i 1–2 år." },
     ],
+    pricing: {
+      fromPrice: "995",
+      unit: "kr",
+      note: "Enstegspolering som tillägg vid utvändig rekond. Fler steg för djupare resultat.",
+      addons: [
+        { label: "2-stegspolering (tillägg)", price: "+995 kr" },
+        { label: "3-stegspolering (tillägg)", price: "+1 795 kr" },
+      ],
+    },
   },
   {
     slug: "lackskydd",
@@ -91,6 +122,11 @@ export const tjanster: Tjanst[] = [
       { q: "Behöver bilen förberedas inför keramiskt skydd?", a: "Ja, för bästa resultat bör lacken poleras och avfettas grundligt före applicering. Vi tar hand om hela förberedelsen." },
       { q: "Kan man applicera keramiskt skydd på en ny bil?", a: "Absolut – faktum är att det är optimalt att skydda en ny bil direkt innan lacken hinner samla på sig repor och föroreningar." },
     ],
+    pricing: {
+      fromPrice: "1 995",
+      unit: "kr",
+      note: "Tillägg vid polering eller rekonditionering. 12 månaders lackförsegling ingår i våra paket.",
+    },
   },
   {
     slug: "biltvatt",
@@ -117,6 +153,16 @@ export const tjanster: Tjanst[] = [
       { q: "Hur ofta bör man tvätta bilen?", a: "Det beror på hur du kör och var du bor. En månatlig tvätt är en bra tumregel för att hålla lacken i gott skick." },
       { q: "Ingår invändig städning?", a: "Standard biltvätt avser utvändigt. Invändig städning bokas som ett tillägg eller som del av en rekonditionering." },
     ],
+    pricing: {
+      fromPrice: "496",
+      unit: "kr",
+      note: "Utvändig tvätt + polering + 12 månaders lackförsegling.",
+      addons: [
+        { label: "Uppgradering till 2-stegs polering", price: "+995 kr" },
+        { label: "Uppgradering till 3-stegs polering", price: "+1 795 kr" },
+        { label: "Tillägg: Keramiskt lackskydd", price: "+1 995 kr" },
+      ],
+    },
   },
   {
     slug: "invandig-rekond",
@@ -144,6 +190,11 @@ export const tjanster: Tjanst[] = [
       { q: "Hur lång tid tar invändig rekond?", a: "2–4 timmar beroende på bilens storlek och hur smutsig den är. Vi rekommenderar att du lämnar bilen hos oss för dagen." },
       { q: "Hur länge måste bilen luftas efter kemtvätt?", a: "Vi luftar bilen ordentligt efter behandlingen. Du kan köra hem direkt, men lämna gärna dörrar och fönster öppna ytterligare någon timme om möjligt." },
     ],
+    pricing: {
+      fromPrice: "995",
+      unit: "kr",
+      note: "Komplett invändig kemtvätt av klädsel, mattor och alla ytor.",
+    },
   },
 ];
 

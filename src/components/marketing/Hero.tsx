@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { HeroHexBackground } from "./HeroHexBackground";
 import { PixelImage } from "@/components/ui/PixelImage";
 
 const slides = [
@@ -101,10 +100,7 @@ export default function Hero() {
   return (
     <section className="grain-section relative min-h-screen flex items-center overflow-hidden bg-black">
 
-      {/* Full-section interactive hex — gold glow follows cursor everywhere */}
-      <HeroHexBackground />
-
-      {/* Right panel — z-[1] keeps it above the hex layer; mask fades left edge so hex shows through */}
+      {/* Right panel */}
       <div
         className="absolute inset-y-0 right-0 w-[60%] md:w-[57%] z-[1]"
         style={{
