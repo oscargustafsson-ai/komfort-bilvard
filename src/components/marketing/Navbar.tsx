@@ -37,6 +37,7 @@ export default function Navbar() {
 
         <ul className="hidden md:flex gap-8 text-sm text-white/60 tracking-widest uppercase">
           <li><Link href="/tjanster" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Tjänster</Link></li>
+          <li><Link href="/presentkort" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Presentkort</Link></li>
           <li><Link href="/#om" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Om oss</Link></li>
           <li><Link href="/kontakt" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Kontakt</Link></li>
         </ul>
@@ -66,6 +67,7 @@ export default function Navbar() {
       >
         <div className="flex flex-col h-full px-8 pt-12 pb-12 gap-8">
           <Link href="/tjanster" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Tjänster</Link>
+          <Link href="/presentkort" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Presentkort</Link>
           <Link href="/#om" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Om oss</Link>
           <Link href="/kontakt" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Kontakt</Link>
           <a

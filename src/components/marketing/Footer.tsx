@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const links = [
   { label: "Tjänster", href: "/tjanster" },
+  { label: "Presentkort", href: "/presentkort" },
   { label: "Om oss", href: "/#om" },
   { label: "Kontakt", href: "/kontakt" },
 ];

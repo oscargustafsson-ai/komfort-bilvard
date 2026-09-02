@@ -29,3 +29,29 @@ export const site = {
     "https://www.facebook.com/people/KOM-fort-Bilvård-AB/61581563706114/",
   ],
 } as const;
+
+/**
+ * Presentkort via Zettle.
+ *
+ * Göran aktiverar presentkort i Zettle och skickar sin betallänk. Tills dess
+ * är länken tom och sidan visar i stället ett beställningsformulär som mejlar
+ * förfrågan till honom (han skapar då presentkortet manuellt i Zettle).
+ *
+ * NÄR LÄNKEN FINNS: sätt NEXT_PUBLIC_ZETTLE_GIFTCARD_URL i miljövariablerna
+ * (Vercel → Settings → Environment Variables) så byter sidan automatiskt till
+ * att skicka kunden direkt till Zettle. Ingen kodändring behövs.
+ */
+const ZETTLE_URL_RAW = process.env.NEXT_PUBLIC_ZETTLE_GIFTCARD_URL?.trim();
+
+/** Bara https-länkar accepteras — skyddar mot felklistrad/osäker konfiguration. */
+export const zettleGiftCardUrl =
+  ZETTLE_URL_RAW && ZETTLE_URL_RAW.startsWith("https://") ? ZETTLE_URL_RAW : null;
+
+/** True när Zettle-länken är konfigurerad och kunden kan betala direkt. */
+export const hasZettleGiftCard = zettleGiftCardUrl !== null;
+
+/** Förvalda belopp på presentkortssidan (kunden kan även ange eget belopp). */
+export const giftCardAmounts = [500, 1000, 1500, 2000] as const;
+
+/** Gränser för eget belopp, i kronor. */
+export const giftCardLimits = { min: 200, max: 10000 } as const;
