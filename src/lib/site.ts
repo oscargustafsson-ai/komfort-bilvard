@@ -55,3 +55,21 @@ export const giftCardAmounts = [500, 1000, 1500, 2000] as const;
 
 /** Gränser för eget belopp, i kronor. */
 export const giftCardLimits = { min: 200, max: 10000 } as const;
+
+/**
+ * Värdnamn som ska visa presentkortssidan i stället för startsidan.
+ *
+ * Sätts via NEXT_PUBLIC_GIFTCARD_HOST, t.ex. "presentkort.komfort-bilvard.se".
+ * Peka subdomänen till samma Vercel-projekt (Vercel → Settings → Domains) och
+ * sätt variabeln — proxy.ts serverar då /presentkort på subdomänens rot.
+ *
+ * Flera värdar anges kommaseparerat. `localhost`-varianten finns med så att
+ * upplägget går att testa lokalt utan DNS.
+ */
+export const giftCardHosts: string[] = (process.env.NEXT_PUBLIC_GIFTCARD_HOST ?? "")
+  .split(",")
+  .map((h) => h.trim().toLowerCase())
+  .filter(Boolean);
+
+/** True när en presentkorts-subdomän är konfigurerad. */
+export const hasGiftCardHost = giftCardHosts.length > 0;

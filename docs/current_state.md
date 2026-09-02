@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-09-02 (gift cards / Zettle + PixelImage purity fixes)
+Last updated: 2026-09-02 (gift cards / Zettle, PixelImage fixes, gift-card subdomain)
 
 ---
 
@@ -150,6 +150,25 @@ link so adding it later is a one-line config change, no code edits.
   under the submit button, and the confirmation) so customers know who handles payment.
   If Göran ever takes payment by Swish/cash instead, this copy must change.
 
+### Gift card subdomain (`proxy.ts` + `lib/site.ts`)
+
+The gift card page can be served as its own subdomain while staying in this
+codebase — one deploy, one design system, no duplicated navbar/footer.
+
+- **Config:** `NEXT_PUBLIC_GIFTCARD_HOST` (comma-separated hostnames), e.g.
+  `presentkort.komfort-bilvard.se`. Point the subdomain at this same Vercel
+  project (Settings → Domains) and set the variable.
+- **Behaviour on that host:**
+  - `/` → **rewrite** to `/presentkort`, so the address bar stays on the
+    subdomain root. That short URL is the point of the whole setup.
+  - Static assets (`/logo/`, `/bilder/`, `/images/`, anything with a file
+    extension) are served normally — without this the page loses its own logo.
+  - Every other path → **redirect** to the main site, including `/presentkort`
+    itself, so the same content never lives at two addresses (duplicate content).
+- Unset (current state): nothing changes, page is only at `/presentkort`.
+- Testable locally: `NEXT_PUBLIC_GIFTCARD_HOST=presentkort.localhost npx next dev -p 3001`
+  then open `http://presentkort.localhost:3001/`.
+
 ### SEO
 - `sitemap.ts` + `robots.ts` generated from `lib/site.ts` (static pages incl. `/presentkort`).
 - `robots.ts` returns `Disallow: /` while `hasRealDomain` is false (no
@@ -165,6 +184,9 @@ link so adding it later is a one-line config change, no code edits.
 - Consider a real PNG/JPG logo for JSON-LD `image` (currently SVG; schema.org prefers raster).
 - **Gift cards:** when Göran sends his Zettle link, set `NEXT_PUBLIC_ZETTLE_GIFTCARD_URL`
   (Vercel → Settings → Environment Variables) and redeploy. Nothing else to change.
+- **Gift card subdomain (optional):** add the subdomain in Vercel → Settings → Domains,
+  then set `NEXT_PUBLIC_GIFTCARD_HOST` to that hostname. Note: the page's canonical URL
+  still points at `/presentkort` on the main domain, which is the intended SEO target.
 
 ## Known gaps / ideas (not yet built)
 
