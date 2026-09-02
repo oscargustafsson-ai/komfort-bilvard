@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import Image from "next/image"
 
 type Grid = { rows: number; cols: number }
 
@@ -13,6 +14,25 @@ const DEFAULT_GRIDS: Record<string, Grid> = {
 }
 
 type PredefinedGridKey = keyof typeof DEFAULT_GRIDS
+
+/**
+ * Avrundar till 3 decimaler så server och browser producerar samma sträng.
+ * Samma konvention som HexagonPattern — annars ger flyttalsprecisionen
+ * hydration-mismatch på clipPath/transitionDelay.
+ */
+function fmt(n: number): string {
+  return Number(n.toFixed(3)).toString()
+}
+
+/**
+ * Deterministisk pseudoslump i [0,1) från rutans index.
+ * Ger samma spridda fade-in som Math.random(), men stabilt mellan renders
+ * och mellan server och klient (Math.random i render är en oren funktion).
+ */
+function scatter(index: number) {
+  const x = Math.sin(index * 12.9898) * 43758.5453
+  return x - Math.floor(x)
+}
 
 interface PixelImageProps {
   src: string
@@ -44,19 +64,23 @@ export function PixelImage({
     return DEFAULT_GRIDS[grid] ?? DEFAULT_GRIDS["6x4"]
   }, [customGrid, grid])
 
-  useEffect(() => { setVisible(true) }, [])
+  // Fade-in startar efter första målningen. rAF (i stället för setState rakt i
+  // effektkroppen) undviker kaskad-renders och låter webbläsaren måla opacity:0 först.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setVisible(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   const pieces = useMemo(() => {
     return Array.from({ length: rows * cols }, (_, index) => {
       const row = Math.floor(index / cols)
       const col = index % cols
-      const clipPath = `polygon(
-        ${col * (100 / cols)}% ${row * (100 / rows)}%,
-        ${(col + 1) * (100 / cols)}% ${row * (100 / rows)}%,
-        ${(col + 1) * (100 / cols)}% ${(row + 1) * (100 / rows)}%,
-        ${col * (100 / cols)}% ${(row + 1) * (100 / rows)}%
-      )`
-      return { clipPath, delay: Math.random() * maxAnimationDelay }
+      const x0 = fmt(col * (100 / cols))
+      const x1 = fmt((col + 1) * (100 / cols))
+      const y0 = fmt(row * (100 / rows))
+      const y1 = fmt((row + 1) * (100 / rows))
+      const clipPath = `polygon(${x0}% ${y0}%, ${x1}% ${y0}%, ${x1}% ${y1}%, ${x0}% ${y1}%)`
+      return { clipPath, delay: fmt(scatter(index) * maxAnimationDelay) }
     })
   }, [rows, cols, maxAnimationDelay])
 
@@ -73,12 +97,14 @@ export function PixelImage({
             transitionDuration: `${pixelFadeInDuration}ms`,
           }}
         >
-          <img
+          <Image
             src={src}
             alt={i === 0 ? alt : ""}
             aria-hidden={i > 0}
             draggable={false}
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
           />
         </div>
       ))}
