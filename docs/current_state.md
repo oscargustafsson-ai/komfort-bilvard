@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-07-30 (later same-day update: pricing data + hero hex removal)
+Last updated: 2026-09-02 (gift cards / Zettle + PixelImage purity fixes)
 
 ---
 
@@ -35,13 +35,14 @@ src/
                                + .bg-polished / .bg-polished-alt (gold-tinted radial glows for section depth)
                                + .section-divider (soft gold gradient hairline between sections)
                                + .grain / .grain-section / .grain-card (SVG turbulence noise system)
-    actions.ts                 Server action: submitContact() — sends email via Resend
+    actions.ts                 Server actions: submitContact(), submitGiftCard() — email via Resend
     sitemap.ts                 Generates /sitemap.xml from static pages + tjänster
     robots.ts                  Generates /robots.txt (blocks indexing until real domain set)
     (marketing)/
       layout.tsx               Navbar + Footer wrapper; site-wide metadata (title template, OG, metadataBase)
       page.tsx                 Home: <JsonLd LocalBusiness> + Hero + Tjanster + OmOss
       kontakt/page.tsx         Contact page (renders <Kontakt>)
+      presentkort/page.tsx     Gift card page (renders <Presentkort>)
       tjanster/page.tsx        Services listing — uses <ServiceCard> components
       tjanster/[slug]/page.tsx Per-service page: generateStaticParams + generateMetadata + Service/FAQ JSON-LD
   components/
@@ -54,10 +55,15 @@ src/
       tjanstIkoner.tsx         Inline SVG gold icons mapped by slug; no deps
       OmOss.tsx                About section + stats grid; bg-polished bg + faint HexagonPattern + section-divider
       Kontakt.tsx              Contact cards + form (useActionState) + Google Maps embed
+      Presentkort.tsx          Gift cards: amount picker + Zettle link OR order form (see below);
+                               HexagonPattern bg at gold/[0.03] — same as OmOss but fainter (0.04)
       JsonLd.tsx               JSON-LD helpers: localBusinessSchema(), serviceSchema()
     ui/
       FadeIn.tsx               motion wrapper: fade+rise on whileInView (once, -80px margin)
       HexagonPattern.tsx       SVG hexagon tiling pattern (numbers normalized via fmt() to avoid hydration mismatch)
+      PixelImage.tsx           Grid fade-in image reveal. Uses next/image + deterministic scatter(index)
+                               instead of Math.random, and fmt() rounding — all three were needed to
+                               keep it lint-clean and free of hydration mismatch.
       PixelImage.tsx           Pixel-reveal grid effect component
   data/
     tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[], pricing{fromPrice, unit, note, addons[], popular}
@@ -124,8 +130,28 @@ Uses `mix-blend-mode: overlay` so it works on both dark surfaces and gold. Appli
 - Env vars (see `.env.example`): `RESEND_API_KEY`, `CONTACT_TO_EMAIL` (default
   Komfort802@gmail.com), `CONTACT_FROM_EMAIL` (required in prod, verified domain).
 
+### Gift cards (`Presentkort.tsx` + `lib/site.ts` + `actions.ts`)
+
+Built for a Zettle payment link that **does not exist yet** — Göran must first
+enable gift cards in Zettle and send his link. The page is built around that
+link so adding it later is a one-line config change, no code edits.
+
+- **Single switch:** `NEXT_PUBLIC_ZETTLE_GIFTCARD_URL` in `lib/site.ts`.
+  - **Unset (current state):** page shows an order form. `submitGiftCard` emails
+    the order to Göran, who creates the gift card in Zettle manually (~30s of work).
+  - **Set:** page instead renders a "Köp presentkort" button straight to Zettle.
+  - Only `https://` URLs are accepted; anything else is treated as unset.
+- Amounts: `giftCardAmounts` (500/1000/1500/2000) as preset buttons + a free-amount
+  field bounded by `giftCardLimits` (200–10000 kr). Free amount wins when filled.
+- Amount is re-validated server-side (integer, within limits) — client state is not trusted.
+- Order email sets `replyTo` to the buyer so Göran can answer directly.
+- Same production-safety rule as the contact form: never a fake "success" in prod.
+- **Trust copy:** Zettle is named in four places (badge under the intro, step 03, the line
+  under the submit button, and the confirmation) so customers know who handles payment.
+  If Göran ever takes payment by Swish/cash instead, this copy must change.
+
 ### SEO
-- `sitemap.ts` + `robots.ts` generated from `lib/site.ts`.
+- `sitemap.ts` + `robots.ts` generated from `lib/site.ts` (static pages incl. `/presentkort`).
 - `robots.ts` returns `Disallow: /` while `hasRealDomain` is false (no
   `NEXT_PUBLIC_SITE_URL`) so the placeholder domain isn't indexed.
 - JSON-LD: `AutoRepair`/LocalBusiness on home; `Service` + `FAQPage` per service page.
@@ -137,6 +163,8 @@ Uses `mix-blend-mode: overlay` so it works on both dark surfaces and gold. Appli
   fixes canonical/sitemap/OG URLs). Currently placeholder `https://komfort-bilvard.se`.
 - Set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` (verified domain) in `.env.local`.
 - Consider a real PNG/JPG logo for JSON-LD `image` (currently SVG; schema.org prefers raster).
+- **Gift cards:** when Göran sends his Zettle link, set `NEXT_PUBLIC_ZETTLE_GIFTCARD_URL`
+  (Vercel → Settings → Environment Variables) and redeploy. Nothing else to change.
 
 ## Known gaps / ideas (not yet built)
 
@@ -151,5 +179,6 @@ Uses `mix-blend-mode: overlay` so it works on both dark surfaces and gold. Appli
 1. `npx tsc --noEmit` — typecheck
 2. `npm run lint` — ESLint (project is currently lint-clean)
 3. `npm run build` — catches metadata/sitemap/route errors
-4. Verify visually (dev server runs on **port 3001**; port 3000 is the kalendersystem project)
+4. Verify visually — `npm run dev`. Prefer **port 3001** (`npx next dev -p 3001`) if the
+   kalendersystem project is running on 3000; otherwise 3000 is fine.
 5. Update this file
