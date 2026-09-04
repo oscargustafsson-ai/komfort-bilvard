@@ -156,7 +156,7 @@ The gift card page can be served as its own subdomain while staying in this
 codebase — one deploy, one design system, no duplicated navbar/footer.
 
 - **Config:** `NEXT_PUBLIC_GIFTCARD_HOST` (comma-separated hostnames), e.g.
-  `presentkort.komfort-bilvard.se`. Point the subdomain at this same Vercel
+  `presentkort.komfortbil.se`. Point the subdomain at this same Vercel
   project (Settings → Domains) and set the variable.
 - **Behaviour on that host:**
   - `/` → **rewrite** to `/presentkort`, so the address bar stays on the
@@ -165,28 +165,37 @@ codebase — one deploy, one design system, no duplicated navbar/footer.
     extension) are served normally — without this the page loses its own logo.
   - Every other path → **redirect** to the main site, including `/presentkort`
     itself, so the same content never lives at two addresses (duplicate content).
-- Unset (current state): nothing changes, page is only at `/presentkort`.
+- **Live:** `presentkort.komfortbil.se` is configured in Vercel and serving.
 - Testable locally: `NEXT_PUBLIC_GIFTCARD_HOST=presentkort.localhost npx next dev -p 3001`
   then open `http://presentkort.localhost:3001/`.
 
 ### SEO
 - `sitemap.ts` + `robots.ts` generated from `lib/site.ts` (static pages incl. `/presentkort`).
-- `robots.ts` returns `Disallow: /` while `hasRealDomain` is false (no
-  `NEXT_PUBLIC_SITE_URL`) so the placeholder domain isn't indexed.
+- `robots.ts` returns `Disallow: /` while `hasRealDomain` is false. That flag now
+  means "the base URL is not a preview/localhost address" — the fallback is the real
+  domain, so production indexes correctly even without `NEXT_PUBLIC_SITE_URL` set.
 - JSON-LD: `AutoRepair`/LocalBusiness on home; `Service` + `FAQPage` per service page.
 - Per-service metadata via `generateMetadata` (title uses layout's template, canonical, OG).
 
+## Domains
+
+- **Real domain: `komfortbil.se`** (Vercel nameservers). `www.komfortbil.se` is the
+  canonical host; the apex 308-redirects to it.
+- `presentkort.komfortbil.se` → gift card page (see subdomain section above).
+- `komfort-bilvard.se` was never registered — it was only a placeholder in the code
+  and has been removed. Do not reintroduce it.
+
 ## Configuration to do before launch
 
-- Set `NEXT_PUBLIC_SITE_URL` to the real domain (flips robots to allow indexing,
-  fixes canonical/sitemap/OG URLs). Currently placeholder `https://komfort-bilvard.se`.
+- ~~Set `NEXT_PUBLIC_SITE_URL`~~ — done differently: the fallback in `lib/site.ts` is
+  now the real domain `https://www.komfortbil.se`, so canonical/sitemap/robots are correct
+  out of the box. Only set the variable for a non-standard environment.
 - Set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` (verified domain) in `.env.local`.
 - Consider a real PNG/JPG logo for JSON-LD `image` (currently SVG; schema.org prefers raster).
 - **Gift cards:** when Göran sends his Zettle link, set `NEXT_PUBLIC_ZETTLE_GIFTCARD_URL`
   (Vercel → Settings → Environment Variables) and redeploy. Nothing else to change.
-- **Gift card subdomain (optional):** add the subdomain in Vercel → Settings → Domains,
-  then set `NEXT_PUBLIC_GIFTCARD_HOST` to that hostname. Note: the page's canonical URL
-  still points at `/presentkort` on the main domain, which is the intended SEO target.
+- ~~Gift card subdomain~~ — done: `presentkort.komfortbil.se` is live. The page's
+  canonical URL still points at `/presentkort` on the main domain (intended SEO target).
 
 ## Known gaps / ideas (not yet built)
 

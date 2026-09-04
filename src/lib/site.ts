@@ -1,18 +1,26 @@
 /**
  * Central plats för sajtens bas-URL och företagsuppgifter.
- * Sätt NEXT_PUBLIC_SITE_URL per miljö när den riktiga domänen är klar.
+ *
+ * Skarp domän är www.komfortbil.se. NEXT_PUBLIC_SITE_URL behöver bara sättas
+ * när en miljö ska använda en annan adress (t.ex. en förhandsvisning).
  */
-const FALLBACK_URL = "https://komfort-bilvard.se";
+const FALLBACK_URL = "https://www.komfortbil.se";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim() || FALLBACK_URL;
 
 /**
- * True när bas-URL:en kommer från en riktig env-variabel.
- * Är den false använder vi placeholder-domänen och ska INTE låta Google
- * indexera (fel canonical/sitemap), se robots.ts.
+ * True när bas-URL:en pekar på en riktig, publik domän.
+ *
+ * Tidigare krävdes att NEXT_PUBLIC_SITE_URL var satt, eftersom fallbacken var
+ * en påhittad placeholder-domän. Nu är fallbacken den skarpa domänen, så det
+ * som avgör är i stället att adressen inte är en förhandsvisning (*.vercel.app)
+ * eller lokal utveckling — där ska Google aldrig indexera. Se robots.ts.
  */
-export const hasRealDomain = Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+export const hasRealDomain =
+  !SITE_URL.includes("localhost") && !SITE_URL.includes(".vercel.app");
 
 export const site = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? FALLBACK_URL,
+  url: SITE_URL,
   name: "KOM-FORT Bilvård AB",
   phone: "+46761943519",
   phoneDisplay: "076-194 35 19",
@@ -59,7 +67,7 @@ export const giftCardLimits = { min: 200, max: 10000 } as const;
 /**
  * Värdnamn som ska visa presentkortssidan i stället för startsidan.
  *
- * Sätts via NEXT_PUBLIC_GIFTCARD_HOST, t.ex. "presentkort.komfort-bilvard.se".
+ * Sätts via NEXT_PUBLIC_GIFTCARD_HOST, t.ex. "presentkort.komfortbil.se".
  * Peka subdomänen till samma Vercel-projekt (Vercel → Settings → Domains) och
  * sätt variabeln — proxy.ts serverar då /presentkort på subdomänens rot.
  *
