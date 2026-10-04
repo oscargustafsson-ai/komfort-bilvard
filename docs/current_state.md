@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-04 (README rewritten, stale entries in this file corrected, unused template icons removed)
+Last updated: 2026-10-04 (Next.js upgraded from 16.2.6 to 16.3.8 for security fixes flagged by npm audit, NEXT_PUBLIC_SITE_URL added to .env.example)
 
 ---
 
@@ -15,7 +15,7 @@ copy). Dark theme with a gold accent (`--color-gold: #C9A84C`).
 
 ## Tech stack
 
-- **Next.js 16.2.6** (App Router, Turbopack) — note: this is a newer Next than common
+- **Next.js 16.3.8** (App Router, Turbopack) — note: this is a newer Next than common
   training data. Check `node_modules/next/dist/docs/` before using Next APIs. Notably
   `priority` on `<Image>` is **deprecated** in favor of `preload`.
 - **React 19.2.4**
