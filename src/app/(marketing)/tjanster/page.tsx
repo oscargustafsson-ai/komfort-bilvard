@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { ServiceCard } from "@/components/marketing/ServiceCard";
 
 export const metadata: Metadata = {
-  title: "Våra Tjänster – KOM-FORT Bilvård AB i Örebro",
+  title: "Våra tjänster – Bilvård i Örebro", // företagsnamnet läggs på via title.template i layouten
   description: "Rekonditionering, polering, keramiskt lackskydd, biltvätt och invändig rekond i Örebro. Professionell bilvård av KOM-FORT Bilvård AB. Ring 076-194 35 19.",
 };
 
