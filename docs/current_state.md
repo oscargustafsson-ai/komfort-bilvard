@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-09-02 (gift cards / Zettle, PixelImage fixes, gift-card subdomain)
+Last updated: 2026-10-04 (README rewritten, stale entries in this file corrected, unused template icons removed)
 
 ---
 
@@ -37,7 +37,7 @@ src/
                                + .grain / .grain-section / .grain-card (SVG turbulence noise system)
     actions.ts                 Server actions: submitContact(), submitGiftCard() — email via Resend
     sitemap.ts                 Generates /sitemap.xml from static pages + tjänster
-    robots.ts                  Generates /robots.txt (blocks indexing until real domain set)
+    robots.ts                  Generates /robots.txt (Disallow: / only on localhost / *.vercel.app, see SEO)
     (marketing)/
       layout.tsx               Navbar + Footer wrapper; site-wide metadata (title template, OG, metadataBase)
       page.tsx                 Home: <JsonLd LocalBusiness> + Hero + Tjanster + OmOss
@@ -64,7 +64,6 @@ src/
       PixelImage.tsx           Grid fade-in image reveal. Uses next/image + deterministic scatter(index)
                                instead of Math.random, and fmt() rounding — all three were needed to
                                keep it lint-clean and free of hydration mismatch.
-      PixelImage.tsx           Pixel-reveal grid effect component
   data/
     tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[], pricing{fromPrice, unit, note, addons[], popular}
   lib/
@@ -73,7 +72,8 @@ src/
 public/
   bilder/1-4.png               Hero images (1170x1450 portrait): dirty/clean rear + dirty/clean interior
   logo/kom-fort-logga.svg      Logo (renamed: no spaces in filename, crawlable)
-  models/                      3D model assets
+  images/IMG_0857-0877.jpg     17 photos from the initial skeleton commit. Not referenced by any
+                               component yet; only allow-listed as static assets in proxy.ts.
 ```
 
 ## Key components / behavior
