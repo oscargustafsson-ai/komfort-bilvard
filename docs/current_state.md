@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-04 (page titles no longer repeat the company name, npm audit fix for the remaining moderate warning)
+Last updated: 2026-10-08 (komfortbil.se connected to Vercel and live; Domains, gift-card subdomain and launch checklist corrected)
 
 ---
 
@@ -165,7 +165,10 @@ codebase — one deploy, one design system, no duplicated navbar/footer.
     extension) are served normally — without this the page loses its own logo.
   - Every other path → **redirect** to the main site, including `/presentkort`
     itself, so the same content never lives at two addresses (duplicate content).
-- **Live:** `presentkort.komfortbil.se` is configured in Vercel and serving.
+- **Status (2026-10-08): not live yet.** DNS already resolves the subdomain to Vercel's
+  IPs, but it is not added to the Vercel project's Domains and `NEXT_PUBLIC_GIFTCARD_HOST`
+  is not confirmed set. To finish: add `presentkort.komfortbil.se` in Vercel (Settings →
+  Domains), set `NEXT_PUBLIC_GIFTCARD_HOST=presentkort.komfortbil.se`, redeploy.
 - Testable locally: `NEXT_PUBLIC_GIFTCARD_HOST=presentkort.localhost npx next dev -p 3001`
   then open `http://presentkort.localhost:3001/`.
 
@@ -179,9 +182,18 @@ codebase — one deploy, one design system, no duplicated navbar/footer.
 
 ## Domains
 
-- **Real domain: `komfortbil.se`** (Vercel nameservers). `www.komfortbil.se` is the
-  canonical host; the apex 308-redirects to it.
-- `presentkort.komfortbil.se` → gift card page (see subdomain section above).
+- **Real domain: `komfortbil.se`**, live on Vercel since 2026-10-08. `www.komfortbil.se`
+  is the canonical host; the apex 308-redirects to it. Before that date the domain was only
+  parked at one.com.
+- **DNS:** nameservers are Vercel's (`ns1/ns2.vercel-dns.com`, moved from one.com), so
+  records are managed in Vercel's DNS panel (Domains → komfortbil.se), not at one.com.
+  Whether the DNS zone sits under the `oscargus` account has not been verified.
+- **Hosting:** Vercel project `komfort-bilvard` (account `oscargus`, Hobby) builds from
+  `main` of `oscargustafsson-ai/komfort-bilvard`; every push to `main` is published on
+  `www.komfortbil.se`. Attached domains: `komfortbil.se` (308 → www), `www.komfortbil.se`
+  (production), `komfort-bilvard-eight.vercel.app`.
+- `presentkort.komfortbil.se` → intended for the gift card page, not live yet (see the
+  subdomain section above).
 - `komfort-bilvard.se` was never registered — it was only a placeholder in the code
   and has been removed. Do not reintroduce it.
 
@@ -190,12 +202,16 @@ codebase — one deploy, one design system, no duplicated navbar/footer.
 - ~~Set `NEXT_PUBLIC_SITE_URL`~~ — done differently: the fallback in `lib/site.ts` is
   now the real domain `https://www.komfortbil.se`, so canonical/sitemap/robots are correct
   out of the box. Only set the variable for a non-standard environment.
-- Set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` (verified domain) in `.env.local`.
+- Set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` (domain verified in Resend) in `.env.local`
+  and for the live site in Vercel → Settings → Environment Variables. Not confirmed set in
+  Vercel as of 2026-10-08: test the contact form on www.komfortbil.se (in production a
+  missing config returns an error, by design).
 - Consider a real PNG/JPG logo for JSON-LD `image` (currently SVG; schema.org prefers raster).
 - **Gift cards:** when Göran sends his Zettle link, set `NEXT_PUBLIC_ZETTLE_GIFTCARD_URL`
   (Vercel → Settings → Environment Variables) and redeploy. Nothing else to change.
-- ~~Gift card subdomain~~ — done: `presentkort.komfortbil.se` is live. The page's
-  canonical URL still points at `/presentkort` on the main domain (intended SEO target).
+- **Gift card subdomain:** not live yet, see the subdomain section (add the domain in
+  Vercel + set `NEXT_PUBLIC_GIFTCARD_HOST`). The page's canonical URL points at
+  `/presentkort` on the main domain (intended SEO target).
 
 ## Known gaps / ideas (not yet built)
 
