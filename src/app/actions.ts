@@ -17,7 +17,7 @@ const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "Komfort802@gmail.com";
 // Avsändare: i produktion krävs en egen verifierad domän (CONTACT_FROM_EMAIL).
 // Resends testdomän används bara som bekvämlighet i utveckling.
 const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL ?? "KOM-FORT Bilvård <onboarding@resend.dev>";
+  process.env.CONTACT_FROM_EMAIL ?? "KOM-fort Bilvård <onboarding@resend.dev>";
 
 export async function submitContact(
   _prevState: ContactState,

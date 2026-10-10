@@ -1,14 +1,16 @@
 import { tjanster } from "@/data/tjanster";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ServiceCard } from "./ServiceCard";
+import { Etikett } from "./Etikett";
 
 export default function Tjanster() {
   return (
     <section id="tjanster" className="grain-section py-32 px-8 bg-polished-alt">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Vad vi erbjuder</p>
-          <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-8xl tracking-wide mb-16">VÅRA TJÄNSTER</h2>
+          <Etikett>Vad vi erbjuder</Etikett>
+          {/* Ingen h2: startsidans rubriker styrs av sidpaketet. Visuell rubrik som p. */}
+          <p className="font-[family-name:var(--font-bebas)] text-6xl md:text-8xl tracking-wide mb-16">VÅRA TJÄNSTER</p>
         </FadeIn>
         {/* Rad 1: 3 kort */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">

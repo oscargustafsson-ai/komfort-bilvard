@@ -43,7 +43,7 @@ export default function Presentkort() {
             GE BORT<br />EN NYTVÄTTAD BIL.
           </h2>
           <p className="text-white/50 text-base leading-relaxed max-w-xl mb-8">
-            Ett presentkort hos KOM-FORT Bilvård gäller på alla våra tjänster — rekond,
+            Ett presentkort hos KOM-fort Bilvård gäller på alla våra tjänster — rekond,
             polering, lackskydd eller en enkel biltvätt. Mottagaren väljer själv.
           </p>
 

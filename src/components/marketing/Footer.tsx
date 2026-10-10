@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const links = [
   { label: "Tjänster", href: "/tjanster" },
+  { label: "Områden", href: "/omraden" },
   { label: "Presentkort", href: "/presentkort" },
   { label: "Om oss", href: "/#om" },
   { label: "Kontakt", href: "/kontakt" },
@@ -24,8 +25,8 @@ export default function Footer() {
         {/* Brand */}
         <div className="md:col-span-1">
           <Link href="/" className="inline-block mb-4">
-            <span className="text-gold font-bold text-xl tracking-widest">KOM-FORT</span>
-            <span className="text-white/30 text-sm ml-2">Bilvård AB</span>
+            <span className="text-gold font-bold text-xl tracking-widest">KOM-fort</span>{" "}
+            <span className="text-white/30 text-sm ml-1">Bilvård AB</span>
           </Link>
           <p className="text-white/40 text-sm leading-relaxed mb-6">
             Professionell bilvård i Örebro. Vi förvandlar din bil med rekond, polering och lackskydd.
@@ -113,7 +114,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5 px-8 py-5">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          <span className="text-white/20 text-xs font-mono">© {new Date().getFullYear()} KOM-FORT Bilvård AB</span>
+          <span className="text-white/20 text-xs font-mono">© {new Date().getFullYear()} KOM-fort Bilvård AB</span>
           <span className="text-white/20 text-xs font-mono">Lindtorpsvägen 10, 702 37 Örebro</span>
         </div>
       </div>

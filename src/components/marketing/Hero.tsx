@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PixelImage } from "@/components/ui/PixelImage";
+import { Stycke } from "@/components/marketing/Stycke";
 
 const slides = [
   { src: "/bilder/1.png", alt: "Bilvård Örebro" },
@@ -64,11 +65,12 @@ function HeroLine({ text, delay }: { text: string; delay: number }) {
   );
 }
 
+/** Dekorativ, animerad rubrik. Sidans riktiga H1 står som text under den. */
 function AnimatedHeroText() {
   return (
     <div
-      className="mb-5 text-left"
-      aria-label="Din bilvård i Örebro."
+      className="mb-4 text-left"
+      aria-hidden="true"
       style={{ display: "flex", flexDirection: "column", gap: "0.02em" }}
     >
       <HeroLine text="Din bilvård" delay={0} />
@@ -77,7 +79,14 @@ function AnimatedHeroText() {
   );
 }
 
-export default function Hero() {
+type Props = {
+  /** Sidans H1, synlig text. */
+  rubrik: string;
+  /** Introstycken, ordagrant från sidpaketet. */
+  intro: string[];
+};
+
+export default function Hero({ rubrik, intro }: Props) {
   const [active, setActive] = useState(0);
   // Pixel overlay: visible on load, fades out after reveal completes
   const [pixelFading, setPixelFading] = useState(false);
@@ -98,11 +107,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="grain-section relative min-h-screen flex items-center overflow-hidden bg-black">
+    <section className="grain-section relative min-h-screen flex items-center overflow-hidden bg-black py-32">
 
       {/* Right panel */}
       <div
-        className="absolute inset-y-0 right-0 w-[60%] md:w-[57%] z-[1]"
+        className="absolute inset-y-0 right-0 w-[60%] md:w-[57%] z-[1] opacity-35 md:opacity-100"
         style={{
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 30%)",
           maskImage: "linear-gradient(to right, transparent 0%, black 30%)",
@@ -133,7 +142,7 @@ export default function Hero() {
             </div>
           ))}
 
-          {/* Pixel reveal overlay — plays once on page load then disappears */}
+          {/* Pixel reveal overlay: plays once on page load then disappears */}
           {!pixelGone && (
             <div
               className="absolute inset-0 pointer-events-none"
@@ -156,12 +165,17 @@ export default function Hero() {
       {/* Section bottom vignette */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
-      {/* Text — left side */}
-      <div className="relative z-10 px-8 md:px-20 max-w-xl">
+      {/* Text, left side */}
+      <div className="relative z-10 px-8 md:px-20 max-w-2xl">
         <AnimatedHeroText />
-        <p className="text-white/60 text-lg max-w-md mb-7 leading-snug font-light text-left">
-          Vi på Kom-Fort Bilvård förvandlar din bil. Med bilrekond, polering och lackskydd i Örebro.
-        </p>
+        <h1 className="font-[family-name:var(--font-bebas)] text-3xl md:text-4xl tracking-[0.2em] uppercase text-gold mb-6">
+          {rubrik}
+        </h1>
+        <div className="flex flex-col gap-4 max-w-xl mb-8">
+          {intro.map((s) => (
+            <Stycke key={s.slice(0, 40)} text={s} className="text-white/60 leading-relaxed font-light" />
+          ))}
+        </div>
         <div className="flex gap-4 flex-wrap">
           <a
             href="tel:0761943519"

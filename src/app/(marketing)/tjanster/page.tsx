@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import { tjanster } from "@/data/tjanster";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ServiceCard } from "@/components/marketing/ServiceCard";
+import { Etikett } from "@/components/marketing/Etikett";
+import { sidMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Våra tjänster – Bilvård i Örebro", // företagsnamnet läggs på via title.template i layouten
-  description: "Rekonditionering, polering, keramiskt lackskydd, biltvätt och invändig rekond i Örebro. Professionell bilvård av KOM-FORT Bilvård AB. Ring 076-194 35 19.",
-};
+export const metadata = sidMetadata({
+  title: "Våra tjänster - Bilvård i Örebro | KOM-fort Bilvård AB",
+  description: "Rekonditionering, polering, keramiskt lackskydd, biltvätt och invändig rekond i Örebro. Professionell bilvård av KOM-fort Bilvård AB. Ring 076-194 35 19.",
+  path: "/tjanster",
+});
 
 export default function TjansterPage() {
   return (
@@ -14,7 +16,7 @@ export default function TjansterPage() {
       <section className="pt-40 pb-20 px-8 bg-surface-1">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Vad vi erbjuder</p>
+            <Etikett>Vad vi erbjuder</Etikett>
             <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6">VÅRA TJÄNSTER</h1>
             <p className="text-white/50 text-lg max-w-xl leading-relaxed mb-16">
               Professionell bilvård i Örebro. Vi erbjuder allt från en enkel handtvätt till komplett rekonditionering och keramiskt lackskydd.
@@ -52,7 +54,7 @@ export default function TjansterPage() {
               href="tel:0761943519"
               className="grain relative overflow-hidden shrink-0 bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
             >
-              Ring – 076-194 35 19
+              Ring 076-194 35 19
             </a>
           </div>
         </FadeIn>

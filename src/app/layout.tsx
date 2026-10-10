@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bebas_Neue, Instrument_Sans } from "next/font/google";
 import "./globals.css";
+
+/** Search Console-verifiering (tagg från Oscar 2026-10-10). Ärvs av alla sidor. */
+export const metadata: Metadata = {
+  verification: {
+    google: "tVndElGRwqrXmVPDg6Zk3V15LU2nLVGORBNehqwkXvw",
+  },
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

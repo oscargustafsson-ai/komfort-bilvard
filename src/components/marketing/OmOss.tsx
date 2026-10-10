@@ -3,15 +3,24 @@
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { HexagonPattern } from "@/components/ui/HexagonPattern";
+import { Stycke } from "@/components/marketing/Stycke";
+import { Etikett } from "@/components/marketing/Etikett";
 
 const stats = [
   { num: "100%", label: "Handtvätt" },
   { num: "100%", label: "Skräddarsytt" },
   { num: "Örebro", label: "Södra Lindhult" },
-  { num: "2 år", label: "Erfarenhet" },
+  { num: "2025", label: "Grundat" },
 ];
 
-export default function OmOss() {
+type Props = {
+  /** H2 exakt enligt sidpaketet. */
+  h2: string;
+  /** Stycken, ordagrant från sidpaketet. */
+  stycken: string[];
+};
+
+export default function OmOss({ h2, stycken }: Props) {
   return (
     <section id="om" className="grain-section relative py-32 px-8 bg-polished overflow-hidden">
       <hr className="section-divider absolute top-0 left-0 right-0" />
@@ -23,17 +32,15 @@ export default function OmOss() {
       />
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <FadeIn>
-          <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Om oss</p>
-          <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide mb-8">
-            PASSION FÖR<br />
-            <span className="text-gold">BILAR.</span>
+          <Etikett>Om oss</Etikett>
+          <h2 className="font-[family-name:var(--font-bebas)] text-5xl md:text-6xl tracking-wide mb-8">
+            {h2}
           </h2>
-          <p className="text-white/60 leading-relaxed mb-6">
-            KOM-fort Bilvård AB grundades av Goran Ismailovic med en enkel vision – att ge varje bil i Örebro den omsorg den förtjänar. Vi behandlar varje fordon som om det vore vårt eget.
-          </p>
-          <p className="text-white/60 leading-relaxed mb-10">
-            Vi finns på Lindtorpsvägen 10 i södra Örebro, nära E20 avfart 110 Adolfsberg.
-          </p>
+          <div className="flex flex-col gap-6 mb-10">
+            {stycken.map((s) => (
+              <Stycke key={s.slice(0, 40)} text={s} />
+            ))}
+          </div>
           <Link
             href="/kontakt"
             className="grain relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm inline-block rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"

@@ -3,9 +3,41 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-08 (komfortbil.se connected to Vercel and live; Domains, gift-card subdomain and launch checklist corrected)
+Last updated: 2026-10-10 (Batch 01 of the SEO page build: start page rewritten, /omraden hub + 3 district pages, site-wide schema/metadata fixes)
 
 ---
+
+## SEO page build (from 2026-10-10)
+
+Pages are now built in batches from a separate work-order folder (`kom-fort-sidbygge`,
+outside this repo). The copy there is the single source of truth; do not rewrite copy here.
+
+- **Copy lives in data files, not JSX:** `src/data/startsida.ts` (home) and
+  `src/data/omraden.ts` (hub `/omraden` + district pages `/omraden/[slug]`). Paragraphs are
+  plain strings with markdown links `[text](/path)`, rendered by `components/marketing/Stycke.tsx`.
+- **Metadata:** every page goes through `sidMetadata()` in `src/lib/metadata.ts` (exact title,
+  description, self-referencing canonical, og:url, default og:image `/bilder/1.png`). The
+  `title.template` in the marketing layout was removed on purpose: titles are exact.
+- **Schema:** `foretagSchema()` (AutoWash, `@id` `https://www.komfortbil.se/#foretag`) is
+  rendered once per page from `(marketing)/layout.tsx`. Service and district schemas point at it
+  via `provider.@id`. District pages: BreadcrumbList + Service + FAQPage. Home: FAQPage.
+  No `openingHoursSpecification` (hours unconfirmed), never `aggregateRating`.
+- **Shared blocks:** `Karta.tsx` (Google Maps embed, src/link in `site.karta`), `Brodsmulor.tsx`
+  (visible breadcrumbs + BreadcrumbList), `Etikett.tsx` (eyebrow label, dash drawn with CSS),
+  `Sidblock.tsx` (text grids, highlighted block, "Hitta till oss" with map, FAQ, button row).
+- **Name form:** "KOM-fort Bilvård AB" everywhere in text, titles and schema (was KOM-FORT /
+  Kom-Fort). The logo image is unchanged.
+- **No en/em dashes** (U+2013/U+2014) in visible text on built pages, buttons or shared
+  components; only "-". The service data (`tjanster.ts`) still has some in copy that is
+  scheduled to be rewritten in later batches.
+- **Sitemap:** `sitemap.ts` has a `senastAndrad` map for per-page lastModified; bump the dates
+  for pages a batch touches.
+- Root layout carries the Google Search Console `verification.google` tag.
+- Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- Home: the real `<h1>` ("Bilvård Örebro") is visible text in the hero; the animated SVG headline
+  is decorative (`aria-hidden`). The "Våra tjänster" heading in `Tjanster.tsx` is a `<p>` so that
+  the home page's h2 set matches the page package exactly. On phones the hero image panel is
+  dimmed (`opacity-35 md:opacity-100`) so the longer intro text stays readable.
 
 ## Overview
 
@@ -39,8 +71,10 @@ src/
     sitemap.ts                 Generates /sitemap.xml from static pages + tjänster
     robots.ts                  Generates /robots.txt (Disallow: / only on localhost / *.vercel.app, see SEO)
     (marketing)/
-      layout.tsx               Navbar + Footer wrapper; site-wide metadata (title template, OG, metadataBase)
-      page.tsx                 Home: <JsonLd LocalBusiness> + Hero + Tjanster + OmOss
+      layout.tsx               Navbar + Footer wrapper; metadataBase, og defaults, company JSON-LD (no title template)
+      page.tsx                 Home: Hero (h1 + intro) + Tjanster + text sections + OmOss + map + FAQ (copy from data/startsida.ts)
+      omraden/page.tsx         Districts hub (/omraden), copy from data/omraden.ts
+      omraden/[slug]/page.tsx  District page: BreadcrumbList + Service + FAQPage JSON-LD
       kontakt/page.tsx         Contact page (renders <Kontakt>)
       presentkort/page.tsx     Gift card page (renders <Presentkort>)
       tjanster/page.tsx        Services listing — uses <ServiceCard> components
@@ -57,7 +91,12 @@ src/
       Kontakt.tsx              Contact cards + form (useActionState) + Google Maps embed
       Presentkort.tsx          Gift cards: amount picker + Zettle link OR order form (see below);
                                HexagonPattern bg at gold/[0.03] — same as OmOss but fainter (0.04)
-      JsonLd.tsx               JSON-LD helpers: localBusinessSchema(), serviceSchema()
+      JsonLd.tsx               JSON-LD helpers: foretagSchema() (AutoWash), serviceSchema(), omradeSchema(), faqSchema(), brodsmulorSchema()
+      Karta.tsx                Shared Google Maps embed (iframe from site.karta)
+      Brodsmulor.tsx           Breadcrumbs (visible + BreadcrumbList)
+      Stycke.tsx               Renders copy strings with [text](/path) links as <Link>
+      Etikett.tsx              Eyebrow label (CSS dash)
+      Sidblock.tsx             Shared page blocks: text grid, highlighted block, Hitta-till-oss + map, FAQ, buttons
     ui/
       FadeIn.tsx               motion wrapper: fade+rise on whileInView (once, -80px margin)
       HexagonPattern.tsx       SVG hexagon tiling pattern (numbers normalized via fmt() to avoid hydration mismatch)
@@ -66,6 +105,8 @@ src/
                                keep it lint-clean and free of hydration mismatch.
   data/
     tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[], pricing{fromPrice, unit, note, addons[], popular}
+    startsida.ts               Home page copy (verbatim from the work-order batch file)
+    omraden.ts                 /omraden hub + district pages copy
   lib/
     site.ts                    Central config: base URL, business info, geo, social; hasRealDomain flag
   proxy.ts                     Portal-path auth redirect stub (PORTAL_PATHS -> /logga-in)
@@ -177,7 +218,7 @@ codebase — one deploy, one design system, no duplicated navbar/footer.
 - `robots.ts` returns `Disallow: /` while `hasRealDomain` is false. That flag now
   means "the base URL is not a preview/localhost address" — the fallback is the real
   domain, so production indexes correctly even without `NEXT_PUBLIC_SITE_URL` set.
-- JSON-LD: `AutoRepair`/LocalBusiness on home; `Service` + `FAQPage` per service page.
+- JSON-LD: `AutoWash` company schema in the marketing layout (every page); `Service` + `FAQPage` per service page; BreadcrumbList + Service + FAQPage per district page; FAQPage on home.
 - Per-service metadata via `generateMetadata` (title uses layout's template, canonical, OG).
 
 ## Domains

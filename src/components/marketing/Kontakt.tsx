@@ -2,7 +2,10 @@
 
 import { useActionState } from "react";
 import { submitContact } from "@/app/actions";
+import { site } from "@/lib/site";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Karta } from "@/components/marketing/Karta";
+import { Etikett } from "@/components/marketing/Etikett";
 
 const contactInfo = [
   {
@@ -30,7 +33,7 @@ const contactInfo = [
   {
     label: "Adress",
     value: "Lindtorpsvägen 10, Örebro",
-    href: "https://maps.google.com/?q=Lindtorpsvägen+10+702+37+Örebro",
+    href: site.karta.lank,
     cta: "Visa på karta",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -49,7 +52,7 @@ export default function Kontakt() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <FadeIn>
-          <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Kontakta oss</p>
+          <Etikett>Kontakta oss</Etikett>
           <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide mb-12">
             BOKA DIN<br />TID IDAG.
           </h2>
@@ -149,33 +152,9 @@ export default function Kontakt() {
           </FadeIn>
         </div>
 
-        {/* Google Maps — full width */}
+        {/* Google-kartan, delad komponent (Karta.tsx) */}
         <FadeIn delay={0.3}>
-          <div className="relative border border-white/8 overflow-hidden">
-            <iframe
-              title="KOM-FORT Bilvård AB"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2042.0!2d15.2!3d59.27!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c154d8f0c0001%3A0x1!2sLindtorpsv%C3%A4gen+10%2C+702+37+%C3%96rebro!5e0!3m2!1ssv!2sse!4v1"
-              width="100%"
-              height="340"
-              style={{ border: 0, display: "block", filter: "grayscale(1) invert(0.9) contrast(0.85)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            {/* Overlay chip */}
-            <a
-              href="https://maps.google.com/?q=Lindtorpsvägen+10+702+37+Örebro"
-              target="_blank"
-              rel="noreferrer"
-              className="absolute bottom-4 left-4 flex items-center gap-2 bg-surface-1/90 backdrop-blur-sm border border-gold/30 px-4 py-2 text-xs font-mono text-gold tracking-widest uppercase hover:bg-gold hover:text-black transition-all duration-300"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-3.5 h-3.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-              </svg>
-              Lindtorpsvägen 10, Örebro →
-            </a>
-          </div>
+          <Karta />
         </FadeIn>
       </div>
     </section>
