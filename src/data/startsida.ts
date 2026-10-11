@@ -56,7 +56,7 @@ export const startsida = {
   omraden: {
     h2: "Bilvård i hela Örebro",
     stycken: [
-      "Vi tar emot bilar från hela Örebro. Bor du i [Adolfsberg](/omraden/adolfsberg) har du oss nästan runt hörnet, och från [Marieberg](/omraden/marieberg) är det ungefär sju minuter norrut. Från [Vivalla](/omraden/vivalla) och Varberga kör du Västerleden söderut till avfart 110, och från Almby i sydöstra Örebro är det runt en kvart med bil. Vi servar även Kumla och Hallsberg.",
+      "Vi tar emot bilar från hela Örebro. Bor du i [Adolfsberg](/omraden/adolfsberg) har du oss nästan runt hörnet, och från [Marieberg](/omraden/marieberg) är det ungefär sju minuter norrut. Från [Vivalla](/omraden/vivalla) och [Varberga](/omraden/varberga) kör du Västerleden söderut till avfart 110, och från [Almby](/omraden/almby) i sydöstra Örebro är det runt en kvart med bil. Vi servar även Kumla och Hallsberg.",
     ],
   } satisfies Sektion,
   om: {

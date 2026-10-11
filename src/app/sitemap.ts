@@ -8,9 +8,12 @@ import { site } from "@/lib/site";
  * Uppdatera datumet för de sidor en batch rör. Sidor som inte nämns får
  * STANDARD_DATUM.
  */
-const STANDARD_DATUM = "2026-10-10";
+const STANDARD_DATUM = "2026-10-11";
 const senastAndrad: Record<string, string> = {
   // Batch 01 (2026-10-10): alla sidor fick nytt schema, canonical och og-taggar.
+  // Batch 02 (2026-10-11): allt utom Marieberg och Adolfsberg ändrades (footerfixen syns inte).
+  "/omraden/marieberg": "2026-10-10",
+  "/omraden/adolfsberg": "2026-10-10",
 };
 
 const datum = (path: string) => new Date(senastAndrad[path] ?? STANDARD_DATUM);

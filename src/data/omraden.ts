@@ -49,13 +49,13 @@ export const omradenHubb = {
     {
       h2: "Varberga",
       stycken: [
-        "Varberga ligger mellan Oxhagen, Mellringe och Västerleden, på mark som förr hörde till Varberga gård. Husen i rött tegel byggdes 1962-1966, och stadsdelen har ett ombyggt centrum och Varbergaskogens naturreservat runt hörnet. Mellan Varbergaparken och VOX-parken ligger Voxbadet med sin utomhusbassäng. Du når oss via Västerleden från avfart 113 vid Ekersvägen. Det är cirka 8 kilometer, ungefär tio minuter med bil.",
+        "Varberga ligger mellan Oxhagen, Mellringe och Västerleden, på mark som förr hörde till Varberga gård. Husen i rött tegel byggdes 1962-1966, och stadsdelen har ett ombyggt centrum och Varbergaskogens naturreservat runt hörnet. Mellan Varbergaparken och VOX-parken ligger Voxbadet med sin utomhusbassäng. Du når oss via Västerleden från avfart 113 vid Ekersvägen. Det är cirka 8 kilometer, ungefär tio minuter med bil. Läs mer om [bilvård i Varberga](/omraden/varberga).",
       ],
     },
     {
       h2: "Almby",
       stycken: [
-        "Almby i sydöstra Örebro byggdes till stor del på 1920- och 1930-talen och har den medeltida Almby kyrka som riktmärke. Kyrkans äldsta takvirke fälldes redan i början av 1100-talet, och lillklockan från 1200-talet räknas som en av Närkes två äldsta. Almby blev municipalsamhälle 1926 och en del av Örebro stad 1943, och här låg Örebro kartongbruk från 1901 till 2010. Till oss är det cirka 9 kilometer, runt en kvart med bil.",
+        "Almby i sydöstra Örebro byggdes till stor del på 1920- och 1930-talen och har den medeltida Almby kyrka som riktmärke. Kyrkans äldsta takvirke fälldes redan i början av 1100-talet, och lillklockan från 1200-talet räknas som en av Närkes två äldsta. Almby blev municipalsamhälle 1926 och en del av Örebro stad 1943, och här låg Örebro kartongbruk från 1901 till 2010. Till oss är det cirka 9 kilometer, runt en kvart med bil. Läs mer om [bilvård i Almby](/omraden/almby).",
       ],
     },
   ] satisfies Sektion[],
@@ -236,7 +236,7 @@ export const omraden: Omrade[] = [
     hitta: {
       h2: "Hitta till oss från Vivalla",
       stycken: [
-        "Från Vivalla centrum vid Poesigatan tar du Hedgatan ut till Västerleden vid avfart 114, som är skyltad Vivalla och Eurostop, och kör söderut. På vägen passerar du avfart 113 mot Varberga. Vid avfart 110 Adolfsberg kör du av, och därifrån är det ett par minuter till Lindtorpsvägen 10. Hela resan är cirka 10 kilometer och tar runt en kvart, beroende på trafiken.",
+        "Från Vivalla centrum vid Poesigatan tar du Hedgatan ut till Västerleden vid avfart 114, som är skyltad Vivalla och Eurostop, och kör söderut. På vägen passerar du avfart 113 mot [Varberga](/omraden/varberga). Vid avfart 110 Adolfsberg kör du av, och därifrån är det ett par minuter till Lindtorpsvägen 10. Hela resan är cirka 10 kilometer och tar runt en kvart, beroende på trafiken.",
       ],
     },
     faq: {
@@ -246,6 +246,122 @@ export const omraden: Omrade[] = [
         { q: "Kan ni ta bort husdjurslukt?", a: "Ja, i de flesta fall. Vi använder enzymatiska medel som bryter ned lukten på djupet i stället för att bara dölja den." },
         { q: "Hur länge håller ett keramiskt lackskydd?", a: "Med rätt skötsel håller det i flera år. Efter behandlingen går vi igenom vad du bör tänka på de första dagarna, medan skiktet härdar." },
         { q: "Vad kostar en rekond?", a: "Priset beror på bilens storlek och skick. Ring 076-194 35 19, så får du ett pris för just din bil." },
+      ],
+    },
+  },
+  // Batch 02, sida 1/5
+  {
+    slug: "varberga",
+    namn: "Varberga",
+    title: "Bilvård Varberga | Biltvätt & rekond för dig i Varberga, Örebro",
+    meta: "Från Varberga är du hos oss på ungefär tio minuter via Västerleden. Handtvätt, rekond inför bilförsäljning och lackrenovering. Ring 076-194 35 19.",
+    h1: "Bilvård Varberga",
+    intro: [
+      "Från Varberga kör du Västerleden söderut och är hos oss på ungefär tio minuter. KOM-fort Bilvård ligger på Lindtorpsvägen 10 i Södra Lindhult, nära E20 avfart 110 Adolfsberg. Här handtvättar vi bilar, polerar fram ny glans i matt lack och gör rekond när bilen ska säljas.",
+      "Varberga ligger i nordvästra Örebro, mellan Oxhagen, Mellringe, Hjärsta och Västerleden. Vid Varberga centrum finns bland annat livsmedelsbutik, frisör, kiosk med postombud, vårdcentral och folktandvård, och längs Varbergagatan ligger stora parkeringar. Varbergaskogen, naturreservat sedan 2009, är 93 hektar skog mitt inne i staden. Mer om oss och våra tjänster finns hos [KOM-fort Bilvård](/).",
+    ],
+    tjanster: [
+      {
+        h2: "Rekond inför bilförsäljning",
+        stycken: [
+          "Ska bilen säljas är det värt att visa den från dess bästa sida. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering) går vi igenom hela bilen: tvätt och avfettning, polering av lätta repor, skydd för lacken och kemtvätt av säten, mattor och innertak. En välvårdad bil gör ett bättre intryck på köparen och kan höja andrahandsvärdet. Behandlingen tar 4-8 timmar, så lägg den gärna några dagar före första visningen.",
+        ],
+      },
+      {
+        h2: "Lackrenovering när lacken blivit matt",
+        stycken: [
+          "Med åren blir lacken matt av repor, swirlmärken och oxidering. Vid [lackrenovering](/tjanster/polering) maskinpolerar vi lacken tills det mesta av skadorna är borta och färgen har fått tillbaka sitt djup. Lacken blir en aning tunnare vid varje polering, så första steget är alltid att mäta lacktjockleken. Lack i gott skick klarar sig ofta med ett poleringssteg. Är den mer sliten väljer vi två eller tre steg. Det blir betydligt billigare än att lackera om bilen.",
+        ],
+      },
+      {
+        h2: "Vax eller keramiskt lackskydd?",
+        stycken: [
+          "Vax ger lacken glans och ett tunt skyddande lager. Vår handtvätt avslutas alltid med snabbvax, och efter en polering lägger vi på skyddsvax eller keramisk försegling. Vaxet ligger ovanpå lacken och är borta efter några månader. Ett [keramiskt lackskydd](/tjanster/lackskydd) binder i stället kemiskt till lacken, bildar ett hårdare skikt och sitter kvar i flera år om bilen sköts rätt. Det är rätt val om lacken ska hålla sig fin länge.",
+        ],
+      },
+      {
+        h2: "Biltvätt för hand",
+        stycken: [
+          "Borstarna i en automattvätt kan lämna fina repor i lacken. Vår [biltvätt](/tjanster/biltvatt) görs därför helt för hand. Först blötlägger och avfettar vi bilen, så att grovsmuts och insekter släpper, och sedan tvättar vi med pH-neutralt schampo och mjuka tvätthandskar. Fälgar och hjulhus får egna produkter och tvättas separat, och till sist torkar vi bilen med mikrofiberdukar.",
+        ],
+      },
+    ],
+    hamtning: {
+      h2: "Hämtning och lämning i Varberga",
+      stycken: [
+        "Har du ont om tid kan vi hämta bilen hos dig i Varberga och komma tillbaka med den när den är färdig. Nämn [hämtning och lämning av bilen](/kontakt) i din förfrågan, så berättar vi hur vi kan lösa det.",
+      ],
+    },
+    hitta: {
+      h2: "Hitta till oss från Varberga",
+      stycken: [
+        "Från Varberga centrum tar du Varbergagatan och Ekersvägen ut till Västerleden vid avfart 113 och kör söderut. Följ Västerleden till avfart 110 Adolfsberg och kör av där. Lindtorpsvägen 10 ligger ett par minuter från avfarten. Sträckan från Varbergagatan är cirka 8 kilometer och tar ungefär tio minuter, beroende på trafiken. Längre norrut längs Västerleden, vid avfart 114, ligger Vivalla. Bor du där kan du läsa om vår [bilvård i Vivalla](/omraden/vivalla).",
+      ],
+    },
+    faq: {
+      h2: "Vanliga frågor från Varberga",
+      fragor: [
+        { q: "Kan en rekond höja priset när jag säljer bilen?", a: "Den kan göra det. När bilen är ren och välskött både invändigt och utvändigt syns det direkt vid visningen, och det kan höja andrahandsvärdet." },
+        { q: "Hur länge sitter vaxet kvar?", a: "Vax tvättas bort efter några månader. Behöver du ett skydd som räcker längre är keramiskt lackskydd rätt val." },
+        { q: "Måste lacken poleras före ett lackskydd?", a: "Ja. Lacken poleras och avfettas alltid först, så att skyddet fäster på en ren och slät yta." },
+      ],
+    },
+  },
+  // Batch 02, sida 2/5
+  {
+    slug: "almby",
+    namn: "Almby",
+    title: "Bilvård Almby | Handtvätt, rekond & lackskydd för dig i Almby, Örebro",
+    meta: "Bilvård för Almby: handtvätt, rekond, keramiskt lackskydd och kemtvätt av klädseln, runt en kvart bort med bil. Vi kan hämta bilen. Ring 076-194 35 19.",
+    h1: "Bilvård Almby",
+    intro: [
+      "KOM-fort Bilvård tar emot bilar från Almby i sydöstra Örebro. Vi finns på Lindtorpsvägen 10 i Södra Lindhult, och bilen kan du antingen lämna själv eller låta oss hämta. Hos oss får den en grundlig handtvätt, ett långvarigt lackskydd eller en kemtvätt av klädseln som tar bort smuts och fläckar.",
+      "Almby gränsar till Sörby, Ormesta, Tybble och universitetsområdet och består mest av villor och mindre flerfamiljshus. På Almbyplan, nära Ronnie Petersons föräldrahem, står en bronsstaty av racerföraren, gjord av skulptören Richard Brixel. Vid universitetet, granne med Almby, ligger Enbuskabacken, ett av Närkes största forntida gravfält med 160 synliga gravar från vendeltid och vikingatid. På startsidan ser du allt vi erbjuder inom [bilvård i Örebro](/).",
+    ],
+    tjanster: [
+      {
+        h2: "Kemtvätt av bilklädsel",
+        stycken: [
+          "Säten och mattor drar åt sig smuts, spill och lukt som sitter djupt i tyget. Vid [kemtvätt av bilklädsel](/tjanster/invandig-rekond) använder vi professionell kemtvätts- och ångtvättsutrustning som tar bort smuts, fläckar och bakterier. Innertaket kemtvättar vi också, och har bilen lädersäten behandlar vi dem med läderserum. Efteråt luftar vi bilen ordentligt, och du kan köra hem direkt.",
+        ],
+      },
+      {
+        h2: "Rekond för hela bilen",
+        stycken: [
+          "Ska hela bilen bli fin, både in- och utvändigt, passar en komplett [rekond](/tjanster/rekonditionering). Den är vår mest sålda tjänst och omfattar handtvätt, avfettning, polering i ett steg, skyddsvax eller keramisk försegling och kemtvätt av kupén. Räkna med att bilen blir kvar hos oss över dagen, och när du hämtar den har den fått tillbaka nybilskänslan.",
+        ],
+      },
+      {
+        h2: "Lackskydd som gör bilen lättare att hålla ren",
+        stycken: [
+          "Ett keramiskt [lackskydd](/tjanster/lackskydd) gör lacken vattenavvisande, så att vatten och smuts har svårt att fastna. Skiktet skyddar också mot UV-strålning, oxidering och lätta repor, och bilen blir betydligt enklare att hålla ren mellan tvättarna. Innan skyddet läggs på polerar och avfettar vi alltid lacken.",
+        ],
+      },
+      {
+        h2: "Handtvätt som tar bort vintersmutsen",
+        stycken: [
+          "Vägsalt och smuts från vintervägarna sliter på lacken om de får sitta kvar. En [handtvätt](/tjanster/biltvatt) tar bort dem skonsamt: vi blötlägger och avfettar först, tvättar med pH-neutralt schampo och torkar med mjuka mikrofiberdukar. Som tumregel räcker en tvätt i månaden, men under saltsäsongen kan det vara värt att tvätta oftare.",
+        ],
+      },
+    ],
+    hamtning: {
+      h2: "Hämtning och lämning i Almby",
+      stycken: [
+        "Vi kan hämta bilen hos dig i Almby och ställa tillbaka den när den är färdig. Be om [hämtning och lämning av bilen](/kontakt) när du hör av dig, så får du veta vad som gäller.",
+      ],
+    },
+    hitta: {
+      h2: "Hitta till oss från Almby",
+      stycken: [
+        "Från Almby kyrka är det cirka 9 kilometer till Lindtorpsvägen 10, och med bil är du här på runt en kvart, lite beroende på trafiken. Lokalen ligger i Södra Lindhult i stadsdelen Adolfsberg, nära E20 avfart 110 Adolfsberg. På kartan ser du exakt var vi finns, så att du hittar rätt redan första gången.",
+      ],
+    },
+    faq: {
+      h2: "Vanliga frågor från Almby",
+      fragor: [
+        { q: "Får ni bort fläckar ur tygsätena?", a: "Vi kemtvättar säten, mattor och innertak med professionell utrustning som tar bort smuts och fläckar ur tyget. Hur mycket som går bort beror på fläcken." },
+        { q: "Hur ofta behöver bilen en rekond?", a: "En komplett rekond en gång om året räcker för de flesta bilar. Passa gärna på efter vintern eller inför sommaren." },
+        { q: "Passar lackskydd på en ny bil?", a: "Ja. Det är optimalt att skydda lacken medan bilen är ny, och med rätt skötsel håller skyddet i flera år." },
       ],
     },
   },

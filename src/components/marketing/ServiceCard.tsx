@@ -56,9 +56,10 @@ export function ServiceCard({ s }: { s: Tjanst }) {
         />
 
         {/* Titel */}
-        <h3 className="text-xl font-bold tracking-tight text-white transition-colors duration-500 group-hover:text-gold">
+        {/* Ingen rubrik (p): sidornas rubrikordning H1, H2 styrs av sidpaketen. */}
+        <p className="text-xl font-bold tracking-tight text-white transition-colors duration-500 group-hover:text-gold">
           {s.title}
-        </h3>
+        </p>
 
         {/* Beskrivning */}
         <p className="mt-3 text-sm leading-relaxed text-white/55">

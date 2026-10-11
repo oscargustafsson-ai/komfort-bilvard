@@ -8,6 +8,29 @@ export type Pricing = {
   popular?: boolean;
 };
 
+/** Rubrik + stycken (samma form som i startsida.ts). */
+export type Sektion = { h2: string; stycken: string[] };
+
+/**
+ * Sida i det nya formatet (från batch 02). Finns `sida` renderar
+ * tjanster/[slug]/page.tsx den nya mallen; annars den gamla.
+ * All text ordagrann från sidpaketet.
+ */
+export type TjanstSida = {
+  title: string;
+  h1: string;
+  intro: string[];
+  ingarH2: string;
+  prisH2: string;
+  prisText: string;
+  sektioner: Sektion[];
+  varforH2: string;
+  hitta: Sektion;
+  faqH2: string;
+  bokaH2: string;
+  bokaText: string;
+};
+
 export type Tjanst = {
   slug: string;
   num: string;
@@ -20,46 +43,90 @@ export type Tjanst = {
   why: string[];
   faq: { q: string; a: string }[];
   pricing: Pricing;
+  sida?: TjanstSida;
 };
 
 export const tjanster: Tjanst[] = [
+  // Batch 02, sida 5/5. Text ordagrann från batcher/batch-02.md.
   {
     slug: "rekonditionering",
     num: "01",
-    title: "Rekonditionering",
+    title: "Bilrekond",
     shortDesc: "Komplett invändig och utvändig behandling. Din bil återfår nybilskänslan.",
-    metaDesc: "Professionell rekonditionering i Örebro. KOM-fort Bilvård utför komplett rekond, invändigt och utvändigt. Ring 076-194 35 19.",
-    hero: "Rekonditionering i Örebro",
-    intro: "Rekonditionering är den mest kompletta bilvårdsbehandlingen vi erbjuder. Vi går igenom bilen från topp till tå – utvändigt polerar och skyddar vi lacken, rengör hjulinfattningar och glas, och invändigt kemtvättar vi klädsel, mattor och alla ytor. Resultatet är en bil som känns och luktar ny igen.",
+    metaDesc: "Bilrekond i Örebro: handtvätt, polering, skydd för lacken och kemtvätt av kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-194 35 19.",
+    hero: "Bilrekond Örebro",
+    intro: "En bilrekond är den mest kompletta behandlingen vi gör och vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas, poleras och skyddas, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
     included: [
-      { heading: "Utvändig tvätt & avfettning", text: "Noggrann handtvätt med pH-neutrala medel. Alla ytor avfettas och förbereds för efterföljande behandlingar." },
-      { heading: "Lackpolering", text: "Maskinpolering som tar bort lätta repor, oxidering och matt yta. Lacken återfår sitt djup och sin glans." },
-      { heading: "Lackvård & skydd", text: "Vi applicerar ett skyddsvax eller keramisk försegling som skyddar lacken mot smuts, vatten och UV-strålning." },
-      { heading: "Rengöring av hjul & däck", text: "Hjulinfattningar och däck rengörs grundligt och behandlas med skyddsprodukter." },
-      { heading: "Invändig kemtvätt", text: "Klädsel, mattor och takklädsel rengörs med professionell kemtvättsutrustning. Fläckar och lukt försvinner." },
-      { heading: "Rengöring av alla ytor", text: "Dashboard, dörrar, luftventiler och alla plastdetaljer rengörs och behandlas med ett skyddande medel." },
+      { heading: "Utvändig handtvätt och avfettning", text: "Bilen handtvättas med pH-neutrala medel, och alla ytor avfettas så att lacken är ren inför poleringen." },
+      { heading: "Polering i ett steg", text: "Maskinpolering i ett steg tar bort lätta repor, oxidering och matt yta och ger lacken ny lyster." },
+      { heading: "Skydd för lacken", text: "Vi avslutar med skyddsvax eller keramisk försegling, som skyddar lacken mot smuts, vatten och UV-strålning." },
+      { heading: "Hjul och däck", text: "Fälgar och däck rengörs grundligt och behandlas med skyddande produkter." },
+      { heading: "Kemtvätt av klädsel, mattor och innertak", text: "Säten, mattor och innertak rengörs med professionell kemtvättsutrustning som lyfter smuts, fläckar och lukt ur tyget." },
+      { heading: "Rengöring av alla ytor", text: "Instrumentbräda, dörrsidor, luftventiler och plastdetaljer rengörs och får ett skyddande medel." },
     ],
     why: [
-      "Höjer bilens andrahandsvärde markant",
-      "Vi använder enbart professionella produkter av hög kvalitet",
-      "Aldrig automattvättar – handarbete hela vägen",
-      "2 års erfarenhet med hundratals bilar och tvättar bakom oss",
+      "Handtvätt, aldrig automattvätt",
+      "Professionella produkter och pH-neutrala medel",
+      "Vi tar oss tid, ingen bil behandlas i en fart",
+      "En rekond kan höja bilens andrahandsvärde",
     ],
     faq: [
-      { q: "Hur lång tid tar en rekonditionering?", a: "En komplett rekond tar vanligtvis 4–8 timmar beroende på bilens storlek och skick. Vi bokar in bilen för hela dagen." },
-      { q: "Hur ofta bör man rekonditionera sin bil?", a: "Vi rekommenderar en komplett rekond en gång per år, gärna inför sommaren eller efter vintern." },
-      { q: "Vad kostar en rekonditionering?", a: "Grundpaketet börjar från 2 495 kr och inkluderar en 1-stegs polering. Slutpriset beror på bilens storlek och skick – kontakta oss för en kostnadsfri offert." },
+      { q: "Hur lång tid tar en bilrekond?", a: "Mellan fyra och åtta timmar, beroende på bilens storlek och skick." },
+      { q: "Vad kostar en bilrekond?", a: "Det beror på bilens storlek och skick. Grundpriset ser du högst upp på sidan, och ringer du 076-194 35 19 får du ett pris som gäller din bil." },
+      { q: "Ingår polering i rekonden?", a: "Ja, 1-stegspolering ingår alltid. Behöver lacken mer finns 2- och 3-stegspolering som tillägg." },
+      { q: "Kan ni hämta bilen?", a: "Ja, vi kan hämta bilen hos dig och köra hem den igen efter rekonden. Säg till när du bokar, så berättar vi vad som gäller." },
     ],
     pricing: {
       fromPrice: "2 495",
       unit: "kr",
-      note: "Vår mest sålda tjänst. Inkluderar 1-stegs polering.",
+      note: "Vår mest sålda tjänst. 1-stegspolering ingår.",
       popular: true,
       addons: [
-        { label: "Uppgradering till 2-stegs polering", price: "+995 kr" },
-        { label: "Uppgradering till 3-stegs polering", price: "+1 795 kr" },
-        { label: "Tillägg: Keramiskt lackskydd", price: "+1 995 kr" },
+        { label: "Uppgradering till 2-stegspolering", price: "+995 kr" },
+        { label: "Uppgradering till 3-stegspolering", price: "+1 795 kr" },
+        { label: "Tillägg: keramiskt lackskydd", price: "+1 995 kr" },
       ],
+    },
+    sida: {
+      title: "Bilrekond Örebro | Rekond av bil i Örebro",
+      h1: "Bilrekond Örebro",
+      intro: [
+        "En bilrekond är den mest kompletta behandlingen vi gör och vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas, poleras och skyddas, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
+        "Bilen tvättas alltid för hand, och du kan lämna den hos oss eller låta oss hämta den hos dig. Vill du se allt vi gör, läs om [vår bilvård](/).",
+      ],
+      ingarH2: "Vad ingår i en bilrekond?",
+      prisH2: "Pris och tillägg",
+      prisText: "Priset för en bilrekond beror på bilens storlek och skick, och 1-stegspolering ingår alltid. Har lacken djupare repor kan du uppgradera till två- eller trestegspolering, och vill du att skyddet ska hålla i flera år kan du lägga till [keramiskt lackskydd](/tjanster/lackskydd). Grundpriset ser du högst upp på sidan och tilläggen i tilläggslistan.",
+      sektioner: [
+        {
+          h2: "Så går en bilrekond till",
+          stycken: [
+            "Du bokar genom att ringa eller skicka en förfrågan. Hur lång tid rekonden tar beror på bilens storlek och skick, men räkna med 4-8 timmar, så bilen stannar hos oss hela dagen. Under dagen tvättar, polerar och skyddar vi utsidan och går igenom kupén med dammsugning, kemtvätt och rengöring av alla ytor. När vi är klara luftar vi bilen ordentligt, så att du kan köra hem direkt. Har du möjlighet kan du låta dörrar och fönster stå öppna en stund till när du kommer hem.",
+          ],
+        },
+        {
+          h2: "När behöver bilen en rekond?",
+          stycken: [
+            "En gång om året är ett bra intervall, helst efter vintern när salt och smuts från vintervägarna ska bort, eller inför sommaren. Ska bilen säljas passar en rekond inför bilförsäljning, eftersom en ren och fräsch bil kan höja andrahandsvärdet. Har lacken bara tappat glansen kan [polering](/tjanster/polering) räcka, och behöver bara kupén fräschas upp finns [invändig rekond](/tjanster/invandig-rekond).",
+          ],
+        },
+        {
+          h2: "Bilrekond för hela Örebro",
+          stycken: [
+            "Vi gör bilrekond åt bilägare i hela Örebro. I [Adolfsberg](/omraden/adolfsberg) ligger vi själva, och från [Marieberg](/omraden/marieberg) är det bara några kilometer till oss. Från [Vivalla](/omraden/vivalla) tar det runt en kvart via Västerleden. Vi servar även Varberga, Almby, Kumla och Hallsberg.",
+          ],
+        },
+      ],
+      varforH2: "Varför välja KOM-fort?",
+      hitta: {
+        h2: "Hitta till oss",
+        stycken: [
+          "Vår lokal ligger på Lindtorpsvägen 10 i Södra Lindhult i Adolfsberg. Från E20 avfart 110 Adolfsberg är det bara ett par minuter hit.",
+        ],
+      },
+      faqH2: "Vanliga frågor om bilrekond",
+      bokaH2: "Boka bilrekond i Örebro",
+      bokaText: "Ring 076-194 35 19 eller skicka en förfrågan, så hör vi av oss och bokar in en dag som passar dig.",
     },
   },
   {
@@ -69,7 +136,7 @@ export const tjanster: Tjanst[] = [
     shortDesc: "Maskinpolering som tar bort repor och oxidering. Lacken återfår sitt djup och glans.",
     metaDesc: "Lackpolering och maskinpolering i Örebro. Vi tar bort repor, swirls och oxidering. KOM-fort Bilvård - ring 076-194 35 19.",
     hero: "Lackpolering i Örebro",
-    intro: "Med åren samlar bilens lack på sig repor, swirl-märken och oxidering som gör att lacken ser matt och sliten ut. Vår maskinpolering är den effektivaste metoden för att återställa lacken till ursprungligt skick – utan att måla om. Vi arbetar med professionella maskiner och polermedel anpassade efter just din bils lack.",
+    intro: "Med åren samlar bilens lack på sig repor, swirl-märken och oxidering som gör att lacken ser matt och sliten ut. Vår maskinpolering är den effektivaste metoden för att återställa lacken till ursprungligt skick - utan att måla om. Vi arbetar med professionella maskiner och polermedel anpassade efter just din bils lack.",
     included: [
       { heading: "Lackanalys", text: "Vi mäter lackens tjocklek och bedömer skicket innan vi börjar. På så sätt vet vi exakt vilket polerprogram som ger bäst resultat." },
       { heading: "Tvåstegspolering", text: "Steg 1 tar bort djupare repor och oxidering. Steg 2 förfinar ytan och ger lacken maximalt djup och glans." },
@@ -77,7 +144,6 @@ export const tjanster: Tjanst[] = [
       { heading: "Finishing & skydd", text: "Efter polering applicerar vi alltid ett lager skyddsvax eller keramisk försegling för att bevara resultatet." },
     ],
     why: [
-      "Tar bort upp till 80–90% av repor och swirl-märken",
       "Kostar en bråkdel av en omlackering",
       "Professionella maskiner ger resultat som inte går att uppnå för hand",
       "Resultatet håller längre med rätt eftervård",
@@ -85,7 +151,7 @@ export const tjanster: Tjanst[] = [
     faq: [
       { q: "Kan alla repor tas bort med polering?", a: "Repor som bara sitter i klarlacket kan i de flesta fall tas bort helt. Repor som gått igenom till grundfärgen eller plåten kräver däremot lackning." },
       { q: "Försvinner lacken av polering?", a: "Polering tar bort ett mycket tunt lager lack. Vi mäter alltid lacktjockleken innan för att säkerställa att det finns marginal. Med professionell polering är det helt säkert." },
-      { q: "Hur länge håller resultatet?", a: "Med rätt eftervård och ett skyddande lackförsegling håller resultatet i 1–2 år." },
+      { q: "Hur länge håller resultatet?", a: "Med rätt eftervård och ett skyddande lackförsegling håller resultatet i 1-2 år." },
     ],
     pricing: {
       fromPrice: "995",
@@ -107,20 +173,20 @@ export const tjanster: Tjanst[] = [
     intro: "Keramiskt lackskydd är den mest avancerade och långvariga skyddsbehandlingen för din bils lack. Ett keramiskt skikt binder kemiskt till lacken och skapar en hård, hydrofob yta som stöter bort vatten, smuts och kemikalier. Bilen blir betydligt enklare att hålla ren och lacken skyddas mot UV-strålning, oxidering och lätta repor i flera år.",
     included: [
       { heading: "Lackförberedelse", text: "Lacken poleras och avfettas noggrant innan applicering. En ren och slät yta är avgörande för att det keramiska skiktet ska fästa optimalt." },
-      { heading: "Keramisk applicering", text: "Vi applicerar det keramiska skiktet för hand med professionell teknik. Produkterna vi använder håller på marknaden i 2–5 år." },
+      { heading: "Keramisk applicering", text: "Vi applicerar det keramiska skiktet för hand med professionell teknik." },
       { heading: "Härdning", text: "Det keramiska skiktet behöver tid att härda. Vi informerar om vad du bör tänka på de första dagarna efter behandlingen." },
       { heading: "Glasbehandling (tillval)", text: "Vi kan även applicera ett hydrofob glasbehandling som gör att vatten perlar bort från rutorna vid körning." },
     ],
     why: [
-      "Skyddar lacken i 2–5 år med rätt underhåll",
-      "Extremt enkel att hålla ren – smuts fastnar inte",
+      "Skyddar lacken i flera år med rätt underhåll",
+      "Extremt enkel att hålla ren - smuts fastnar inte",
       "Skyddar mot UV-strålning som annars bryter ned lacken",
       "Ökar bilens andrahandsvärde",
     ],
     faq: [
       { q: "Vad skiljer keramiskt skydd från vanligt vax?", a: "Vax sitter på ytan och tvättas bort efter några månader. Keramiskt skydd binder kemiskt till lacken och håller i flera år. Det ger även ett hårdare och mer reptåligt skikt." },
       { q: "Behöver bilen förberedas inför keramiskt skydd?", a: "Ja, för bästa resultat bör lacken poleras och avfettas grundligt före applicering. Vi tar hand om hela förberedelsen." },
-      { q: "Kan man applicera keramiskt skydd på en ny bil?", a: "Absolut – faktum är att det är optimalt att skydda en ny bil direkt innan lacken hinner samla på sig repor och föroreningar." },
+      { q: "Kan man applicera keramiskt skydd på en ny bil?", a: "Absolut - faktum är att det är optimalt att skydda en ny bil direkt innan lacken hinner samla på sig repor och föroreningar." },
     ],
     pricing: {
       fromPrice: "1 995",
@@ -138,14 +204,14 @@ export const tjanster: Tjanst[] = [
     intro: "En professionell handtvätt är något helt annat än en automatisk biltvätt. Automattvättar använder hårda borstar som repar lacken och lämnar swirl-märken. Vi tvättar alltid för hand med mjuka tvätthandskar, pH-neutrala schampon och metoder som skyddar lacken. Varje tvätt utförs med samma omsorg som om det vore vår egen bil.",
     included: [
       { heading: "Förblötläggning & avfettning", text: "Vi börjar med att blötlägga bilen och lösa upp grovsmuts och insekter med skonsamma avfettningsmedel." },
-      { heading: "Tvåhinkstvätt", text: "Vi använder tvåhinkmetoden – en hink med tvålvatten och en sköljhink – för att minimera risken att smuts förs tillbaka till lacken." },
+      { heading: "Tvåhinkstvätt", text: "Vi använder tvåhinkmetoden - en hink med tvålvatten och en sköljhink - för att minimera risken att smuts förs tillbaka till lacken." },
       { heading: "Hjul & hjulhus", text: "Hjul och hjulhus tvättas separat med dedikerade produkter för bäst resultat." },
       { heading: "Avtorkning & finish", text: "Bilen torkas med mjuka mikrofiberdukar och avslutas med ett snabbvax för extra glans och skydd." },
     ],
     why: [
-      "Handtvätt skadar aldrig lacken – automattvättar gör det alltid",
+      "Skonsammare mot lacken än en automattvätt med borstar",
       "Professionella produkter ger ett resultat du märker",
-      "Vi tar oss tid – ingen bil behandlas i en fart",
+      "Vi tar oss tid - ingen bil behandlas i en fart",
       "Perfekt som underhåll mellan rekonditioneringar",
     ],
     faq: [
@@ -171,7 +237,7 @@ export const tjanster: Tjanst[] = [
     shortDesc: "Kemtvätt av klädsel och mattor, rengöring av alla ytor. Fräscht och rent.",
     metaDesc: "Invändig rekonditionering och kemtvätt av bil i Örebro. Vi tar bort fläckar, lukt och smuts på djupet. KOM-fort Bilvård - ring 076-194 35 19.",
     hero: "Invändig Rekond i Örebro",
-    intro: "Bilens interiör tar på sig smuts, fläckar och lukt som vanlig dammsugning inte kan ta bort. Vår invändiga rekonditionering går på djupet – vi kemtvättar klädsel, mattor och tak, rengör alla plastdetaljer och ytor, och behandlar läder om det finns. Resultatet är ett interiör som luktar och känns nytt.",
+    intro: "Bilens interiör tar på sig smuts, fläckar och lukt som vanlig dammsugning inte kan ta bort. Vår invändiga rekonditionering går på djupet - vi kemtvättar klädsel, mattor och tak, rengör alla plastdetaljer och ytor, och behandlar läder om det finns. Resultatet är ett interiör som luktar och känns nytt.",
     included: [
       { heading: "Grundlig dammsugning", text: "Mattor, sätesklyftor och alla svåråtkomliga ställen dammsugits noggrant som första steg." },
       { heading: "Kemtvätt av mattor & klädsel", text: "Med professionell ångtvätts- och kemtvättsutrustning tar vi bort inbyggd smuts, fläckar och bakterier från tyg och heltäckningsmattor." },
@@ -187,7 +253,7 @@ export const tjanster: Tjanst[] = [
     ],
     faq: [
       { q: "Kan ni ta bort husdjurslukt?", a: "Ja, i de flesta fall. Vi använder enzymatiska rengöringsmedel som bryter ned luktmolekylerna på djupet, snarare än att bara maskera dem." },
-      { q: "Hur lång tid tar invändig rekond?", a: "2–4 timmar beroende på bilens storlek och hur smutsig den är. Vi rekommenderar att du lämnar bilen hos oss för dagen." },
+      { q: "Hur lång tid tar invändig rekond?", a: "2-4 timmar beroende på bilens storlek och hur smutsig den är. Vi rekommenderar att du lämnar bilen hos oss för dagen." },
       { q: "Hur länge måste bilen luftas efter kemtvätt?", a: "Vi luftar bilen ordentligt efter behandlingen. Du kan köra hem direkt, men lämna gärna dörrar och fönster öppna ytterligare någon timme om möjligt." },
     ],
     pricing: {

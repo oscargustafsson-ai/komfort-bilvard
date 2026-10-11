@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-10 (Batch 01 of the SEO page build: start page rewritten, /omraden hub + 3 district pages, site-wide schema/metadata fixes)
+Last updated: 2026-10-11 (Batch 02: Varberga + Almby district pages, /kontakt and /tjanster rewritten, Bilrekond service page rewritten on a new data-driven template)
 
 ---
 
@@ -34,6 +34,16 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Service pages (batch 02):** `tjanster/[slug]/page.tsx` has two layouts. If a service in
+  `tjanster.ts` has a `sida` object (new format, copy verbatim from a page package) it renders
+  `NyTjanstSida` (breadcrumbs, exact H1/H2s, text sections, map, FAQ, booking block). Otherwise
+  it renders `GammalTjanstSida`, the previous look. Rekonditionering ("Bilrekond") is on the new
+  layout; polering, lackskydd, biltvatt and invandig-rekond stay on the old one until batch 03.
+  `serviceSchema()` no longer emits `offers` (from-prices must not appear as fixed prices).
+- **Contact page:** copy in `src/data/kontakt.ts`; `Kontakt.tsx` is now only the contact cards +
+  form (client component). The page composes hero, cards/form, text blocks, map, FAQ.
+- **Services hub:** copy in `src/data/tjansterSida.ts`; the five `ServiceCard`s stay, and the
+  card title is a `<p>` (not h3) so heading order on / and /tjanster is H1 then H2.
 - Home: the real `<h1>` ("Bilvård Örebro") is visible text in the hero; the animated SVG headline
   is decorative (`aria-hidden`). The "Våra tjänster" heading in `Tjanster.tsx` is a `<p>` so that
   the home page's h2 set matches the page package exactly. On phones the hero image panel is
@@ -75,10 +85,10 @@ src/
       page.tsx                 Home: Hero (h1 + intro) + Tjanster + text sections + OmOss + map + FAQ (copy from data/startsida.ts)
       omraden/page.tsx         Districts hub (/omraden), copy from data/omraden.ts
       omraden/[slug]/page.tsx  District page: BreadcrumbList + Service + FAQPage JSON-LD
-      kontakt/page.tsx         Contact page (renders <Kontakt>)
+      kontakt/page.tsx         Contact page: hero + <Kontakt> (cards/form) + text blocks + map + FAQ (copy from data/kontakt.ts)
       presentkort/page.tsx     Gift card page (renders <Presentkort>)
-      tjanster/page.tsx        Services listing — uses <ServiceCard> components
-      tjanster/[slug]/page.tsx Per-service page: generateStaticParams + generateMetadata + Service/FAQ JSON-LD
+      tjanster/page.tsx        Services hub: H1 + intro + <ServiceCard>s + text sections + map + FAQ (copy from data/tjansterSida.ts)
+      tjanster/[slug]/page.tsx Per-service page: new layout when the service has `sida`, old layout otherwise; Service/FAQ JSON-LD
   components/
     marketing/
       Hero.tsx                 PixelImage 2×2 grid, animated SVG headline, CTA buttons (hex background removed)
@@ -88,7 +98,7 @@ src/
       ServiceCard.tsx          Client card: standalone gold icon, mouse-following gold spotlight, hover lift + accent line
       tjanstIkoner.tsx         Inline SVG gold icons mapped by slug; no deps
       OmOss.tsx                About section + stats grid; bg-polished bg + faint HexagonPattern + section-divider
-      Kontakt.tsx              Contact cards + form (useActionState) + Google Maps embed
+      Kontakt.tsx              Contact cards + form (useActionState); map and copy live in the page
       Presentkort.tsx          Gift cards: amount picker + Zettle link OR order form (see below);
                                HexagonPattern bg at gold/[0.03] — same as OmOss but fainter (0.04)
       JsonLd.tsx               JSON-LD helpers: foretagSchema() (AutoWash), serviceSchema(), omradeSchema(), faqSchema(), brodsmulorSchema()
@@ -104,7 +114,9 @@ src/
                                instead of Math.random, and fmt() rounding — all three were needed to
                                keep it lint-clean and free of hydration mismatch.
   data/
-    tjanster.ts                5 services with full copy, metaDesc, included[], why[], faq[], pricing{fromPrice, unit, note, addons[], popular}
+    tjanster.ts                5 services with copy, metaDesc, included[], why[], faq[], pricing{...}, optional sida{} (new page format)
+    kontakt.ts                 Contact page copy
+    tjansterSida.ts            Services hub copy
     startsida.ts               Home page copy (verbatim from the work-order batch file)
     omraden.ts                 /omraden hub + district pages copy
   lib/

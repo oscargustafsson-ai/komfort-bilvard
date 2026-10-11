@@ -9,7 +9,7 @@ const links = [
 ];
 
 const tjanster = [
-  { label: "Rekonditionering", href: "/tjanster/rekonditionering" },
+  { label: "Bilrekond", href: "/tjanster/rekonditionering" },
   { label: "Polering", href: "/tjanster/polering" },
   { label: "Lackskydd", href: "/tjanster/lackskydd" },
   { label: "Biltvätt", href: "/tjanster/biltvatt" },
@@ -103,7 +103,7 @@ export default function Footer() {
               </a>
             </li>
             <li className="leading-relaxed">
-              Lindtorpsvägen 10<br />
+              Lindtorpsvägen 10{" "}<br />
               702 37 Örebro
             </li>
           </ul>
@@ -114,7 +114,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5 px-8 py-5">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          <span className="text-white/20 text-xs font-mono">© {new Date().getFullYear()} KOM-fort Bilvård AB</span>
+          <span className="text-white/20 text-xs font-mono">© {new Date().getFullYear()} KOM-fort Bilvård AB</span>{" "}
           <span className="text-white/20 text-xs font-mono">Lindtorpsvägen 10, 702 37 Örebro</span>
         </div>
       </div>

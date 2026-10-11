@@ -4,8 +4,6 @@ import { useActionState } from "react";
 import { submitContact } from "@/app/actions";
 import { site } from "@/lib/site";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { Karta } from "@/components/marketing/Karta";
-import { Etikett } from "@/components/marketing/Etikett";
 
 const contactInfo = [
   {
@@ -32,7 +30,7 @@ const contactInfo = [
   },
   {
     label: "Adress",
-    value: "Lindtorpsvägen 10, Örebro",
+    value: "Lindtorpsvägen 10, 702 37 Örebro",
     href: site.karta.lank,
     cta: "Visa på karta",
     icon: (
@@ -44,22 +42,20 @@ const contactInfo = [
   },
 ];
 
+/** Tjänsterna i formulärets lista (batch 02, grundfix 5). */
+const tjanstVal = ["Bilrekond", "Invändig rekond", "Polering", "Lackskydd", "Biltvätt", "Annat"];
+
+/**
+ * Kontaktkorten och förfrågningsformuläret. Rubriker, text, karta och FAQ
+ * ligger i src/app/(marketing)/kontakt/page.tsx med text från src/data/kontakt.ts.
+ */
 export default function Kontakt() {
   const [state, action, pending] = useActionState(submitContact, null);
 
   return (
-    <section id="kontakt" className="grain-section py-32 px-8 bg-surface-2 border-t border-gold/10">
+    <section id="kontakt" className="grain-section py-24 px-8 bg-surface-2 border-t border-gold/10">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <FadeIn>
-          <Etikett>Kontakta oss</Etikett>
-          <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide mb-12">
-            BOKA DIN<br />TID IDAG.
-          </h2>
-        </FadeIn>
-
-        {/* Top row: contact cards + form */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact cards */}
           <div className="flex flex-col gap-4">
             {contactInfo.map((c, i) => {
@@ -125,11 +121,9 @@ export default function Kontakt() {
                   className="bg-surface-1 border border-white/10 text-white/70 px-5 py-4 text-sm focus:outline-none focus:border-gold transition-colors"
                 >
                   <option value="">Välj tjänst</option>
-                  <option>Rekonditionering</option>
-                  <option>Polering</option>
-                  <option>Lackskydd</option>
-                  <option>Biltvätt</option>
-                  <option>Annat</option>
+                  {tjanstVal.map((t) => (
+                    <option key={t}>{t}</option>
+                  ))}
                 </select>
                 <textarea
                   name="message"
@@ -151,11 +145,6 @@ export default function Kontakt() {
             )}
           </FadeIn>
         </div>
-
-        {/* Google-kartan, delad komponent (Karta.tsx) */}
-        <FadeIn delay={0.3}>
-          <Karta />
-        </FadeIn>
       </div>
     </section>
   );

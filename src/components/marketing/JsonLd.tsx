@@ -91,7 +91,7 @@ export function omradeSchema(o: { namn: string; slug: string }) {
   };
 }
 
-/** Service- + FAQPage-schema för en enskild tjänstesida. */
+/** Service- + FAQPage-schema för en enskild tjänstesida. Inga fasta priser (Offer) i schemat. */
 export function serviceSchema(t: Tjanst) {
   const service = {
     "@context": "https://schema.org",
@@ -102,12 +102,6 @@ export function serviceSchema(t: Tjanst) {
     areaServed: { "@type": "City", name: "Örebro" },
     provider: { "@id": FORETAG_ID },
     url: `${site.url}/tjanster/${t.slug}`,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "SEK",
-      price: t.pricing.fromPrice.replace(/\s/g, ""),
-      url: `${site.url}/tjanster/${t.slug}`,
-    },
   };
 
   return [service, faqSchema(t.faq)];

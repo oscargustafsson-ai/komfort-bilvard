@@ -3,11 +3,12 @@
 import { useActionState, useState } from "react";
 import { submitGiftCard } from "@/app/actions";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Etikett } from "@/components/marketing/Etikett";
 import { HexagonPattern } from "@/components/ui/HexagonPattern";
 import { giftCardAmounts, giftCardLimits, zettleGiftCardUrl } from "@/lib/site";
 
 const steg = [
-  { num: "01", title: "Välj belopp", text: "Bestäm hur mycket presentkortet ska vara värt — eller ange ett eget belopp." },
+  { num: "01", title: "Välj belopp", text: "Bestäm hur mycket presentkortet ska vara värt - eller ange ett eget belopp." },
   { num: "02", title: "Fyll i uppgifter", text: "Ange vem presentkortet är till och vilken mejladress det ska skickas till." },
   { num: "03", title: "Betala via Zettle", text: "Du får en betallänk från Zettle. När betalningen är klar skickas presentkortet till mottagaren." },
 ];
@@ -38,12 +39,12 @@ export default function Presentkort() {
       <div className="relative max-w-6xl mx-auto">
 
         <FadeIn>
-          <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4 font-mono">— Presentkort</p>
+          <Etikett>Presentkort</Etikett>
           <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide mb-6">
             GE BORT<br />EN NYTVÄTTAD BIL.
           </h2>
           <p className="text-white/50 text-base leading-relaxed max-w-xl mb-8">
-            Ett presentkort hos KOM-fort Bilvård gäller på alla våra tjänster — rekond,
+            Ett presentkort hos KOM-fort Bilvård gäller på alla våra tjänster - rekond,
             polering, lackskydd eller en enkel biltvätt. Mottagaren väljer själv.
           </p>
 
@@ -53,7 +54,7 @@ export default function Presentkort() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
             </svg>
             <p className="text-white/60 text-sm">
-              Betalningen sker tryggt via <span className="text-gold font-semibold">Zettle</span> — vi hanterar aldrig dina kortuppgifter.
+              Betalningen sker tryggt via <span className="text-gold font-semibold">Zettle</span> - vi hanterar aldrig dina kortuppgifter.
             </p>
           </div>
         </FadeIn>
@@ -127,7 +128,7 @@ export default function Presentkort() {
                     step={100}
                     value={custom}
                     onChange={(e) => setCustom(e.target.value)}
-                    placeholder={`${giftCardLimits.min}–${giftCardLimits.max}`}
+                    placeholder={`${giftCardLimits.min}-${giftCardLimits.max}`}
                     className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 pr-12 text-sm placeholder:text-white/30 focus:outline-none focus:border-gold transition-colors"
                   />
                   <span className="absolute right-5 top-1/2 -translate-y-1/2 text-white/30 text-sm pointer-events-none">kr</span>
@@ -141,7 +142,7 @@ export default function Presentkort() {
                 <div className="mt-8 pt-6 border-t border-white/8 flex items-baseline justify-between">
                   <span className="text-white/40 text-xs tracking-widest uppercase font-mono">Summa</span>
                   <span className="font-[family-name:var(--font-bebas)] text-4xl text-gold tracking-wide">
-                    {effectiveAmount ? `${effectiveAmount} kr` : "—"}
+                    {effectiveAmount ? `${effectiveAmount} kr` : "-"}
                   </span>
                 </div>
               </div>
@@ -214,12 +215,12 @@ export default function Presentkort() {
                     {pending
                       ? "Skickar..."
                       : effectiveAmount
-                        ? `Beställ presentkort – ${effectiveAmount} kr →`
+                        ? `Beställ presentkort - ${effectiveAmount} kr →`
                         : "Välj ett belopp först"}
                   </button>
                   <p className="text-white/25 text-xs font-mono leading-relaxed">
                     Ingen betalning sker på den här sidan. Du får en betallänk från
-                    Zettle — samma betalsystem vi använder i verkstaden. Vi hanterar
+                    Zettle - samma betalsystem vi använder i verkstaden. Vi hanterar
                     aldrig dina kortuppgifter.
                   </p>
                 </form>
