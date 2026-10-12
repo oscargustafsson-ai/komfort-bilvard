@@ -12,9 +12,8 @@ const STANDARD_DATUM = "2026-10-12";
 const senastAndrad: Record<string, string> = {
   // Batch 01 (2026-10-10): alla sidor fick nytt schema, canonical och og-taggar.
   // Batch 02 (2026-10-11): allt utom Marieberg och Adolfsberg ändrades.
-  // Batch 02b (2026-10-12): nya priser och rättelser på allt utom /omraden och /presentkort.
-  "/omraden": "2026-10-11",
-  "/presentkort": "2026-10-11",
+  // Batch 02b (2026-10-12): nya priser och rättelser.
+  // Batch 02c (2026-10-12): nytt telefonnummer i footern på alla sidor.
 };
 
 const datum = (path: string) => new Date(senastAndrad[path] ?? STANDARD_DATUM);

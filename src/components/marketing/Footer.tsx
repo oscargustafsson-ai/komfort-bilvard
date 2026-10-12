@@ -94,8 +94,8 @@ export default function Footer() {
           <p className="text-gold text-[10px] tracking-[0.3em] uppercase font-mono mb-5">Kontakt</p>
           <ul className="flex flex-col gap-3 text-sm text-white/50">
             <li>
-              <a href="tel:0761943519" className="hover:text-gold transition-colors">
-                076-194 35 19
+              <a href="tel:0760353808" className="hover:text-gold transition-colors">
+                076-035 38 08
               </a>
             </li>
             <li>

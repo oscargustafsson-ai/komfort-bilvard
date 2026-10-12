@@ -27,9 +27,9 @@ export const site = {
   url: SITE_URL,
   name: "KOM-fort Bilvård AB",
   shortName: "KOM-fort Bilvård",
-  phone: "+46761943519",
-  phoneDisplay: "076-194 35 19",
-  phoneHref: "tel:0761943519",
+  phone: "+46760353808",
+  phoneDisplay: "076-035 38 08",
+  phoneHref: "tel:0760353808",
   email: "Komfort802@gmail.com",
   address: {
     street: "Lindtorpsvägen 10",

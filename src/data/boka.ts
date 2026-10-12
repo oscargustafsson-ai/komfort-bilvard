@@ -6,10 +6,10 @@ import type { Sektion } from "./startsida";
 
 export const bokasida = {
   title: "Boka bilvård Örebro | Välj tjänst, bilstorlek och tillägg",
-  meta: "Boka bilvård hos KOM-fort Bilvård i Örebro. Välj tjänst, bilstorlek och tillägg, se ett uppskattat pris direkt och skicka din förfrågan. Ring 076-194 35 19.",
+  meta: "Boka bilvård hos KOM-fort Bilvård i Örebro. Välj tjänst, bilstorlek och tillägg, se ett uppskattat pris direkt och skicka din förfrågan. Ring 076-035 38 08.",
   h1: "Boka bilvård i Örebro",
   intro:
-    "Här väljer du tjänst, bilstorlek och tillägg och ser direkt vad det kostar. Skicka förfrågan, så hör vi av oss inom kort för att bekräfta dag och tid. Vill du hellre prata med oss kan du ringa 076-194 35 19.",
+    "Här väljer du tjänst, bilstorlek och tillägg och ser direkt vad det kostar. Skicka förfrågan, så hör vi av oss inom kort för att bekräfta dag och tid. Vill du hellre prata med oss kan du ringa 076-035 38 08.",
   valjH2: "Välj tjänst och tillägg",
   saGar: {
     h2: "Så går bokningen till",

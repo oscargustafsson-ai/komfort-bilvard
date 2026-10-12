@@ -9,6 +9,10 @@ export type Pricing = {
   unit?: string;
   note?: string;
   popular?: boolean;
+  /** Texten före priset på kort och i prisrutan. Standard "Fr". */
+  prefix?: string;
+  /** Stycket över prislistan i den gamla mallen. Standard "Här ser du priserna och tilläggen." */
+  listaText?: string;
 };
 
 const fran = (slug: string) => kr(sidPriser[slug].fran);
@@ -58,7 +62,7 @@ export const tjanster: Tjanst[] = [
     num: "01",
     title: "Bilrekond",
     shortDesc: "Komplett invändig och utvändig behandling. Din bil återfår nybilskänslan.",
-    metaDesc: "Bilrekond i Örebro: handtvätt, 12 månaders lackförsegling och kemtvätt av kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-194 35 19.",
+    metaDesc: "Bilrekond i Örebro: handtvätt, 12 månaders lackförsegling och kemtvätt av kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-035 38 08.",
     hero: "Bilrekond Örebro",
     intro: "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
     included: [
@@ -125,7 +129,7 @@ export const tjanster: Tjanst[] = [
       },
       faqH2: "Vanliga frågor om bilrekond",
       bokaH2: "Boka bilrekond i Örebro",
-      bokaText: "Ring 076-194 35 19 eller skicka en förfrågan, så hör vi av oss och bokar in en dag som passar dig.",
+      bokaText: "Ring 076-035 38 08 eller skicka en förfrågan, så hör vi av oss och bokar in en dag som passar dig.",
     },
   },
   {
@@ -133,7 +137,7 @@ export const tjanster: Tjanst[] = [
     num: "02",
     title: "Polering",
     shortDesc: "Maskinpolering som tar bort repor och oxidering. Lacken återfår sitt djup och sin glans.",
-    metaDesc: "Lackpolering och maskinpolering i Örebro. Vi tar bort repor, swirls och oxidering. KOM-fort Bilvård - ring 076-194 35 19.",
+    metaDesc: "Lackpolering och maskinpolering i Örebro. Vi tar bort repor, swirls och oxidering. KOM-fort Bilvård - ring 076-035 38 08.",
     hero: "Lackpolering i Örebro",
     intro: "Med åren samlar bilens lack på sig repor, swirl-märken och oxidering som gör att lacken ser matt och sliten ut. Vår maskinpolering är den effektivaste metoden för att återställa lacken till ursprungligt skick - utan att måla om. Vi arbetar med professionella maskiner och polermedel anpassade efter just din bils lack.",
     included: [
@@ -163,7 +167,7 @@ export const tjanster: Tjanst[] = [
     num: "03",
     title: "Lackskydd",
     shortDesc: "Lackskydd som läggs på efter polering. Välj 2, 3 eller 5 års skydd.",
-    metaDesc: "Keramiskt lackskydd och lackförsegling i Örebro. Skydda din bil mot väder, smuts och repor. KOM-fort Bilvård - ring 076-194 35 19.",
+    metaDesc: "Keramiskt lackskydd och lackförsegling i Örebro. Skydda din bil mot väder, smuts och repor. KOM-fort Bilvård - ring 076-035 38 08.",
     hero: "Keramiskt Lackskydd i Örebro",
     intro: "Keramiskt lackskydd är den mest avancerade och långvariga skyddsbehandlingen för din bils lack. Ett keramiskt skikt binder kemiskt till lacken och skapar en hård, hydrofob yta som stöter bort vatten, smuts och kemikalier. Bilen blir betydligt enklare att hålla ren och lacken skyddas mot UV-strålning, oxidering och lätta repor i flera år.",
     included: [
@@ -187,6 +191,8 @@ export const tjanster: Tjanst[] = [
       fromPrice: fran("lackskydd"),
       unit: "kr",
       note: "Tillägg till polering. Välj 2, 3 eller 5 års skydd.",
+      prefix: "Tillägg fr",
+      listaText: "Lackskydd är ett tillägg till polering. Här ser du priserna.",
     },
   },
   {
@@ -194,7 +200,7 @@ export const tjanster: Tjanst[] = [
     num: "04",
     title: "Biltvätt",
     shortDesc: "Noggrann handtvätt med professionella produkter. Aldrig automattvättar som repar lacken.",
-    metaDesc: "Professionell handtvätt av bil i Örebro. Skonsam tvätt som inte repar lacken. KOM-fort Bilvård - ring 076-194 35 19.",
+    metaDesc: "Professionell handtvätt av bil i Örebro. Skonsam tvätt som inte repar lacken. KOM-fort Bilvård - ring 076-035 38 08.",
     hero: "Professionell Biltvätt i Örebro",
     intro: "En professionell handtvätt är något helt annat än en automatisk biltvätt. Automattvättar använder hårda borstar som repar lacken och lämnar swirl-märken. Vi tvättar alltid för hand med mjuka tvätthandskar, pH-neutrala schampon och metoder som skyddar lacken. Varje tvätt utförs med samma omsorg som om det vore vår egen bil.",
     included: [
@@ -225,7 +231,7 @@ export const tjanster: Tjanst[] = [
     num: "05",
     title: "Invändig Rekond",
     shortDesc: "Kemtvätt av klädsel och mattor, rengöring av alla ytor. Fräscht och rent.",
-    metaDesc: "Invändig rekonditionering och kemtvätt av bil i Örebro. Vi tar bort fläckar, lukt och smuts på djupet. KOM-fort Bilvård - ring 076-194 35 19.",
+    metaDesc: "Invändig rekonditionering och kemtvätt av bil i Örebro. Vi tar bort fläckar, lukt och smuts på djupet. KOM-fort Bilvård - ring 076-035 38 08.",
     hero: "Invändig Rekond i Örebro",
     intro: "Bilens interiör tar på sig smuts, fläckar och lukt som vanlig dammsugning inte kan ta bort. Vår invändiga rekonditionering går på djupet - vi kemtvättar klädsel, mattor och tak, rengör alla plastdetaljer och ytor, och behandlar läder om det finns. Resultatet är ett interiör som luktar och känns nytt.",
     included: [

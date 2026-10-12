@@ -20,7 +20,7 @@ export type Tjanstpris = {
   id: string;
   namn: string;
   /** Pris per bilstorlek eller per steg. Saknas: ett fast pris i `pris`. */
-  val?: { etikett: "Bilstorlek" | "Antal steg"; rader: Prisrad[] };
+  val?: { etikett: "Bilstorlek" | "Antal steg" | "Lackskydd"; rader: Prisrad[] };
   pris?: number;
   /** Pristillägg per bilstorlek ovanpå valt pris (polering, kompletta paketet). */
   storlekstillagg?: Prisrad[];
@@ -109,7 +109,7 @@ export const tjanstpriser: Tjanstpris[] = [
     id: "lackskydd",
     namn: "Lackskydd",
     val: {
-      etikett: "Bilstorlek",
+      etikett: "Lackskydd",
       rader: LACKSKYDD_TILLAGG.map((t) => ({ id: t.id, label: t.label, pris: t.pris })),
     },
     tillagg: [],

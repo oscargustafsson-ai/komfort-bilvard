@@ -68,7 +68,7 @@ export const omradenHubb = {
   hitta: {
     h2: "Hitta till oss",
     stycken: [
-      "Vi servar hela Örebro och även Kumla och Hallsberg. Kommer du på E20 tar du avfart 110 Adolfsberg, så är du nästan framme. Vill du slippa köra kan vi hämta bilen hos dig. Ring 076-194 35 19, så berättar vi vad som gäller och hittar en tid. Läs mer om vår [bilvård i Örebro](/).",
+      "Vi servar hela Örebro och även Kumla och Hallsberg. Kommer du på E20 tar du avfart 110 Adolfsberg, så är du nästan framme. Vill du slippa köra kan vi hämta bilen hos dig. Ring 076-035 38 08, så berättar vi vad som gäller och hittar en tid. Läs mer om vår [bilvård i Örebro](/).",
     ],
   } satisfies Sektion,
 };
@@ -79,7 +79,7 @@ export const omraden: Omrade[] = [
     slug: "marieberg",
     namn: "Marieberg",
     title: "Bilvård Marieberg | Biltvätt & bilrekond nära Marieberg, Örebro",
-    meta: "Bilvård för dig i Marieberg: handtvätt, bilrekond, polering och lackskydd, cirka sju minuter från Mariebergs handelsområde. Ring 076-194 35 19.",
+    meta: "Bilvård för dig i Marieberg: handtvätt, bilrekond, polering och lackskydd, cirka sju minuter från Mariebergs handelsområde. Ring 076-035 38 08.",
     h1: "Bilvård Marieberg",
     intro: [
       "Bor eller jobbar du i Marieberg har du nära till oss. KOM-fort Bilvård ligger på Lindtorpsvägen 10 i Södra Lindhult, strax norr om Marieberg, och från Mariebergs handelsområde tar det ungefär sju minuter med bil. Här får bilen en noggrann handtvätt, en komplett rekond eller ett lackskydd som håller i flera år.",
@@ -137,7 +137,7 @@ export const omraden: Omrade[] = [
     slug: "adolfsberg",
     namn: "Adolfsberg",
     title: "Bilvård Adolfsberg | Biltvätt & bilrekond i Adolfsberg, Örebro",
-    meta: "KOM-fort Bilvård finns i Adolfsberg, på Lindtorpsvägen 10 i Södra Lindhult. Handtvätt, invändig rekond, polering och keramiskt lackskydd. Ring 076-194 35 19.",
+    meta: "KOM-fort Bilvård finns i Adolfsberg, på Lindtorpsvägen 10 i Södra Lindhult. Handtvätt, invändig rekond, polering och keramiskt lackskydd. Ring 076-035 38 08.",
     h1: "Bilvård Adolfsberg",
     intro: [
       "KOM-fort Bilvård ligger i Adolfsberg, på Lindtorpsvägen 10 i Södra Lindhult. Lokalen finns i en fastighet med företagslokaler, granne med ett bostadsområde och hästhagar. Bor du i stadsdelen har du kort väg till oss, och kommer du på E20 kör du av vid avfart 110 Adolfsberg.",
@@ -172,7 +172,7 @@ export const omraden: Omrade[] = [
     hamtning: {
       h2: "Hämtning och lämning i Adolfsberg",
       stycken: [
-        "Även om vi ligger nära kan det vara skönt att slippa köra. Bor du till exempel i Brunnsgärdet, där bilarna står parkerade längs kanterna av området, kan vi hämta bilen hos dig och lämna den när den är klar. Ring 076-194 35 19 eller skicka en förfrågan om [hämtning och lämning av bilen](/kontakt), så återkommer vi med vad som gäller.",
+        "Även om vi ligger nära kan det vara skönt att slippa köra. Bor du till exempel i Brunnsgärdet, där bilarna står parkerade längs kanterna av området, kan vi hämta bilen hos dig och lämna den när den är klar. Ring 076-035 38 08 eller skicka en förfrågan om [hämtning och lämning av bilen](/kontakt), så återkommer vi med vad som gäller.",
       ],
     },
     hitta: {
@@ -195,7 +195,7 @@ export const omraden: Omrade[] = [
     slug: "vivalla",
     namn: "Vivalla",
     title: "Bilvård Vivalla | Rekond & handtvätt med hämtning av bil i Vivalla",
-    meta: "Bilvård för Vivalla: vi kan hämta och lämna bilen, eller så kör du Västerleden till oss på cirka en kvart. Rekond och handtvätt. Ring 076-194 35 19.",
+    meta: "Bilvård för Vivalla: vi kan hämta och lämna bilen, eller så kör du Västerleden till oss på cirka en kvart. Rekond och handtvätt. Ring 076-035 38 08.",
     h1: "Bilvård Vivalla",
     intro: [
       "Bor du i Vivalla är vi cirka en kvart bort med bil, och större delen av vägen kör du på Västerleden. Vill du slippa köra själv kan vi hämta bilen hos dig. Hos KOM-fort Bilvård tvättas allt för hand, och vi tar hand om allt från en enkel handtvätt till en komplett rekond.",
@@ -245,7 +245,7 @@ export const omraden: Omrade[] = [
         { q: "Hur lång tid tar en invändig rekond?", a: "Räkna med 2-4 timmar beroende på bilens storlek och hur smutsig den är. Lämna gärna bilen hos oss för dagen." },
         { q: "Kan ni ta bort husdjurslukt?", a: "Ja, i de flesta fall. Vi använder enzymatiska medel som bryter ned lukten på djupet i stället för att bara dölja den." },
         { q: "Hur länge håller ett keramiskt lackskydd?", a: "Med rätt skötsel håller det i flera år. Efter behandlingen går vi igenom vad du bör tänka på de första dagarna, medan skiktet härdar." },
-        { q: "Vad kostar en rekond?", a: "Priset beror på bilens storlek och skick. Ring 076-194 35 19, så får du ett pris för just din bil." },
+        { q: "Vad kostar en rekond?", a: "Priset beror på bilens storlek och skick. Ring 076-035 38 08, så får du ett pris för just din bil." },
       ],
     },
   },
@@ -254,7 +254,7 @@ export const omraden: Omrade[] = [
     slug: "varberga",
     namn: "Varberga",
     title: "Bilvård Varberga | Biltvätt & rekond för dig i Varberga, Örebro",
-    meta: "Från Varberga är du hos oss på ungefär tio minuter via Västerleden. Handtvätt, rekond inför bilförsäljning och lackrenovering. Ring 076-194 35 19.",
+    meta: "Från Varberga är du hos oss på ungefär tio minuter via Västerleden. Handtvätt, rekond inför bilförsäljning och lackrenovering. Ring 076-035 38 08.",
     h1: "Bilvård Varberga",
     intro: [
       "Från Varberga kör du Västerleden söderut och är hos oss på ungefär tio minuter. KOM-fort Bilvård ligger på Lindtorpsvägen 10 i Södra Lindhult, nära E20 avfart 110 Adolfsberg. Här handtvättar vi bilar, polerar fram ny glans i matt lack och gör rekond när bilen ska säljas.",
@@ -312,7 +312,7 @@ export const omraden: Omrade[] = [
     slug: "almby",
     namn: "Almby",
     title: "Bilvård Almby | Handtvätt, rekond & lackskydd för dig i Almby, Örebro",
-    meta: "Bilvård för Almby: handtvätt, rekond, keramiskt lackskydd och kemtvätt av klädseln, runt en kvart bort med bil. Vi kan hämta bilen. Ring 076-194 35 19.",
+    meta: "Bilvård för Almby: handtvätt, rekond, keramiskt lackskydd och kemtvätt av klädseln, runt en kvart bort med bil. Vi kan hämta bilen. Ring 076-035 38 08.",
     h1: "Bilvård Almby",
     intro: [
       "KOM-fort Bilvård tar emot bilar från Almby i sydöstra Örebro. Vi finns på Lindtorpsvägen 10 i Södra Lindhult, och bilen kan du antingen lämna själv eller låta oss hämta. Hos oss får den en grundlig handtvätt, ett långvarigt lackskydd eller en kemtvätt av klädseln som tar bort smuts och fläckar.",

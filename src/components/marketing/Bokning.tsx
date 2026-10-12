@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, startTransition } from "react";
 import { submitBooking } from "@/app/actions";
 import { tjanstpriser, getTjanstpris, beraknaPris, kr } from "@/data/priser";
 
@@ -9,6 +9,20 @@ const falt =
 const valj =
   "bg-surface-1 border border-white/10 text-white/80 px-5 py-4 text-sm focus:outline-none focus:border-gold transition-colors w-full";
 const etikett = "block text-gold/70 text-[11px] tracking-[0.3em] uppercase font-mono mb-2";
+
+/**
+ * Skickar formuläret via useActionState utan <form action>. React 19 nollställer
+ * annars fälten när servern svarat, även vid fel. Med onSubmit + startTransition
+ * står allt kvar tills förfrågan lyckats.
+ */
+function skickaUtanNollstallning(action: (fd: FormData) => void) {
+  return (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    startTransition(() => action(fd));
+  };
+}
+
 
 /**
  * Prisväljaren och bokningsformuläret på /boka. Priserna och summan kommer
@@ -53,7 +67,7 @@ export default function Bokning() {
   }
 
   return (
-    <form action={action} className="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <form onSubmit={skickaUtanNollstallning(action)} className="grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* Prisväljaren */}
       <div className="flex flex-col gap-6">
         <div>

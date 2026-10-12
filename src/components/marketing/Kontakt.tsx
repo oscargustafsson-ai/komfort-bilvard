@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, startTransition } from "react";
 import { submitContact } from "@/app/actions";
 import { site } from "@/lib/site";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -8,8 +8,8 @@ import { FadeIn } from "@/components/ui/FadeIn";
 const contactInfo = [
   {
     label: "Telefon",
-    value: "076-194 35 19",
-    href: "tel:0761943519",
+    value: "076-035 38 08",
+    href: "tel:0760353808",
     cta: "Ring oss nu",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -41,6 +41,20 @@ const contactInfo = [
     ),
   },
 ];
+
+
+/**
+ * Skickar formuläret via useActionState utan <form action>. React 19 nollställer
+ * annars fälten när servern svarat, även vid fel. Med onSubmit + startTransition
+ * står allt kvar tills förfrågan lyckats.
+ */
+function skickaUtanNollstallning(action: (fd: FormData) => void) {
+  return (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    startTransition(() => action(fd));
+  };
+}
 
 /** Tjänsterna i formulärets lista (batch 02b, grundfix 6). */
 const tjanstVal = ["Handtvätt", "Invändig tvätt", "Helrekond", "Invändig rekond", "Polering med vax", "Komplett paket med lackskydd", "Annat"];
@@ -101,7 +115,7 @@ export default function Kontakt() {
                 <p className="text-white/60 text-sm">Vi hör av oss inom kort.</p>
               </div>
             ) : (
-              <form action={action} className="flex flex-col gap-4">
+              <form onSubmit={skickaUtanNollstallning(action)} className="flex flex-col gap-4">
                 <input
                   name="name"
                   type="text"

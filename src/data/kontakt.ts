@@ -6,10 +6,10 @@ import type { Sektion, Fraga } from "./startsida";
 
 export const kontaktsida = {
   title: "Kontakt | Bilvård Örebro - KOM-fort Bilvård",
-  meta: "Kontakta KOM-fort Bilvård i Örebro. Ring 076-194 35 19 eller skicka en förfrågan. Vi finns på Lindtorpsvägen 10 i Adolfsberg och kan hämta bilen hos dig.",
+  meta: "Kontakta KOM-fort Bilvård i Örebro. Ring 076-035 38 08 eller skicka en förfrågan. Vi finns på Lindtorpsvägen 10 i Adolfsberg och kan hämta bilen hos dig.",
   h1: "Kontakta KOM-fort Bilvård i Örebro",
   intro: [
-    "Vill du boka bilvård, få ett pris eller ställa en fråga om bilen? Ring oss på 076-194 35 19 eller skicka en förfrågan i formuläret här på sidan, så hör vi av oss inom kort. Du kan också mejla till Komfort802@gmail.com.",
+    "Vill du boka bilvård, få ett pris eller ställa en fråga om bilen? Ring oss på 076-035 38 08 eller skicka en förfrågan i formuläret här på sidan, så hör vi av oss inom kort. Du kan också mejla till Komfort802@gmail.com.",
     "Vi finns på Lindtorpsvägen 10 i Södra Lindhult, i stadsdelen Adolfsberg i södra Örebro. Där handtvättar vi bilar, polerar och skyddar lacken och gör kompletta rekonder, invändigt och utvändigt. Vill du veta mer om oss innan du hör av dig kan du läsa om [KOM-fort Bilvård i Örebro](/).",
   ],
   sektioner: [
@@ -53,7 +53,7 @@ export const kontaktsida = {
   faq: {
     h2: "Vanliga frågor om bokning",
     fragor: [
-      { q: "Hur snabbt får jag svar?", a: "Vi hör av oss inom kort efter att du skickat din förfrågan. Vill du ha svar snabbare kan du ringa 076-194 35 19." },
+      { q: "Hur snabbt får jag svar?", a: "Vi hör av oss inom kort efter att du skickat din förfrågan. Vill du ha svar snabbare kan du ringa 076-035 38 08." },
       { q: "Kan jag få ett pris innan jag bokar?", a: "Ja. Berätta vilken bil du har och vad du vill ha gjort, så räknar vi fram ett pris för din bil. Slutpriset beror på bilens storlek och skick." },
       { q: "Vilka tjänster kan jag boka?", a: "Handtvätt, invändig tvätt, helrekond, invändig rekond, polering med vax och vårt kompletta paket med lackskydd. På [bokningssidan](/boka) väljer du tjänst, bilstorlek och tillägg och får ett uppskattat pris direkt." },
     ] satisfies Fraga[],

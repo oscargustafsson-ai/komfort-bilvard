@@ -68,7 +68,7 @@ export function ServiceCard({ s }: { s: Tjanst }) {
 
         {/* Pris */}
         <p className="mt-5 font-mono text-xs uppercase tracking-widest text-white/35">
-          Fr{" "}
+          {s.pricing.prefix ?? "Fr"}{" "}
           <span className="text-base normal-case tracking-normal font-bold text-gold">
             {s.pricing.fromPrice}
           </span>{" "}

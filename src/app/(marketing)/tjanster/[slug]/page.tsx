@@ -67,7 +67,7 @@ function PrisRuta({ t }: { t: Tjanst }) {
   return (
     <>
       <div className="inline-flex flex-wrap items-end gap-x-4 gap-y-2 border border-gold/25 bg-gold/5 px-7 py-5">
-        <span className="text-white/40 text-xs tracking-widest uppercase font-mono">Fr</span>
+        <span className="text-white/40 text-xs tracking-widest uppercase font-mono">{t.pricing.prefix ?? "Fr"}</span>
         <span className="text-4xl md:text-5xl font-black tracking-tighter text-gold leading-none">{t.pricing.fromPrice}</span>
         <span className="text-white/50 text-sm mb-1">{t.pricing.unit ?? "kr"}</span>
       </div>
@@ -288,7 +288,7 @@ function GammalTjanstSida({ t }: { t: Tjanst }) {
             <FadeIn>
               <Etikett>Pris</Etikett>
               <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-6">Grundpris & tillägg</h2>
-              <p className="text-white/50 leading-relaxed max-w-md">Här ser du priserna och tilläggen.</p>
+              <p className="text-white/50 leading-relaxed max-w-md">{t.pricing.listaText ?? "Här ser du priserna och tilläggen."}</p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <Prislista slug={t.slug} />

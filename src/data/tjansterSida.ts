@@ -6,7 +6,7 @@ import type { Sektion, Fraga } from "./startsida";
 
 export const tjansterSida = {
   title: "Bilvårdstjänster Örebro | Rekond, polering & lackskydd",
-  meta: "Alla våra bilvårdstjänster i Örebro: bilrekond, invändig rekond, polering, keramiskt lackskydd och handtvätt. All tvätt görs för hand. Ring 076-194 35 19.",
+  meta: "Alla våra bilvårdstjänster i Örebro: bilrekond, invändig rekond, polering, keramiskt lackskydd och handtvätt. All tvätt görs för hand. Ring 076-035 38 08.",
   h1: "Våra bilvårdstjänster i Örebro",
   intro:
     "Hos KOM-fort Bilvård i Örebro får bilen hjälp med allt från en noggrann handtvätt till en komplett rekond, polering och keramiskt lackskydd. All tvätt görs för hand med pH-neutrala medel och professionella produkter, och vi tar den tid varje bil behöver. Nedan ser du våra bilvårdstjänster och vad som skiljer dem åt, så att du lättare kan välja rätt.",
@@ -57,7 +57,7 @@ export const tjansterSida = {
   valj: {
     h2: "Så väljer du rätt tjänst",
     stycken: [
-      "Vill du bara ha bilen ren räcker en biltvätt. Är det insidan som behöver ett lyft passar invändig rekond, och är lacken matt eller repig är polering rätt val. Vill du ha både insidan och utsidan gjorda på en gång väljer du bilrekond, och vill du att lacken ska hålla sig fin i flera år väljer du polering med lackskydd. Är du osäker kan du ringa 076-194 35 19, så hjälper vi dig att välja. På [bokningssidan](/boka) får du ett uppskattat pris för din bil direkt.",
+      "Vill du bara ha bilen ren räcker en biltvätt. Är det insidan som behöver ett lyft passar invändig rekond, och är lacken matt eller repig är polering rätt val. Vill du ha både insidan och utsidan gjorda på en gång väljer du bilrekond, och vill du att lacken ska hålla sig fin i flera år väljer du polering med lackskydd. Är du osäker kan du ringa 076-035 38 08, så hjälper vi dig att välja. På [bokningssidan](/boka) får du ett uppskattat pris för din bil direkt.",
     ],
   } satisfies Sektion,
   hitta: {

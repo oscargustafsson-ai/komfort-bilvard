@@ -8,7 +8,7 @@ export type Fraga = { q: string; a: string };
 
 export const startsida = {
   title: "Bilvård Örebro | Biltvätt & bilrekond i Örebro",
-  meta: "Bilvård i Örebro med handtvätt, bilrekond, polering och keramiskt lackskydd. Vi finns nära E20 avfart 110 Adolfsberg och kan hämta bilen. Ring 076-194 35 19.",
+  meta: "Bilvård i Örebro med handtvätt, bilrekond, polering och keramiskt lackskydd. Vi finns nära E20 avfart 110 Adolfsberg och kan hämta bilen. Ring 076-035 38 08.",
   h1: "Bilvård Örebro",
   intro: [
     "KOM-fort Bilvård tar hand om din bil från första tvätten till färdigt lackskydd. Vår lokal ligger på Lindtorpsvägen 10 i södra Örebro, nära E20 och avfart 110 Adolfsberg. Du lämnar bilen hos oss, eller så kan vi hämta den hos dig.",
@@ -76,7 +76,7 @@ export const startsida = {
     fragor: [
       { q: "Kan jag ge bort bilvård i present?", a: "Ja. Vi säljer presentkort som gäller på alla våra tjänster, och du väljer själv beloppet." },
       { q: "Hur betalar jag?", a: "Du betalar tryggt via Zettle, samma betalsystem som vi använder i verkstaden." },
-      { q: "Hur bokar jag?", a: "Ring 076-194 35 19 eller skicka en förfrågan via kontaktformuläret, så hör vi av oss inom kort." },
+      { q: "Hur bokar jag?", a: "Ring 076-035 38 08 eller skicka en förfrågan via kontaktformuläret, så hör vi av oss inom kort." },
     ] satisfies Fraga[],
   },
 };

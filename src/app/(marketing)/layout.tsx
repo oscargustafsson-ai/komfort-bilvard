@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: "KOM-fort Bilvård AB - Bilvård i Örebro",
   description:
-    "Professionell bilvård i Örebro. Rekonditionering, polering, lackskydd och handtvätt. Ring 076-194 35 19.",
+    "Professionell bilvård i Örebro. Rekonditionering, polering, lackskydd och handtvätt. Ring 076-035 38 08.",
   openGraph: {
     type: "website",
     locale: "sv_SE",

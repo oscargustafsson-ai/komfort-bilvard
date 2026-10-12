@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-12 (Batch 02b: new price list in one data source, booking page /boka, text corrections on live pages, new hero headline, Boka in the menu)
+Last updated: 2026-10-12 (Batch 02c: new phone number 076-035 38 08 everywhere, lackskydd shown as an add-on to polering, forms keep their values on server errors)
 
 ---
 
@@ -34,6 +34,16 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Phone number (batch 02c):** 076-035 38 08 / tel:0760353808 / +46760353808, defined once in
+  `src/lib/site.ts` (phoneDisplay, phoneHref, phone) and written out in copy. The old number
+  must not reappear anywhere (`grep -r "194 35 19"` and `"761943519"` must be empty).
+- **Forms (batch 02c):** Kontakt, Bokning and Presentkort submit through `onSubmit` +
+  `startTransition(() => action(formData))` instead of `<form action>`, because React 19 resets
+  an action-driven form after the server responds, even on validation errors. Keep that pattern
+  for any new form.
+- **Lackskydd is an add-on:** `pricing.prefix` ("Tillägg fr") and `pricing.listaText` on the
+  lackskydd service drive the card label, the hero price box and the paragraph above its price
+  list. Other services use the default "Fr".
 - **Prices (batch 02b):** every price lives in `src/data/priser.ts` (customer price list
   2026-10-11). Service cards, hero price boxes, the price lists on service pages (`sidPriser`)
   and the booking page read from it. `beraknaPris()` is the single calculator, used both in the
@@ -45,7 +55,7 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   the customer's email when given). It is a request that KOM-fort confirms: no payment, no
   calendar. Exclusive add-on groups: lätt polering/1-stegspolering, lackskydd 2/3/5 år.
 - **Navbar:** desktop menu from `lg` (1024px) with "Boka" last; the gold button says
-  "Ring 076-194 35 19"; below `lg` a phone icon link (aria-label) sits next to the burger.
+  "Ring 076-035 38 08"; below `lg` a phone icon link (aria-label) sits next to the burger.
 - **Hero:** decorative three-line headline ("Ge din bil / nykänslan / tillbaka.") + subtitle,
   the h1 stays "Bilvård Örebro". Primary button "Boka din behandling" goes to /boka.
 - **Service pages (batch 02):** `tjanster/[slug]/page.tsx` has two layouts. If a service in

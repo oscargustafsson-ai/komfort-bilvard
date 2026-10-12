@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, startTransition } from "react";
 import { submitGiftCard } from "@/app/actions";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Etikett } from "@/components/marketing/Etikett";
@@ -12,6 +12,19 @@ const steg = [
   { num: "02", title: "Fyll i uppgifter", text: "Ange vem presentkortet är till och vilken mejladress det ska skickas till." },
   { num: "03", title: "Betala via Zettle", text: "Du får en betallänk från Zettle. När betalningen är klar skickas presentkortet till mottagaren." },
 ];
+
+/**
+ * Skickar formuläret via useActionState utan <form action>. React 19 nollställer
+ * annars fälten när servern svarat, även vid fel. Med onSubmit + startTransition
+ * står allt kvar tills förfrågan lyckats.
+ */
+function skickaUtanNollstallning(action: (fd: FormData) => void) {
+  return (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    startTransition(() => action(fd));
+  };
+}
 
 export default function Presentkort() {
   const [state, action, pending] = useActionState(submitGiftCard, null);
@@ -79,7 +92,7 @@ export default function Presentkort() {
               <p className="text-white/60 text-sm max-w-md mx-auto leading-relaxed">
                 Vi hör av oss inom kort med en betallänk från Zettle. När betalningen
                 är genomförd skickas presentkortet till mottagaren. Har du frågor når du
-                oss på 076-194 35 19.
+                oss på 076-035 38 08.
               </p>
             </div>
           </FadeIn>
@@ -170,7 +183,7 @@ export default function Presentkort() {
                 </div>
               ) : (
                 /* Ingen Zettle-länk än: vi tar emot beställningen via mejl. */
-                <form action={action} className="flex flex-col gap-4">
+                <form onSubmit={skickaUtanNollstallning(action)} className="flex flex-col gap-4">
                   <input type="hidden" name="amount" value={effectiveAmount ?? ""} />
                   <input
                     name="buyerName"

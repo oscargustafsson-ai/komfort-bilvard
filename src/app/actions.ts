@@ -11,7 +11,7 @@ export type ContactState = {
 
 const IS_PROD = process.env.NODE_ENV === "production";
 const GENERIC_ERROR =
-  "Något gick fel. Ring oss gärna direkt på 076-194 35 19.";
+  "Något gick fel. Ring oss gärna direkt på 076-035 38 08.";
 
 // Mottagaradress styrs via env men har en rimlig default.
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "Komfort802@gmail.com";
@@ -79,7 +79,7 @@ export async function submitContact(
     console.error("[kontakt] Oväntat fel vid mejlutskick:", err);
     return {
       success: false,
-      error: "Något gick fel. Ring oss gärna direkt på 076-194 35 19.",
+      error: "Något gick fel. Ring oss gärna direkt på 076-035 38 08.",
     };
   }
 }
