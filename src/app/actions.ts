@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { giftCardLimits } from "@/lib/site";
+import { getTjanstpris, beraknaPris, beskrivVal, kr, type Val } from "@/data/priser";
 
 export type ContactState = {
   success: boolean;
@@ -34,7 +35,7 @@ export async function submitContact(
 
   const apiKey = process.env.RESEND_API_KEY;
 
-  // Saknad konfiguration. I produktion får vi ALDRIG låtsas att det lyckades —
+  // Saknad konfiguration. I produktion får vi ALDRIG låtsas att det lyckades -
   // då tappar vi kunden tyst. I utveckling loggar vi och returnerar success.
   const missingConfig =
     !apiKey || (IS_PROD && !process.env.CONTACT_FROM_EMAIL);
@@ -46,7 +47,7 @@ export async function submitContact(
       return { success: false, error: GENERIC_ERROR };
     }
     console.warn(
-      "[kontakt] Mejl ej konfigurerat (dev) — förfrågan loggas men skickas inte:",
+      "[kontakt] Mejl ej konfigurerat (dev) - förfrågan loggas men skickas inte:",
       { name, phone, service, message }
     );
     return { success: true, error: null };
@@ -61,10 +62,10 @@ export async function submitContact(
       text: [
         `Namn: ${name}`,
         `Telefon: ${phone}`,
-        `Tjänst: ${service || "—"}`,
+        `Tjänst: ${service || "-"}`,
         "",
         "Meddelande:",
-        message || "—",
+        message || "-",
       ].join("\n"),
     });
 
@@ -83,6 +84,114 @@ export async function submitContact(
   }
 }
 
+export type BookingState = {
+  success: boolean;
+  error: string | null;
+} | null;
+
+/**
+ * Bokningsförfrågan från /boka (batch 02b). Ingen betalning, ingen kalender:
+ * KOM-fort bekräftar dag och tid. Priset räknas om här från datakällan
+ * (priser.ts) och litar inte på summan från webbläsaren.
+ */
+export async function submitBooking(
+  _prevState: BookingState,
+  formData: FormData
+): Promise<BookingState> {
+  const f = (k: string) => ((formData.get(k) as string) ?? "").trim();
+  const name = f("name");
+  const phone = f("phone");
+  const email = f("email");
+  const day = f("day");
+  const message = f("message");
+  const pickup = formData.get("pickup") === "on";
+  const val: Val = {
+    tjanst: f("tjanst"),
+    val: f("val") || undefined,
+    storlek: f("storlek") || undefined,
+    tillagg: formData.getAll("tillagg").map((x) => String(x)),
+  };
+
+  const t = getTjanstpris(val.tjanst);
+  if (!t || !t.bokningsbar) {
+    return { success: false, error: "Välj en tjänst." };
+  }
+  if (!name || !phone) {
+    return { success: false, error: "Fyll i namn och telefonnummer." };
+  }
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { success: false, error: "Kontrollera att e-postadressen är korrekt." };
+  }
+  const pris = beraknaPris(val);
+  const b = beskrivVal(val);
+  if (pris === null || !b) {
+    return { success: false, error: "Kontrollera bilstorlek och tillägg." };
+  }
+
+  const rader = [
+    `Tjänst: ${b.tjanst}`,
+    b.val ? `${b.valEtikett}: ${b.val}` : null,
+    b.storlek ? `Bilstorlek: ${b.storlek}` : null,
+    `Tillägg: ${b.tillagg.length ? b.tillagg.join(", ") : "-"}`,
+    `Uppskattat pris: ${kr(pris)} kr`,
+    `Hämtning och lämning: ${pickup ? "Ja" : "Nej"}`,
+    `Önskad dag: ${day || "-"}`,
+    "",
+    "Meddelande:",
+    message || "-",
+    "",
+    `Namn: ${name}`,
+    `Telefon: ${phone}`,
+    `E-post: ${email || "-"}`,
+  ].filter((r): r is string => r !== null);
+
+  return skickaMejl({
+    tagg: "boka",
+    subject: `Ny bokningsförfrågan från ${name}`,
+    text: rader.join("\n"),
+    replyTo: email || undefined,
+    logg: { name, phone, email, day, pickup, val, pris },
+  });
+}
+
+/** Skickar ett mejl till KOM-fort via Resend. Samma regler som kontaktformuläret. */
+async function skickaMejl(m: {
+  tagg: string;
+  subject: string;
+  text: string;
+  replyTo?: string;
+  logg: Record<string, unknown>;
+}): Promise<{ success: boolean; error: string | null }> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const missingConfig = !apiKey || (IS_PROD && !process.env.CONTACT_FROM_EMAIL);
+  if (missingConfig) {
+    if (IS_PROD) {
+      console.error(`[${m.tagg}] Mejl ej konfigurerat i produktion (RESEND_API_KEY och/eller CONTACT_FROM_EMAIL saknas).`);
+      return { success: false, error: GENERIC_ERROR };
+    }
+    console.warn(`[${m.tagg}] Mejl ej konfigurerat (dev) - förfrågan loggas men skickas inte:`, m.logg, "\n" + m.text);
+    return { success: true, error: null };
+  }
+  try {
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: TO_EMAIL,
+      replyTo: m.replyTo,
+      subject: m.subject,
+      text: m.text,
+    });
+    if (error) {
+      console.error(`[${m.tagg}] Resend-fel:`, error);
+      return { success: false, error: GENERIC_ERROR };
+    }
+    return { success: true, error: null };
+  } catch (err) {
+    console.error(`[${m.tagg}] Oväntat fel vid mejlutskick:`, err);
+    return { success: false, error: GENERIC_ERROR };
+  }
+}
+
 export type GiftCardState = {
   success: boolean;
   error: string | null;
@@ -93,7 +202,7 @@ export type GiftCardState = {
  *
  * Så länge Zettle-betallänken saknas är detta hela flödet: kunden fyller i
  * belopp och mottagare, Göran får ett mejl och skapar presentkortet i Zettle.
- * Vi tar aldrig emot betalning här — det sker i Zettle.
+ * Vi tar aldrig emot betalning här - det sker i Zettle.
  */
 export async function submitGiftCard(
   _prevState: GiftCardState,
@@ -129,11 +238,11 @@ export async function submitGiftCard(
   if (missingConfig) {
     if (IS_PROD) {
       console.error(
-        "[presentkort] Mejl ej konfigurerat i produktion — beställningen kunde inte skickas."
+        "[presentkort] Mejl ej konfigurerat i produktion - beställningen kunde inte skickas."
       );
       return { success: false, error: GENERIC_ERROR };
     }
-    console.warn("[presentkort] Mejl ej konfigurerat (dev) — beställning loggas men skickas inte:", {
+    console.warn("[presentkort] Mejl ej konfigurerat (dev) - beställning loggas men skickas inte:", {
       amount,
       buyerName,
       buyerEmail,
@@ -150,19 +259,19 @@ export async function submitGiftCard(
       from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: buyerEmail,
-      subject: `Presentkort ${amount} kr – beställning från ${buyerName}`,
+      subject: `Presentkort ${amount} kr - beställning från ${buyerName}`,
       text: [
         `BELOPP: ${amount} kr`,
         "",
         `Köpare: ${buyerName}`,
         `E-post: ${buyerEmail}`,
-        `Telefon: ${buyerPhone || "—"}`,
+        `Telefon: ${buyerPhone || "-"}`,
         `Presentkortet skickas till: ${recipient || buyerEmail}`,
         "",
         "Hälsning:",
-        greeting || "—",
+        greeting || "-",
         "",
-        "— Skapa presentkortet i Zettle och skicka det till adressen ovan.",
+        "- Skapa presentkortet i Zettle och skicka det till adressen ovan.",
       ].join("\n"),
     });
 

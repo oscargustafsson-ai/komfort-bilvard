@@ -9,6 +9,7 @@ import { Etikett } from "@/components/marketing/Etikett";
 import { Stycke } from "@/components/marketing/Stycke";
 import { BlockRutnat, HittaSektion, FaqSektion, Knappar } from "@/components/marketing/Sidblock";
 import { sidMetadata } from "@/lib/metadata";
+import { sidPriser } from "@/data/priser";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -77,16 +78,31 @@ function PrisRuta({ t }: { t: Tjanst }) {
   );
 }
 
-/** Tilläggslistan med priser. */
-function Tillagg({ t }: { t: Tjanst }) {
-  if (!t.pricing.addons || t.pricing.addons.length === 0) return null;
+/** Finns det en prislista för sidan? */
+function harPrislista(slug: string) {
+  return (sidPriser[slug]?.grupper.length ?? 0) > 0;
+}
+
+/** Prislistan: grupper med rader. Gruppnamnen är vanlig text (p), inte rubriker. */
+function Prislista({ slug }: { slug: string }) {
+  const lista = sidPriser[slug];
+  if (!lista || lista.grupper.length === 0) return null;
   return (
     <>
-      <div className="flex flex-col gap-px bg-gold/10 border border-gold/10">
-        {t.pricing.addons.map((addon, i) => (
-          <div key={i} className="bg-surface-1 flex items-center justify-between gap-6 px-6 py-5 hover:bg-surface-2 transition-colors">
-            <span className="text-white/70 text-sm md:text-base">{addon.label}</span>
-            <span className="text-gold font-bold tracking-wide whitespace-nowrap">{addon.price}</span>
+      <div className="flex flex-col gap-8">
+        {lista.grupper.map((g, gi) => (
+          <div key={gi}>
+            {g.rubrik && (
+              <p className="text-gold/70 text-[11px] tracking-[0.3em] uppercase font-mono mb-3">{g.rubrik}</p>
+            )}
+            <div className="flex flex-col gap-px bg-gold/10 border border-gold/10">
+              {g.rader.map((r) => (
+                <div key={r.label} className="bg-surface-1 flex items-center justify-between gap-6 px-6 py-4 hover:bg-surface-2 transition-colors">
+                  <span className="text-white/70 text-sm md:text-base">{r.label}</span>
+                  <span className="text-gold font-bold tracking-wide whitespace-nowrap">{r.pris}</span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
@@ -137,7 +153,11 @@ function NyTjanstSida({ t, sida }: { t: Tjanst; sida: TjanstSida }) {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gold/10">
             {t.included.map((item, i) => (
-              <FadeIn key={item.heading} delay={i * 0.07}>
+              <FadeIn
+                key={item.heading}
+                delay={i * 0.07}
+                className={t.included.length % 2 === 1 && i === t.included.length - 1 ? "md:col-span-2" : ""}
+              >
                 <div className="bg-surface-2 p-8 hover:bg-surface-1 transition-colors group h-full">
                   <div className="flex items-start gap-3 mb-3">
                     <span className="text-gold mt-1 shrink-0">
@@ -164,7 +184,7 @@ function NyTjanstSida({ t, sida }: { t: Tjanst; sida: TjanstSida }) {
             <Stycke text={sida.prisText} className="text-white/50 leading-relaxed max-w-md" />
           </FadeIn>
           <FadeIn delay={0.1}>
-            <Tillagg t={t} />
+            <Prislista slug={t.slug} />
           </FadeIn>
         </div>
       </section>
@@ -262,18 +282,16 @@ function GammalTjanstSida({ t }: { t: Tjanst }) {
       </section>
 
       {/* Pris & tillägg */}
-      {t.pricing.addons && t.pricing.addons.length > 0 && (
+      {harPrislista(t.slug) && (
         <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-16 items-start">
             <FadeIn>
               <Etikett>Pris</Etikett>
               <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-6">Grundpris & tillägg</h2>
-              <p className="text-white/50 leading-relaxed max-w-md">
-                Grundpaketet börjar från <span className="text-gold font-bold">{t.pricing.fromPrice} {t.pricing.unit ?? "kr"}</span>. Vill du ha ett djupare resultat eller längre skydd finns följande tillägg.
-              </p>
+              <p className="text-white/50 leading-relaxed max-w-md">Här ser du priserna och tilläggen.</p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <Tillagg t={t} />
+              <Prislista slug={t.slug} />
             </FadeIn>
           </div>
         </section>

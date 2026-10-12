@@ -89,7 +89,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Bilrekond för dig i Marieberg",
         stycken: [
-          "Ska bilen säljas, eller behöver den ett lyft efter vintern? En [bilrekond](/tjanster/rekonditionering) ger den nybilskänslan tillbaka. Vi tvättar och avfettar, polerar bort lätta repor i ett steg, skyddar lacken och kemtvättar kupén, så att bilen både ser ut och luktar som ny igen.",
+          "Ska bilen säljas, eller behöver den ett lyft efter vintern? En [bilrekond](/tjanster/rekonditionering) ger den nybilskänslan tillbaka. Vi tvättar och avfettar, lägger på en lackförsegling som håller i 12 månader och kemtvättar kupén, så att bilen både ser ut och luktar som ny igen. Vill du få bort lätta repor kan du lägga till polering.",
         ],
       },
       {
@@ -165,7 +165,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Handtvätt nära hemmet",
         stycken: [
-          "Vår [handtvätt](/tjanster/biltvatt) tar bort grovsmuts och insekter utan borstar som repar. Vi börjar med blötläggning och skonsam avfettning, och hjul och hjulhus tvättas för sig med egna produkter. Till sist torkar vi bilen för hand och avslutar med snabbvax för extra glans och skydd.",
+          "Vår [handtvätt](/tjanster/biltvatt) tar bort grovsmuts och insekter utan borstar som repar. Vi börjar med blötläggning och skonsam avfettning, och hjul och hjulhus tvättas för sig med egna produkter. Till sist torkar vi bilen för hand. Väljer du in- och utvändig tvätt använder vi vaxschampo.",
         ],
       },
     ],
@@ -203,9 +203,9 @@ export const omraden: Omrade[] = [
     ],
     tjanster: [
       {
-        h2: "Utvändig rekond som ger lacken nytt liv",
+        h2: "Helrekond som ger bilen nytt liv",
         stycken: [
-          "Vid en [utvändig rekond](/tjanster/rekonditionering) handtvättar och avfettar vi bilen, polerar lacken och avslutar med ett skyddande lager. Lacken får tillbaka djup och glans och blir enklare att hålla ren. Vill du ha hela bilen fräsch gör vi en komplett rekond, både ut- och invändigt. Det passar extra bra efter vintern, när vägsalt och grus har satt sig i lacken.",
+          "Vid en [helrekond](/tjanster/rekonditionering) handtvättar och avfettar vi bilen, lägger på en lackförsegling som håller i 12 månader och går igenom kupén. Vill du ha tillbaka djup och glans i lacken kan du lägga till polering. Det passar extra bra efter vintern, när vägsalt och grus har satt sig i lacken.",
         ],
       },
       {
@@ -217,7 +217,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Lackförsegling som skyddar mellan tvättarna",
         stycken: [
-          "En [lackförsegling](/tjanster/lackskydd) lägger sig som ett skyddande lager över lacken och gör att poleringens resultat håller längre. Med rätt eftervård håller resultatet då i ett till två år. Vill du ha ett skydd som håller i flera år väljer du i stället ett keramiskt lackskydd.",
+          "En [lackförsegling](/tjanster/lackskydd) lägger sig som ett skyddande lager över lacken och skyddar mot smuts, vatten och UV-strålning. I vår helrekond ingår en lackförsegling som håller i 12 månader. Vill du ha ett skydd som håller i flera år väljer du i stället polering med keramiskt lackskydd.",
         ],
       },
       {
@@ -264,7 +264,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Rekond inför bilförsäljning",
         stycken: [
-          "Ska bilen säljas är det värt att visa den från dess bästa sida. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering) går vi igenom hela bilen: tvätt och avfettning, polering av lätta repor, skydd för lacken och kemtvätt av säten, mattor och innertak. En välvårdad bil gör ett bättre intryck på köparen och kan höja andrahandsvärdet. Behandlingen tar 4-8 timmar, så lägg den gärna några dagar före första visningen.",
+          "Ska bilen säljas är det värt att visa den från dess bästa sida. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering) går vi igenom hela bilen: tvätt och avfettning, en lackförsegling som håller i 12 månader och kemtvätt av säten, mattor och innertak. Har lacken lätta repor kan du lägga till polering. En välvårdad bil gör ett bättre intryck på köparen och kan höja andrahandsvärdet. Behandlingen tar 4-8 timmar, så lägg den gärna några dagar före första visningen.",
         ],
       },
       {
@@ -276,7 +276,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Vax eller keramiskt lackskydd?",
         stycken: [
-          "Vax ger lacken glans och ett tunt skyddande lager. Vår handtvätt avslutas alltid med snabbvax, och efter en polering lägger vi på skyddsvax eller keramisk försegling. Vaxet ligger ovanpå lacken och är borta efter några månader. Ett [keramiskt lackskydd](/tjanster/lackskydd) binder i stället kemiskt till lacken, bildar ett hårdare skikt och sitter kvar i flera år om bilen sköts rätt. Det är rätt val om lacken ska hålla sig fin länge.",
+          "Vax ger lacken glans och ett tunt skyddande lager. Vid in- och utvändig handtvätt använder vi vaxschampo, och efter en polering lägger vi alltid på vax. Vaxet ligger ovanpå lacken och är borta efter några månader. Ett [keramiskt lackskydd](/tjanster/lackskydd) binder i stället kemiskt till lacken, bildar ett hårdare skikt och sitter kvar i flera år om bilen sköts rätt. Det läggs på efter en polering och är rätt val om lacken ska hålla sig fin länge.",
         ],
       },
       {
@@ -328,7 +328,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Rekond för hela bilen",
         stycken: [
-          "Ska hela bilen bli fin, både in- och utvändigt, passar en komplett [rekond](/tjanster/rekonditionering). Den är vår mest sålda tjänst och omfattar handtvätt, avfettning, polering i ett steg, skyddsvax eller keramisk försegling och kemtvätt av kupén. Räkna med att bilen blir kvar hos oss över dagen, och när du hämtar den har den fått tillbaka nybilskänslan.",
+          "Ska hela bilen bli fin, både in- och utvändigt, passar en komplett [rekond](/tjanster/rekonditionering). Den är vår mest sålda tjänst och omfattar handtvätt, avfettning, en lackförsegling som håller i 12 månader och kemtvätt av kupén. Polering finns som tillägg. Räkna med att bilen blir kvar hos oss över dagen, och när du hämtar den har den fått tillbaka nybilskänslan.",
         ],
       },
       {

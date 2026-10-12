@@ -43,7 +43,7 @@ function HeroLine({ text, delay }: { text: string; delay: number }) {
     <svg
       ref={svgRef}
       height="1em"
-      style={{ fontSize: "clamp(62px, 13.2vw, 142px)", overflow: "visible", display: "block" }}
+      style={{ fontSize: "clamp(60px, 11vw, 128px)", overflow: "visible", display: "block" }}
       viewBox={`0 ${BOX_TOP} 640 ${BOX_HEIGHT}`}
       preserveAspectRatio="xMinYMid meet"
       aria-hidden="true"
@@ -65,7 +65,7 @@ function HeroLine({ text, delay }: { text: string; delay: number }) {
   );
 }
 
-/** Dekorativ, animerad rubrik. Sidans riktiga H1 står som text under den. */
+/** Dekorativ, animerad rubrik i tre rader. Sidans riktiga H1 står som text under den. */
 function AnimatedHeroText() {
   return (
     <div
@@ -73,8 +73,9 @@ function AnimatedHeroText() {
       aria-hidden="true"
       style={{ display: "flex", flexDirection: "column", gap: "0.02em" }}
     >
-      <HeroLine text="Din bilvård" delay={0} />
-      <HeroLine text="i Örebro." delay={0.65} />
+      <HeroLine text="Ge din bil" delay={0} />
+      <HeroLine text="nykänslan" delay={0.65} />
+      <HeroLine text="tillbaka." delay={1.3} />
     </div>
   );
 }
@@ -168,6 +169,9 @@ export default function Hero({ rubrik, intro }: Props) {
       {/* Text, left side */}
       <div className="relative z-10 px-8 md:px-20 max-w-2xl">
         <AnimatedHeroText />
+        <p className="text-white/80 text-lg md:text-xl font-light mb-6">
+          Professionell rekond, polering och lackskydd i Örebro
+        </p>
         <h1 className="font-[family-name:var(--font-bebas)] text-3xl md:text-4xl tracking-[0.2em] uppercase text-gold mb-6">
           {rubrik}
         </h1>
@@ -177,12 +181,12 @@ export default function Hero({ rubrik, intro }: Props) {
           ))}
         </div>
         <div className="flex gap-4 flex-wrap">
-          <a
-            href="tel:0761943519"
+          <Link
+            href="/boka"
             className="grain relative overflow-hidden bg-gold text-black px-10 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
-            Ring oss!
-          </a>
+            Boka din behandling
+          </Link>
           <Link
             href="/tjanster"
             className="grain-card relative overflow-hidden border border-white/20 text-white/80 px-10 py-3 font-bold tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"

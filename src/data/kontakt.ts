@@ -55,7 +55,7 @@ export const kontaktsida = {
     fragor: [
       { q: "Hur snabbt får jag svar?", a: "Vi hör av oss inom kort efter att du skickat din förfrågan. Vill du ha svar snabbare kan du ringa 076-194 35 19." },
       { q: "Kan jag få ett pris innan jag bokar?", a: "Ja. Berätta vilken bil du har och vad du vill ha gjort, så räknar vi fram ett pris för din bil. Slutpriset beror på bilens storlek och skick." },
-      { q: "Vilka tjänster kan jag boka?", a: "Du kan boka bilrekond, invändig rekond, polering, lackskydd och biltvätt. Välj tjänst i formuläret, eller Annat om det du vill ha gjort inte finns i listan." },
+      { q: "Vilka tjänster kan jag boka?", a: "Handtvätt, invändig tvätt, helrekond, invändig rekond, polering med vax och vårt kompletta paket med lackskydd. På [bokningssidan](/boka) väljer du tjänst, bilstorlek och tillägg och får ett uppskattat pris direkt." },
     ] satisfies Fraga[],
   },
 };

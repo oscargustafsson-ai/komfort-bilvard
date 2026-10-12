@@ -42,8 +42,8 @@ const contactInfo = [
   },
 ];
 
-/** Tjänsterna i formulärets lista (batch 02, grundfix 5). */
-const tjanstVal = ["Bilrekond", "Invändig rekond", "Polering", "Lackskydd", "Biltvätt", "Annat"];
+/** Tjänsterna i formulärets lista (batch 02b, grundfix 6). */
+const tjanstVal = ["Handtvätt", "Invändig tvätt", "Helrekond", "Invändig rekond", "Polering med vax", "Komplett paket med lackskydd", "Annat"];
 
 /**
  * Kontaktkorten och förfrågningsformuläret. Rubriker, text, karta och FAQ

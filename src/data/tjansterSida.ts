@@ -14,7 +14,7 @@ export const tjansterSida = {
     {
       h2: "Bilrekond",
       stycken: [
-        "En [bilrekond](/tjanster/rekonditionering) är vår mest sålda tjänst och omfattar hela bilen. Utsidan tvättas, poleras i ett steg och får skyddsvax eller keramisk försegling, och i kupén kemtvättar vi säten, mattor och innertak. Räkna med att bilen är hos oss en hel dag. Vill du bara ha utsidan gjord kan du välja utvändig rekond.",
+        "En [bilrekond](/tjanster/rekonditionering) är vår mest sålda tjänst och omfattar hela bilen. Utsidan tvättas och får en lackförsegling som håller i 12 månader, och i kupén kemtvättar vi säten, mattor och innertak. Räkna med att bilen är hos oss en hel dag. Som tillägg kan du välja polering, glasförsegling och motortvätt. Vill du dessutom ha lackkorrigering och 3 års lackskydd finns vårt kompletta paket.",
       ],
     },
     {
@@ -26,19 +26,19 @@ export const tjansterSida = {
     {
       h2: "Polering",
       stycken: [
-        "[Polering](/tjanster/polering) tar bort det mesta av repor, swirlmärken och oxidering, så att matt lack blir blank igen. Först mäter vi lacktjockleken, och utifrån den och lackens skick väljer vi hur många steg som behövs. Efteråt lägger vi alltid på skyddsvax eller keramisk försegling, så att resultatet håller.",
+        "[Polering](/tjanster/polering) tar bort det mesta av repor, swirlmärken och oxidering, så att matt lack blir blank igen. Först mäter vi lacktjockleken, och utifrån den och lackens skick väljer vi hur många steg som behövs, från ett till tre. Efteråt lägger vi alltid på vax, och vill du att resultatet ska hålla längre kan du lägga till lackskydd.",
       ],
     },
     {
       h2: "Lackskydd",
       stycken: [
-        "Keramiskt [lackskydd](/tjanster/lackskydd) är vår mest avancerade skyddsbehandling. Det binder kemiskt till lacken, stöter bort vatten, smuts och kemikalier och skyddar mot UV-strålning och oxidering. Med rätt skötsel räcker skyddet i flera år. Lackskyddet går att lägga till på en bilrekond.",
+        "Keramiskt [lackskydd](/tjanster/lackskydd) är vår mest avancerade skyddsbehandling. Det binder kemiskt till lacken, stöter bort vatten, smuts och kemikalier och skyddar mot UV-strålning och oxidering. Lackskyddet läggs på efter en polering, och du väljer mellan 2, 3 och 5 års skydd.",
       ],
     },
     {
       h2: "Biltvätt",
       stycken: [
-        "Vår [biltvätt](/tjanster/biltvatt) är en handtvätt av bilens utsida. Bilen blötläggs och avfettas, och sedan tvättar vi den med två hinkar och pH-neutralt schampo. Hjul och hjulhus tas för sig, och vi torkar med mikrofiberdukar innan bilen får ett lager snabbvax. Tvätten passar bra som underhåll mellan rekonderna.",
+        "Vår [biltvätt](/tjanster/biltvatt) görs för hand, och du väljer utvändig tvätt, invändig tvätt eller båda. Utsidan blötläggs och avfettas, och sedan tvättar vi den med två hinkar. Hjul och hjulhus tas för sig, och vi torkar med mikrofiberdukar. Till tvätten kan du lägga till asfalts- och saltborttagning, flygrostborttagning och motortvätt. Tvätten passar bra som underhåll mellan rekonderna.",
       ],
     },
   ] satisfies Sektion[],
@@ -57,7 +57,7 @@ export const tjansterSida = {
   valj: {
     h2: "Så väljer du rätt tjänst",
     stycken: [
-      "Vill du bara ha bilen ren räcker en biltvätt. Är det insidan som behöver ett lyft passar invändig rekond, och är lacken matt eller repig är polering rätt val. Vill du ha både insidan och utsidan gjorda på en gång väljer du bilrekond, och vill du att lacken ska hålla sig fin i flera år lägger du till lackskydd. Är du osäker kan du ringa 076-194 35 19, så hjälper vi dig att välja.",
+      "Vill du bara ha bilen ren räcker en biltvätt. Är det insidan som behöver ett lyft passar invändig rekond, och är lacken matt eller repig är polering rätt val. Vill du ha både insidan och utsidan gjorda på en gång väljer du bilrekond, och vill du att lacken ska hålla sig fin i flera år väljer du polering med lackskydd. Är du osäker kan du ringa 076-194 35 19, så hjälper vi dig att välja. På [bokningssidan](/boka) får du ett uppskattat pris för din bil direkt.",
     ],
   } satisfies Sektion,
   hitta: {
@@ -70,7 +70,7 @@ export const tjansterSida = {
     h2: "Vanliga frågor om våra tjänster",
     fragor: [
       { q: "Vad är skillnaden mellan bilrekond och invändig rekond?", a: "En bilrekond omfattar hela bilen, både utsidan och insidan. En invändig rekond gäller bara kupén." },
-      { q: "Kan jag lägga till lackskydd på en rekond?", a: "Ja. Keramiskt lackskydd finns som tillägg till rekonden, och poleringen kan uppgraderas till två eller tre steg." },
+      { q: "Vilka tillägg finns till rekonden?", a: "Motortvätt, glasförsegling med 2 års skydd, lätt polering och 1-stegspolering. Lackskydd läggs på efter en polering och ingår i vårt kompletta paket." },
       { q: "Tvättar ni bilen i automattvätt?", a: "Nej. Vi tvättar alltid för hand, med pH-neutralt schampo och mjuka tvätthandskar." },
     ] satisfies Fraga[],
   },

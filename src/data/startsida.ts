@@ -18,7 +18,7 @@ export const startsida = {
     {
       h2: "Bilrekond i Örebro",
       stycken: [
-        "En rekond är vår mest kompletta behandling och vår mest sålda tjänst. Utvändigt handtvättar och avfettar vi bilen, maskinpolerar lacken i ett steg och lägger på ett skyddande lager. Invändigt kemtvättar vi klädsel, mattor och innertak och rengör alla ytor, från instrumentbrädan till luftventilerna. En komplett rekond tar normalt 4-8 timmar beroende på bilens storlek och skick, så vi bokar in bilen för hela dagen. Vi rekommenderar en rekond en gång om året, gärna efter vintern eller inför sommaren. Läs mer om [vår bilrekond i Örebro](/tjanster/rekonditionering).",
+        "En rekond är vår mest sålda tjänst. Utvändigt handtvättar och avfettar vi bilen och lägger på en lackförsegling som håller i 12 månader. Invändigt kemtvättar vi klädsel, mattor och innertak och rengör alla ytor, från instrumentbrädan till luftventilerna. Vill du få bort lätta repor kan du lägga till polering. En komplett rekond tar normalt 4-8 timmar beroende på bilens storlek och skick, så vi bokar in bilen för hela dagen. Vi rekommenderar en rekond en gång om året, gärna efter vintern eller inför sommaren. Läs mer om [vår bilrekond i Örebro](/tjanster/rekonditionering).",
       ],
     },
     {

@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-11 (Batch 02: Varberga + Almby district pages, /kontakt and /tjanster rewritten, Bilrekond service page rewritten on a new data-driven template)
+Last updated: 2026-10-12 (Batch 02b: new price list in one data source, booking page /boka, text corrections on live pages, new hero headline, Boka in the menu)
 
 ---
 
@@ -34,6 +34,20 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Prices (batch 02b):** every price lives in `src/data/priser.ts` (customer price list
+  2026-10-11). Service cards, hero price boxes, the price lists on service pages (`sidPriser`)
+  and the booking page read from it. `beraknaPris()` is the single calculator, used both in the
+  browser (price picker) and on the server (`submitBooking` recomputes the sum, never trusting
+  the client). No prices in JSON-LD.
+- **Booking page `/boka`:** copy in `src/data/boka.ts`, picker + form in
+  `components/marketing/Bokning.tsx` (client), server action `submitBooking` in `actions.ts`
+  (same Resend flow as the contact form; subject "Ny bokningsförfrågan från <namn>", replyTo
+  the customer's email when given). It is a request that KOM-fort confirms: no payment, no
+  calendar. Exclusive add-on groups: lätt polering/1-stegspolering, lackskydd 2/3/5 år.
+- **Navbar:** desktop menu from `lg` (1024px) with "Boka" last; the gold button says
+  "Ring 076-194 35 19"; below `lg` a phone icon link (aria-label) sits next to the burger.
+- **Hero:** decorative three-line headline ("Ge din bil / nykänslan / tillbaka.") + subtitle,
+  the h1 stays "Bilvård Örebro". Primary button "Boka din behandling" goes to /boka.
 - **Service pages (batch 02):** `tjanster/[slug]/page.tsx` has two layouts. If a service in
   `tjanster.ts` has a `sida` object (new format, copy verbatim from a page package) it renders
   `NyTjanstSida` (breadcrumbs, exact H1/H2s, text sections, map, FAQ, booking block). Otherwise
@@ -77,7 +91,7 @@ src/
                                + .bg-polished / .bg-polished-alt (gold-tinted radial glows for section depth)
                                + .section-divider (soft gold gradient hairline between sections)
                                + .grain / .grain-section / .grain-card (SVG turbulence noise system)
-    actions.ts                 Server actions: submitContact(), submitGiftCard() — email via Resend
+    actions.ts                 Server actions: submitContact(), submitBooking(), submitGiftCard(); email via Resend
     sitemap.ts                 Generates /sitemap.xml from static pages + tjänster
     robots.ts                  Generates /robots.txt (Disallow: / only on localhost / *.vercel.app, see SEO)
     (marketing)/
@@ -86,6 +100,7 @@ src/
       omraden/page.tsx         Districts hub (/omraden), copy from data/omraden.ts
       omraden/[slug]/page.tsx  District page: BreadcrumbList + Service + FAQPage JSON-LD
       kontakt/page.tsx         Contact page: hero + <Kontakt> (cards/form) + text blocks + map + FAQ (copy from data/kontakt.ts)
+      boka/page.tsx            Booking page: hero + <Bokning> + text + map (copy from data/boka.ts)
       presentkort/page.tsx     Gift card page (renders <Presentkort>)
       tjanster/page.tsx        Services hub: H1 + intro + <ServiceCard>s + text sections + map + FAQ (copy from data/tjansterSida.ts)
       tjanster/[slug]/page.tsx Per-service page: new layout when the service has `sida`, old layout otherwise; Service/FAQ JSON-LD
@@ -99,6 +114,7 @@ src/
       tjanstIkoner.tsx         Inline SVG gold icons mapped by slug; no deps
       OmOss.tsx                About section + stats grid; bg-polished bg + faint HexagonPattern + section-divider
       Kontakt.tsx              Contact cards + form (useActionState); map and copy live in the page
+      Bokning.tsx              /boka price picker + booking form (client), prices from data/priser.ts
       Presentkort.tsx          Gift cards: amount picker + Zettle link OR order form (see below);
                                HexagonPattern bg at gold/[0.03] — same as OmOss but fainter (0.04)
       JsonLd.tsx               JSON-LD helpers: foretagSchema() (AutoWash), serviceSchema(), omradeSchema(), faqSchema(), brodsmulorSchema()
@@ -114,7 +130,9 @@ src/
                                instead of Math.random, and fmt() rounding — all three were needed to
                                keep it lint-clean and free of hydration mismatch.
   data/
-    tjanster.ts                5 services with copy, metaDesc, included[], why[], faq[], pricing{...}, optional sida{} (new page format)
+    priser.ts                  All prices (one source) + beraknaPris() calculator + sidPriser (price lists per service page)
+    boka.ts                    Booking page copy
+    tjanster.ts                5 services with copy, metaDesc, included[], why[], faq[], pricing{fromPrice from priser.ts, note, popular}, optional sida{}
     kontakt.ts                 Contact page copy
     tjansterSida.ts            Services hub copy
     startsida.ts               Home page copy (verbatim from the work-order batch file)
@@ -149,16 +167,13 @@ public/
   set imperatively on mousemove — no React re-render per move), gold accent line grows.
 - **Restore point:** simpler pre-icon card design tagged `fore-tjanstekort` (commit 3960bbb).
 
-### Pricing (`data/tjanster.ts` + `[slug]/page.tsx`)
-- Each service has a `pricing` object: `fromPrice` (e.g. "2 495"), `unit` (default "kr"),
-  optional `note`, optional `addons[]` ({label, price}), optional `popular` flag.
-- Prices sourced from a WhatsApp price list (2026-07-27); mapped to closest-fit service —
-  not 1:1 literal package names, so treat as approximate/"fr" (från) pricing, not a rigid quote engine.
-- Rekonditionering is flagged `popular: true` → renders a "Populärast" gold ribbon on cards.
-- Service detail page shows a gold-framed price badge in the hero + a "Grundpris & tillägg"
-  section listing `addons` (only rendered if addons exist).
-- Overview/home cards show a compact "Fr [price] kr" line (rendered inside `ServiceCard.tsx` —
-  verify current `ServiceCard.tsx` includes this if pricing display seems missing after a refactor).
+### Pricing (`data/priser.ts`)
+- Customer price list from 2026-10-11. `tjanstpriser[]` holds each service with price per car
+  size or step, optional size surcharge (polering, komplett paket) and add-ons; `sidPriser`
+  derives the from-price and the price list shown on each service page.
+- Cards show "Fr <lowest price> kr"; the hero box shows the from-price plus `pricing.note`.
+- Prices are from-prices: never written in body copy, never in JSON-LD.
+- Rekonditionering ("Bilrekond") is flagged `popular: true` (gold "Populärast" ribbon).
 
 ### Grain system (`globals.css`)
 

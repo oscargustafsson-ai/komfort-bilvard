@@ -3,6 +3,18 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { site } from "@/lib/site";
+
+const meny = [
+  { label: "Tjänster", href: "/tjanster" },
+  { label: "Områden", href: "/omraden" },
+  { label: "Presentkort", href: "/presentkort" },
+  { label: "Om oss", href: "/#om" },
+  { label: "Kontakt", href: "/kontakt" },
+  { label: "Boka", href: "/boka" },
+];
+
+const RING = `Ring ${site.phoneDisplay}`;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,26 +47,41 @@ export default function Navbar() {
           />
         </Link>
 
-        <ul className="hidden md:flex gap-8 text-sm text-white/60 tracking-widest uppercase">
-          <li><Link href="/tjanster" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Tjänster</Link></li>
-          <li><Link href="/omraden" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Områden</Link></li>
-          <li><Link href="/presentkort" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Presentkort</Link></li>
-          <li><Link href="/#om" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Om oss</Link></li>
-          <li><Link href="/kontakt" className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">Kontakt</Link></li>
+        {/* Datormenyn från 1024 px (lg). Under det används mobilmenyn. */}
+        <ul className="hidden lg:flex gap-6 text-sm text-white/60 tracking-widest uppercase">
+          {meny.map((m) => (
+            <li key={m.href}>
+              <Link href={m.href} className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">
+                {m.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <a
-            href="tel:0761943519"
-            className="grain relative overflow-hidden hidden md:block bg-gold text-black px-8 py-3 text-sm font-bold tracking-widest uppercase rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            href={site.phoneHref}
+            className="grain relative overflow-hidden hidden lg:block bg-gold text-black px-8 py-3 text-sm font-bold tracking-widest uppercase rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300 whitespace-nowrap"
           >
-            Boka nu
+            {RING}
+          </a>
+
+          {/* På mobil: telefonikon så att det alltid går att ringa direkt. */}
+          <a
+            href={site.phoneHref}
+            aria-label={RING}
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-gold/40 text-gold hover:bg-gold hover:text-black transition-colors"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+            </svg>
           </a>
 
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setOpen(!open)}
             aria-label="Öppna meny"
+            aria-expanded={open}
           >
             <span className={`block w-6 h-px bg-white transition-all duration-300 origin-center ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
             <span className={`block w-6 h-px bg-white transition-all duration-300 ${open ? "opacity-0" : ""}`} />
@@ -64,19 +91,19 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`md:hidden fixed inset-0 top-[72px] z-40 bg-surface-1 transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`lg:hidden fixed inset-0 top-[72px] z-40 bg-surface-1 transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
-        <div className="flex flex-col h-full px-8 pt-12 pb-12 gap-8">
-          <Link href="/tjanster" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Tjänster</Link>
-          <Link href="/omraden" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Områden</Link>
-          <Link href="/presentkort" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Presentkort</Link>
-          <Link href="/#om" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Om oss</Link>
-          <Link href="/kontakt" onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">Kontakt</Link>
+        <div className="flex flex-col h-full px-8 pt-12 pb-12 gap-7 overflow-y-auto">
+          {meny.map((m) => (
+            <Link key={m.href} href={m.href} onClick={() => setOpen(false)} className="text-white/80 tracking-widest uppercase text-lg hover:text-gold transition-colors">
+              {m.label}
+            </Link>
+          ))}
           <a
-            href="tel:0761943519"
+            href={site.phoneHref}
             className="grain relative overflow-hidden mt-auto bg-gold text-black px-8 py-4 font-bold tracking-widest uppercase text-sm text-center rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
           >
-            Ring 076-194 35 19
+            {RING}
           </a>
         </div>
       </div>

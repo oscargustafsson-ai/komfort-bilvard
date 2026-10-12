@@ -1,12 +1,17 @@
-export type PriceAddon = { label: string; price: string };
+import { sidPriser, kr } from "./priser";
 
+/**
+ * Prisruta i heron. Från-priset kommer från priser.ts (en enda källa);
+ * prislistan på sidan läses från sidPriser[slug]. Noten visas bara i prisrutan.
+ */
 export type Pricing = {
   fromPrice: string;
   unit?: string;
   note?: string;
-  addons?: PriceAddon[];
   popular?: boolean;
 };
+
+const fran = (slug: string) => kr(sidPriser[slug].fran);
 
 /** Rubrik + stycken (samma form som i startsida.ts). */
 export type Sektion = { h2: string; stycken: string[] };
@@ -53,13 +58,12 @@ export const tjanster: Tjanst[] = [
     num: "01",
     title: "Bilrekond",
     shortDesc: "Komplett invändig och utvändig behandling. Din bil återfår nybilskänslan.",
-    metaDesc: "Bilrekond i Örebro: handtvätt, polering, skydd för lacken och kemtvätt av kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-194 35 19.",
+    metaDesc: "Bilrekond i Örebro: handtvätt, 12 månaders lackförsegling och kemtvätt av kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-194 35 19.",
     hero: "Bilrekond Örebro",
-    intro: "En bilrekond är den mest kompletta behandlingen vi gör och vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas, poleras och skyddas, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
+    intro: "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
     included: [
-      { heading: "Utvändig handtvätt och avfettning", text: "Bilen handtvättas med pH-neutrala medel, och alla ytor avfettas så att lacken är ren inför poleringen." },
-      { heading: "Polering i ett steg", text: "Maskinpolering i ett steg tar bort lätta repor, oxidering och matt yta och ger lacken ny lyster." },
-      { heading: "Skydd för lacken", text: "Vi avslutar med skyddsvax eller keramisk försegling, som skyddar lacken mot smuts, vatten och UV-strålning." },
+      { heading: "Utvändig handtvätt och avfettning", text: "Bilen handtvättas med pH-neutrala medel, och alla ytor avfettas så att lacken är ren inför lackförseglingen." },
+      { heading: "Lackförsegling som håller i 12 månader", text: "Vi avslutar med en lackförsegling som skyddar lacken mot smuts, vatten och UV-strålning i 12 månader." },
       { heading: "Hjul och däck", text: "Fälgar och däck rengörs grundligt och behandlas med skyddande produkter." },
       { heading: "Kemtvätt av klädsel, mattor och innertak", text: "Säten, mattor och innertak rengörs med professionell kemtvättsutrustning som lyfter smuts, fläckar och lukt ur tyget." },
       { heading: "Rengöring av alla ytor", text: "Instrumentbräda, dörrsidor, luftventiler och plastdetaljer rengörs och får ett skyddande medel." },
@@ -72,36 +76,31 @@ export const tjanster: Tjanst[] = [
     ],
     faq: [
       { q: "Hur lång tid tar en bilrekond?", a: "Mellan fyra och åtta timmar, beroende på bilens storlek och skick." },
-      { q: "Vad kostar en bilrekond?", a: "Det beror på bilens storlek och skick. Grundpriset ser du högst upp på sidan, och ringer du 076-194 35 19 får du ett pris som gäller din bil." },
-      { q: "Ingår polering i rekonden?", a: "Ja, 1-stegspolering ingår alltid. Behöver lacken mer finns 2- och 3-stegspolering som tillägg." },
+      { q: "Vad kostar en bilrekond?", a: "Det beror på bilens storlek och skick. Alla priser ser du i prislistan, och på bokningssidan får du ett uppskattat pris för din bil med tillägg." },
+      { q: "Ingår polering i rekonden?", a: "Nej, polering är ett tillägg. Du kan välja lätt polering eller 1-stegspolering, och behöver lacken mer passar vår polering med vax i upp till tre steg." },
       { q: "Kan ni hämta bilen?", a: "Ja, vi kan hämta bilen hos dig och köra hem den igen efter rekonden. Säg till när du bokar, så berättar vi vad som gäller." },
     ],
     pricing: {
-      fromPrice: "2 495",
+      fromPrice: fran("rekonditionering"),
       unit: "kr",
-      note: "Vår mest sålda tjänst. 1-stegspolering ingår.",
+      note: "Vår mest sålda tjänst. 12 månaders lackförsegling ingår.",
       popular: true,
-      addons: [
-        { label: "Uppgradering till 2-stegspolering", price: "+995 kr" },
-        { label: "Uppgradering till 3-stegspolering", price: "+1 795 kr" },
-        { label: "Tillägg: keramiskt lackskydd", price: "+1 995 kr" },
-      ],
     },
     sida: {
       title: "Bilrekond Örebro | Rekond av bil i Örebro",
       h1: "Bilrekond Örebro",
       intro: [
-        "En bilrekond är den mest kompletta behandlingen vi gör och vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas, poleras och skyddas, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
+        "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
         "Bilen tvättas alltid för hand, och du kan lämna den hos oss eller låta oss hämta den hos dig. Vill du se allt vi gör, läs om [vår bilvård](/).",
       ],
       ingarH2: "Vad ingår i en bilrekond?",
       prisH2: "Pris och tillägg",
-      prisText: "Priset för en bilrekond beror på bilens storlek och skick, och 1-stegspolering ingår alltid. Har lacken djupare repor kan du uppgradera till två- eller trestegspolering, och vill du att skyddet ska hålla i flera år kan du lägga till [keramiskt lackskydd](/tjanster/lackskydd). Grundpriset ser du högst upp på sidan och tilläggen i tilläggslistan.",
+      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, glasförsegling med 2 års skydd och antingen lätt polering eller 1-stegspolering. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
       sektioner: [
         {
           h2: "Så går en bilrekond till",
           stycken: [
-            "Du bokar genom att ringa eller skicka en förfrågan. Hur lång tid rekonden tar beror på bilens storlek och skick, men räkna med 4-8 timmar, så bilen stannar hos oss hela dagen. Under dagen tvättar, polerar och skyddar vi utsidan och går igenom kupén med dammsugning, kemtvätt och rengöring av alla ytor. När vi är klara luftar vi bilen ordentligt, så att du kan köra hem direkt. Har du möjlighet kan du låta dörrar och fönster stå öppna en stund till när du kommer hem.",
+            "Du bokar genom att ringa eller skicka en förfrågan. Hur lång tid rekonden tar beror på bilens storlek och skick, men räkna med 4-8 timmar, så bilen stannar hos oss hela dagen. Under dagen tvättar och skyddar vi utsidan och går igenom kupén med dammsugning, kemtvätt och rengöring av alla ytor. När vi är klara luftar vi bilen ordentligt, så att du kan köra hem direkt. Har du möjlighet kan du låta dörrar och fönster stå öppna en stund till när du kommer hem.",
           ],
         },
         {
@@ -133,7 +132,7 @@ export const tjanster: Tjanst[] = [
     slug: "polering",
     num: "02",
     title: "Polering",
-    shortDesc: "Maskinpolering som tar bort repor och oxidering. Lacken återfår sitt djup och glans.",
+    shortDesc: "Maskinpolering som tar bort repor och oxidering. Lacken återfår sitt djup och sin glans.",
     metaDesc: "Lackpolering och maskinpolering i Örebro. Vi tar bort repor, swirls och oxidering. KOM-fort Bilvård - ring 076-194 35 19.",
     hero: "Lackpolering i Örebro",
     intro: "Med åren samlar bilens lack på sig repor, swirl-märken och oxidering som gör att lacken ser matt och sliten ut. Vår maskinpolering är den effektivaste metoden för att återställa lacken till ursprungligt skick - utan att måla om. Vi arbetar med professionella maskiner och polermedel anpassade efter just din bils lack.",
@@ -141,7 +140,7 @@ export const tjanster: Tjanst[] = [
       { heading: "Lackanalys", text: "Vi mäter lackens tjocklek och bedömer skicket innan vi börjar. På så sätt vet vi exakt vilket polerprogram som ger bäst resultat." },
       { heading: "Tvåstegspolering", text: "Steg 1 tar bort djupare repor och oxidering. Steg 2 förfinar ytan och ger lacken maximalt djup och glans." },
       { heading: "Enstegspolering", text: "För lack i gott skick räcker ofta ett poleringsteg för att ta bort swirl-märken och ge lacken nytt liv." },
-      { heading: "Finishing & skydd", text: "Efter polering applicerar vi alltid ett lager skyddsvax eller keramisk försegling för att bevara resultatet." },
+      { heading: "Finishing & skydd", text: "Efter polering lägger vi alltid på vax för att bevara resultatet. Vill du skydda lacken längre kan du lägga till lackskydd." },
     ],
     why: [
       "Kostar en bråkdel av en omlackering",
@@ -151,23 +150,19 @@ export const tjanster: Tjanst[] = [
     faq: [
       { q: "Kan alla repor tas bort med polering?", a: "Repor som bara sitter i klarlacket kan i de flesta fall tas bort helt. Repor som gått igenom till grundfärgen eller plåten kräver däremot lackning." },
       { q: "Försvinner lacken av polering?", a: "Polering tar bort ett mycket tunt lager lack. Vi mäter alltid lacktjockleken innan för att säkerställa att det finns marginal. Med professionell polering är det helt säkert." },
-      { q: "Hur länge håller resultatet?", a: "Med rätt eftervård och ett skyddande lackförsegling håller resultatet i 1-2 år." },
+      { q: "Hur länge håller resultatet?", a: "Med rätt eftervård håller resultatet länge. Vaxet skyddar lacken i några månader." },
     ],
     pricing: {
-      fromPrice: "995",
+      fromPrice: fran("polering"),
       unit: "kr",
-      note: "Enstegspolering som tillägg vid utvändig rekond. Fler steg för djupare resultat.",
-      addons: [
-        { label: "2-stegspolering (tillägg)", price: "+995 kr" },
-        { label: "3-stegspolering (tillägg)", price: "+1 795 kr" },
-      ],
+      note: "1-stegspolering med vax. Fler steg för djupare resultat.",
     },
   },
   {
     slug: "lackskydd",
     num: "03",
     title: "Lackskydd",
-    shortDesc: "Keramiskt lackskydd som skyddar lacken mot väder, smuts och UV-strålar.",
+    shortDesc: "Lackskydd som läggs på efter polering. Välj 2, 3 eller 5 års skydd.",
     metaDesc: "Keramiskt lackskydd och lackförsegling i Örebro. Skydda din bil mot väder, smuts och repor. KOM-fort Bilvård - ring 076-194 35 19.",
     hero: "Keramiskt Lackskydd i Örebro",
     intro: "Keramiskt lackskydd är den mest avancerade och långvariga skyddsbehandlingen för din bils lack. Ett keramiskt skikt binder kemiskt till lacken och skapar en hård, hydrofob yta som stöter bort vatten, smuts och kemikalier. Bilen blir betydligt enklare att hålla ren och lacken skyddas mot UV-strålning, oxidering och lätta repor i flera år.",
@@ -181,7 +176,7 @@ export const tjanster: Tjanst[] = [
       "Skyddar lacken i flera år med rätt underhåll",
       "Extremt enkel att hålla ren - smuts fastnar inte",
       "Skyddar mot UV-strålning som annars bryter ned lacken",
-      "Ökar bilens andrahandsvärde",
+      "Kan höja bilens andrahandsvärde",
     ],
     faq: [
       { q: "Vad skiljer keramiskt skydd från vanligt vax?", a: "Vax sitter på ytan och tvättas bort efter några månader. Keramiskt skydd binder kemiskt till lacken och håller i flera år. Det ger även ett hårdare och mer reptåligt skikt." },
@@ -189,9 +184,9 @@ export const tjanster: Tjanst[] = [
       { q: "Kan man applicera keramiskt skydd på en ny bil?", a: "Absolut - faktum är att det är optimalt att skydda en ny bil direkt innan lacken hinner samla på sig repor och föroreningar." },
     ],
     pricing: {
-      fromPrice: "1 995",
+      fromPrice: fran("lackskydd"),
       unit: "kr",
-      note: "Tillägg vid polering eller rekonditionering. 12 månaders lackförsegling ingår i våra paket.",
+      note: "Tillägg till polering. Välj 2, 3 eller 5 års skydd.",
     },
   },
   {
@@ -206,7 +201,7 @@ export const tjanster: Tjanst[] = [
       { heading: "Förblötläggning & avfettning", text: "Vi börjar med att blötlägga bilen och lösa upp grovsmuts och insekter med skonsamma avfettningsmedel." },
       { heading: "Tvåhinkstvätt", text: "Vi använder tvåhinkmetoden - en hink med tvålvatten och en sköljhink - för att minimera risken att smuts förs tillbaka till lacken." },
       { heading: "Hjul & hjulhus", text: "Hjul och hjulhus tvättas separat med dedikerade produkter för bäst resultat." },
-      { heading: "Avtorkning & finish", text: "Bilen torkas med mjuka mikrofiberdukar och avslutas med ett snabbvax för extra glans och skydd." },
+      { heading: "Avtorkning & finish", text: "Bilen torkas med mjuka mikrofiberdukar. Vid in- och utvändig tvätt används vaxschampo." },
     ],
     why: [
       "Skonsammare mot lacken än en automattvätt med borstar",
@@ -217,17 +212,12 @@ export const tjanster: Tjanst[] = [
     faq: [
       { q: "Varför är handtvätt bättre än automatisk biltvätt?", a: "Automattvättar har hårda borstar och starka kemikalier som sliter på lacken och skapar repor över tid. Handtvätt med rätt teknik och produkter är alltid skonsamt mot lacken." },
       { q: "Hur ofta bör man tvätta bilen?", a: "Det beror på hur du kör och var du bor. En månatlig tvätt är en bra tumregel för att hålla lacken i gott skick." },
-      { q: "Ingår invändig städning?", a: "Standard biltvätt avser utvändigt. Invändig städning bokas som ett tillägg eller som del av en rekonditionering." },
+      { q: "Ingår invändig städning?", a: "Det beror på vilken tvätt du väljer. Vi gör utvändig handtvätt, invändig tvätt eller båda, och för en grundligare rengöring finns invändig rekond." },
     ],
     pricing: {
-      fromPrice: "496",
+      fromPrice: fran("biltvatt"),
       unit: "kr",
-      note: "Utvändig tvätt + polering + 12 månaders lackförsegling.",
-      addons: [
-        { label: "Uppgradering till 2-stegs polering", price: "+995 kr" },
-        { label: "Uppgradering till 3-stegs polering", price: "+1 795 kr" },
-        { label: "Tillägg: Keramiskt lackskydd", price: "+1 995 kr" },
-      ],
+      note: "Utvändig handtvätt för vanlig bil. Alla priser ser du nedan.",
     },
   },
   {
@@ -257,7 +247,7 @@ export const tjanster: Tjanst[] = [
       { q: "Hur länge måste bilen luftas efter kemtvätt?", a: "Vi luftar bilen ordentligt efter behandlingen. Du kan köra hem direkt, men lämna gärna dörrar och fönster öppna ytterligare någon timme om möjligt." },
     ],
     pricing: {
-      fromPrice: "995",
+      fromPrice: fran("invandig-rekond"),
       unit: "kr",
       note: "Komplett invändig kemtvätt av klädsel, mattor och alla ytor.",
     },

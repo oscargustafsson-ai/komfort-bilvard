@@ -65,6 +65,9 @@ export function brodsmulorSchema(items: { namn: string; href: string }[]) {
   };
 }
 
+/** [text](/sökväg) blir bara text i JSON-LD. På sidan finns länken kvar. */
+const utanLankar = (s: string) => s.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+
 /** FAQPage för de synliga frågorna på sidan. */
 export function faqSchema(fragor: { q: string; a: string }[]) {
   return {
@@ -72,8 +75,8 @@ export function faqSchema(fragor: { q: string; a: string }[]) {
     "@type": "FAQPage",
     mainEntity: fragor.map((f) => ({
       "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
+      name: utanLankar(f.q),
+      acceptedAnswer: { "@type": "Answer", text: utanLankar(f.a) },
     })),
   };
 }

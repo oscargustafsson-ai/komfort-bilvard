@@ -6,6 +6,7 @@ const links = [
   { label: "Presentkort", href: "/presentkort" },
   { label: "Om oss", href: "/#om" },
   { label: "Kontakt", href: "/kontakt" },
+  { label: "Boka", href: "/boka" },
 ];
 
 const tjanster = [
