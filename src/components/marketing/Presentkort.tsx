@@ -3,15 +3,9 @@
 import { useActionState, useState, startTransition } from "react";
 import { submitGiftCard } from "@/app/actions";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { Etikett } from "@/components/marketing/Etikett";
 import { HexagonPattern } from "@/components/ui/HexagonPattern";
 import { giftCardAmounts, giftCardLimits, zettleGiftCardUrl } from "@/lib/site";
 
-const steg = [
-  { num: "01", title: "Välj belopp", text: "Bestäm hur mycket presentkortet ska vara värt - eller ange ett eget belopp." },
-  { num: "02", title: "Fyll i uppgifter", text: "Ange vem presentkortet är till och vilken mejladress det ska skickas till." },
-  { num: "03", title: "Betala via Zettle", text: "Du får en betallänk från Zettle. När betalningen är klar skickas presentkortet till mottagaren." },
-];
 
 /**
  * Skickar formuläret via useActionState utan <form action>. React 19 nollställer
@@ -26,6 +20,11 @@ function skickaUtanNollstallning(action: (fd: FormData) => void) {
   };
 }
 
+/**
+ * Beloppsval, beställningsformulär och tackruta. Rubriker, text, stegen och
+ * Zettle-rutan ligger i src/app/(marketing)/presentkort/page.tsx
+ * (text från src/data/presentkort.ts).
+ */
 export default function Presentkort() {
   const [state, action, pending] = useActionState(submitGiftCard, null);
   const [amount, setAmount] = useState<number>(giftCardAmounts[1]);
@@ -41,50 +40,14 @@ export default function Presentkort() {
   const effectiveAmount = custom !== "" ? (customValid ? customNum : null) : amount;
 
   return (
-    <section className="grain-section relative py-32 px-8 bg-surface-2 border-t border-gold/10 overflow-hidden">
-      {/* Samma hexmönster som Om oss, men svagare (0.03 mot 0.04) — syns, utan att ta över. */}
+    <div className="relative">
       <HexagonPattern
         radius={46}
         className="text-gold/[0.03] [mask-image:radial-gradient(70%_70%_at_50%_50%,black,transparent)]"
         stroke="currentColor"
         strokeWidth={1}
       />
-      <div className="relative max-w-6xl mx-auto">
-
-        <FadeIn>
-          <Etikett>Presentkort</Etikett>
-          <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide mb-6">
-            GE BORT<br />EN NYTVÄTTAD BIL.
-          </h2>
-          <p className="text-white/50 text-base leading-relaxed max-w-xl mb-8">
-            Ett presentkort hos KOM-fort Bilvård gäller på alla våra tjänster - rekond,
-            polering, lackskydd eller en enkel biltvätt. Mottagaren väljer själv.
-          </p>
-
-          {/* Betalningen sker hos Zettle — sagt tidigt så kunden vet innan hen fyller i något. */}
-          <div className="inline-flex items-center gap-3 border border-gold/20 bg-gold/[0.06] px-5 py-3 mb-16">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4 text-gold shrink-0">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-            </svg>
-            <p className="text-white/60 text-sm">
-              Betalningen sker tryggt via <span className="text-gold font-semibold">Zettle</span> - vi hanterar aldrig dina kortuppgifter.
-            </p>
-          </div>
-        </FadeIn>
-
-        {/* Så funkar det */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-20">
-          {steg.map((s, i) => (
-            <FadeIn key={s.num} delay={i * 0.08}>
-              <div className="grain-card relative overflow-hidden h-full p-7 border border-white/8 bg-white/[0.03]">
-                <p className="font-[family-name:var(--font-bebas)] text-5xl text-gold/25 leading-none mb-4">{s.num}</p>
-                <p className="text-white font-bold tracking-tight mb-2">{s.title}</p>
-                <p className="text-white/50 text-sm leading-relaxed">{s.text}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-
+      <div className="relative">
         {state?.success ? (
           <FadeIn>
             <div className="border border-gold/30 bg-gold/5 p-12 text-center">
@@ -243,6 +206,6 @@ export default function Presentkort() {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 }

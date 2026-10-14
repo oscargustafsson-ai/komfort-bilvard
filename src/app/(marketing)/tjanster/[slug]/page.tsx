@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { tjanster, getTjanstBySlug, type Tjanst, type TjanstSida } from "@/data/tjanster";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { JsonLd, serviceSchema } from "@/components/marketing/JsonLd";
@@ -22,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = getTjanstBySlug(slug);
   if (!t) return {};
   return sidMetadata({
-    title: t.sida ? t.sida.title : `${t.title} i Örebro | KOM-fort Bilvård AB`,
+    title: t.sida.title,
     description: t.metaDesc,
     path: `/tjanster/${t.slug}`,
     ogType: "article",
@@ -78,11 +77,6 @@ function PrisRuta({ t }: { t: Tjanst }) {
   );
 }
 
-/** Finns det en prislista för sidan? */
-function harPrislista(slug: string) {
-  return (sidPriser[slug]?.grupper.length ?? 0) > 0;
-}
-
 /** Prislistan: grupper med rader. Gruppnamnen är vanlig text (p), inte rubriker. */
 function Prislista({ slug }: { slug: string }) {
   const lista = sidPriser[slug];
@@ -111,11 +105,8 @@ function Prislista({ slug }: { slug: string }) {
   );
 }
 
-/**
- * Ny mall (från batch 02): rubriker och text läses från t.sida.
- * Används av de tjänstesidor som skrivits om enligt sidpaket.
- */
-function NyTjanstSida({ t, sida }: { t: Tjanst; sida: TjanstSida }) {
+/** Tjänstesidans mall: rubriker och text läses från t.sida (ordagrant från sidpaketet). */
+function TjanstSida({ t, sida }: { t: Tjanst; sida: TjanstSida }) {
   const smulor = [
     { namn: "Startsida", href: "/" },
     { namn: "Tjänster", href: "/tjanster" },
@@ -230,127 +221,9 @@ function NyTjanstSida({ t, sida }: { t: Tjanst; sida: TjanstSida }) {
   );
 }
 
-/** Gammal mall: ser ut och läser som tidigare tills sidan skrivs om i en batch. */
-function GammalTjanstSida({ t }: { t: Tjanst }) {
-  return (
-    <main className="min-h-screen overflow-x-hidden">
-
-      {serviceSchema(t).map((schema, i) => (
-        <JsonLd key={i} data={schema} />
-      ))}
-
-      {/* Hero */}
-      <section className="pt-40 pb-20 px-8 bg-surface-1 border-b border-gold/10">
-        <div className="max-w-6xl mx-auto">
-          <FadeIn>
-            <Link href="/tjanster" className="inline-flex items-center gap-2 text-gold/60 text-xs tracking-widest uppercase font-mono mb-10 hover:text-gold transition-colors">
-              ← Alla tjänster
-            </Link>
-            <Etikett className="mb-5">{t.num} KOM-fort Bilvård AB · Örebro</Etikett>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">{t.hero}</h1>
-            <p className="text-white/50 text-lg max-w-2xl leading-relaxed font-light mb-10">{t.intro}</p>
-            <PrisRuta t={t} />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Vad ingår */}
-      <section className="py-24 px-8 bg-surface-2">
-        <div className="max-w-6xl mx-auto">
-          <FadeIn>
-            <Etikett>Vad ingår</Etikett>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-12">Vad ingår i {t.title}?</h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gold/10">
-            {t.included.map((item, i) => (
-              <FadeIn key={item.heading} delay={i * 0.07}>
-                <div className="bg-surface-2 p-8 hover:bg-surface-1 transition-colors group">
-                  <div className="flex items-start gap-3 mb-3">
-                    <span className="text-gold mt-1 shrink-0">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                    </span>
-                    <h3 className="text-white font-bold text-base group-hover:text-gold transition-colors">{item.heading}</h3>
-                  </div>
-                  <p className="text-white/40 text-sm leading-relaxed pl-7">{item.text}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pris & tillägg */}
-      {harPrislista(t.slug) && (
-        <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-16 items-start">
-            <FadeIn>
-              <Etikett>Pris</Etikett>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-6">Grundpris & tillägg</h2>
-              <p className="text-white/50 leading-relaxed max-w-md">{t.pricing.listaText ?? "Här ser du priserna och tilläggen."}</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <Prislista slug={t.slug} />
-            </FadeIn>
-          </div>
-        </section>
-      )}
-
-      {/* Varför välja oss */}
-      <section className="py-24 px-8 bg-surface-2 border-t border-gold/10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <FadeIn>
-            <Etikett>Varför oss</Etikett>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-8">Varför välja KOM-fort?</h2>
-            <VarforLista punkter={t.why} />
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <Citat />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
-        <div className="max-w-3xl mx-auto">
-          <FadeIn>
-            <Etikett>Vanliga frågor</Etikett>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-12">Frågor & Svar</h2>
-          </FadeIn>
-          <div className="flex flex-col gap-px bg-gold/10">
-            {t.faq.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
-                <div className="bg-surface-2 p-8">
-                  <h3 className="text-white font-bold mb-3">{item.q}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{item.a}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 px-8 bg-surface-2 border-t border-gold/10">
-        <FadeIn>
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-2">Redo att boka {t.title.toLowerCase()}?</h2>
-              <p className="text-white/50">Ring oss eller skicka en förfrågan - vi svarar snabbt.</p>
-            </div>
-            <Knappar className="shrink-0" />
-          </div>
-        </FadeIn>
-      </section>
-
-    </main>
-  );
-}
-
 export default async function TjanstPage({ params }: Props) {
   const { slug } = await params;
   const t = getTjanstBySlug(slug);
   if (!t) notFound();
-  return t.sida ? <NyTjanstSida t={t} sida={t.sida} /> : <GammalTjanstSida t={t} />;
+  return <TjanstSida t={t} sida={t.sida} />;
 }

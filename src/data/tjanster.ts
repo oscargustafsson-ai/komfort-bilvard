@@ -11,8 +11,6 @@ export type Pricing = {
   popular?: boolean;
   /** Texten före priset på kort och i prisrutan. Standard "Fr". */
   prefix?: string;
-  /** Stycket över prislistan i den gamla mallen. Standard "Här ser du priserna och tilläggen." */
-  listaText?: string;
 };
 
 const fran = (slug: string) => kr(sidPriser[slug].fran);
@@ -21,8 +19,7 @@ const fran = (slug: string) => kr(sidPriser[slug].fran);
 export type Sektion = { h2: string; stycken: string[] };
 
 /**
- * Sida i det nya formatet (från batch 02). Finns `sida` renderar
- * tjanster/[slug]/page.tsx den nya mallen; annars den gamla.
+ * Sidans rubriker och text (mallen i tjanster/[slug]/page.tsx).
  * All text ordagrann från sidpaketet.
  */
 export type TjanstSida = {
@@ -52,7 +49,7 @@ export type Tjanst = {
   why: string[];
   faq: { q: string; a: string }[];
   pricing: Pricing;
-  sida?: TjanstSida;
+  sida: TjanstSida;
 };
 
 export const tjanster: Tjanst[] = [
@@ -132,130 +129,301 @@ export const tjanster: Tjanst[] = [
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan, så hör vi av oss och bokar in en dag som passar dig.",
     },
   },
+  // Batch 03, sida 2/5. Text ordagrann från batcher/batch-03.md.
   {
     slug: "polering",
     num: "02",
     title: "Polering",
     shortDesc: "Maskinpolering som tar bort repor och oxidering. Lacken återfår sitt djup och sin glans.",
-    metaDesc: "Lackpolering och maskinpolering i Örebro. Vi tar bort repor, swirls och oxidering. KOM-fort Bilvård - ring 076-035 38 08.",
-    hero: "Lackpolering i Örebro",
-    intro: "Med åren samlar bilens lack på sig repor, swirl-märken och oxidering som gör att lacken ser matt och sliten ut. Vår maskinpolering är den effektivaste metoden för att återställa lacken till ursprungligt skick - utan att måla om. Vi arbetar med professionella maskiner och polermedel anpassade efter just din bils lack.",
+    metaDesc: "Polering i Örebro: vi mäter lacken, maskinpolerar i ett till tre steg och avslutar med vax. Lackskydd finns som tillägg. Ring 076-035 38 08.",
+    hero: "Polering Örebro",
+    intro: "Med åren får lacken repor, swirlmärken och oxidering som gör den matt och sliten. Vid en polering tar vi bort ett mycket tunt lager lack, så att det mesta av reporna försvinner och lacken får tillbaka sitt djup och sin glans. Det kostar en bråkdel av en omlackering.",
     included: [
-      { heading: "Lackanalys", text: "Vi mäter lackens tjocklek och bedömer skicket innan vi börjar. På så sätt vet vi exakt vilket polerprogram som ger bäst resultat." },
-      { heading: "Tvåstegspolering", text: "Steg 1 tar bort djupare repor och oxidering. Steg 2 förfinar ytan och ger lacken maximalt djup och glans." },
-      { heading: "Enstegspolering", text: "För lack i gott skick räcker ofta ett poleringsteg för att ta bort swirl-märken och ge lacken nytt liv." },
-      { heading: "Finishing & skydd", text: "Efter polering lägger vi alltid på vax för att bevara resultatet. Vill du skydda lacken längre kan du lägga till lackskydd." },
+      { heading: "Lackanalys", text: "Vi mäter lacktjockleken och bedömer skicket innan vi börjar, så att vi vet hur mycket lacken tål och vilket program som ger bäst resultat." },
+      { heading: "Polering i ett steg", text: "För lack i gott skick räcker ofta ett poleringsteg för att ta bort swirlmärken och ge lacken nytt liv." },
+      { heading: "Två eller tre steg", text: "Är lacken mer sliten tar första steget bort djupare repor och oxidering, och nästa steg förfinar ytan för maximalt djup och glans." },
+      { heading: "Vax efteråt", text: "Efter polering lägger vi alltid på vax för att bevara resultatet. Vill du skydda lacken längre kan du lägga till lackskydd." },
     ],
     why: [
+      "Lacktjockleken mäts alltid före polering",
+      "Maskiner och polermedel anpassas efter din bils lack",
       "Kostar en bråkdel av en omlackering",
-      "Professionella maskiner ger resultat som inte går att uppnå för hand",
-      "Resultatet håller längre med rätt eftervård",
+      "Professionella maskiner och produkter av hög kvalitet",
     ],
     faq: [
-      { q: "Kan alla repor tas bort med polering?", a: "Repor som bara sitter i klarlacket kan i de flesta fall tas bort helt. Repor som gått igenom till grundfärgen eller plåten kräver däremot lackning." },
-      { q: "Försvinner lacken av polering?", a: "Polering tar bort ett mycket tunt lager lack. Vi mäter alltid lacktjockleken innan för att säkerställa att det finns marginal. Med professionell polering är det helt säkert." },
-      { q: "Hur länge håller resultatet?", a: "Med rätt eftervård håller resultatet länge. Vaxet skyddar lacken i några månader." },
+      { q: "Kan alla repor tas bort med polering?", a: "Repor som bara sitter i klarlacket går i de flesta fall att ta bort helt. Repor som gått igenom till grundfärgen eller plåten kräver lackering." },
+      { q: "Försvinner lacken av polering?", a: "Polering tar bort ett mycket tunt lager lack. Vi mäter alltid lacktjockleken först, så att det finns marginal." },
+      { q: "Hur många steg behöver min bil?", a: "För lack i gott skick räcker ofta ett steg. Har lacken djupare repor eller mycket oxidering behövs två eller tre steg, och det ser vi vid lackanalysen." },
+      { q: "Hur länge håller resultatet?", a: "Med rätt eftervård håller resultatet länge. Vaxet skyddar lacken i några månader. Vill du ha ett skydd som håller i flera år kan du lägga till lackskydd." },
     ],
     pricing: {
       fromPrice: fran("polering"),
       unit: "kr",
       note: "1-stegspolering med vax. Fler steg för djupare resultat.",
     },
+    sida: {
+      title: "Polering Örebro | Bilpolering & lackrenovering i Örebro",
+      h1: "Polering Örebro",
+      intro: [
+        "Med åren får lacken repor, swirlmärken och oxidering som gör den matt och sliten. Vid en polering tar vi bort ett mycket tunt lager lack, så att det mesta av reporna försvinner och lacken får tillbaka sitt djup och sin glans. Det kostar en bråkdel av en omlackering.",
+        "Vi mäter alltid lacktjockleken först och anpassar maskiner och polermedel efter din bils lack. Efter poleringen lägger vi på vax, och vill du skydda lacken i flera år kan du lägga till [lackskydd](/tjanster/lackskydd). Läs mer om [KOM-fort Bilvård](/) och allt vi gör.",
+      ],
+      ingarH2: "Vad ingår i en polering?",
+      prisH2: "Pris och tillägg",
+      prisText: "Priset beror på hur många steg lacken behöver och på bilens storlek. Som tillägg kan du välja lackskydd med 2, 3 eller 5 års skydd. Alla priser står i prislistan, och på [bokningssidan](/boka) räknar du fram ett uppskattat pris för din bil.",
+      sektioner: [
+        {
+          h2: "Så går en polering till",
+          stycken: [
+            "Du lämnar bilen hos oss, och vi börjar med lackanalysen. Sedan maskinpolerar vi i det antal steg vi kommit överens om, och sist lägger vi på vax. Hur lång tid det tar beror på bilens storlek och hur många steg lacken behöver, och det får du veta när du bokar.",
+          ],
+        },
+        {
+          h2: "Repor, swirlmärken och oxidering",
+          stycken: [
+            "Repor som bara sitter i klarlacket går i de flesta fall att ta bort helt med maskinpolering. Har en repa gått igenom till grundfärgen eller plåten räcker det inte att polera, då behöver ytan lackeras. Swirlmärken, de fina cirkelrepor som syns i solljus, och oxidering som gör lacken matt är däremot precis vad polering är till för. Därför kallas det ibland för lackrenovering, och repborttagning är en stor del av jobbet.",
+          ],
+        },
+        {
+          h2: "Polering för hela Örebro",
+          stycken: [
+            "Bilar från hela Örebro poleras hos oss. Från [Marieberg](/omraden/marieberg) är det bara några minuter hit, [Varberga](/omraden/varberga) ligger ungefär tio minuter bort via Västerleden och från [Almby](/omraden/almby) kör du hit på runt en kvart. Passar det bättre kan vi också hämta bilen hos dig. Hör av dig, så berättar vi vad som gäller. Vi servar även Adolfsberg, Vivalla, Kumla och Hallsberg.",
+          ],
+        },
+      ],
+      varforH2: "Varför välja KOM-fort?",
+      hitta: {
+        h2: "Hitta till oss",
+        stycken: ["Du hittar oss på Lindtorpsvägen 10 i Adolfsberg, ett par minuter från E20 avfart 110. Kartan visar exakt var lokalen ligger."],
+      },
+      faqH2: "Vanliga frågor om polering",
+      bokaH2: "Boka polering i Örebro",
+      bokaText: "Ring 076-035 38 08 eller skicka en förfrågan, så bokar vi in din bil. På bokningssidan väljer du antal steg och ser ett uppskattat pris.",
+    },
   },
+  // Batch 03, sida 3/5
   {
     slug: "lackskydd",
     num: "03",
     title: "Lackskydd",
     shortDesc: "Lackskydd som läggs på efter polering. Välj 2, 3 eller 5 års skydd.",
-    metaDesc: "Keramiskt lackskydd och lackförsegling i Örebro. Skydda din bil mot väder, smuts och repor. KOM-fort Bilvård - ring 076-035 38 08.",
-    hero: "Keramiskt Lackskydd i Örebro",
-    intro: "Keramiskt lackskydd är den mest avancerade och långvariga skyddsbehandlingen för din bils lack. Ett keramiskt skikt binder kemiskt till lacken och skapar en hård, hydrofob yta som stöter bort vatten, smuts och kemikalier. Bilen blir betydligt enklare att hålla ren och lacken skyddas mot UV-strålning, oxidering och lätta repor i flera år.",
+    metaDesc: "Keramiskt lackskydd i Örebro som läggs på efter polering. Välj 2, 3 eller 5 års skydd mot vatten, smuts och UV-strålning. Ring 076-035 38 08.",
+    hero: "Lackskydd Örebro",
+    intro: "Vårt lackskydd är keramiskt och läggs på lacken efter en polering. Det stöter bort vatten, smuts och kemikalier, skyddar mot UV-strålning och oxidering och gör bilen betydligt enklare att hålla ren. Du väljer mellan 2, 3 och 5 års skydd.",
     included: [
-      { heading: "Lackförberedelse", text: "Lacken poleras och avfettas noggrant innan applicering. En ren och slät yta är avgörande för att det keramiska skiktet ska fästa optimalt." },
-      { heading: "Keramisk applicering", text: "Vi applicerar det keramiska skiktet för hand med professionell teknik." },
-      { heading: "Härdning", text: "Det keramiska skiktet behöver tid att härda. Vi informerar om vad du bör tänka på de första dagarna efter behandlingen." },
-      { heading: "Glasbehandling (tillval)", text: "Vi kan även applicera ett hydrofob glasbehandling som gör att vatten perlar bort från rutorna vid körning." },
+      { heading: "Avfettning efter poleringen", text: "Lackskyddet läggs på efter poleringen, när lacken avfettats noggrant. En ren och slät yta behövs för att skyddet ska fästa." },
+      { heading: "Skiktet läggs på för hand", text: "Vi lägger på lackskyddet för hand, med professionella produkter av hög kvalitet." },
+      { heading: "Härdning", text: "Skiktet behöver tid att härda. Vi berättar vad du ska tänka på de första dagarna." },
+      { heading: "2, 3 eller 5 års skydd", text: "Du väljer själv hur länge skyddet ska hålla, utifrån hur länge du planerar att ha bilen och hur den används." },
     ],
     why: [
-      "Skyddar lacken i flera år med rätt underhåll",
-      "Extremt enkel att hålla ren - smuts fastnar inte",
-      "Skyddar mot UV-strålning som annars bryter ned lacken",
+      "Noggrann avfettning före behandlingen",
+      "Lackskyddet läggs på för hand",
+      "Råd om skötseln efter behandlingen",
       "Kan höja bilens andrahandsvärde",
     ],
     faq: [
-      { q: "Vad skiljer keramiskt skydd från vanligt vax?", a: "Vax sitter på ytan och tvättas bort efter några månader. Keramiskt skydd binder kemiskt till lacken och håller i flera år. Det ger även ett hårdare och mer reptåligt skikt." },
-      { q: "Behöver bilen förberedas inför keramiskt skydd?", a: "Ja, för bästa resultat bör lacken poleras och avfettas grundligt före applicering. Vi tar hand om hela förberedelsen." },
-      { q: "Kan man applicera keramiskt skydd på en ny bil?", a: "Absolut - faktum är att det är optimalt att skydda en ny bil direkt innan lacken hinner samla på sig repor och föroreningar." },
+      { q: "Kan jag köpa lackskydd utan polering?", a: "Nej, lackskydd är ett tillägg till polering, eftersom skyddet bara fäster bra på en ren och slät yta. Det kompletta paketet innehåller både lackkorrigering och 3 års lackskydd." },
+      { q: "Hur länge håller lackskyddet?", a: "Du väljer 2, 3 eller 5 år. Med rätt skötsel skyddar det lacken under hela den tiden." },
+      { q: "Kan man lägga lackskydd på en ny bil?", a: "Ja, gärna direkt, innan lacken hunnit samla på sig repor och smuts. Lackskyddet läggs på efter en polering, även på en ny bil." },
+      { q: "Hur sköter jag bilen efter behandlingen?", a: "De första dagarna härdar skiktet, och vi berättar vad du ska tänka på under den tiden. Sedan räcker en skonsam handtvätt, och smuts släpper lättare än förut." },
     ],
     pricing: {
       fromPrice: fran("lackskydd"),
       unit: "kr",
       note: "Tillägg till polering. Välj 2, 3 eller 5 års skydd.",
       prefix: "Tillägg fr",
-      listaText: "Lackskydd är ett tillägg till polering. Här ser du priserna.",
+    },
+    sida: {
+      title: "Lackskydd Örebro | Keramiskt lackskydd i Örebro",
+      h1: "Lackskydd Örebro",
+      intro: [
+        "Vårt lackskydd är keramiskt och läggs på lacken efter en [polering](/tjanster/polering). Det stöter bort vatten, smuts och kemikalier, skyddar mot UV-strålning och oxidering och gör bilen betydligt enklare att hålla ren. Du väljer mellan 2, 3 och 5 års skydd.",
+        "Lackskydd säljs som tillägg till polering, eftersom skyddet aldrig blir bättre än ytan under. Det ingår också i vårt kompletta paket med lackkorrigering och 3 års lackskydd. Läs mer om [vår bilvård i Örebro](/).",
+      ],
+      ingarH2: "Vad ingår i ett lackskydd?",
+      prisH2: "Pris och tillägg",
+      prisText: "Lackskydd är ett tillägg till polering. Här ser du priserna. Hur länge skyddet ska hålla väljer du själv, och det kompletta paketet med lackkorrigering och 3 års lackskydd har ett eget pris. På [bokningssidan](/boka) lägger du till lackskydd när du väljer polering och ser ett uppskattat pris direkt.",
+      sektioner: [
+        {
+          h2: "Lackskydd eller vax?",
+          stycken: [
+            "Vax sitter på ytan och tvättas bort efter några månader. Ett lackskydd håller i 2, 3 eller 5 år, beroende på vad du väljer. Ett keramiskt lackskydd binder dessutom kemiskt till lacken och ger ett hårdare och mer reptåligt skikt än vax. Efter varje polering lägger vi på vax, så lackskyddet är för dig som vill att lacken ska hålla sig fin längre.",
+          ],
+        },
+        {
+          h2: "Ny bil eller begagnad?",
+          stycken: [
+            "Det är optimalt att skydda en ny bil direkt, innan lacken hunnit samla på sig repor och smuts. Även en ny bil poleras först, och på en begagnad bil tar poleringen dessutom bort repor och oxidering, så att skyddet läggs på en fin yta. Vill du ha ett enklare skydd finns lackförsegling, som ingår i vår [bilrekond](/tjanster/rekonditionering) och håller i 12 månader.",
+          ],
+        },
+        {
+          h2: "Lackskydd för hela Örebro",
+          stycken: [
+            "Vi lägger lackskydd på bilar från hela Örebro. Vår lokal ligger i [Adolfsberg](/omraden/adolfsberg). Från [Marieberg](/omraden/marieberg) är det bara några minuter hit och från [Almby](/omraden/almby) tar det runt en kvart. Vi kan också hämta bilen hos dig. Säg till när du bokar, så berättar vi vad som gäller. Vi servar även Vivalla, Varberga, Kumla och Hallsberg.",
+          ],
+        },
+      ],
+      varforH2: "Varför välja KOM-fort?",
+      hitta: {
+        h2: "Hitta till oss",
+        stycken: ["Lindtorpsvägen 10 ligger i Södra Lindhult, ett par minuter från E20 avfart 110 Adolfsberg. Kartan visar vägen hit."],
+      },
+      faqH2: "Vanliga frågor om lackskydd",
+      bokaH2: "Boka polering med lackskydd",
+      bokaText: "Ring 076-035 38 08 eller skicka en förfrågan och berätta hur länge skyddet ska hålla, så hör vi av oss.",
     },
   },
+  // Batch 03, sida 4/5
   {
     slug: "biltvatt",
     num: "04",
     title: "Biltvätt",
-    shortDesc: "Noggrann handtvätt med professionella produkter. Aldrig automattvättar som repar lacken.",
-    metaDesc: "Professionell handtvätt av bil i Örebro. Skonsam tvätt som inte repar lacken. KOM-fort Bilvård - ring 076-035 38 08.",
-    hero: "Professionell Biltvätt i Örebro",
-    intro: "En professionell handtvätt är något helt annat än en automatisk biltvätt. Automattvättar använder hårda borstar som repar lacken och lämnar swirl-märken. Vi tvättar alltid för hand med mjuka tvätthandskar, pH-neutrala schampon och metoder som skyddar lacken. Varje tvätt utförs med samma omsorg som om det vore vår egen bil.",
+    shortDesc: "Noggrann handtvätt med professionella produkter. Aldrig automattvätt.",
+    metaDesc: "Biltvätt i Örebro, alltid för hand: utvändig handtvätt, invändig tvätt eller båda, med tvåhinkmetoden och pH-neutrala schampon. Ring 076-035 38 08.",
+    hero: "Biltvätt Örebro",
+    intro: "Hos oss tvättas bilen alltid för hand, aldrig i automattvätt. Vi använder tvåhinkmetoden, mjuka tvätthandskar och pH-neutrala schampon och torkar bilen med mikrofiberdukar. Det är skonsammare mot lacken än en automattvätt med borstar.",
     included: [
-      { heading: "Förblötläggning & avfettning", text: "Vi börjar med att blötlägga bilen och lösa upp grovsmuts och insekter med skonsamma avfettningsmedel." },
-      { heading: "Tvåhinkstvätt", text: "Vi använder tvåhinkmetoden - en hink med tvålvatten och en sköljhink - för att minimera risken att smuts förs tillbaka till lacken." },
-      { heading: "Hjul & hjulhus", text: "Hjul och hjulhus tvättas separat med dedikerade produkter för bäst resultat." },
-      { heading: "Avtorkning & finish", text: "Bilen torkas med mjuka mikrofiberdukar. Vid in- och utvändig tvätt används vaxschampo." },
+      { heading: "Förblötläggning och avfettning", text: "Vi börjar med att blötlägga bilen, så att grovsmuts och insekter släpper innan vi tvättar." },
+      { heading: "Tvåhinkmetoden", text: "En hink med tvålvatten och en sköljhink, så att smuts inte förs tillbaka till lacken." },
+      { heading: "Hjul och hjulhus", text: "Hjul och hjulhus tvättas separat med egna produkter." },
+      { heading: "Torkning", text: "Bilen torkas med mjuka mikrofiberdukar. Vid in- och utvändig tvätt används vaxschampo." },
     ],
     why: [
-      "Skonsammare mot lacken än en automattvätt med borstar",
-      "Professionella produkter ger ett resultat du märker",
-      "Vi tar oss tid - ingen bil behandlas i en fart",
+      "Alltid för hand, aldrig automattvätt",
+      "Tvåhinkmetoden och mjuka tvätthandskar",
+      "Professionella produkter och pH-neutrala schampon",
       "Perfekt som underhåll mellan rekonditioneringar",
     ],
     faq: [
-      { q: "Varför är handtvätt bättre än automatisk biltvätt?", a: "Automattvättar har hårda borstar och starka kemikalier som sliter på lacken och skapar repor över tid. Handtvätt med rätt teknik och produkter är alltid skonsamt mot lacken." },
-      { q: "Hur ofta bör man tvätta bilen?", a: "Det beror på hur du kör och var du bor. En månatlig tvätt är en bra tumregel för att hålla lacken i gott skick." },
+      { q: "Varför handtvätt i stället för automattvätt?", a: "För att skona lacken. Med tvåhinkmetoden och mjuka tvätthandskar dras inte sand och grus över lacken, och schampot är pH-neutralt." },
+      { q: "Kan ni hämta bilen?", a: "Ja, vi kan hämta bilen hos dig och köra tillbaka den efter tvätten. Hör av dig, så berättar vi vad som gäller." },
       { q: "Ingår invändig städning?", a: "Det beror på vilken tvätt du väljer. Vi gör utvändig handtvätt, invändig tvätt eller båda, och för en grundligare rengöring finns invändig rekond." },
+      { q: "Vad är flygrost?", a: "Små metallpartiklar, bland annat från bromsdamm, som fastnar i lacken och syns som rostfärgade prickar. Vi tar bort dem som ett tillägg till tvätten." },
     ],
     pricing: {
       fromPrice: fran("biltvatt"),
       unit: "kr",
       note: "Utvändig handtvätt för vanlig bil. Alla priser ser du nedan.",
     },
+    sida: {
+      title: "Biltvätt Örebro | Handtvätt av bil i Örebro",
+      h1: "Biltvätt Örebro",
+      intro: [
+        "Hos oss tvättas bilen alltid för hand, aldrig i automattvätt. Vi använder tvåhinkmetoden, mjuka tvätthandskar och pH-neutrala schampon och torkar bilen med mikrofiberdukar. Det är skonsammare mot lacken än en automattvätt med borstar.",
+        "Du väljer utvändig handtvätt, invändig tvätt eller båda, och kan lägga till motortvätt, asfalts- och saltborttagning eller flygrostborttagning. Läs mer om vår [bilvård](/).",
+      ],
+      ingarH2: "Vad ingår i en biltvätt?",
+      prisH2: "Pris och tillägg",
+      prisText: "Priset beror på vilken tvätt du väljer och på om bilen är en vanlig bil eller en pickup eller van. Tilläggen väljer du till handtvätten. Hela prislistan ser du nedan. Vill du veta vad det kostar för just din bil, välj tvätt och tillägg på [bokningssidan](/boka).",
+      sektioner: [
+        {
+          h2: "Vilken tvätt passar din bil?",
+          stycken: [
+            "Utvändig handtvätt är för dig som vill ha en ren och blank bil. Invändig tvätt tar hand om kupén, och vill du ha båda gjorda väljer du handtvätt in- och utvändigt. Har bilen asfaltsstänk, vägsalt eller flygrost tar vi bort det som tillägg, och motortvätt gör även motorrummet rent. Behöver kupén mer än en tvätt finns [invändig rekond](/tjanster/invandig-rekond), och vill du ha hela bilen gjord passar en [bilrekond](/tjanster/rekonditionering).",
+          ],
+        },
+        {
+          h2: "Därför tvättar vi för hand",
+          stycken: [
+            "Med tvåhinkmetoden har vi en hink med tvålvatten och en med rent sköljvatten. Tvätthandsken sköljs efter varje del av bilen, så att sand och grus som lossnat inte dras över lacken igen. Hjul och hjulhus, där smutsen sitter hårdast, tvättas för sig med egna produkter. Så skonar vi lacken vid varje tvätt.",
+          ],
+        },
+        {
+          h2: "Hur ofta ska bilen tvättas?",
+          stycken: [
+            "Det beror på hur du kör och var bilen står. På vintern, när vägsaltet ligger på, kan det vara värt att tvätta oftare. Handtvätten är också perfekt som underhåll mellan rekonditioneringarna, så att bilen håller sig fin längre.",
+          ],
+        },
+        {
+          h2: "Biltvätt för hela Örebro",
+          stycken: [
+            "Vi tvättar bilar från hela Örebro. Från [Marieberg](/omraden/marieberg) och handelsområdet är det bara några minuter hit, och [Adolfsberg](/omraden/adolfsberg) är vår egen stadsdel. Från [Vivalla](/omraden/vivalla) tar du Västerleden hit på runt en kvart. Vi servar även Almby, Varberga, Kumla och Hallsberg.",
+          ],
+        },
+      ],
+      varforH2: "Varför välja KOM-fort?",
+      hitta: {
+        h2: "Hitta till oss",
+        stycken: ["Vi finns på Lindtorpsvägen 10 i Södra Lindhult, nära E20 avfart 110 Adolfsberg."],
+      },
+      faqH2: "Vanliga frågor om biltvätt",
+      bokaH2: "Boka biltvätt i Örebro",
+      bokaText: "Ring 076-035 38 08 eller skicka en förfrågan, så bokar vi in en tid som passar dig.",
+    },
   },
+  // Batch 03, sida 1/5
   {
     slug: "invandig-rekond",
     num: "05",
-    title: "Invändig Rekond",
+    title: "Invändig rekond",
     shortDesc: "Kemtvätt av klädsel och mattor, rengöring av alla ytor. Fräscht och rent.",
-    metaDesc: "Invändig rekonditionering och kemtvätt av bil i Örebro. Vi tar bort fläckar, lukt och smuts på djupet. KOM-fort Bilvård - ring 076-035 38 08.",
-    hero: "Invändig Rekond i Örebro",
-    intro: "Bilens interiör tar på sig smuts, fläckar och lukt som vanlig dammsugning inte kan ta bort. Vår invändiga rekonditionering går på djupet - vi kemtvättar klädsel, mattor och tak, rengör alla plastdetaljer och ytor, och behandlar läder om det finns. Resultatet är ett interiör som luktar och känns nytt.",
+    metaDesc: "Invändig rekond i Örebro: kemtvätt av säten, mattor och innertak, rengöring av alla ytor och invändig glasputs. Vi kan hämta bilen. Ring 076-035 38 08.",
+    hero: "Invändig rekond Örebro",
+    intro: "Vid en invändig rekond går vi igenom hela kupén. Säten, mattor och innertak kemtvättas, alla ytor rengörs och rutorna putsas på insidan. Smuts, fläckar och lukt som dammsugaren inte rår på lyfts ur tyget, och bilen känns fräsch igen när du sätter dig i den.",
     included: [
-      { heading: "Grundlig dammsugning", text: "Mattor, sätesklyftor och alla svåråtkomliga ställen dammsugits noggrant som första steg." },
-      { heading: "Kemtvätt av mattor & klädsel", text: "Med professionell ångtvätts- och kemtvättsutrustning tar vi bort inbyggd smuts, fläckar och bakterier från tyg och heltäckningsmattor." },
-      { heading: "Läderbehandling (om aktuellt)", text: "Lädersäten rengörs med pH-neutrala läderrengöringsmedel och behandlas sedan med ett skyddande och mjukgörande läderserum." },
-      { heading: "Rengöring av alla ytor", text: "Dashboard, dörrsidor, mittkonsol, luftventiler och alla plastdetaljer rengörs och behandlas med ett skyddande medel som motverkar blekning." },
-      { heading: "Glasputsning invändigt", text: "Invändiga rutor putsas med glasrengöringsmedel för maximal sikt och ett rent intryck." },
+      { heading: "Grundlig dammsugning", text: "Mattor, springor i sätena och svåråtkomliga ställen dammsugs noggrant som första steg." },
+      { heading: "Kemtvätt av klädsel och mattor", text: "Med ångtvätts- och kemtvättsutrustning lyfter vi smuts, fläckar och bakterier ur säten och mattor." },
+      { heading: "Rengöring av innertaket", text: "Innertaket kemtvättas varsamt, eftersom tyget där är känsligt." },
+      { heading: "Läderbehandling", text: "Har bilen lädersäten rengörs de med pH-neutralt läderrengöringsmedel och behandlas sedan med ett skyddande och mjukgörande läderserum." },
+      { heading: "Rengöring av alla ytor", text: "Instrumentbräda, dörrsidor, mittkonsol och luftventiler rengörs och får ett skyddande medel." },
+      { heading: "Invändig glasputs", text: "Rutorna putsas på insidan för bättre sikt och ett rent intryck." },
     ],
     why: [
       "Tar bort lukt från mat, husdjur och fukt",
-      "Förlänger livslängden på klädsel och mattor",
-      "Professionell utrustning når djupare än hemma",
-      "Viktigt för allergikers välmående i bilen",
+      "Professionell ångtvätts- och kemtvättsutrustning",
+      "Läderserum när bilen har lädersäten",
+      "Vi tar den tid kupén behöver",
     ],
     faq: [
-      { q: "Kan ni ta bort husdjurslukt?", a: "Ja, i de flesta fall. Vi använder enzymatiska rengöringsmedel som bryter ned luktmolekylerna på djupet, snarare än att bara maskera dem." },
-      { q: "Hur lång tid tar invändig rekond?", a: "2-4 timmar beroende på bilens storlek och hur smutsig den är. Vi rekommenderar att du lämnar bilen hos oss för dagen." },
-      { q: "Hur länge måste bilen luftas efter kemtvätt?", a: "Vi luftar bilen ordentligt efter behandlingen. Du kan köra hem direkt, men lämna gärna dörrar och fönster öppna ytterligare någon timme om möjligt." },
+      { q: "Hur lång tid tar en invändig rekond?", a: "Räkna med två till fyra timmar. Ju större bil och ju smutsigare kupé, desto längre tid, så det enklaste är att lämna bilen hos oss över dagen." },
+      { q: "Kan ni ta bort husdjurslukt?", a: "I de flesta fall, ja. Lukten sitter ofta djupt i tyget, och med enzymatiska medel bryter vi ned den i stället för att bara dölja den." },
+      { q: "Hur länge behöver bilen luftas?", a: "Vi luftar bilen ordentligt efter behandlingen, så du kan köra hem direkt. Lämna gärna dörrar och fönster öppna ytterligare någon timme." },
+      { q: "Vad är skillnaden mot invändig tvätt?", a: "Invändig tvätt är en enklare rengöring av kupén. Vid en invändig rekond kemtvättar vi också klädsel, mattor och innertak och rengör alla ytor på djupet." },
     ],
     pricing: {
       fromPrice: fran("invandig-rekond"),
       unit: "kr",
       note: "Komplett invändig kemtvätt av klädsel, mattor och alla ytor.",
+    },
+    sida: {
+      title: "Invändig rekond Örebro | Kemtvätt av bilklädsel i Örebro",
+      h1: "Invändig rekond Örebro",
+      intro: [
+        "Vid en invändig rekond går vi igenom hela kupén. Säten, mattor och innertak kemtvättas, alla ytor rengörs och rutorna putsas på insidan. Smuts, fläckar och lukt som dammsugaren inte rår på lyfts ur tyget, och bilen känns fräsch igen när du sätter dig i den.",
+        "Vi använder professionell ångtvätts- och kemtvättsutrustning, och har bilen lädersäten får de en behandling med läderserum. Vill du ha både insidan och utsidan gjorda passar en [bilrekond](/tjanster/rekonditionering). Läs mer om [bilvård hos KOM-fort](/).",
+      ],
+      ingarH2: "Vad ingår i en invändig rekond?",
+      prisH2: "Pris för invändig rekond",
+      prisText: "Priset ser du i prislistan, och slutpriset beror på bilens storlek och skick. Vill du ha en uppskattning för just din bil kan du skicka en förfrågan på [bokningssidan](/boka).",
+      sektioner: [
+        {
+          h2: "Så går en invändig rekond till",
+          stycken: [
+            "När du har bokat lämnar du bilen hos oss för dagen. Vi börjar med dammsugning och kemtvätt, fortsätter med alla ytor och tar glasputsen sist. Själva arbetet tar 2-4 timmar, beroende på bilens storlek och skick. Innan du hämtar bilen luftar vi kupén ordentligt.",
+          ],
+        },
+        {
+          h2: "När behöver kupén en invändig rekond?",
+          stycken: [
+            "Efter vintern, när grus, salt och väta har följt med in i bilen, eller när kupén luktar mat, husdjur eller fukt. Har sätena fläckar är det kemtvätt av bilklädsel som gör mest skillnad, och ångtvätt tar hand om smuts och bakterier i mattor och skrymslen. Ska bilen säljas gör en ren kupé stor skillnad, eftersom köparen sätter sig i bilen först av allt. Räcker det med en enklare rengöring finns invändig tvätt som en del av vår [biltvätt](/tjanster/biltvatt).",
+          ],
+        },
+        {
+          h2: "Invändig rekond i hela Örebro",
+          stycken: [
+            "Bor du i [Adolfsberg](/omraden/adolfsberg) har du nära, eftersom vår lokal ligger i Södra Lindhult i samma stadsdel. Från [Varberga](/omraden/varberga) tar det ungefär tio minuter via Västerleden, och från [Vivalla](/omraden/vivalla) runt en kvart. Vill du slippa köra kan vi hämta bilen hos dig. Fråga när du bokar, så berättar vi vad som gäller. Vi servar även Marieberg, Almby, Kumla och Hallsberg.",
+          ],
+        },
+      ],
+      varforH2: "Varför välja KOM-fort?",
+      hitta: {
+        h2: "Hitta till oss",
+        stycken: ["Vår lokal ligger på Lindtorpsvägen 10 i Södra Lindhult, nära E20 avfart 110 Adolfsberg."],
+      },
+      faqH2: "Vanliga frågor om invändig rekond",
+      bokaH2: "Boka invändig rekond i Örebro",
+      bokaText: "Ring 076-035 38 08 eller skicka en förfrågan. Vi hör av oss och bokar in en dag då du kan vara utan bilen.",
     },
   },
 ];

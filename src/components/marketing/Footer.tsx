@@ -14,7 +14,7 @@ const tjanster = [
   { label: "Polering", href: "/tjanster/polering" },
   { label: "Lackskydd", href: "/tjanster/lackskydd" },
   { label: "Biltvätt", href: "/tjanster/biltvatt" },
-  { label: "Invändig Rekond", href: "/tjanster/invandig-rekond" },
+  { label: "Invändig rekond", href: "/tjanster/invandig-rekond" },
 ];
 
 export default function Footer() {
@@ -107,6 +107,7 @@ export default function Footer() {
               Lindtorpsvägen 10{" "}<br />
               702 37 Örebro
             </li>
+            <li className="leading-relaxed">Mån-fre 08-16, lör 10-18, sön stängt</li>
           </ul>
         </div>
 

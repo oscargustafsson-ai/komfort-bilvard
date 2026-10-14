@@ -257,6 +257,6 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[] }> =
   },
   "invandig-rekond": {
     fran: franPris(p("invandig-rekond")),
-    grupper: [],
+    grupper: [{ rader: [{ label: p("invandig-rekond").namn, pris: `${kr(p("invandig-rekond").pris!)} kr` }] }],
   },
 };

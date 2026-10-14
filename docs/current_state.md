@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-12 (Batch 02c: new phone number 076-035 38 08 everywhere, lackskydd shown as an add-on to polering, forms keep their values on server errors)
+Last updated: 2026-10-14 (Batch 03: all five service pages on the data-driven template, old template removed, gift card page rebuilt with H1 and copy sections, opening hours in footer and schema)
 
 ---
 
@@ -21,7 +21,7 @@ outside this repo). The copy there is the single source of truth; do not rewrite
 - **Schema:** `foretagSchema()` (AutoWash, `@id` `https://www.komfortbil.se/#foretag`) is
   rendered once per page from `(marketing)/layout.tsx`. Service and district schemas point at it
   via `provider.@id`. District pages: BreadcrumbList + Service + FAQPage. Home: FAQPage.
-  No `openingHoursSpecification` (hours unconfirmed), never `aggregateRating`.
+  `openingHoursSpecification` since batch 03 (hours confirmed), never `aggregateRating`.
 - **Shared blocks:** `Karta.tsx` (Google Maps embed, src/link in `site.karta`), `Brodsmulor.tsx`
   (visible breadcrumbs + BreadcrumbList), `Etikett.tsx` (eyebrow label, dash drawn with CSS),
   `Sidblock.tsx` (text grids, highlighted block, "Hitta till oss" with map, FAQ, button row).
@@ -34,6 +34,16 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Service pages (batch 03):** every service in `tjanster.ts` now has `sida` (title, h1, intro,
+  section headings, price text, FAQ heading, booking block); `tjanster/[slug]/page.tsx` has one
+  template only (`TjanstSida`). The old layout and `pricing.listaText` are gone. Invändig rekond
+  has a one-row price list from `sidPriser`.
+- **Gift card page (batch 03):** copy in `src/data/presentkort.ts`; `presentkort/page.tsx` renders
+  breadcrumbs, h1, intro, Zettle note, "Så beställer du" + the three step boxes, then `<Presentkort>`
+  (amount picker + order form + thank-you only), text blocks, map and FAQ (FAQPage JSON-LD).
+- **Opening hours (batch 03, confirmed 2026-10-14):** footer line "Mån-fre 08-16, lör 10-18, sön
+  stängt" on every page and `openingHoursSpecification` (Mon-Fri 08:00-16:00, Sat 10:00-18:00) in
+  `foretagSchema()`. Sunday is omitted.
 - **Phone number (batch 02c):** 076-035 38 08 / tel:0760353808 / +46760353808, defined once in
   `src/lib/site.ts` (phoneDisplay, phoneHref, phone) and written out in copy. The old number
   must not reappear anywhere (`grep -r "194 35 19"` and `"761943519"` must be empty).
@@ -111,9 +121,9 @@ src/
       omraden/[slug]/page.tsx  District page: BreadcrumbList + Service + FAQPage JSON-LD
       kontakt/page.tsx         Contact page: hero + <Kontakt> (cards/form) + text blocks + map + FAQ (copy from data/kontakt.ts)
       boka/page.tsx            Booking page: hero + <Bokning> + text + map (copy from data/boka.ts)
-      presentkort/page.tsx     Gift card page (renders <Presentkort>)
+      presentkort/page.tsx     Gift card page: hero + "Så beställer du" + steps + <Presentkort> (form) + text + map + FAQ (copy from data/presentkort.ts)
       tjanster/page.tsx        Services hub: H1 + intro + <ServiceCard>s + text sections + map + FAQ (copy from data/tjansterSida.ts)
-      tjanster/[slug]/page.tsx Per-service page: new layout when the service has `sida`, old layout otherwise; Service/FAQ JSON-LD
+      tjanster/[slug]/page.tsx Per-service page from `sida` in data/tjanster.ts; Service/FAQ JSON-LD, price list from data/priser.ts
   components/
     marketing/
       Hero.tsx                 PixelImage 2×2 grid, animated SVG headline, CTA buttons (hex background removed)
@@ -142,6 +152,7 @@ src/
   data/
     priser.ts                  All prices (one source) + beraknaPris() calculator + sidPriser (price lists per service page)
     boka.ts                    Booking page copy
+    presentkort.ts             Gift card page copy
     tjanster.ts                5 services with copy, metaDesc, included[], why[], faq[], pricing{fromPrice from priser.ts, note, popular}, optional sida{}
     kontakt.ts                 Contact page copy
     tjansterSida.ts            Services hub copy
