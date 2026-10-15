@@ -8,8 +8,13 @@ import { site } from "@/lib/site";
  * Uppdatera datumet för de sidor en batch rör. Sidor som inte nämns får
  * STANDARD_DATUM.
  */
-const STANDARD_DATUM = "2026-10-14";
+const STANDARD_DATUM = "2026-10-15";
 const senastAndrad: Record<string, string> = {
+  // Batch 03b (2026-10-15): rättelser på allt utom nedanstående.
+  "/omraden": "2026-10-14",
+  "/presentkort": "2026-10-14",
+  "/kontakt": "2026-10-14",
+  "/tjanster/biltvatt": "2026-10-14",
   // Batch 01 (2026-10-10): alla sidor fick nytt schema, canonical och og-taggar.
   // Batch 02 (2026-10-11): allt utom Marieberg och Adolfsberg ändrades.
   // Batch 02b (2026-10-12): nya priser och rättelser.

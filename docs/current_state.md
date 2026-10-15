@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-14 (Batch 03: all five service pages on the data-driven template, old template removed, gift card page rebuilt with H1 and copy sections, opening hours in footer and schema)
+Last updated: 2026-10-15 (Batch 03b: kemtvätt is an add-on (1 000 kr for four seats, 250 kr per seat shown in price lists), lätt polering removed, copy corrections about innertak, vax and lackskydd curing)
 
 ---
 
@@ -34,6 +34,13 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Kemtvätt and add-ons (batch 03b):** `KEMTVATT_TILLAGG` (four seats, 1 000 kr) is an add-on on
+  helrekond and invändig rekond, selectable on /boka. `KEMTVATT_PER_SATE` (250 kr) is only a
+  price-list row (customers write single seats in the message). "Lätt polering" no longer
+  exists; the only exclusive add-on group left is `lackskydd`. Copy now says the interior is
+  cleaned (steam machine when needed), the headliner is only wiped, lackskydd replaces the
+  wax after polishing, and the coating cures 12 h in the shop and at least a week before the
+  first wash.
 - **Service pages (batch 03):** every service in `tjanster.ts` now has `sida` (title, h1, intro,
   section headings, price text, FAQ heading, booking block); `tjanster/[slug]/page.tsx` has one
   template only (`TjanstSida`). The old layout and `pricing.listaText` are gone. Invändig rekond

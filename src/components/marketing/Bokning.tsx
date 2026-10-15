@@ -51,7 +51,7 @@ export default function Bokning() {
     const x = t.tillagg.find((a) => a.id === id);
     if (!x) return;
     setTillagg((nu) => {
-      // Högst ett tillägg per grupp (lätt polering/1-stegspolering, lackskydd 2/3/5 år).
+      // Högst ett tillägg per grupp (lackskydd 2/3/5 år).
       const utanGrupp = x.grupp ? nu.filter((v) => t.tillagg.find((a) => a.id === v)?.grupp !== x.grupp) : nu.filter((v) => v !== id);
       return pa ? [...utanGrupp, id] : utanGrupp;
     });

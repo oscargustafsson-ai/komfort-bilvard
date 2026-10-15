@@ -18,7 +18,7 @@ export const startsida = {
     {
       h2: "Bilrekond i Örebro",
       stycken: [
-        "En rekond är vår mest sålda tjänst. Utvändigt handtvättar och avfettar vi bilen och lägger på en lackförsegling som håller i 12 månader. Invändigt kemtvättar vi klädsel, mattor och innertak och rengör alla ytor, från instrumentbrädan till luftventilerna. Vill du få bort lätta repor kan du lägga till polering. En komplett rekond tar normalt 4-8 timmar beroende på bilens storlek och skick, så vi bokar in bilen för hela dagen. Vi rekommenderar en rekond en gång om året, gärna efter vintern eller inför sommaren. Läs mer om [vår bilrekond i Örebro](/tjanster/rekonditionering).",
+        "En rekond är vår mest sålda tjänst. Utvändigt handtvättar och avfettar vi bilen och lägger på en lackförsegling som håller i 12 månader. Invändigt rengör vi klädsel, mattor och alla ytor, från instrumentbrädan till luftventilerna, och när kupén behöver mer använder vi ångmaskin. Kemtvätt av sätena finns som tillägg. Vill du få bort lätta repor kan du lägga till polering. En komplett rekond tar normalt 4-8 timmar beroende på bilens storlek och skick, så vi bokar in bilen för hela dagen. Vi rekommenderar en rekond en gång om året, gärna efter vintern eller inför sommaren. Läs mer om [vår bilrekond i Örebro](/tjanster/rekonditionering).",
       ],
     },
     {
@@ -42,7 +42,7 @@ export const startsida = {
     {
       h2: "Invändig rekond i Örebro",
       stycken: [
-        "Smuts, fläckar och lukt sätter sig djupt i klädsel och mattor, och där räcker dammsugaren inte till. Vid en invändig rekond dammsuger vi grundligt, kemtvättar säten, mattor och innertak och rengör plastytor, dörrsidor och luftventiler. Har bilen lädersäten rengör vi dem med pH-neutralt medel och behandlar dem med läderserum. Lukt från husdjur och mat tar vi i de flesta fall bort med enzymatiska medel, som bryter ned lukten i stället för att dölja den. Räkna med 2-4 timmar. Läs mer om [invändig rekond](/tjanster/invandig-rekond).",
+        "Smuts, fläckar och lukt sätter sig djupt i klädsel och mattor, och där räcker dammsugaren inte till. Vid en invändig rekond dammsuger vi grundligt, rengör säten, mattor, plastytor, dörrsidor och luftventiler och tar till ångmaskin när tyget behöver mer. Sitter fläckarna djupt kan du lägga till kemtvätt av sätena. Har bilen lädersäten rengör vi dem med pH-neutralt medel och behandlar dem med läderserum. Lukt från husdjur och mat tar vi i de flesta fall bort med enzymatiska medel, som bryter ned lukten i stället för att dölja den. Räkna med 2-4 timmar. Läs mer om [invändig rekond](/tjanster/invandig-rekond).",
       ],
     },
   ] satisfies Sektion[],

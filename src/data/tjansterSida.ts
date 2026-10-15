@@ -14,19 +14,19 @@ export const tjansterSida = {
     {
       h2: "Bilrekond",
       stycken: [
-        "En [bilrekond](/tjanster/rekonditionering) är vår mest sålda tjänst och omfattar hela bilen. Utsidan tvättas och får en lackförsegling som håller i 12 månader, och i kupén kemtvättar vi säten, mattor och innertak. Räkna med att bilen är hos oss en hel dag. Som tillägg kan du välja polering, glasförsegling och motortvätt. Vill du dessutom ha lackkorrigering och 3 års lackskydd finns vårt kompletta paket.",
+        "En [bilrekond](/tjanster/rekonditionering) är vår mest sålda tjänst och omfattar hela bilen. Utsidan tvättas och får en lackförsegling som håller i 12 månader, och kupén rengörs från mattor till instrumentbräda. Räkna med att bilen är hos oss en hel dag. Som tillägg kan du välja polering, glasförsegling, motortvätt och kemtvätt av sätena. Vill du dessutom ha lackkorrigering och 3 års lackskydd finns vårt kompletta paket.",
       ],
     },
     {
       h2: "Invändig rekond",
       stycken: [
-        "En [invändig rekond](/tjanster/invandig-rekond) omfattar hela kupén: dammsugning, kemtvätt av klädsel, mattor och innertak, rengöring av alla ytor och glasputs på insidan. Har bilen lädersäten får de läderserum. Behandlingen tar 2-4 timmar och passar när insidan behöver ett lyft men lacken är i gott skick.",
+        "En [invändig rekond](/tjanster/invandig-rekond) omfattar hela kupén: dammsugning, rengöring av klädsel, mattor och alla ytor samt glasputs på insidan. Kemtvätt av sätena finns som tillägg. Har bilen lädersäten får de läderserum. Behandlingen tar 2-4 timmar och passar när insidan behöver ett lyft men lacken är i gott skick.",
       ],
     },
     {
       h2: "Polering",
       stycken: [
-        "[Polering](/tjanster/polering) tar bort det mesta av repor, swirlmärken och oxidering, så att matt lack blir blank igen. Först mäter vi lacktjockleken, och utifrån den och lackens skick väljer vi hur många steg som behövs, från ett till tre. Efteråt lägger vi alltid på vax, och vill du att resultatet ska hålla längre kan du lägga till lackskydd.",
+        "[Polering](/tjanster/polering) tar bort det mesta av repor, swirlmärken och oxidering, så att matt lack blir blank igen. Först mäter vi lacktjockleken, och utifrån den och lackens skick väljer vi hur många steg som behövs, från ett till tre. Efteråt lägger vi på vax, och vill du att resultatet ska hålla längre väljer du lackskydd i stället.",
       ],
     },
     {
@@ -70,7 +70,7 @@ export const tjansterSida = {
     h2: "Vanliga frågor om våra tjänster",
     fragor: [
       { q: "Vad är skillnaden mellan bilrekond och invändig rekond?", a: "En bilrekond omfattar hela bilen, både utsidan och insidan. En invändig rekond gäller bara kupén." },
-      { q: "Vilka tillägg finns till rekonden?", a: "Motortvätt, glasförsegling med 2 års skydd, lätt polering och 1-stegspolering. Lackskydd läggs på efter en polering och ingår i vårt kompletta paket." },
+      { q: "Vilka tillägg finns till rekonden?", a: "Motortvätt, glasförsegling med 2 års skydd, 1-stegspolering och kemtvätt av sätena. Lackskydd läggs på efter en polering och ingår i vårt kompletta paket." },
       { q: "Tvättar ni bilen i automattvätt?", a: "Nej. Vi tvättar alltid för hand, med pH-neutralt schampo och mjuka tvätthandskar." },
     ] satisfies Fraga[],
   },

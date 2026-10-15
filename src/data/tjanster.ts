@@ -59,14 +59,14 @@ export const tjanster: Tjanst[] = [
     num: "01",
     title: "Bilrekond",
     shortDesc: "Komplett invändig och utvändig behandling. Din bil återfår nybilskänslan.",
-    metaDesc: "Bilrekond i Örebro: handtvätt, 12 månaders lackförsegling och kemtvätt av kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-035 38 08.",
+    metaDesc: "Bilrekond i Örebro: handtvätt, 12 månaders lackförsegling och rengöring av hela kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-035 38 08.",
     hero: "Bilrekond Örebro",
-    intro: "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
+    intro: "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och vi går igenom kupén från mattor till instrumentbräda. Resultatet är en bil som känns och luktar ny igen.",
     included: [
       { heading: "Utvändig handtvätt och avfettning", text: "Bilen handtvättas med pH-neutrala medel, och alla ytor avfettas så att lacken är ren inför lackförseglingen." },
       { heading: "Lackförsegling som håller i 12 månader", text: "Vi avslutar med en lackförsegling som skyddar lacken mot smuts, vatten och UV-strålning i 12 månader." },
       { heading: "Hjul och däck", text: "Fälgar och däck rengörs grundligt och behandlas med skyddande produkter." },
-      { heading: "Kemtvätt av klädsel, mattor och innertak", text: "Säten, mattor och innertak rengörs med professionell kemtvättsutrustning som lyfter smuts, fläckar och lukt ur tyget." },
+      { heading: "Rengöring av klädsel och mattor", text: "Klädsel och mattor rengörs efter hur kupén ser ut, och när det behövs tar vi till rengöringsmedel och ångmaskin mot lukt och fläckar. Innertaket torkar vi bara av försiktigt, eftersom tyget är känsligt." },
       { heading: "Rengöring av alla ytor", text: "Instrumentbräda, dörrsidor, luftventiler och plastdetaljer rengörs och får ett skyddande medel." },
     ],
     why: [
@@ -78,7 +78,7 @@ export const tjanster: Tjanst[] = [
     faq: [
       { q: "Hur lång tid tar en bilrekond?", a: "Mellan fyra och åtta timmar, beroende på bilens storlek och skick." },
       { q: "Vad kostar en bilrekond?", a: "Det beror på bilens storlek och skick. Alla priser ser du i prislistan, och på bokningssidan får du ett uppskattat pris för din bil med tillägg." },
-      { q: "Ingår polering i rekonden?", a: "Nej, polering är ett tillägg. Du kan välja lätt polering eller 1-stegspolering, och behöver lacken mer passar vår polering med vax i upp till tre steg." },
+      { q: "Ingår polering i rekonden?", a: "Nej, polering är ett tillägg. Du kan lägga till en 1-stegspolering, och behöver lacken mer passar vår polering med vax i upp till tre steg." },
       { q: "Kan ni hämta bilen?", a: "Ja, vi kan hämta bilen hos dig och köra hem den igen efter rekonden. Säg till när du bokar, så berättar vi vad som gäller." },
     ],
     pricing: {
@@ -91,17 +91,17 @@ export const tjanster: Tjanst[] = [
       title: "Bilrekond Örebro | Rekond av bil i Örebro",
       h1: "Bilrekond Örebro",
       intro: [
-        "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och kupén kemtvättas från mattor till innertak. Resultatet är en bil som känns och luktar ny igen.",
+        "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och vi går igenom kupén från mattor till instrumentbräda. Resultatet är en bil som känns och luktar ny igen.",
         "Bilen tvättas alltid för hand, och du kan lämna den hos oss eller låta oss hämta den hos dig. Vill du se allt vi gör, läs om [vår bilvård](/).",
       ],
       ingarH2: "Vad ingår i en bilrekond?",
       prisH2: "Pris och tillägg",
-      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, glasförsegling med 2 års skydd och antingen lätt polering eller 1-stegspolering. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
+      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, glasförsegling med 2 års skydd, 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
       sektioner: [
         {
           h2: "Så går en bilrekond till",
           stycken: [
-            "Du bokar genom att ringa eller skicka en förfrågan. Hur lång tid rekonden tar beror på bilens storlek och skick, men räkna med 4-8 timmar, så bilen stannar hos oss hela dagen. Under dagen tvättar och skyddar vi utsidan och går igenom kupén med dammsugning, kemtvätt och rengöring av alla ytor. När vi är klara luftar vi bilen ordentligt, så att du kan köra hem direkt. Har du möjlighet kan du låta dörrar och fönster stå öppna en stund till när du kommer hem.",
+            "Du bokar genom att ringa eller skicka en förfrågan. Hur lång tid rekonden tar beror på bilens storlek och skick, men räkna med 4-8 timmar, så bilen stannar hos oss hela dagen. Under dagen tvättar och skyddar vi utsidan och går igenom kupén med dammsugning och rengöring av alla ytor. När vi är klara luftar vi bilen ordentligt, så att du kan köra hem direkt. Har du möjlighet kan du låta dörrar och fönster stå öppna en stund till när du kommer hem.",
           ],
         },
         {
@@ -142,7 +142,7 @@ export const tjanster: Tjanst[] = [
       { heading: "Lackanalys", text: "Vi mäter lacktjockleken och bedömer skicket innan vi börjar, så att vi vet hur mycket lacken tål och vilket program som ger bäst resultat." },
       { heading: "Polering i ett steg", text: "För lack i gott skick räcker ofta ett poleringsteg för att ta bort swirlmärken och ge lacken nytt liv." },
       { heading: "Två eller tre steg", text: "Är lacken mer sliten tar första steget bort djupare repor och oxidering, och nästa steg förfinar ytan för maximalt djup och glans." },
-      { heading: "Vax efteråt", text: "Efter polering lägger vi alltid på vax för att bevara resultatet. Vill du skydda lacken längre kan du lägga till lackskydd." },
+      { heading: "Vax efteråt", text: "Efter polering lägger vi på vax för att bevara resultatet. Vill du skydda lacken längre väljer du lackskydd, som då läggs på i stället för vaxet." },
     ],
     why: [
       "Lacktjockleken mäts alltid före polering",
@@ -213,7 +213,7 @@ export const tjanster: Tjanst[] = [
     included: [
       { heading: "Avfettning efter poleringen", text: "Lackskyddet läggs på efter poleringen, när lacken avfettats noggrant. En ren och slät yta behövs för att skyddet ska fästa." },
       { heading: "Skiktet läggs på för hand", text: "Vi lägger på lackskyddet för hand, med professionella produkter av hög kvalitet." },
-      { heading: "Härdning", text: "Skiktet behöver tid att härda. Vi berättar vad du ska tänka på de första dagarna." },
+      { heading: "Härdning", text: "Skiktet härdar i 12 timmar i vår lokal innan bilen får åka och fortsätter sedan att härda i minst en vecka." },
       { heading: "2, 3 eller 5 års skydd", text: "Du väljer själv hur länge skyddet ska hålla, utifrån hur länge du planerar att ha bilen och hur den används." },
     ],
     why: [
@@ -226,7 +226,7 @@ export const tjanster: Tjanst[] = [
       { q: "Kan jag köpa lackskydd utan polering?", a: "Nej, lackskydd är ett tillägg till polering, eftersom skyddet bara fäster bra på en ren och slät yta. Det kompletta paketet innehåller både lackkorrigering och 3 års lackskydd." },
       { q: "Hur länge håller lackskyddet?", a: "Du väljer 2, 3 eller 5 år. Med rätt skötsel skyddar det lacken under hela den tiden." },
       { q: "Kan man lägga lackskydd på en ny bil?", a: "Ja, gärna direkt, innan lacken hunnit samla på sig repor och smuts. Lackskyddet läggs på efter en polering, även på en ny bil." },
-      { q: "Hur sköter jag bilen efter behandlingen?", a: "De första dagarna härdar skiktet, och vi berättar vad du ska tänka på under den tiden. Sedan räcker en skonsam handtvätt, och smuts släpper lättare än förut." },
+      { q: "Hur sköter jag bilen efter behandlingen?", a: "Vänta minst en vecka med första tvätten, gärna längre, eftersom skiktet härdar hela den tiden. Sedan räcker en skonsam handtvätt med pH-neutrala medel, och smuts släpper lättare än förut. Avfetta bilen mer sällan, till exempel varannan månad i stället för varje." },
     ],
     pricing: {
       fromPrice: fran("lackskydd"),
@@ -248,7 +248,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Lackskydd eller vax?",
           stycken: [
-            "Vax sitter på ytan och tvättas bort efter några månader. Ett lackskydd håller i 2, 3 eller 5 år, beroende på vad du väljer. Ett keramiskt lackskydd binder dessutom kemiskt till lacken och ger ett hårdare och mer reptåligt skikt än vax. Efter varje polering lägger vi på vax, så lackskyddet är för dig som vill att lacken ska hålla sig fin längre.",
+            "Vax sitter på ytan och tvättas bort efter några månader. Ett lackskydd håller i 2, 3 eller 5 år, beroende på vad du väljer. Ett keramiskt lackskydd binder dessutom kemiskt till lacken och ger ett hårdare och mer reptåligt skikt än vax. Väljer du inget lackskydd avslutar vi poleringen med vax, så lackskyddet är för dig som vill att lacken ska hålla sig fin längre.",
           ],
         },
         {
@@ -357,56 +357,57 @@ export const tjanster: Tjanst[] = [
     slug: "invandig-rekond",
     num: "05",
     title: "Invändig rekond",
-    shortDesc: "Kemtvätt av klädsel och mattor, rengöring av alla ytor. Fräscht och rent.",
-    metaDesc: "Invändig rekond i Örebro: kemtvätt av säten, mattor och innertak, rengöring av alla ytor och invändig glasputs. Vi kan hämta bilen. Ring 076-035 38 08.",
+    shortDesc: "Rengöring av klädsel, mattor och alla ytor. Fräscht och rent.",
+    metaDesc: "Invändig rekond i Örebro: dammsugning, rengöring av säten, mattor och alla ytor samt invändig glasputs. Kemtvätt finns som tillägg. Ring 076-035 38 08.",
     hero: "Invändig rekond Örebro",
-    intro: "Vid en invändig rekond går vi igenom hela kupén. Säten, mattor och innertak kemtvättas, alla ytor rengörs och rutorna putsas på insidan. Smuts, fläckar och lukt som dammsugaren inte rår på lyfts ur tyget, och bilen känns fräsch igen när du sätter dig i den.",
+    intro: "Vid en invändig rekond går vi igenom hela kupén. Säten och mattor rengörs, alla ytor görs rena och rutorna putsas på insidan. Behöver tyget mer borstar vi in rengöringsmedel och tar bort lukt och fläckar med ångmaskin, så att bilen känns fräsch igen när du sätter dig i den.",
     included: [
       { heading: "Grundlig dammsugning", text: "Mattor, springor i sätena och svåråtkomliga ställen dammsugs noggrant som första steg." },
-      { heading: "Kemtvätt av klädsel och mattor", text: "Med ångtvätts- och kemtvättsutrustning lyfter vi smuts, fläckar och bakterier ur säten och mattor." },
-      { heading: "Rengöring av innertaket", text: "Innertaket kemtvättas varsamt, eftersom tyget där är känsligt." },
+      { heading: "Rengöring av klädsel och mattor", text: "Säten och mattor rengörs efter hur kupén ser ut. Vid behov borstar vi in rengöringsmedel och använder ångmaskin mot lukt och fläckar." },
+      { heading: "Avtorkning av innertaket", text: "Innertaket torkar vi av försiktigt, eftersom tyget är lätt att skada." },
       { heading: "Läderbehandling", text: "Har bilen lädersäten rengörs de med pH-neutralt läderrengöringsmedel och behandlas sedan med ett skyddande och mjukgörande läderserum." },
       { heading: "Rengöring av alla ytor", text: "Instrumentbräda, dörrsidor, mittkonsol och luftventiler rengörs och får ett skyddande medel." },
       { heading: "Invändig glasputs", text: "Rutorna putsas på insidan för bättre sikt och ett rent intryck." },
     ],
     why: [
       "Tar bort lukt från mat, husdjur och fukt",
-      "Professionell ångtvätts- och kemtvättsutrustning",
+      "Ångmaskin när tyget behöver mer",
       "Läderserum när bilen har lädersäten",
       "Vi tar den tid kupén behöver",
     ],
     faq: [
       { q: "Hur lång tid tar en invändig rekond?", a: "Räkna med två till fyra timmar. Ju större bil och ju smutsigare kupé, desto längre tid, så det enklaste är att lämna bilen hos oss över dagen." },
+      { q: "Ingår kemtvätt av sätena?", a: "Nej, kemtvätt är ett tillägg. Du kan välja kemtvätt per säte eller för alla fyra säten, och priserna ser du i prislistan." },
       { q: "Kan ni ta bort husdjurslukt?", a: "I de flesta fall, ja. Lukten sitter ofta djupt i tyget, och med enzymatiska medel bryter vi ned den i stället för att bara dölja den." },
       { q: "Hur länge behöver bilen luftas?", a: "Vi luftar bilen ordentligt efter behandlingen, så du kan köra hem direkt. Lämna gärna dörrar och fönster öppna ytterligare någon timme." },
-      { q: "Vad är skillnaden mot invändig tvätt?", a: "Invändig tvätt är en enklare rengöring av kupén. Vid en invändig rekond kemtvättar vi också klädsel, mattor och innertak och rengör alla ytor på djupet." },
+      { q: "Vad är skillnaden mot invändig tvätt?", a: "Invändig tvätt är en enklare rengöring av kupén. Vid en invändig rekond går vi igenom hela kupén noggrant, från mattor och säten till alla ytor och rutor." },
     ],
     pricing: {
       fromPrice: fran("invandig-rekond"),
       unit: "kr",
-      note: "Komplett invändig kemtvätt av klädsel, mattor och alla ytor.",
+      note: "Rengöring av hela kupén. Kemtvätt finns som tillägg.",
     },
     sida: {
-      title: "Invändig rekond Örebro | Kemtvätt av bilklädsel i Örebro",
+      title: "Invändig rekond Örebro | Invändig bilrengöring i Örebro",
       h1: "Invändig rekond Örebro",
       intro: [
-        "Vid en invändig rekond går vi igenom hela kupén. Säten, mattor och innertak kemtvättas, alla ytor rengörs och rutorna putsas på insidan. Smuts, fläckar och lukt som dammsugaren inte rår på lyfts ur tyget, och bilen känns fräsch igen när du sätter dig i den.",
-        "Vi använder professionell ångtvätts- och kemtvättsutrustning, och har bilen lädersäten får de en behandling med läderserum. Vill du ha både insidan och utsidan gjorda passar en [bilrekond](/tjanster/rekonditionering). Läs mer om [bilvård hos KOM-fort](/).",
+        "Vid en invändig rekond går vi igenom hela kupén. Säten och mattor rengörs, alla ytor görs rena och rutorna putsas på insidan. Behöver tyget mer borstar vi in rengöringsmedel och tar bort lukt och fläckar med ångmaskin, så att bilen känns fräsch igen när du sätter dig i den.",
+        "Sitter fläckarna djupt kan du lägga till kemtvätt av sätena, och har bilen lädersäten får de en behandling med läderserum. Vill du ha både insidan och utsidan gjorda passar en [bilrekond](/tjanster/rekonditionering). Läs mer om [bilvård hos KOM-fort](/).",
       ],
       ingarH2: "Vad ingår i en invändig rekond?",
       prisH2: "Pris för invändig rekond",
-      prisText: "Priset ser du i prislistan, och slutpriset beror på bilens storlek och skick. Vill du ha en uppskattning för just din bil kan du skicka en förfrågan på [bokningssidan](/boka).",
+      prisText: "Priset ser du i prislistan, och slutpriset beror på bilens storlek och skick. Kemtvätt av sätena finns som tillägg, per säte eller för alla fyra säten. Vill du ha en uppskattning för just din bil kan du skicka en förfrågan på [bokningssidan](/boka).",
       sektioner: [
         {
           h2: "Så går en invändig rekond till",
           stycken: [
-            "När du har bokat lämnar du bilen hos oss för dagen. Vi börjar med dammsugning och kemtvätt, fortsätter med alla ytor och tar glasputsen sist. Själva arbetet tar 2-4 timmar, beroende på bilens storlek och skick. Innan du hämtar bilen luftar vi kupén ordentligt.",
+            "När du har bokat lämnar du bilen hos oss för dagen. Vi börjar med dammsugning, rengör sedan klädsel, mattor och alla ytor och tar glasputsen sist. Själva arbetet tar 2-4 timmar, beroende på bilens storlek och skick. Innan du hämtar bilen luftar vi kupén ordentligt och går igenom hela bilen en sista gång.",
           ],
         },
         {
           h2: "När behöver kupén en invändig rekond?",
           stycken: [
-            "Efter vintern, när grus, salt och väta har följt med in i bilen, eller när kupén luktar mat, husdjur eller fukt. Har sätena fläckar är det kemtvätt av bilklädsel som gör mest skillnad, och ångtvätt tar hand om smuts och bakterier i mattor och skrymslen. Ska bilen säljas gör en ren kupé stor skillnad, eftersom köparen sätter sig i bilen först av allt. Räcker det med en enklare rengöring finns invändig tvätt som en del av vår [biltvätt](/tjanster/biltvatt).",
+            "Efter vintern, när grus, salt och väta har följt med in i bilen, eller när kupén luktar mat, husdjur eller fukt. Har sätena fläckar som sitter djupt gör kemtvätt av bilklädsel mest skillnad, och den kan du lägga till. Ska bilen säljas gör en ren kupé stor skillnad, eftersom köparen sätter sig i bilen först av allt. Räcker det med en enklare rengöring finns invändig tvätt som en del av vår [biltvätt](/tjanster/biltvatt).",
           ],
         },
         {

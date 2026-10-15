@@ -89,7 +89,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Bilrekond för dig i Marieberg",
         stycken: [
-          "Ska bilen säljas, eller behöver den ett lyft efter vintern? En [bilrekond](/tjanster/rekonditionering) ger den nybilskänslan tillbaka. Vi tvättar och avfettar, lägger på en lackförsegling som håller i 12 månader och kemtvättar kupén, så att bilen både ser ut och luktar som ny igen. Vill du få bort lätta repor kan du lägga till polering.",
+          "Ska bilen säljas, eller behöver den ett lyft efter vintern? En [bilrekond](/tjanster/rekonditionering) ger den nybilskänslan tillbaka. Vi tvättar och avfettar, lägger på en lackförsegling som håller i 12 månader och rengör kupén, så att bilen både ser ut och luktar som ny igen. Vill du få bort lätta repor kan du lägga till polering.",
         ],
       },
       {
@@ -147,7 +147,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Invändig rekond för vardagsbilen",
         stycken: [
-          "Bilen som tar dig till jobbet, skolan och träningen samlar på sig smuts, smulor och lukt. Vid en [invändig rekond](/tjanster/invandig-rekond) går vi på djupet med kemtvätt av säten, mattor och innertak. Det tar bort lukt från mat, husdjur och fukt, och husdjurslukt bryter vi i de flesta fall ned med enzymatiska medel. Lädersäten får en egen behandling med läderserum. Räkna med 2-4 timmar.",
+          "Bilen som tar dig till jobbet, skolan och träningen samlar på sig smuts, smulor och lukt. Vid en [invändig rekond](/tjanster/invandig-rekond) går vi på djupet med säten, mattor och alla ytor och tar till ångmaskin när tyget behöver mer. Det tar bort lukt från mat, husdjur och fukt, och husdjurslukt bryter vi i de flesta fall ned med enzymatiska medel. Lädersäten får en egen behandling med läderserum. Räkna med 2-4 timmar.",
         ],
       },
       {
@@ -223,7 +223,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Ångtvätt av klädsel och mattor",
         stycken: [
-          "Vi rengör klädsel och mattor med professionell utrustning för [ångtvätt](/tjanster/invandig-rekond) och kemtvätt. Den tar bort ingrodd smuts, fläckar och bakterier som dammsugaren inte når, så att säten och mattor blir rena på djupet.",
+          "Vid en invändig rekond rengör vi klädsel och mattor efter hur kupén ser ut. När tyget behöver mer borstar vi in rengöringsmedel och tar bort lukt och fläckar med [ångtvätt](/tjanster/invandig-rekond), och sitter fläckarna djupt kan du lägga till kemtvätt av sätena.",
         ],
       },
     ],
@@ -244,7 +244,7 @@ export const omraden: Omrade[] = [
       fragor: [
         { q: "Hur lång tid tar en invändig rekond?", a: "Räkna med 2-4 timmar beroende på bilens storlek och hur smutsig den är. Lämna gärna bilen hos oss för dagen." },
         { q: "Kan ni ta bort husdjurslukt?", a: "Ja, i de flesta fall. Vi använder enzymatiska medel som bryter ned lukten på djupet i stället för att bara dölja den." },
-        { q: "Hur länge håller ett keramiskt lackskydd?", a: "Med rätt skötsel håller det i flera år. Efter behandlingen går vi igenom vad du bör tänka på de första dagarna, medan skiktet härdar." },
+        { q: "Hur länge håller ett keramiskt lackskydd?", a: "Med rätt skötsel håller det i flera år. Efter behandlingen går vi igenom hur du sköter bilen medan skiktet härdar, och med första tvätten väntar du minst en vecka." },
         { q: "Vad kostar en rekond?", a: "Priset beror på bilens storlek och skick. Ring 076-035 38 08, så får du ett pris för just din bil." },
       ],
     },
@@ -264,7 +264,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Rekond inför bilförsäljning",
         stycken: [
-          "Ska bilen säljas är det värt att visa den från dess bästa sida. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering) går vi igenom hela bilen: tvätt och avfettning, en lackförsegling som håller i 12 månader och kemtvätt av säten, mattor och innertak. Har lacken lätta repor kan du lägga till polering. En välvårdad bil gör ett bättre intryck på köparen och kan höja andrahandsvärdet. Behandlingen tar 4-8 timmar, så lägg den gärna några dagar före första visningen.",
+          "Ska bilen säljas är det värt att visa den från dess bästa sida. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering) går vi igenom hela bilen: tvätt och avfettning, en lackförsegling som håller i 12 månader och rengöring av hela kupén. Kemtvätt av sätena finns som tillägg. Har lacken lätta repor kan du lägga till polering. En välvårdad bil gör ett bättre intryck på köparen och kan höja andrahandsvärdet. Behandlingen tar 4-8 timmar, så lägg den gärna några dagar före första visningen.",
         ],
       },
       {
@@ -276,7 +276,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Vax eller keramiskt lackskydd?",
         stycken: [
-          "Vax ger lacken glans och ett tunt skyddande lager. Vid in- och utvändig handtvätt använder vi vaxschampo, och efter en polering lägger vi alltid på vax. Vaxet ligger ovanpå lacken och är borta efter några månader. Ett [keramiskt lackskydd](/tjanster/lackskydd) binder i stället kemiskt till lacken, bildar ett hårdare skikt och sitter kvar i flera år om bilen sköts rätt. Det läggs på efter en polering och är rätt val om lacken ska hålla sig fin länge.",
+          "Vax ger lacken glans och ett tunt skyddande lager. Vid in- och utvändig handtvätt använder vi vaxschampo, och efter en polering lägger vi på vax om du inte väljer lackskydd. Vaxet ligger ovanpå lacken och är borta efter några månader. Ett [keramiskt lackskydd](/tjanster/lackskydd) binder i stället kemiskt till lacken, bildar ett hårdare skikt och sitter kvar i flera år om bilen sköts rätt. Det läggs på efter en polering och är rätt val om lacken ska hålla sig fin länge.",
         ],
       },
       {
@@ -322,13 +322,13 @@ export const omraden: Omrade[] = [
       {
         h2: "Kemtvätt av bilklädsel",
         stycken: [
-          "Säten och mattor drar åt sig smuts, spill och lukt som sitter djupt i tyget. Vid [kemtvätt av bilklädsel](/tjanster/invandig-rekond) använder vi professionell kemtvätts- och ångtvättsutrustning som tar bort smuts, fläckar och bakterier. Innertaket kemtvättar vi också, och har bilen lädersäten behandlar vi dem med läderserum. Efteråt luftar vi bilen ordentligt, och du kan köra hem direkt.",
+          "Säten och mattor drar åt sig smuts, spill och lukt som sitter djupt i tyget. Vid [kemtvätt av bilklädsel](/tjanster/invandig-rekond) använder vi våtdammsugare, som suger upp smuts och fläckar ur tyget. Efteråt luftar vi bilen ordentligt, och du kan köra hem direkt.",
         ],
       },
       {
         h2: "Rekond för hela bilen",
         stycken: [
-          "Ska hela bilen bli fin, både in- och utvändigt, passar en komplett [rekond](/tjanster/rekonditionering). Den är vår mest sålda tjänst och omfattar handtvätt, avfettning, en lackförsegling som håller i 12 månader och kemtvätt av kupén. Polering finns som tillägg. Räkna med att bilen blir kvar hos oss över dagen, och när du hämtar den har den fått tillbaka nybilskänslan.",
+          "Ska hela bilen bli fin, både in- och utvändigt, passar en komplett [rekond](/tjanster/rekonditionering). Den är vår mest sålda tjänst och omfattar handtvätt, avfettning, en lackförsegling som håller i 12 månader och rengöring av hela kupén. Polering finns som tillägg. Räkna med att bilen blir kvar hos oss över dagen, och när du hämtar den har den fått tillbaka nybilskänslan.",
         ],
       },
       {
@@ -359,7 +359,7 @@ export const omraden: Omrade[] = [
     faq: {
       h2: "Vanliga frågor från Almby",
       fragor: [
-        { q: "Får ni bort fläckar ur tygsätena?", a: "Vi kemtvättar säten, mattor och innertak med professionell utrustning som tar bort smuts och fläckar ur tyget. Hur mycket som går bort beror på fläcken." },
+        { q: "Får ni bort fläckar ur tygsätena?", a: "Med kemtvätt lyfter vi smuts och fläckar ur sätena, och du kan välja kemtvätt per säte eller för alla fyra säten. Hur mycket som går bort beror på fläcken." },
         { q: "Hur ofta behöver bilen en rekond?", a: "En komplett rekond en gång om året räcker för de flesta bilar. Passa gärna på efter vintern eller inför sommaren." },
         { q: "Passar lackskydd på en ny bil?", a: "Ja. Det är optimalt att skydda lacken medan bilen är ny, och med rätt skötsel håller skyddet i flera år." },
       ],

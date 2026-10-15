@@ -13,7 +13,7 @@ export type Tillagg = {
   label: string;
   pris: number;
   /** Tillägg i samma grupp utesluter varandra (högst ett). */
-  grupp?: "polering" | "lackskydd";
+  grupp?: "lackskydd";
 };
 
 export type Tjanstpris = {
@@ -34,6 +34,12 @@ const TVATT_TILLAGG: Tillagg[] = [
   { id: "flygrost", label: "Flygrostborttagning", pris: 99 },
   { id: "motortvatt", label: "Motortvätt", pris: 399 },
 ];
+
+/** Kemtvätt av sätena: tillägg till helrekond och invändig rekond (kundens besked 2026-10-15). */
+const KEMTVATT_TILLAGG: Tillagg = { id: "kemtvatt-4-saten", label: "Kemtvätt av alla fyra säten, mittsätet ingår", pris: 1000 };
+
+/** Kemtvätt per säte. Visas bara i prislistorna; på /boka skriver kunden enstaka säten i meddelandet. */
+export const KEMTVATT_PER_SATE = { label: "Kemtvätt per säte", pris: 250 };
 
 const LACKSKYDD_TILLAGG: Tillagg[] = [
   { id: "lackskydd-2", label: "Lackskydd 2 år", pris: 1995, grupp: "lackskydd" },
@@ -78,8 +84,8 @@ export const tjanstpriser: Tjanstpris[] = [
     tillagg: [
       { id: "motortvatt", label: "Motortvätt", pris: 399 },
       { id: "glasforsegling", label: "Glasförsegling 2 år", pris: 499 },
-      { id: "latt-polering", label: "Lätt polering", pris: 399, grupp: "polering" },
-      { id: "1-stegspolering", label: "1-stegspolering", pris: 1495, grupp: "polering" },
+      { id: "1-stegspolering", label: "1-stegspolering", pris: 1495 },
+      KEMTVATT_TILLAGG,
     ],
     bokningsbar: true,
   },
@@ -87,7 +93,7 @@ export const tjanstpriser: Tjanstpris[] = [
     id: "invandig-rekond",
     namn: "Invändig rekond",
     pris: 1195,
-    tillagg: [],
+    tillagg: [KEMTVATT_TILLAGG],
     bokningsbar: true,
   },
   {
@@ -206,6 +212,13 @@ export type Prisgrupp = { rubrik?: string; rader: { label: string; pris: string 
 
 const rader = (t: Tjanstpris) => (t.val?.rader ?? []).map((r) => ({ label: r.label, pris: `${kr(r.pris)} kr` }));
 const tillaggRader = (t: Tjanstpris) => t.tillagg.map((x) => ({ label: x.label, pris: `${kr(x.pris)} kr` }));
+/** Tilläggsgrupp med kemtvätt per säte före raden för alla fyra säten. */
+const tillaggMedKemtvatt = (t: Tjanstpris) => {
+  const rader = tillaggRader(t);
+  const i = rader.findIndex((r) => r.label === KEMTVATT_TILLAGG.label);
+  rader.splice(i, 0, { label: KEMTVATT_PER_SATE.label, pris: `${kr(KEMTVATT_PER_SATE.pris)} kr` });
+  return rader;
+};
 const p = (id: string) => getTjanstpris(id)!;
 
 const komplettGrupp = (): Prisgrupp => {
@@ -235,7 +248,7 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[] }> =
     fran: franPris(p("helrekond")),
     grupper: [
       { rader: rader(p("helrekond")) },
-      { rubrik: "Tillägg", rader: tillaggRader(p("helrekond")) },
+      { rubrik: "Tillägg", rader: tillaggMedKemtvatt(p("helrekond")) },
       komplettGrupp(),
     ],
   },
@@ -257,6 +270,9 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[] }> =
   },
   "invandig-rekond": {
     fran: franPris(p("invandig-rekond")),
-    grupper: [{ rader: [{ label: p("invandig-rekond").namn, pris: `${kr(p("invandig-rekond").pris!)} kr` }] }],
+    grupper: [
+      { rader: [{ label: p("invandig-rekond").namn, pris: `${kr(p("invandig-rekond").pris!)} kr` }] },
+      { rubrik: "Tillägg", rader: tillaggMedKemtvatt(p("invandig-rekond")) },
+    ],
   },
 };
