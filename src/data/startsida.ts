@@ -51,7 +51,7 @@ export const startsida = {
     stycken: [
       "Har du inte tid att köra bilen till oss, kan vi hämta den hos dig och lämna tillbaka den när den är klar. Du slipper ta dig till verkstaden och vänta. Hör av dig, så berättar vi vad som gäller och bokar en tid som passar dig.",
     ],
-    knapp: { text: "Boka hämtning", href: "/kontakt" },
+    knapp: { text: "Boka hämtning", href: "/tjanster/hamtning-och-lamning" },
   },
   omraden: {
     h2: "Bilvård i hela Örebro",

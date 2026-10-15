@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-15 (Batch 03b: kemtvätt is an add-on (1 000 kr for four seats, 250 kr per seat shown in price lists), lätt polering removed, copy corrections about innertak, vax and lackskydd curing)
+Last updated: 2026-10-15 (Batch 04: five new service pages incl. subpages under polering, invandig-rekond and lackskydd; shared TjanstSidaMall; new bookable services on /boka)
 
 ---
 
@@ -34,6 +34,15 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Service subpages (batch 04):** service pages without a card live in `src/data/undersidor.ts`
+  (`foralder` marks a subpage, e.g. polering/repborttagning). `src/data/tjanstsidor.ts` joins
+  them with the five card services for routes and the sitemap. The template is
+  `components/marketing/TjanstSidaMall.tsx`, used by `tjanster/[slug]/page.tsx` (three-level
+  breadcrumbs) and `tjanster/[slug]/[under]/page.tsx` (four levels). `pricing` is optional (no
+  hero price box on Repborttagning); `sidPriser[...]` keys use the path ("polering/repborttagning")
+  and may set `fotnot` (null = no footnote). New bookable services on /boka: Kemtvätt av säten
+  (per number of seats), Strålkastarpolering, Glasförsegling 2 år (+ bakruta). Hämtning has
+  prices in `priser.ts` but is booked with the checkbox on /boka.
 - **Kemtvätt and add-ons (batch 03b):** `KEMTVATT_TILLAGG` (four seats, 1 000 kr) is an add-on on
   helrekond and invändig rekond, selectable on /boka. `KEMTVATT_PER_SATE` (250 kr) is only a
   price-list row (customers write single seats in the message). "Lätt polering" no longer
@@ -130,7 +139,8 @@ src/
       boka/page.tsx            Booking page: hero + <Bokning> + text + map (copy from data/boka.ts)
       presentkort/page.tsx     Gift card page: hero + "Så beställer du" + steps + <Presentkort> (form) + text + map + FAQ (copy from data/presentkort.ts)
       tjanster/page.tsx        Services hub: H1 + intro + <ServiceCard>s + text sections + map + FAQ (copy from data/tjansterSida.ts)
-      tjanster/[slug]/page.tsx Per-service page from `sida` in data/tjanster.ts; Service/FAQ JSON-LD, price list from data/priser.ts
+      tjanster/[slug]/page.tsx Service page (TjanstSidaMall) for services directly under /tjanster
+      tjanster/[slug]/[under]/page.tsx Service subpage (TjanstSidaMall), e.g. /tjanster/polering/repborttagning
   components/
     marketing/
       Hero.tsx                 PixelImage 2×2 grid, animated SVG headline, CTA buttons (hex background removed)
@@ -160,6 +170,8 @@ src/
     priser.ts                  All prices (one source) + beraknaPris() calculator + sidPriser (price lists per service page)
     boka.ts                    Booking page copy
     presentkort.ts             Gift card page copy
+    undersidor.ts              Service pages without a card (hämtning, repborttagning, kemtvätt, strålkastarpolering, glasförsegling)
+    tjanstsidor.ts             All service pages joined, lookups by slug / parent+slug
     tjanster.ts                5 services with copy, metaDesc, included[], why[], faq[], pricing{fromPrice from priser.ts, note, popular}, optional sida{}
     kontakt.ts                 Contact page copy
     tjansterSida.ts            Services hub copy

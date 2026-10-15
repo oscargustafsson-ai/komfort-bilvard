@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import type { Tjanst } from "@/data/tjanster";
+import { tjanstPath, type Tjanst } from "@/data/tjanster";
 
 /** Stabilt @id för företaget. Tjänste- och områdesschemat pekar hit via provider. */
 export const FORETAG_ID = `${site.url}/#foretag`;
@@ -109,7 +109,7 @@ export function serviceSchema(t: Tjanst) {
     serviceType: t.title,
     areaServed: { "@type": "City", name: "Örebro" },
     provider: { "@id": FORETAG_ID },
-    url: `${site.url}/tjanster/${t.slug}`,
+    url: `${site.url}${tjanstPath(t)}`,
   };
 
   return [service, faqSchema(t.faq)];

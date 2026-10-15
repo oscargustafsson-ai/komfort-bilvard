@@ -42,7 +42,7 @@ export function ServiceCard({ s }: { s: Tjanst }) {
         }}
       />
 
-      {s.pricing.popular && (
+      {s.pricing?.popular && (
         <span className="absolute top-0 right-0 z-10 bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-black">
           Populärast
         </span>
@@ -66,14 +66,16 @@ export function ServiceCard({ s }: { s: Tjanst }) {
           {s.shortDesc}
         </p>
 
-        {/* Pris */}
-        <p className="mt-5 font-mono text-xs uppercase tracking-widest text-white/35">
-          {s.pricing.prefix ?? "Fr"}{" "}
-          <span className="text-base normal-case tracking-normal font-bold text-gold">
-            {s.pricing.fromPrice}
-          </span>{" "}
-          {s.pricing.unit ?? "kr"}
-        </p>
+        {/* Pris (korten har alltid prisruta) */}
+        {s.pricing && (
+          <p className="mt-5 font-mono text-xs uppercase tracking-widest text-white/35">
+            {s.pricing.prefix ?? "Fr"}{" "}
+            <span className="text-base normal-case tracking-normal font-bold text-gold">
+              {s.pricing.fromPrice}
+            </span>{" "}
+            {s.pricing.unit ?? "kr"}
+          </p>
+        )}
 
         {/* Foten: guld-accentstreck + länk, alltid längst ner */}
         <div className="mt-auto pt-7">

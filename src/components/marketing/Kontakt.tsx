@@ -56,8 +56,8 @@ function skickaUtanNollstallning(action: (fd: FormData) => void) {
   };
 }
 
-/** Tjänsterna i formulärets lista (batch 02b, grundfix 6). */
-const tjanstVal = ["Handtvätt", "Invändig tvätt", "Helrekond", "Invändig rekond", "Polering med vax", "Komplett paket med lackskydd", "Annat"];
+/** Tjänsterna i formulärets lista (batch 02b grundfix 6, batch 04 grundfix 6). */
+const tjanstVal = ["Handtvätt", "Invändig tvätt", "Helrekond", "Invändig rekond", "Polering med vax", "Komplett paket med lackskydd", "Repborttagning", "Kemtvätt av säten", "Strålkastarpolering", "Glasförsegling", "Annat"];
 
 /**
  * Kontaktkorten och förfrågningsformuläret. Rubriker, text, karta och FAQ

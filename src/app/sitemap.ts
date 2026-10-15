@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { tjanster } from "@/data/tjanster";
+import { allaTjanstsidor, tjanstPath } from "@/data/tjanstsidor";
 import { omraden } from "@/data/omraden";
 import { site } from "@/lib/site";
 
@@ -10,10 +10,9 @@ import { site } from "@/lib/site";
  */
 const STANDARD_DATUM = "2026-10-15";
 const senastAndrad: Record<string, string> = {
-  // Batch 03b (2026-10-15): rättelser på allt utom nedanstående.
+  // Batch 03b och 04 (2026-10-15): rättelser och nya sidor, allt utom nedanstående.
   "/omraden": "2026-10-14",
   "/presentkort": "2026-10-14",
-  "/kontakt": "2026-10-14",
   "/tjanster/biltvatt": "2026-10-14",
   // Batch 01 (2026-10-10): alla sidor fick nytt schema, canonical och og-taggar.
   // Batch 02 (2026-10-11): allt utom Marieberg och Adolfsberg ändrades.
@@ -32,9 +31,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  const tjanstSidor = tjanster.map((t) => ({
-    url: `${site.url}/tjanster/${t.slug}`,
-    lastModified: datum(`/tjanster/${t.slug}`),
+  const tjanstSidor = allaTjanstsidor.map((t) => ({
+    url: `${site.url}${tjanstPath(t)}`,
+    lastModified: datum(tjanstPath(t)),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

@@ -114,7 +114,7 @@ export const omraden: Omrade[] = [
     hamtning: {
       h2: "Hämtning och lämning i Marieberg",
       stycken: [
-        "Har du fullt upp kan vi hämta bilen hos dig i Marieberg och köra tillbaka den när den är klar. [Hämtning och lämning av bilen](/kontakt) bokar du enklast via formuläret, så berättar vi vad som gäller.",
+        "Har du fullt upp kan vi hämta bilen hos dig i Marieberg och köra tillbaka den när den är klar. [Hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) bokar du enklast via formuläret, så berättar vi vad som gäller.",
       ],
     },
     hitta: {
@@ -172,7 +172,7 @@ export const omraden: Omrade[] = [
     hamtning: {
       h2: "Hämtning och lämning i Adolfsberg",
       stycken: [
-        "Även om vi ligger nära kan det vara skönt att slippa köra. Bor du till exempel i Brunnsgärdet, där bilarna står parkerade längs kanterna av området, kan vi hämta bilen hos dig och lämna den när den är klar. Ring 076-035 38 08 eller skicka en förfrågan om [hämtning och lämning av bilen](/kontakt), så återkommer vi med vad som gäller.",
+        "Även om vi ligger nära kan det vara skönt att slippa köra. Bor du till exempel i Brunnsgärdet, där bilarna står parkerade längs kanterna av området, kan vi hämta bilen hos dig och lämna den när den är klar. Ring 076-035 38 08 eller skicka en förfrågan om [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning), så återkommer vi med vad som gäller.",
       ],
     },
     hitta: {
@@ -211,7 +211,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Repborttagning med maskinpolering",
         stycken: [
-          "En repa som bara sitter i klarlacket kan vi oftast polera bort helt. Vid [repborttagning](/tjanster/polering) mäter vi först lacktjockleken och bedömer hur djupt skadan går. Har repan gått ner till grundfärgen eller plåten hjälper inte polering, då behövs lackering.",
+          "En repa som bara sitter i klarlacket kan vi oftast polera bort helt. Vid [repborttagning](/tjanster/polering/repborttagning) mäter vi först lacktjockleken och bedömer hur djupt skadan går. Har repan gått ner till grundfärgen eller plåten hjälper inte polering, då behövs lackering.",
         ],
       },
       {
@@ -230,7 +230,7 @@ export const omraden: Omrade[] = [
     hamtning: {
       h2: "Hämtning och lämning i Vivalla",
       stycken: [
-        "Har du inte tid att köra bilen till oss, kan vi hämta den hos dig i Vivalla och lämna den igen när den är klar. Skriv i formuläret att du vill ha [hämtning och lämning av bilen](/kontakt), så hör vi av oss och berättar hur det går till.",
+        "Har du inte tid att köra bilen till oss, kan vi hämta den hos dig i Vivalla och lämna den igen när den är klar. Skriv i formuläret att du vill ha [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning), så hör vi av oss och berättar hur det går till.",
       ],
     },
     hitta: {
@@ -289,7 +289,7 @@ export const omraden: Omrade[] = [
     hamtning: {
       h2: "Hämtning och lämning i Varberga",
       stycken: [
-        "Har du ont om tid kan vi hämta bilen hos dig i Varberga och komma tillbaka med den när den är färdig. Nämn [hämtning och lämning av bilen](/kontakt) i din förfrågan, så berättar vi hur vi kan lösa det.",
+        "Har du ont om tid kan vi hämta bilen hos dig i Varberga och komma tillbaka med den när den är färdig. Nämn [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) i din förfrågan, så berättar vi hur vi kan lösa det.",
       ],
     },
     hitta: {
@@ -322,7 +322,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Kemtvätt av bilklädsel",
         stycken: [
-          "Säten och mattor drar åt sig smuts, spill och lukt som sitter djupt i tyget. Vid [kemtvätt av bilklädsel](/tjanster/invandig-rekond) använder vi våtdammsugare, som suger upp smuts och fläckar ur tyget. Efteråt luftar vi bilen ordentligt, och du kan köra hem direkt.",
+          "Säten och mattor drar åt sig smuts, spill och lukt som sitter djupt i tyget. Vid [kemtvätt av bilklädsel](/tjanster/invandig-rekond/kemtvatt-kladsel) använder vi våtdammsugare, som suger upp smuts och fläckar ur tyget. Efteråt luftar vi bilen ordentligt, och du kan köra hem direkt.",
         ],
       },
       {
@@ -340,14 +340,14 @@ export const omraden: Omrade[] = [
       {
         h2: "Handtvätt som tar bort vintersmutsen",
         stycken: [
-          "Vägsalt och smuts från vintervägarna sliter på lacken om de får sitta kvar. En [handtvätt](/tjanster/biltvatt) tar bort dem skonsamt: vi blötlägger och avfettar först, tvättar med pH-neutralt schampo och torkar med mjuka mikrofiberdukar. Som tumregel räcker en tvätt i månaden, men under saltsäsongen kan det vara värt att tvätta oftare.",
+          "Vägsalt och smuts från vintervägarna sliter på lacken om de får sitta kvar. En [handtvätt](/tjanster/biltvatt) tar bort dem skonsamt: vi blötlägger och avfettar först, tvättar med pH-neutralt schampo och torkar med mjuka mikrofiberdukar. Som tumregel räcker en tvätt i månaden, men under saltsäsongen kan det vara värt att tvätta oftare. Har strålkastarna blivit gula eller matta kan vi polera dem vid en [strålkastarpolering](/tjanster/polering/stralkastarpolering), och efteråt får de ett lackskydd.",
         ],
       },
     ],
     hamtning: {
       h2: "Hämtning och lämning i Almby",
       stycken: [
-        "Vi kan hämta bilen hos dig i Almby och ställa tillbaka den när den är färdig. Be om [hämtning och lämning av bilen](/kontakt) när du hör av dig, så får du veta vad som gäller.",
+        "Vi kan hämta bilen hos dig i Almby och ställa tillbaka den när den är färdig. Be om [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) när du hör av dig, så får du veta vad som gäller.",
       ],
     },
     hitta: {

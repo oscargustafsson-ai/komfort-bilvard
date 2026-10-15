@@ -20,7 +20,7 @@ export type Tjanstpris = {
   id: string;
   namn: string;
   /** Pris per bilstorlek eller per steg. Saknas: ett fast pris i `pris`. */
-  val?: { etikett: "Bilstorlek" | "Antal steg" | "Lackskydd"; rader: Prisrad[] };
+  val?: { etikett: "Bilstorlek" | "Antal steg" | "Lackskydd" | "Antal säten"; rader: Prisrad[] };
   pris?: number;
   /** Pristillägg per bilstorlek ovanpå valt pris (polering, kompletta paketet). */
   storlekstillagg?: Prisrad[];
@@ -130,6 +130,50 @@ export const tjanstpriser: Tjanstpris[] = [
     tillagg: [],
     bokningsbar: true,
   },
+  // Batch 04. Hämtning bokas med kryssrutan på /boka, inte som egen tjänst.
+  {
+    id: "hamtning",
+    namn: "Hämtning och lämning av bil",
+    val: {
+      etikett: "Bilstorlek",
+      rader: [
+        { id: "centrala", label: "Inom centrala Örebro", pris: 200 },
+        { id: "start", label: "Utanför Örebro, startavgift", pris: 300 },
+        { id: "mil", label: "Utanför Örebro, per mil", pris: 30 },
+      ],
+    },
+    tillagg: [],
+    bokningsbar: false,
+  },
+  {
+    id: "kemtvatt-saten",
+    namn: "Kemtvätt av säten",
+    val: {
+      etikett: "Antal säten",
+      rader: [
+        { id: "1", label: "1 säte", pris: KEMTVATT_PER_SATE.pris },
+        { id: "2", label: "2 säten", pris: KEMTVATT_PER_SATE.pris * 2 },
+        { id: "3", label: "3 säten", pris: KEMTVATT_PER_SATE.pris * 3 },
+        { id: "4", label: "Alla fyra säten, mittsätet ingår", pris: KEMTVATT_TILLAGG.pris },
+      ],
+    },
+    tillagg: [],
+    bokningsbar: true,
+  },
+  {
+    id: "stralkastarpolering",
+    namn: "Strålkastarpolering",
+    pris: 895,
+    tillagg: [],
+    bokningsbar: true,
+  },
+  {
+    id: "glasforsegling",
+    namn: "Glasförsegling 2 år",
+    pris: 799,
+    tillagg: [{ id: "bakruta", label: "Även bakrutan", pris: 200 }],
+    bokningsbar: true,
+  },
 ];
 
 export function getTjanstpris(id: string): Tjanstpris | undefined {
@@ -210,6 +254,9 @@ export function beskrivVal(v: Val) {
 
 export type Prisgrupp = { rubrik?: string; rader: { label: string; pris: string }[] };
 
+/** Fotnoten under prislistan. undefined = standardfotnoten, null = ingen fotnot. */
+export const STANDARD_FOTNOT = "* Slutpris beror på bilens storlek och skick.";
+
 const rader = (t: Tjanstpris) => (t.val?.rader ?? []).map((r) => ({ label: r.label, pris: `${kr(r.pris)} kr` }));
 const tillaggRader = (t: Tjanstpris) => t.tillagg.map((x) => ({ label: x.label, pris: `${kr(x.pris)} kr` }));
 /** Tilläggsgrupp med kemtvätt per säte före raden för alla fyra säten. */
@@ -233,8 +280,8 @@ const komplettGrupp = (): Prisgrupp => {
   };
 };
 
-/** Prislista och från-pris per tjänstesida (slug i tjanster.ts). */
-export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[] }> = {
+/** Prislista och från-pris per tjänstesida (sökväg under /tjanster, t.ex. "polering/repborttagning"). */
+export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[]; fotnot?: string | null }> = {
   biltvatt: {
     fran: franPris(p("utvandig-handtvatt")),
     grupper: [
@@ -274,5 +321,58 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[] }> =
       { rader: [{ label: p("invandig-rekond").namn, pris: `${kr(p("invandig-rekond").pris!)} kr` }] },
       { rubrik: "Tillägg", rader: tillaggMedKemtvatt(p("invandig-rekond")) },
     ],
+  },
+  // Batch 04
+  "hamtning-och-lamning": {
+    // Från-priset är det fasta priset inom centrala Örebro, inte milavgiften.
+    fran: p("hamtning").val!.rader[0].pris,
+    grupper: [{ rader: rader(p("hamtning")) }],
+    fotnot: "* Utanför Örebro avrundas priset till närmaste tiotal.",
+  },
+  "polering/repborttagning": {
+    fran: 0,
+    grupper: [
+      {
+        rader: [
+          { label: "Enstaka repa", pris: "efter bedömning" },
+          { label: "Stenskott", pris: "efter bedömning" },
+          { label: "1-stegspolering, vid många repor", pris: `fr ${kr(p("polering").val!.rader[0].pris)} kr` },
+        ],
+      },
+    ],
+    fotnot: "* Enstaka repor och stenskott prissätts efter storlek och tid.",
+  },
+  "invandig-rekond/kemtvatt-kladsel": {
+    fran: KEMTVATT_PER_SATE.pris,
+    grupper: [
+      {
+        rader: [
+          { label: KEMTVATT_PER_SATE.label, pris: `${kr(KEMTVATT_PER_SATE.pris)} kr` },
+          { label: "Alla fyra säten, mittsätet ingår", pris: `${kr(KEMTVATT_TILLAGG.pris)} kr` },
+        ],
+      },
+    ],
+    fotnot: "* Samma priser när kemtvätten är ett tillägg till helrekond eller invändig rekond.",
+  },
+  "polering/stralkastarpolering": {
+    fran: p("stralkastarpolering").pris!,
+    grupper: [{ rader: [{ label: "Båda strålkastarna, inklusive lackskydd", pris: `${kr(p("stralkastarpolering").pris!)} kr` }] }],
+    fotnot: null,
+  },
+  "lackskydd/glasforsegling": {
+    fran: p("glasforsegling").pris!,
+    grupper: [
+      {
+        rader: [
+          { label: "Vindruta och sidorutor fram och bak", pris: `${kr(p("glasforsegling").pris!)} kr` },
+          { label: "Även bakrutan", pris: `+${kr(p("glasforsegling").tillagg[0].pris)} kr` },
+        ],
+      },
+      {
+        rubrik: "Som tillägg till helrekond",
+        rader: [{ label: "Glasförsegling 2 år", pris: `${kr(p("helrekond").tillagg.find((x) => x.id === "glasforsegling")!.pris)} kr` }],
+      },
+    ],
+    fotnot: null,
   },
 };

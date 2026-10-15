@@ -20,7 +20,7 @@ export const tjansterSida = {
     {
       h2: "Invändig rekond",
       stycken: [
-        "En [invändig rekond](/tjanster/invandig-rekond) omfattar hela kupén: dammsugning, rengöring av klädsel, mattor och alla ytor samt glasputs på insidan. Kemtvätt av sätena finns som tillägg. Har bilen lädersäten får de läderserum. Behandlingen tar 2-4 timmar och passar när insidan behöver ett lyft men lacken är i gott skick.",
+        "En [invändig rekond](/tjanster/invandig-rekond) omfattar hela kupén: dammsugning, rengöring av klädsel, mattor och alla ytor samt glasputs på insidan. [Kemtvätt av sätena](/tjanster/invandig-rekond/kemtvatt-kladsel) finns som tillägg. Har bilen lädersäten får de läderserum. Behandlingen tar 2-4 timmar och passar när insidan behöver ett lyft men lacken är i gott skick.",
       ],
     },
     {
@@ -45,7 +45,7 @@ export const tjansterSida = {
   hamtning: {
     h2: "Hämtning och lämning av bilen",
     stycken: [
-      "Kan du inte ta dig hit själv kan vi hämta bilen hos dig och komma tillbaka med den när jobbet är klart. Läs mer om [hämtning och lämning av bilen](/kontakt) på kontaktsidan.",
+      "Kan du inte ta dig hit själv kan vi hämta bilen hos dig och komma tillbaka med den när jobbet är klart. Läs mer om [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning).",
     ],
   } satisfies Sektion,
   presentkort: {

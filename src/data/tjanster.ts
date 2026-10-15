@@ -38,19 +38,34 @@ export type TjanstSida = {
 };
 
 export type Tjanst = {
+  /** Sista ledet i adressen. Undersidor har dessutom `foralder`. */
   slug: string;
+  /** Föräldrasidans slug för undersidor, t.ex. "polering" för /tjanster/polering/repborttagning. */
+  foralder?: string;
   num: string;
   title: string;
-  shortDesc: string;
+  /** Kortets text. Bara tjänster med tjänstekort (listan `tjanster`). */
+  shortDesc?: string;
   metaDesc: string;
   hero: string;
   intro: string;
   included: { heading: string; text: string }[];
   why: string[];
   faq: { q: string; a: string }[];
-  pricing: Pricing;
+  /** Prisrutan i heron. Saknas: ingen prisruta (t.ex. Repborttagning). */
+  pricing?: Pricing;
   sida: TjanstSida;
 };
+
+/** Sökväg från roten, t.ex. "/tjanster/polering/repborttagning". */
+export function tjanstPath(t: Pick<Tjanst, "slug" | "foralder">): string {
+  return `/tjanster/${t.foralder ? `${t.foralder}/` : ""}${t.slug}`;
+}
+
+/** Nyckel i sidPriser (priser.ts): "polering/repborttagning". */
+export function tjanstPrisNyckel(t: Pick<Tjanst, "slug" | "foralder">): string {
+  return t.foralder ? `${t.foralder}/${t.slug}` : t.slug;
+}
 
 export const tjanster: Tjanst[] = [
   // Batch 02, sida 5/5. Text ordagrann från batcher/batch-02.md.
@@ -96,7 +111,7 @@ export const tjanster: Tjanst[] = [
       ],
       ingarH2: "Vad ingår i en bilrekond?",
       prisH2: "Pris och tillägg",
-      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, glasförsegling med 2 års skydd, 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
+      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, [glasförsegling](/tjanster/lackskydd/glasforsegling) med 2 års skydd, 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
       sektioner: [
         {
           h2: "Så går en bilrekond till",
@@ -175,13 +190,13 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Så går en polering till",
           stycken: [
-            "Du lämnar bilen hos oss, och vi börjar med lackanalysen. Sedan maskinpolerar vi i det antal steg vi kommit överens om, och sist lägger vi på vax. Hur lång tid det tar beror på bilens storlek och hur många steg lacken behöver, och det får du veta när du bokar.",
+            "Du lämnar bilen hos oss, och vi börjar med lackanalysen. Sedan rengör vi lacken med rengöringslera, så att den är fri från föroreningar, och tejpar lister och plast. Därefter maskinpolerar vi i det antal steg vi kommit överens om och tar bort rester med kallavfettning. Sist lägger vi på vax, eller lackskydd om du har valt det. En 1-stegspolering tillsammans med en helrekond tar ungefär åtta timmar. Väljer du två steg stannar bilen hos oss i minst två dygn, och tre steg, som sällan behövs, tar minst tre dygn.",
           ],
         },
         {
           h2: "Repor, swirlmärken och oxidering",
           stycken: [
-            "Repor som bara sitter i klarlacket går i de flesta fall att ta bort helt med maskinpolering. Har en repa gått igenom till grundfärgen eller plåten räcker det inte att polera, då behöver ytan lackeras. Swirlmärken, de fina cirkelrepor som syns i solljus, och oxidering som gör lacken matt är däremot precis vad polering är till för. Därför kallas det ibland för lackrenovering, och repborttagning är en stor del av jobbet.",
+            "Repor som bara sitter i klarlacket går i de flesta fall att ta bort helt med maskinpolering. Har en repa gått igenom till grundfärgen eller plåten räcker det inte att polera, då behöver ytan lackeras. Swirlmärken, de fina cirkelrepor som syns i solljus, och oxidering som gör lacken matt är däremot precis vad polering är till för. Därför kallas det ibland för lackrenovering, och [repborttagning](/tjanster/polering/repborttagning) är en stor del av jobbet. Även gulnade och matta strålkastare går att polera, och vid en [strålkastarpolering](/tjanster/polering/stralkastarpolering) får de ett skyddande lackskydd efteråt.",
           ],
         },
         {
@@ -239,7 +254,7 @@ export const tjanster: Tjanst[] = [
       h1: "Lackskydd Örebro",
       intro: [
         "Vårt lackskydd är keramiskt och läggs på lacken efter en [polering](/tjanster/polering). Det stöter bort vatten, smuts och kemikalier, skyddar mot UV-strålning och oxidering och gör bilen betydligt enklare att hålla ren. Du väljer mellan 2, 3 och 5 års skydd.",
-        "Lackskydd säljs som tillägg till polering, eftersom skyddet aldrig blir bättre än ytan under. Det ingår också i vårt kompletta paket med lackkorrigering och 3 års lackskydd. Läs mer om [vår bilvård i Örebro](/).",
+        "Lackskydd säljs som tillägg till polering, eftersom skyddet aldrig blir bättre än ytan under. Det ingår också i vårt kompletta paket med lackkorrigering och 3 års lackskydd. Rutorna får inget lackskydd, där använder vi [glasförsegling](/tjanster/lackskydd/glasforsegling) i stället. Läs mer om [vår bilvård i Örebro](/).",
       ],
       ingarH2: "Vad ingår i ett lackskydd?",
       prisH2: "Pris och tillägg",
@@ -407,7 +422,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "När behöver kupén en invändig rekond?",
           stycken: [
-            "Efter vintern, när grus, salt och väta har följt med in i bilen, eller när kupén luktar mat, husdjur eller fukt. Har sätena fläckar som sitter djupt gör kemtvätt av bilklädsel mest skillnad, och den kan du lägga till. Ska bilen säljas gör en ren kupé stor skillnad, eftersom köparen sätter sig i bilen först av allt. Räcker det med en enklare rengöring finns invändig tvätt som en del av vår [biltvätt](/tjanster/biltvatt).",
+            "Efter vintern, när grus, salt och väta har följt med in i bilen, eller när kupén luktar mat, husdjur eller fukt. Har sätena fläckar som sitter djupt gör [kemtvätt av bilklädsel](/tjanster/invandig-rekond/kemtvatt-kladsel) mest skillnad, och den kan du lägga till. Ska bilen säljas gör en ren kupé stor skillnad, eftersom köparen sätter sig i bilen först av allt. Räcker det med en enklare rengöring finns invändig tvätt som en del av vår [biltvätt](/tjanster/biltvatt).",
           ],
         },
         {
