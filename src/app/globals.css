@@ -134,3 +134,17 @@ body {
   stroke-width: 1px;
   animation: heroStrokeDraw 3.6s ease-out forwards;
 }
+
+/* Långa ord i rubriker får brytas på smala skärmar (batch 05, grundfix 9). Sajten har lang="sv". */
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+@media (max-width: 639px) {
+  h1,
+  h2,
+  h3 {
+    hyphens: auto;
+  }
+}

@@ -9,7 +9,7 @@ const meny = [
   { label: "Tjänster", href: "/tjanster" },
   { label: "Områden", href: "/omraden" },
   { label: "Presentkort", href: "/presentkort" },
-  { label: "Om oss", href: "/#om" },
+  { label: "Om oss", href: "/om-oss" },
   { label: "Kontakt", href: "/kontakt" },
   { label: "Boka", href: "/boka" },
 ];

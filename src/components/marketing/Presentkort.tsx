@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useState, startTransition } from "react";
+import Link from "next/link";
 import { submitGiftCard } from "@/app/actions";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { HexagonPattern } from "@/components/ui/HexagonPattern";
@@ -204,6 +205,11 @@ export default function Presentkort() {
             </FadeIn>
 
           </div>
+        )}
+        {!state?.success && (
+          <p className="text-white/25 text-xs font-mono leading-relaxed mt-6">
+            Läs i vår <Link href="/integritetspolicy" className="text-gold/70 underline underline-offset-4 hover:text-gold transition-colors">integritetspolicy</Link> hur vi hanterar dina uppgifter.
+          </p>
         )}
       </div>
     </div>

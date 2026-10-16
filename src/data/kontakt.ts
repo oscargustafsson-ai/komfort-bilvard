@@ -10,7 +10,7 @@ export const kontaktsida = {
   h1: "Kontakta KOM-fort Bilvård i Örebro",
   intro: [
     "Vill du boka bilvård, få ett pris eller ställa en fråga om bilen? Ring oss på 076-035 38 08 eller skicka en förfrågan i formuläret här på sidan, så hör vi av oss inom kort. Du kan också mejla till Komfort802@gmail.com.",
-    "Vi finns på Lindtorpsvägen 10 i Södra Lindhult, i stadsdelen Adolfsberg i södra Örebro. Där handtvättar vi bilar, polerar och skyddar lacken och gör kompletta rekonder, invändigt och utvändigt. Vill du veta mer om oss innan du hör av dig kan du läsa om [KOM-fort Bilvård i Örebro](/).",
+    "Vi finns på Lindtorpsvägen 10 i Södra Lindhult, i stadsdelen Adolfsberg i södra Örebro. Där handtvättar vi bilar, polerar och skyddar lacken och gör kompletta rekonder, invändigt och utvändigt. Vill du veta mer om oss innan du hör av dig kan du läsa [om KOM-fort Bilvård](/om-oss).",
   ],
   sektioner: [
     {

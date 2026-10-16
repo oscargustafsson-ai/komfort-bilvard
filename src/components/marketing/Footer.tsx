@@ -4,7 +4,7 @@ const links = [
   { label: "Tjänster", href: "/tjanster" },
   { label: "Områden", href: "/omraden" },
   { label: "Presentkort", href: "/presentkort" },
-  { label: "Om oss", href: "/#om" },
+  { label: "Om oss", href: "/om-oss" },
   { label: "Kontakt", href: "/kontakt" },
   { label: "Boka", href: "/boka" },
 ];
@@ -116,7 +116,10 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5 px-8 py-5">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          <span className="text-white/20 text-xs font-mono">© {new Date().getFullYear()} KOM-fort Bilvård AB</span>{" "}
+          <span className="text-white/20 text-xs font-mono">
+            © {new Date().getFullYear()} KOM-fort Bilvård AB{" "}
+            <Link href="/integritetspolicy" className="ml-3 text-white/40 hover:text-gold transition-colors">Integritetspolicy</Link>
+          </span>{" "}
           <span className="text-white/20 text-xs font-mono">Lindtorpsvägen 10, 702 37 Örebro</span>
         </div>
       </div>

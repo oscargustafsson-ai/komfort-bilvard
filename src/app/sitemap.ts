@@ -8,12 +8,9 @@ import { site } from "@/lib/site";
  * Uppdatera datumet för de sidor en batch rör. Sidor som inte nämns får
  * STANDARD_DATUM.
  */
-const STANDARD_DATUM = "2026-10-15";
+const STANDARD_DATUM = "2026-10-16";
 const senastAndrad: Record<string, string> = {
-  // Batch 03b och 04 (2026-10-15): rättelser och nya sidor, allt utom nedanstående.
-  "/omraden": "2026-10-14",
-  "/presentkort": "2026-10-14",
-  "/tjanster/biltvatt": "2026-10-14",
+  // Batch 05 (2026-10-16): menyn, footern och kartan ändrades på alla sidor.
   // Batch 01 (2026-10-10): alla sidor fick nytt schema, canonical och og-taggar.
   // Batch 02 (2026-10-11): allt utom Marieberg och Adolfsberg ändrades.
   // Batch 02b (2026-10-12): nya priser och rättelser.
@@ -24,7 +21,7 @@ const senastAndrad: Record<string, string> = {
 const datum = (path: string) => new Date(senastAndrad[path] ?? STANDARD_DATUM);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const statiska = ["", "/tjanster", "/omraden", "/presentkort", "/kontakt", "/boka"].map((path) => ({
+  const statiska = ["", "/tjanster", "/omraden", "/presentkort", "/kontakt", "/boka", "/om-oss", "/integritetspolicy"].map((path) => ({
     url: `${site.url}${path}`,
     lastModified: datum(path || "/"),
     changeFrequency: "monthly" as const,

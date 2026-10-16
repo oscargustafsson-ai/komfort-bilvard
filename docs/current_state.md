@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-15 (Batch 04: five new service pages incl. subpages under polering, invandig-rekond and lackskydd; shared TjanstSidaMall; new bookable services on /boka)
+Last updated: 2026-10-16 (Batch 05: three more service subpages, /om-oss and /integritetspolicy, map loads only after a click, privacy line under the forms, menu and footer links)
 
 ---
 
@@ -34,6 +34,16 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 05:** new subpages motortvatt and asfalt-och-flygrost (under biltvatt) and
+  infor-bilforsaljning (under rekonditionering), all in `undersidor.ts`. New pages `/om-oss`
+  (`data/omoss.ts`) and `/integritetspolicy` (`data/integritetspolicy.ts`, paragraphs + bullet
+  lists, single column, no map/FAQ/buttons). `Karta.tsx` is now a client component that only
+  sets the iframe `src` after the visitor clicks "Visa kartan" (`data-src` holds the URL; no
+  consent is stored). Menu and footer "Om oss" go to /om-oss (never /#om); the footer bottom row
+  links to /integritetspolicy; the forms on /kontakt, /boka and /presentkort show
+  "Läs i vår integritetspolicy ...". On /boka the pickup checkbox is hidden for the two hand
+  washes, the interior wash and strålkastarpolering (`UTAN_HAMTNING`). `globals.css` lets long
+  words in h1-h3 wrap (`overflow-wrap: break-word`, `hyphens: auto` below 640px).
 - **Service subpages (batch 04):** service pages without a card live in `src/data/undersidor.ts`
   (`foralder` marks a subpage, e.g. polering/repborttagning). `src/data/tjanstsidor.ts` joins
   them with the five card services for routes and the sitemap. The template is
@@ -137,6 +147,8 @@ src/
       omraden/[slug]/page.tsx  District page: BreadcrumbList + Service + FAQPage JSON-LD
       kontakt/page.tsx         Contact page: hero + <Kontakt> (cards/form) + text blocks + map + FAQ (copy from data/kontakt.ts)
       boka/page.tsx            Booking page: hero + <Bokning> + text + map (copy from data/boka.ts)
+      om-oss/page.tsx          About page (copy from data/omoss.ts)
+      integritetspolicy/page.tsx Privacy policy (copy from data/integritetspolicy.ts)
       presentkort/page.tsx     Gift card page: hero + "Så beställer du" + steps + <Presentkort> (form) + text + map + FAQ (copy from data/presentkort.ts)
       tjanster/page.tsx        Services hub: H1 + intro + <ServiceCard>s + text sections + map + FAQ (copy from data/tjansterSida.ts)
       tjanster/[slug]/page.tsx Service page (TjanstSidaMall) for services directly under /tjanster
@@ -155,7 +167,7 @@ src/
       Presentkort.tsx          Gift cards: amount picker + Zettle link OR order form (see below);
                                HexagonPattern bg at gold/[0.03] — same as OmOss but fainter (0.04)
       JsonLd.tsx               JSON-LD helpers: foretagSchema() (AutoWash), serviceSchema(), omradeSchema(), faqSchema(), brodsmulorSchema()
-      Karta.tsx                Shared Google Maps embed (iframe from site.karta)
+      Karta.tsx                Shared Google Maps embed, loads only after "Visa kartan" is clicked (client component)
       Brodsmulor.tsx           Breadcrumbs (visible + BreadcrumbList)
       Stycke.tsx               Renders copy strings with [text](/path) links as <Link>
       Etikett.tsx              Eyebrow label (CSS dash)

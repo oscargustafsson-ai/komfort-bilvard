@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useState, startTransition } from "react";
+import Link from "next/link";
 import { submitBooking } from "@/app/actions";
 import { tjanstpriser, getTjanstpris, beraknaPris, kr } from "@/data/priser";
 
@@ -9,6 +10,9 @@ const falt =
 const valj =
   "bg-surface-1 border border-white/10 text-white/80 px-5 py-4 text-sm focus:outline-none focus:border-gold transition-colors w-full";
 const etikett = "block text-gold/70 text-[11px] tracking-[0.3em] uppercase font-mono mb-2";
+
+/** Hämtning erbjuds inte för en snabb tvätt eller strålkastarpolering (Goran 2026-10-16). */
+const UTAN_HAMTNING = new Set(["handtvatt-in-ut", "utvandig-handtvatt", "invandig-tvatt", "stralkastarpolering"]);
 
 /**
  * Skickar formuläret via useActionState utan <form action>. React 19 nollställer
@@ -155,10 +159,12 @@ export default function Bokning() {
           <label htmlFor="day" className={etikett}>Önskad dag</label>
           <input id="day" name="day" type="text" className={falt} />
         </div>
-        <label className="flex items-center gap-3 text-white/80 text-sm py-2 cursor-pointer">
-          <input type="checkbox" name="pickup" className="accent-[#C9A84C] w-4 h-4" />
-          Jag vill att ni hämtar och lämnar bilen
-        </label>
+        {t && !UTAN_HAMTNING.has(t.id) && (
+          <label className="flex items-center gap-3 text-white/80 text-sm py-2 cursor-pointer">
+            <input type="checkbox" name="pickup" className="accent-[#C9A84C] w-4 h-4" />
+            Jag vill att ni hämtar och lämnar bilen
+          </label>
+        )}
         <div>
           <label htmlFor="message" className={etikett}>Meddelande</label>
           <textarea id="message" name="message" rows={4} className={`${falt} resize-none`} />
@@ -171,6 +177,9 @@ export default function Bokning() {
         >
           {pending ? "Skickar..." : "Skicka bokningsförfrågan"}
         </button>
+        <p className="text-white/25 text-xs font-mono leading-relaxed">
+          Läs i vår <Link href="/integritetspolicy" className="text-gold/70 underline underline-offset-4 hover:text-gold transition-colors">integritetspolicy</Link> hur vi hanterar dina uppgifter.
+        </p>
       </div>
     </form>
   );

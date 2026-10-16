@@ -122,7 +122,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "När behöver bilen en rekond?",
           stycken: [
-            "En gång om året är ett bra intervall, helst efter vintern när salt och smuts från vintervägarna ska bort, eller inför sommaren. Ska bilen säljas passar en rekond inför bilförsäljning, eftersom en ren och fräsch bil kan höja andrahandsvärdet. Har lacken bara tappat glansen kan [polering](/tjanster/polering) räcka, och behöver bara kupén fräschas upp finns [invändig rekond](/tjanster/invandig-rekond).",
+            "En gång om året är ett bra intervall, helst efter vintern när salt och smuts från vintervägarna ska bort, eller inför sommaren. Ska bilen säljas passar en [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning), eftersom en ren och fräsch bil kan höja andrahandsvärdet. Har lacken bara tappat glansen kan [polering](/tjanster/polering) räcka, och behöver bara kupén fräschas upp finns [invändig rekond](/tjanster/invandig-rekond).",
           ],
         },
         {
@@ -312,7 +312,7 @@ export const tjanster: Tjanst[] = [
     ],
     faq: [
       { q: "Varför handtvätt i stället för automattvätt?", a: "För att skona lacken. Med tvåhinkmetoden och mjuka tvätthandskar dras inte sand och grus över lacken, och schampot är pH-neutralt." },
-      { q: "Kan ni hämta bilen?", a: "Ja, vi kan hämta bilen hos dig och köra tillbaka den efter tvätten. Hör av dig, så berättar vi vad som gäller." },
+      { q: "Kan ni hämta bilen?", a: "Inte för en tvätt, den går för fort. Vi hämtar bilen för behandlingar som tar mer än ungefär två timmar, till exempel bilrekond, invändig rekond och polering." },
       { q: "Ingår invändig städning?", a: "Det beror på vilken tvätt du väljer. Vi gör utvändig handtvätt, invändig tvätt eller båda, och för en grundligare rengöring finns invändig rekond." },
       { q: "Vad är flygrost?", a: "Små metallpartiklar, bland annat från bromsdamm, som fastnar i lacken och syns som rostfärgade prickar. Vi tar bort dem som ett tillägg till tvätten." },
     ],
@@ -326,7 +326,7 @@ export const tjanster: Tjanst[] = [
       h1: "Biltvätt Örebro",
       intro: [
         "Hos oss tvättas bilen alltid för hand, aldrig i automattvätt. Vi använder tvåhinkmetoden, mjuka tvätthandskar och pH-neutrala schampon och torkar bilen med mikrofiberdukar. Det är skonsammare mot lacken än en automattvätt med borstar.",
-        "Du väljer utvändig handtvätt, invändig tvätt eller båda, och kan lägga till motortvätt, asfalts- och saltborttagning eller flygrostborttagning. Läs mer om vår [bilvård](/).",
+        "Du väljer utvändig handtvätt, invändig tvätt eller båda, och kan lägga till [motortvätt](/tjanster/biltvatt/motortvatt), asfalts- och saltborttagning eller [flygrostborttagning](/tjanster/biltvatt/asfalt-och-flygrost). Läs mer om vår [bilvård](/).",
       ],
       ingarH2: "Vad ingår i en biltvätt?",
       prisH2: "Pris och tillägg",
@@ -422,7 +422,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "När behöver kupén en invändig rekond?",
           stycken: [
-            "Efter vintern, när grus, salt och väta har följt med in i bilen, eller när kupén luktar mat, husdjur eller fukt. Har sätena fläckar som sitter djupt gör [kemtvätt av bilklädsel](/tjanster/invandig-rekond/kemtvatt-kladsel) mest skillnad, och den kan du lägga till. Ska bilen säljas gör en ren kupé stor skillnad, eftersom köparen sätter sig i bilen först av allt. Räcker det med en enklare rengöring finns invändig tvätt som en del av vår [biltvätt](/tjanster/biltvatt).",
+            "Efter vintern, när grus, salt och väta har följt med in i bilen, eller när kupén luktar mat, husdjur eller fukt. Har sätena fläckar som sitter djupt gör [kemtvätt av bilklädsel](/tjanster/invandig-rekond/kemtvatt-kladsel) mest skillnad, och den kan du lägga till. Då står bilen helst kvar över natten, så att sätena hinner torka. Ska bilen säljas gör en ren kupé stor skillnad, eftersom köparen sätter sig i bilen först av allt. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning) tar vi hand om både kupén och utsidan. Räcker det med en enklare rengöring finns invändig tvätt som en del av vår [biltvätt](/tjanster/biltvatt).",
           ],
         },
         {

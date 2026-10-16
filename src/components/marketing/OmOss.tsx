@@ -41,12 +41,20 @@ export default function OmOss({ h2, stycken }: Props) {
               <Stycke key={s.slice(0, 40)} text={s} />
             ))}
           </div>
-          <Link
-            href="/kontakt"
-            className="grain relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm inline-block rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
-          >
-            Kontakta oss
-          </Link>
+          <div className="flex gap-4 flex-wrap">
+            <Link
+              href="/kontakt"
+              className="grain relative overflow-hidden bg-gold text-black px-8 py-3 font-bold tracking-widest uppercase text-sm inline-block rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            >
+              Kontakta oss
+            </Link>
+            <Link
+              href="/om-oss"
+              className="grain-card relative overflow-hidden border border-white/20 text-white/70 px-8 py-3 tracking-widest uppercase text-sm inline-block rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
+            >
+              Läs mer om oss
+            </Link>
+          </div>
         </FadeIn>
 
         <div className="grid grid-cols-2 gap-4">

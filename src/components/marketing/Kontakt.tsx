@@ -3,6 +3,7 @@
 import { useActionState, startTransition } from "react";
 import { submitContact } from "@/app/actions";
 import { site } from "@/lib/site";
+import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 const contactInfo = [
@@ -155,6 +156,9 @@ export default function Kontakt() {
                 >
                   {pending ? "Skickar..." : "Skicka förfrågan →"}
                 </button>
+                <p className="text-white/25 text-xs font-mono leading-relaxed">
+                  Läs i vår <Link href="/integritetspolicy" className="text-gold/70 underline underline-offset-4 hover:text-gold transition-colors">integritetspolicy</Link> hur vi hanterar dina uppgifter.
+                </p>
               </form>
             )}
           </FadeIn>

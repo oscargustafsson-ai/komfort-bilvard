@@ -359,6 +359,37 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[]; fot
     grupper: [{ rader: [{ label: "Båda strålkastarna, inklusive lackskydd", pris: `${kr(p("stralkastarpolering").pris!)} kr` }] }],
     fotnot: null,
   },
+  // Batch 05
+  "biltvatt/motortvatt": {
+    fran: p("utvandig-handtvatt").tillagg.find((x) => x.id === "motortvatt")!.pris,
+    grupper: [{ rader: [{ label: "Motortvätt, som tillägg", pris: `${kr(p("utvandig-handtvatt").tillagg.find((x) => x.id === "motortvatt")!.pris)} kr` }] }],
+    fotnot: "* Tillägg till utvändig handtvätt, handtvätt in- och utvändigt och helrekond.",
+  },
+  "biltvatt/asfalt-och-flygrost": {
+    fran: p("utvandig-handtvatt").tillagg.find((x) => x.id === "asfalt")!.pris,
+    grupper: [
+      {
+        rader: p("utvandig-handtvatt").tillagg
+          .filter((x) => x.id === "asfalt" || x.id === "flygrost")
+          .map((x) => ({ label: x.label, pris: `${kr(x.pris)} kr` })),
+      },
+    ],
+    fotnot: "* Tillägg till utvändig handtvätt och handtvätt in- och utvändigt. I helrekonden ingår båda.",
+  },
+  "rekonditionering/infor-bilforsaljning": {
+    fran: franPris(p("helrekond")),
+    grupper: [
+      { rader: rader(p("helrekond")) },
+      { rubrik: "Tillägg", rader: tillaggMedKemtvatt(p("helrekond")) },
+      {
+        rubrik: "Fler tjänster",
+        rader: [
+          { label: p("stralkastarpolering").namn, pris: `${kr(p("stralkastarpolering").pris!)} kr` },
+          { label: p("invandig-rekond").namn, pris: `${kr(p("invandig-rekond").pris!)} kr` },
+        ],
+      },
+    ],
+  },
   "lackskydd/glasforsegling": {
     fran: p("glasforsegling").pris!,
     grupper: [

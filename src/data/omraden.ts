@@ -264,7 +264,7 @@ export const omraden: Omrade[] = [
       {
         h2: "Rekond inför bilförsäljning",
         stycken: [
-          "Ska bilen säljas är det värt att visa den från dess bästa sida. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering) går vi igenom hela bilen: tvätt och avfettning, en lackförsegling som håller i 12 månader och rengöring av hela kupén. Kemtvätt av sätena finns som tillägg. Har lacken lätta repor kan du lägga till polering. En välvårdad bil gör ett bättre intryck på köparen och kan höja andrahandsvärdet. Behandlingen tar 4-8 timmar, så lägg den gärna några dagar före första visningen.",
+          "Ska bilen säljas är det värt att visa den från dess bästa sida. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning) går vi igenom hela bilen: tvätt och avfettning, en lackförsegling som håller i 12 månader och rengöring av hela kupén. Kemtvätt av sätena finns som tillägg. Har lacken lätta repor kan du lägga till polering. En välvårdad bil gör ett bättre intryck på köparen och kan höja andrahandsvärdet. Behandlingen tar 4-8 timmar, så lägg den gärna några dagar före första visningen.",
         ],
       },
       {
