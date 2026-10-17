@@ -3,6 +3,12 @@
  * Länkar skrivs som [text](/sökväg) och renderas av Stycke.
  */
 import type { Sektion, Fraga } from "./startsida";
+import { sidPriser, getTjanstpris, KEMTVATT_PER_SATE, kr } from "./priser";
+
+/** Kort i avsnitten "Fler tjänster" och "Tilläggstjänster" (batch 05b). Priser ur priser.ts. */
+export type Tjanstkort = { namn: string; href?: string; etikett?: string; text: string; prisPrefix?: string; pris?: string; prisSuffix?: string };
+
+const helrekondTillagg = (id: string) => kr(getTjanstpris("helrekond")!.tillagg.find((x) => x.id === id)!.pris);
 
 export const tjansterSida = {
   title: "Bilvårdstjänster Örebro | Rekond, polering & lackskydd",
@@ -42,6 +48,30 @@ export const tjansterSida = {
       ],
     },
   ] satisfies Sektion[],
+  flerTjanster: {
+    h2: "Fler tjänster",
+    stycken: ["Utöver de fem tjänsterna ovan gör vi rekond inför försäljning och leasingåterlämning, tar bort enstaka repor, polerar strålkastare och har ett komplett paket för lacken. Via namnet på kortet kommer du till sidan om tjänsten."],
+    kort: [
+      { namn: "Rekond inför bilförsäljning", href: "/tjanster/rekonditionering/infor-bilforsaljning", text: "Helrekond innan bilen ska säljas. Ren lack och en fräsch kupé syns direkt vid visningen och kan höja andrahandsvärdet.", prisPrefix: "Fr", pris: kr(sidPriser["rekonditionering/infor-bilforsaljning"].fran) },
+      { namn: "Rekond inför leasingåterlämning", href: "/tjanster/rekonditionering/leasingaterlamning", text: "Helrekond innan leasingbilen ska tillbaka. Repor, fläckar och lukt kan du åtgärda med tillägg innan leasingbolaget går igenom bilen.", prisPrefix: "Fr", pris: kr(sidPriser["rekonditionering/leasingaterlamning"].fran) },
+      { namn: "Repborttagning", href: "/tjanster/polering/repborttagning", text: "En enstaka repa i klarlacket tar vi bort på just det stället, utan att hela bilen poleras. Priset sätts efter repans storlek." },
+      { namn: "Strålkastarpolering", href: "/tjanster/polering/stralkastarpolering", text: "Gula och matta strålkastare våtslipar vi, polerar och avslutar med ett UV-skydd. Båda strålkastarna ingår i priset.", prisPrefix: "Pris", pris: kr(sidPriser["polering/stralkastarpolering"].fran) },
+      { namn: "Komplett paket", href: "/tjanster/lackskydd", text: "Lackkorrigering och keramiskt lackskydd som håller i 3 år, samlat i ett paket när lacken både ska bli fin och skyddas länge.", prisPrefix: "Fr", pris: kr(getTjanstpris("komplett")!.pris!) },
+    ] satisfies Tjanstkort[],
+  },
+  tillaggstjanster: {
+    h2: "Tilläggstjänster",
+    stycken: ["Tilläggen bokar du tillsammans med en annan tjänst, och på varje kort står vilken tjänst tillägget hör till. Lätt polering och 1-stegspolering väljer du mellan, du kan inte ta båda."],
+    kort: [
+      { namn: "Lätt polering", etikett: "Tillägg till helrekond", text: "Ger lacken glansen tillbaka. OBS: lätt polering korrigerar inte lacken, så repor och swirlmärken blir kvar, och skyddet håller i 6 månader i stället för 12.", prisPrefix: "Tillägg", pris: helrekondTillagg("latt-polering") },
+      { namn: "1-stegspolering", href: "/tjanster/polering", etikett: "Tillägg till helrekond", text: "Tar bort det mesta av fina repor och swirlmärken. Innan vi polerar mäter vi lacktjockleken och rengör lacken med rengöringslera.", prisPrefix: "Tillägg", pris: helrekondTillagg("1-stegspolering") },
+      { namn: "Kemtvätt av säten", href: "/tjanster/invandig-rekond/kemtvatt-kladsel", etikett: "Tillägg till helrekond och invändig rekond", text: "Kemtvätt med våtdammsugare lyfter fläckar som sitter djupt i tyget. Efter kemtvätten stannar bilen helst hos oss till dagen efter, eftersom sätena behöver torka.", prisPrefix: "Fr", pris: kr(KEMTVATT_PER_SATE.pris), prisSuffix: "per säte" },
+      { namn: "Glasförsegling", href: "/tjanster/lackskydd/glasforsegling", etikett: "Tillägg till helrekond", text: "Keramiskt skydd för vindrutan och sidorutorna i 2 år. Bakrutan är ett tillägg, och glasförseglingen går också att boka för sig.", prisPrefix: "Tillägg", pris: helrekondTillagg("glasforsegling") },
+      { namn: "Motortvätt", href: "/tjanster/biltvatt/motortvatt", etikett: "Tillägg till handtvätt och helrekond", text: "Motorrummet blir rent från olja, damm och vägsalt. Medlet vi använder skyddar elektronik och kablar under tvätten.", prisPrefix: "Tillägg", pris: kr(sidPriser["biltvatt/motortvatt"].fran) },
+      { namn: "Asfalts- och flygrostborttagning", href: "/tjanster/biltvatt/asfalt-och-flygrost", etikett: "Tillägg till handtvätt", text: "Kallavfettning löser upp asfaltsstänk och tjära, och flygrostborttagaren tar bort de rostfärgade prickarna i lacken. Båda ingår i helrekonden.", prisPrefix: "Tillägg", pris: kr(sidPriser["biltvatt/asfalt-och-flygrost"].fran) },
+      { namn: "Keramiskt lackskydd", href: "/tjanster/lackskydd", etikett: "Tillägg till polering", text: "Läggs på efter en polering och skyddar lacken i 2, 3 eller 5 år. Skiktet stöter bort vatten och smuts och gör bilen enklare att hålla ren.", prisPrefix: "Tillägg fr", pris: kr(sidPriser["lackskydd"].fran) },
+    ] satisfies Tjanstkort[],
+  },
   hamtning: {
     h2: "Hämtning och lämning av bilen",
     stycken: [
@@ -70,7 +100,7 @@ export const tjansterSida = {
     h2: "Vanliga frågor om våra tjänster",
     fragor: [
       { q: "Vad är skillnaden mellan bilrekond och invändig rekond?", a: "En bilrekond omfattar hela bilen, både utsidan och insidan. En invändig rekond gäller bara kupén." },
-      { q: "Vilka tillägg finns till rekonden?", a: "Motortvätt, glasförsegling med 2 års skydd, 1-stegspolering och kemtvätt av sätena. Lackskydd läggs på efter en polering och ingår i vårt kompletta paket." },
+      { q: "Vilka tillägg finns till rekonden?", a: "Motortvätt, glasförsegling med 2 års skydd, lätt polering eller 1-stegspolering och kemtvätt av sätena. Lackskydd läggs på efter en polering och ingår i vårt kompletta paket." },
       { q: "Tvättar ni bilen i automattvätt?", a: "Nej. Vi tvättar alltid för hand, med pH-neutralt schampo och mjuka tvätthandskar." },
     ] satisfies Fraga[],
   },

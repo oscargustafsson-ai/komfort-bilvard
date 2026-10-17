@@ -93,7 +93,7 @@ export const tjanster: Tjanst[] = [
     faq: [
       { q: "Hur lång tid tar en bilrekond?", a: "Mellan fyra och åtta timmar, beroende på bilens storlek och skick." },
       { q: "Vad kostar en bilrekond?", a: "Det beror på bilens storlek och skick. Alla priser ser du i prislistan, och på bokningssidan får du ett uppskattat pris för din bil med tillägg." },
-      { q: "Ingår polering i rekonden?", a: "Nej, polering är ett tillägg. Du kan lägga till en 1-stegspolering, och behöver lacken mer passar vår polering med vax i upp till tre steg." },
+      { q: "Ingår polering i rekonden?", a: "Nej, polering är ett tillägg. Du väljer mellan lätt polering, som bara ger lacken glansen tillbaka, och 1-stegspolering, som tar bort det mesta av fina repor och swirlmärken. Behöver lacken mer passar vår polering med vax i upp till tre steg." },
       { q: "Kan ni hämta bilen?", a: "Ja, vi kan hämta bilen hos dig och köra hem den igen efter rekonden. Säg till när du bokar, så berättar vi vad som gäller." },
     ],
     pricing: {
@@ -111,8 +111,14 @@ export const tjanster: Tjanst[] = [
       ],
       ingarH2: "Vad ingår i en bilrekond?",
       prisH2: "Pris och tillägg",
-      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, [glasförsegling](/tjanster/lackskydd/glasforsegling) med 2 års skydd, 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
+      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, [glasförsegling](/tjanster/lackskydd/glasforsegling) med 2 års skydd, lätt polering eller 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
       sektioner: [
+        {
+          h2: "Lätt polering eller 1-stegspolering?",
+          stycken: [
+            "Vill du ha mer glans på lacken kan du lägga till en lätt polering. OBS: den korrigerar inte lacken, så repor och swirlmärken blir kvar, och väljer du lätt polering håller skyddet i 6 månader i stället för 12. Vill du bli av med fina repor och swirlmärken behövs en 1-stegspolering. Då mäter vi först lackens tjocklek, tar bort föroreningar med rengöringslera och maskinpolerar sedan lacken, och en helrekond med 1-stegspolering tar ungefär åtta timmar. Du väljer den ena eller den andra.",
+          ],
+        },
         {
           h2: "Så går en bilrekond till",
           stycken: [

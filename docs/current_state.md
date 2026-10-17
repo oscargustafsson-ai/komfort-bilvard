@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-17 (Batch 06: four more district pages, leasing return subpage, district link list on /, /kontakt and /omraden)
+Last updated: 2026-10-17 (Batch 05b: /tjanster shows "Fler tjänster" and "Tilläggstjänster" card sections, lätt polering back as a helrekond add-on)
 
 ---
 
@@ -34,6 +34,11 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 05b:** `Tjanstkort.tsx` (`Kortavsnitt`) renders the two card sections on /tjanster from
+  `tjansterSida.flerTjanster` / `tillaggstjanster` (card name is the only link; prices derived
+  from priser.ts). "Lätt polering, bara glans (skyddet håller 6 månader)" (399 kr) is back as a
+  helrekond add-on in the exclusive `polering` group with 1-stegspolering. Never write
+  "garanti" on the site.
 - **Batch 06:** districts Mosås, Brickebacken, Rynninge and Lillån added to `omraden.ts` (nine in
   total; the hub shows all nine). New subpage rekonditionering/leasingaterlamning in
   `undersidor.ts` (price list key shares the helrekond values). `Omradeslista.tsx` renders every

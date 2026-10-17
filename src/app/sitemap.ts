@@ -10,11 +10,10 @@ import { site } from "@/lib/site";
  */
 const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
+  // Batch 05b (2026-10-17): /tjanster, Bilrekond, infor-bilforsaljning, leasingaterlamning och /boka ändrade.
   // Batch 05 (2026-10-16): menyn, footern och kartan ändrades på alla sidor.
   // Batch 06 (2026-10-17): nya sidor, områdeslistan och rättelser. Oförändrade sidor behåller 2026-10-16.
-  "/tjanster": "2026-10-16",
   "/presentkort": "2026-10-16",
-  "/boka": "2026-10-16",
   "/om-oss": "2026-10-16",
   "/integritetspolicy": "2026-10-16",
   "/tjanster/biltvatt": "2026-10-16",

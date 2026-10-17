@@ -7,6 +7,7 @@ import { Etikett } from "@/components/marketing/Etikett";
 import { Stycke } from "@/components/marketing/Stycke";
 import { BlockRutnat, MarkeratBlock, TextBlock, HittaSektion, FaqSektion, KnappSektion } from "@/components/marketing/Sidblock";
 import { tjansterSida } from "@/data/tjansterSida";
+import { Kortavsnitt } from "@/components/marketing/Tjanstkort";
 import { sidMetadata } from "@/lib/metadata";
 
 export const metadata = sidMetadata({
@@ -61,6 +62,10 @@ export default function TjansterPage() {
           <BlockRutnat sektioner={t.tjanster} bg="bg-surface-2" />
         </div>
       </section>
+
+      {/* Fler tjänster och tilläggstjänster (batch 05b) */}
+      <Kortavsnitt sektion={t.flerTjanster} kort={t.flerTjanster.kort} />
+      <Kortavsnitt sektion={t.tillaggstjanster} kort={t.tillaggstjanster.kort} />
 
       {/* Hämtning + presentkort */}
       <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">

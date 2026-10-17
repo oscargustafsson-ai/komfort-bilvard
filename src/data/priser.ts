@@ -13,7 +13,7 @@ export type Tillagg = {
   label: string;
   pris: number;
   /** Tillägg i samma grupp utesluter varandra (högst ett). */
-  grupp?: "lackskydd";
+  grupp?: "polering" | "lackskydd";
 };
 
 export type Tjanstpris = {
@@ -84,7 +84,9 @@ export const tjanstpriser: Tjanstpris[] = [
     tillagg: [
       { id: "motortvatt", label: "Motortvätt", pris: 399 },
       { id: "glasforsegling", label: "Glasförsegling 2 år", pris: 499 },
-      { id: "1-stegspolering", label: "1-stegspolering", pris: 1495 },
+      // Lätt polering tillbaka 2026-10-16: bara glans, ingen lackkorrigering, skyddet håller 6 månader.
+      { id: "latt-polering", label: "Lätt polering, bara glans (skyddet håller 6 månader)", pris: 399, grupp: "polering" },
+      { id: "1-stegspolering", label: "1-stegspolering", pris: 1495, grupp: "polering" },
       KEMTVATT_TILLAGG,
     ],
     bokningsbar: true,
