@@ -46,10 +46,9 @@ export default async function OmradePage({ params }: Props) {
             <Brodsmulor items={smulor} />
             <Etikett className="mb-5">KOM-fort Bilvård AB · Örebro</Etikett>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">{o.h1}</h1>
+            {/* Batch 07, grundfix 9: bara introts första stycke i heron. Områdesstycket står i "Hitta till oss". */}
             <div className="flex flex-col gap-5 max-w-2xl mb-10">
-              {o.intro.map((s) => (
-                <Stycke key={s.slice(0, 40)} text={s} className="text-white/50 text-lg leading-relaxed font-light" />
-              ))}
+              <Stycke text={o.intro[0]} className="text-white/50 text-lg leading-relaxed font-light" />
             </div>
             <Knappar />
           </FadeIn>
@@ -70,7 +69,8 @@ export default async function OmradePage({ params }: Props) {
         </div>
       </section>
 
-      <HittaSektion sektion={o.hitta} bg="bg-surface-2" />
+      {/* Vägbeskrivningen, sedan områdesstycket (introts andra stycke), sedan kartan. */}
+      <HittaSektion sektion={{ ...o.hitta, stycken: [...o.hitta.stycken, ...o.intro.slice(1)] }} bg="bg-surface-2" />
 
       <FaqSektion h2={o.faq.h2} fragor={o.faq.fragor} bg="bg-surface-1" />
 

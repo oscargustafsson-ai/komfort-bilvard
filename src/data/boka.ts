@@ -14,7 +14,7 @@ export const bokasida = {
   saGar: {
     h2: "Så går bokningen till",
     stycken: [
-      "När vi har fått din förfrågan hör vi av oss och bekräftar dag och tid. Du lämnar bilen hos oss på Lindtorpsvägen 10, eller så kan vi hämta den hos dig. Kryssa i rutan för hämtning, så berättar vi vad som gäller. Hur lång tid det tar beror på tjänsten, och betalningen sker via Zettle.",
+      "När vi har fått din förfrågan hör vi av oss och bekräftar dag och tid. Du lämnar bilen hos oss på Lindtorpsvägen 10, eller så kan vi hämta den hos dig. Kryssa i rutan för hämtning, så berättar vi vad som gäller. Hur lång tid det tar beror på tjänsten, och betalningen sker via Zettle. Vill du se alla priser på en gång finns de under [priser](/priser).",
     ],
   } satisfies Sektion,
   hitta: {

@@ -4,7 +4,9 @@ import { Brodsmulor, type Brodsmula } from "@/components/marketing/Brodsmulor";
 import { Etikett } from "@/components/marketing/Etikett";
 import { Stycke } from "@/components/marketing/Stycke";
 import { BlockRutnat, HittaSektion, FaqSektion, Knappar } from "@/components/marketing/Sidblock";
-import { sidPriser, STANDARD_FOTNOT } from "@/data/priser";
+import { sidPriser } from "@/data/priser";
+import { Prislista } from "@/components/marketing/Prislista";
+import { Bildrad } from "@/components/marketing/Bildrad";
 import { tjanstPrisNyckel, type Tjanst } from "@/data/tjanster";
 
 /** Citatrutan, samma på alla tjänstesidor. */
@@ -53,35 +55,6 @@ function PrisRuta({ t }: { t: Tjanst }) {
       {t.pricing.note && (
         <p className="text-white/40 text-sm mt-3 max-w-md">{t.pricing.note}</p>
       )}
-    </>
-  );
-}
-
-/** Prislistan: grupper med rader och en fotnot (standard, egen eller ingen). Gruppnamnen är p, inte rubriker. */
-function Prislista({ t }: { t: Tjanst }) {
-  const lista = sidPriser[tjanstPrisNyckel(t)];
-  if (!lista || lista.grupper.length === 0) return null;
-  const fotnot = lista.fotnot === undefined ? STANDARD_FOTNOT : lista.fotnot;
-  return (
-    <>
-      <div className="flex flex-col gap-8">
-        {lista.grupper.map((g, gi) => (
-          <div key={gi}>
-            {g.rubrik && (
-              <p className="text-gold/70 text-[11px] tracking-[0.3em] uppercase font-mono mb-3">{g.rubrik}</p>
-            )}
-            <div className="flex flex-col gap-px bg-gold/10 border border-gold/10">
-              {g.rader.map((r) => (
-                <div key={r.label} className="bg-surface-1 flex items-center justify-between gap-6 px-6 py-4 hover:bg-surface-2 transition-colors">
-                  <span className="text-white/70 text-sm md:text-base">{r.label}</span>
-                  <span className="text-gold font-bold tracking-wide whitespace-nowrap">{r.pris}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-      {fotnot && <p className="text-white/30 text-xs mt-4 font-mono">{fotnot}</p>}
     </>
   );
 }
@@ -155,7 +128,9 @@ export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }
             <Stycke text={sida.prisText} className="text-white/50 leading-relaxed max-w-md" />
           </FadeIn>
           <FadeIn delay={0.1}>
-            <Prislista t={t} />
+            {sidPriser[tjanstPrisNyckel(t)] && (
+              <Prislista grupper={sidPriser[tjanstPrisNyckel(t)].grupper} fotnot={sidPriser[tjanstPrisNyckel(t)].fotnot} />
+            )}
           </FadeIn>
         </div>
       </section>
@@ -166,6 +141,9 @@ export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }
           <BlockRutnat sektioner={sida.sektioner} bg="bg-surface-2" />
         </div>
       </section>
+
+      {/* Bildrad (batch 07): bara sidor med media */}
+      {sida.media && sida.media.length > 0 && <Bildrad media={sida.media} />}
 
       {/* Varför välja oss */}
       <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">

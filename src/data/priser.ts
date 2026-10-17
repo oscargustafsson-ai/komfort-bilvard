@@ -296,7 +296,8 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[]; fot
   rekonditionering: {
     fran: franPris(p("helrekond")),
     grupper: [
-      { rader: rader(p("helrekond")) },
+      // Batch 07, grundfix 8: rubriken från helrekondens namn, bara på Bilrekond.
+      { rubrik: p("helrekond").namn, rader: rader(p("helrekond")) },
       { rubrik: "Tillägg", rader: tillaggMedKemtvatt(p("helrekond")) },
       komplettGrupp(),
     ],
@@ -423,3 +424,38 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[]; fot
     fotnot: null,
   },
 };
+
+/* ---------- prissidan /priser (batch 07, grundfix 7) ---------- */
+
+export type Prisavsnitt = {
+  /** Nyckel som kopplar till texten i src/data/priserSida.ts. */
+  id: string;
+  grupper: Prisgrupp[];
+  /** undefined = standardfotnoten, null = ingen fotnot, text = egen fotnot. */
+  fotnot?: string | null;
+};
+
+const sp = (nyckel: string) => sidPriser[nyckel];
+
+/**
+ * Avsnitten på /priser i sidpaketets ordning. Grupperna kommer från sidPriser,
+ * så att ett pris bara behöver ändras på ett ställe. Inga belopp skrivs in här.
+ */
+export const prissidan: Prisavsnitt[] = [
+  { id: "biltvatt", grupper: sp("biltvatt").grupper },
+  // Utan den sista gruppen (det kompletta paketet).
+  { id: "rekond", grupper: sp("rekonditionering").grupper.slice(0, -1) },
+  { id: "invandig-rekond", grupper: sp("invandig-rekond").grupper },
+  { id: "kemtvatt", grupper: sp("invandig-rekond/kemtvatt-kladsel").grupper, fotnot: sp("invandig-rekond/kemtvatt-kladsel").fotnot },
+  // Bara steg och pickup/van, utan gruppen Tillägg.
+  { id: "polering", grupper: [sp("polering").grupper[0]] },
+  {
+    id: "lackskydd",
+    grupper: [{ rubrik: "Tillägg till polering", rader: sp("lackskydd").grupper[0].rader }, sp("lackskydd").grupper[1]],
+  },
+  { id: "glasforsegling", grupper: sp("lackskydd/glasforsegling").grupper, fotnot: null },
+  { id: "stralkastarpolering", grupper: sp("polering/stralkastarpolering").grupper, fotnot: null },
+  { id: "repor", grupper: sp("polering/repborttagning").grupper, fotnot: sp("polering/repborttagning").fotnot },
+  { id: "hamtning", grupper: sp("hamtning-och-lamning").grupper, fotnot: sp("hamtning-och-lamning").fotnot },
+  { id: "presentkort", grupper: [], fotnot: null },
+];

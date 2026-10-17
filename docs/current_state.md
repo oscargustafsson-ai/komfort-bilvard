@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-17 (Batch 05b: /tjanster shows "Fler tjänster" and "Tilläggstjänster" card sections, lätt polering back as a helrekond add-on)
+Last updated: 2026-10-17 (Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
 
 ---
 
@@ -34,6 +34,19 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 07:** media in `public/bilder/tjanster`, `public/bilder/fore-och-efter` and `public/video`
+  (4:5, plates blurred, no metadata; do not edit or add). `Bild.tsx` (next/image, lazy, exact alt),
+  `Loop.tsx` (client; `<video muted loop playsInline preload="none">` with poster and `data-src`,
+  `src` set by IntersectionObserver with 200px rootMargin, never plays with reduced motion) and
+  `Bildrad.tsx` (3 columns on desktop, swipeable row with scroll-snap on mobile) render
+  `sida.media` in `tjanster.ts` between the running sections and "Varför välja KOM-fort?". Only
+  the five pillar pages have media. `Prislista.tsx` is shared by `TjanstSidaMall` and `/priser`;
+  `prissidan` in `priser.ts` builds the /priser sections from `sidPriser` (never hardcode
+  amounts). New pages: `/priser` (`data/priserSida.ts`), `/vanliga-fragor` (`data/vanligaFragor.ts`,
+  FAQPage with all 16 questions), `/fore-och-efter` (`data/foreOchEfter.ts`, figure/figcaption
+  pairs). District pages show only `intro[0]` in the hero; `intro[1]` is rendered at the end of
+  "Hitta till oss från ..." before the map. Desktop menu uses `text-xs xl:text-sm` and the ring
+  button `px-5 xl:px-8` so seven items fit on one line at 1024px.
 - **Batch 05b:** `Tjanstkort.tsx` (`Kortavsnitt`) renders the two card sections on /tjanster from
   `tjansterSida.flerTjanster` / `tillaggstjanster` (card name is the only link; prices derived
   from priser.ts). "Lätt polering, bara glans (skyddet håller 6 månader)" (399 kr) is back as a
@@ -159,6 +172,9 @@ src/
       kontakt/page.tsx         Contact page: hero + <Kontakt> (cards/form) + text blocks + map + FAQ (copy from data/kontakt.ts)
       boka/page.tsx            Booking page: hero + <Bokning> + text + map (copy from data/boka.ts)
       om-oss/page.tsx          About page (copy from data/omoss.ts)
+      priser/page.tsx          Prices page (copy from data/priserSida.ts, lists from prissidan in data/priser.ts)
+      vanliga-fragor/page.tsx  FAQ page (copy from data/vanligaFragor.ts)
+      fore-och-efter/page.tsx  Before/after page (copy and images from data/foreOchEfter.ts)
       integritetspolicy/page.tsx Privacy policy (copy from data/integritetspolicy.ts)
       presentkort/page.tsx     Gift card page: hero + "Så beställer du" + steps + <Presentkort> (form) + text + map + FAQ (copy from data/presentkort.ts)
       tjanster/page.tsx        Services hub: H1 + intro + <ServiceCard>s + text sections + map + FAQ (copy from data/tjansterSida.ts)
@@ -184,6 +200,9 @@ src/
       Etikett.tsx              Eyebrow label (CSS dash)
       Sidblock.tsx             Shared page blocks: text grid (with optional `efter` slot), highlighted block, Hitta-till-oss + map, FAQ, buttons
       Omradeslista.tsx         Link row with every district from data/omraden.ts
+      Bild.tsx / Loop.tsx      4:5 image (next/image) and lazy muted video loop
+      Bildrad.tsx              Image row on the pillar service pages
+      Prislista.tsx            Shared price list (groups + footnote)
     ui/
       FadeIn.tsx               motion wrapper: fade+rise on whileInView (once, -80px margin)
       HexagonPattern.tsx       SVG hexagon tiling pattern (numbers normalized via fmt() to avoid hydration mismatch)

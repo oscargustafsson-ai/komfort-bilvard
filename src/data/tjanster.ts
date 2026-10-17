@@ -1,4 +1,5 @@
 import { sidPriser, kr } from "./priser";
+import type { Media } from "@/components/marketing/Bild";
 
 /**
  * Prisruta i heron. Från-priset kommer från priser.ts (en enda källa);
@@ -35,6 +36,8 @@ export type TjanstSida = {
   faqH2: string;
   bokaH2: string;
   bokaText: string;
+  /** Bildraden efter de löpande avsnitten (batch 07), i sidpaketets ordning. */
+  media?: Media[];
 };
 
 export type Tjanst = {
@@ -91,6 +94,7 @@ export const tjanster: Tjanst[] = [
       "En rekond kan höja bilens andrahandsvärde",
     ],
     faq: [
+      { q: "Är bilrekond och helrekond samma sak?", a: "Ja. Hos oss betyder båda att hela bilen tas om hand, ut- och invändigt, vid samma besök, och att lacken får en lackförsegling som håller i 12 månader. Vill du bara ha kupén rengjord passar en invändig rekond." },
       { q: "Hur lång tid tar en bilrekond?", a: "Mellan fyra och åtta timmar, beroende på bilens storlek och skick." },
       { q: "Vad kostar en bilrekond?", a: "Det beror på bilens storlek och skick. Alla priser ser du i prislistan, och på bokningssidan får du ett uppskattat pris för din bil med tillägg." },
       { q: "Ingår polering i rekonden?", a: "Nej, polering är ett tillägg. Du väljer mellan lätt polering, som bara ger lacken glansen tillbaka, och 1-stegspolering, som tar bort det mesta av fina repor och swirlmärken. Behöver lacken mer passar vår polering med vax i upp till tre steg." },
@@ -103,13 +107,13 @@ export const tjanster: Tjanst[] = [
       popular: true,
     },
     sida: {
-      title: "Bilrekond Örebro | Rekond av bil i Örebro",
+      title: "Bilrekond Örebro | Helrekond och rekond av bil i Örebro",
       h1: "Bilrekond Örebro",
       intro: [
         "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och vi går igenom kupén från mattor till instrumentbräda. Resultatet är en bil som känns och luktar ny igen.",
         "Bilen tvättas alltid för hand, och du kan lämna den hos oss eller låta oss hämta den hos dig. Vill du se allt vi gör, läs om [vår bilvård](/).",
       ],
-      ingarH2: "Vad ingår i en bilrekond?",
+      ingarH2: "Vad ingår i en helrekond?",
       prisH2: "Pris och tillägg",
       prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, [glasförsegling](/tjanster/lackskydd/glasforsegling) med 2 års skydd, lätt polering eller 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
       sektioner: [
@@ -148,6 +152,11 @@ export const tjanster: Tjanst[] = [
       faqH2: "Vanliga frågor om bilrekond",
       bokaH2: "Boka bilrekond i Örebro",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan, så hör vi av oss och bokar in en dag som passar dig.",
+      media: [
+        { typ: "bild", src: "/bilder/tjanster/bilrekond-framvagn.jpg", width: 1200, height: 1500, text: "Mörkgrå Kia EV5 med tända strålkastare i lokalen hos KOM-fort Bilvård i Örebro" },
+        { typ: "bild", src: "/bilder/tjanster/bilrekond-bakljus.jpg", width: 1200, height: 1500, text: "Tänt bakljus och blank lack på en mörkgrå Kia EV5 hos KOM-fort Bilvård i Örebro" },
+        { typ: "film", src: "/video/bilrekond-volvo.mp4", width: 464, height: 580, text: "Svart Volvo V60 med blank lack hos KOM-fort Bilvård i Örebro" },
+      ],
     },
   },
   // Batch 03, sida 2/5. Text ordagrann från batcher/batch-03.md.
@@ -220,6 +229,11 @@ export const tjanster: Tjanst[] = [
       faqH2: "Vanliga frågor om polering",
       bokaH2: "Boka polering i Örebro",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan, så bokar vi in din bil. På bokningssidan väljer du antal steg och ser ett uppskattat pris.",
+      media: [
+        { typ: "bild", src: "/bilder/tjanster/polering-baklucka.jpg", width: 946, height: 1182, text: "Maskinpolering av bakluckan på en mörk Volvo hos KOM-fort Bilvård i Örebro" },
+        { typ: "bild", src: "/bilder/tjanster/polering-polerrondell.jpg", width: 946, height: 1182, text: "Polermedel läggs på polerrondellen inför maskinpolering av en mörk Volvo hos KOM-fort Bilvård i Örebro" },
+        { typ: "bild", src: "/bilder/tjanster/polering-bagagelucka.jpg", width: 1200, height: 1500, text: "Maskinpolering av bagageluckan på en svart Ford Mustang hos KOM-fort Bilvård i Örebro" },
+      ],
     },
   },
   // Batch 03, sida 3/5
@@ -293,6 +307,11 @@ export const tjanster: Tjanst[] = [
       faqH2: "Vanliga frågor om lackskydd",
       bokaH2: "Boka polering med lackskydd",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan och berätta hur länge skyddet ska hålla, så hör vi av oss.",
+      media: [
+        { typ: "bild", src: "/bilder/tjanster/lackskydd-mikrofiberduk.jpg", width: 946, height: 1182, text: "Svart bil torkas med mikrofiberduk av en person med andningsskydd och handskar hos KOM-fort Bilvård i Örebro" },
+        { typ: "bild", src: "/bilder/tjanster/lackskydd-sida.jpg", width: 1200, height: 1500, text: "Blank grön lack med speglingar på sidan av en BMW X1 hos KOM-fort Bilvård i Örebro" },
+        { typ: "bild", src: "/bilder/tjanster/lackskydd-motorhuv.jpg", width: 1200, height: 1500, text: "Blank motorhuv och strålkastare på en grön BMW X1 hos KOM-fort Bilvård i Örebro" },
+      ],
     },
   },
   // Batch 03, sida 4/5
@@ -371,6 +390,11 @@ export const tjanster: Tjanst[] = [
       faqH2: "Vanliga frågor om biltvätt",
       bokaH2: "Boka biltvätt i Örebro",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan, så bokar vi in en tid som passar dig.",
+      media: [
+        { typ: "bild", src: "/bilder/tjanster/biltvatt-skum.jpg", width: 946, height: 1182, text: "Skum sprutas över en BMW vid handtvätt hos KOM-fort Bilvård i Örebro" },
+        { typ: "bild", src: "/bilder/tjanster/biltvatt-skum-framifran.jpg", width: 1200, height: 1500, text: "BMW täckt av rinnande skum i tvätthallen hos KOM-fort Bilvård i Örebro" },
+        { typ: "film", src: "/video/biltvatt-skum.mp4", width: 464, height: 580, text: "Rinnande skum på sidan av en Land Rover Defender hos KOM-fort Bilvård i Örebro" },
+      ],
     },
   },
   // Batch 03, sida 1/5
@@ -422,7 +446,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Så går en invändig rekond till",
           stycken: [
-            "När du har bokat lämnar du bilen hos oss för dagen. Vi börjar med dammsugning, rengör sedan klädsel, mattor och alla ytor och tar glasputsen sist. Själva arbetet tar 2-4 timmar, beroende på bilens storlek och skick. Innan du hämtar bilen luftar vi kupén ordentligt och går igenom hela bilen en sista gång.",
+            "När du har bokat lämnar du bilen hos oss för dagen. Vi börjar med dammsugning, rengör sedan klädsel, mattor och alla ytor och tar glasputsen sist. Själva arbetet tar 2-4 timmar, beroende på bilens storlek och skick. Innan du hämtar bilen luftar vi kupén ordentligt och går igenom hela bilen en sista gång. Hur en kupé kan se ut före och efter rengöringen ser du under [före och efter](/fore-och-efter).",
           ],
         },
         {
@@ -446,6 +470,11 @@ export const tjanster: Tjanst[] = [
       faqH2: "Vanliga frågor om invändig rekond",
       bokaH2: "Boka invändig rekond i Örebro",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan. Vi hör av oss och bokar in en dag då du kan vara utan bilen.",
+      media: [
+        { typ: "bild", src: "/bilder/tjanster/invandig-rekond-dammsugning.jpg", width: 1200, height: 1500, text: "Dammsugning av baksätet i en bil hos KOM-fort Bilvård i Örebro" },
+        { typ: "bild", src: "/bilder/tjanster/invandig-rekond-kupe.jpg", width: 1200, height: 1500, text: "Ren kupé med ratt, instrumentbräda och framsäten hos KOM-fort Bilvård i Örebro" },
+        { typ: "film", src: "/video/invandig-rekond-passagerarplats.mp4", width: 464, height: 580, text: "Ren passagerarplats med säte och golvmatta i en Audi e-tron hos KOM-fort Bilvård i Örebro" },
+      ],
     },
   },
 ];

@@ -14,7 +14,7 @@ export const omoss = {
   sektioner: [
     { h2: "Goran bakom KOM-fort", stycken: ["Goran Ismailovic har tagit hand om bilar sedan tonåren, först familjens bil och sedan andras. I dag har han arbetat med bilvård yrkesmässigt i närmare tre år, och 2025 startade han KOM-fort Bilvård i egen lokal i södra Örebro."] },
     { h2: "Så arbetar vi", stycken: ["Allt tvättas för hand, aldrig i automattvätt. Bilen tvättas med två hinkar och mjuka tvätthandskar, medlen är pH-neutrala och vi torkar med mikrofiberdukar. Innan vi polerar mäter vi lacktjockleken, så att vi vet vad lacken tål, och rengör den med rengöringslera. Vi använder professionella produkter av hög kvalitet. Vi kompromissar aldrig med kvalitet och noggrannhet, och ingen bil behandlas i en fart."] },
-    { h2: "Slutkontroll innan du hämtar bilen", stycken: ["När vi är klara går vi igenom hela bilen och fotograferar den, innan du kommer och hämtar den. Hittar vi något vi har missat åtgärdar vi det, så att bilen är färdig på riktigt när du får nycklarna."] },
+    { h2: "Slutkontroll innan du hämtar bilen", stycken: ["När vi är klara går vi igenom hela bilen och fotograferar den, innan du kommer och hämtar den. Hittar vi något vi har missat åtgärdar vi det, så att bilen är färdig på riktigt när du får nycklarna. Bilder från några av våra jobb ser du under [före och efter](/fore-och-efter)."] },
     { h2: "Medan bilen är hos oss", stycken: ["Under en enklare handtvätt kan du vänta på plats. Gör vi en större rekond kan vi köra dig till Marieberg medan bilen behandlas, utan kostnad. Vid större behandlingar kan vi också [hämta bilen hos dig](/tjanster/hamtning-och-lamning) och lämna den igen efteråt."] },
     { h2: "Vad vi gör", stycken: ["Vi gör bilrekond, invändig rekond, polering, keramiskt lackskydd och handtvätt, och till det finns tillägg som motortvätt, kemtvätt av säten och glasförsegling. Allt finns samlat under [våra tjänster](/tjanster). Vill du ge bort bilvård finns [presentkort](/presentkort) som gäller alla tjänster."] },
   ] satisfies Sektion[],
@@ -38,6 +38,6 @@ export const omoss = {
   },
   kontakta: {
     h2: "Kontakta oss",
-    stycken: ["Har du frågor om oss eller om din bil, ring 076-035 38 08 eller skicka en förfrågan."],
+    stycken: ["Har du frågor om oss eller om din bil, ring 076-035 38 08 eller skicka en förfrågan. Många svar finns redan under [vanliga frågor om bilvård](/vanliga-fragor)."],
   } satisfies Sektion,
 };

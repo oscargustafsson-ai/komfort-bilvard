@@ -2,7 +2,10 @@ import Link from "next/link";
 
 const links = [
   { label: "Tjänster", href: "/tjanster" },
+  { label: "Priser", href: "/priser" },
   { label: "Områden", href: "/omraden" },
+  { label: "Före och efter", href: "/fore-och-efter" },
+  { label: "Vanliga frågor", href: "/vanliga-fragor" },
   { label: "Presentkort", href: "/presentkort" },
   { label: "Om oss", href: "/om-oss" },
   { label: "Kontakt", href: "/kontakt" },

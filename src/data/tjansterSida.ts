@@ -87,7 +87,7 @@ export const tjansterSida = {
   valj: {
     h2: "Så väljer du rätt tjänst",
     stycken: [
-      "Vill du bara ha bilen ren räcker en biltvätt. Är det insidan som behöver ett lyft passar invändig rekond, och är lacken matt eller repig är polering rätt val. Vill du ha både insidan och utsidan gjorda på en gång väljer du bilrekond, och vill du att lacken ska hålla sig fin i flera år väljer du polering med lackskydd. Är du osäker kan du ringa 076-035 38 08, så hjälper vi dig att välja. På [bokningssidan](/boka) får du ett uppskattat pris för din bil direkt.",
+      "Vill du bara ha bilen ren räcker en biltvätt. Är det insidan som behöver ett lyft passar invändig rekond, och är lacken matt eller repig är polering rätt val. Vill du ha både insidan och utsidan gjorda på en gång väljer du bilrekond, och vill du att lacken ska hålla sig fin i flera år väljer du polering med lackskydd. Är du osäker kan du ringa 076-035 38 08, så hjälper vi dig att välja. På [bokningssidan](/boka) får du ett uppskattat pris för din bil direkt. [Alla våra priser](/priser) finns också samlade på en sida.",
     ],
   } satisfies Sektion,
   hitta: {

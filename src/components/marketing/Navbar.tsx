@@ -7,6 +7,7 @@ import { site } from "@/lib/site";
 
 const meny = [
   { label: "Tjänster", href: "/tjanster" },
+  { label: "Priser", href: "/priser" },
   { label: "Områden", href: "/omraden" },
   { label: "Presentkort", href: "/presentkort" },
   { label: "Om oss", href: "/om-oss" },
@@ -35,7 +36,7 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${scrolled ? "bg-surface-1/90 backdrop-blur-md border-gold/10" : "bg-transparent border-transparent"}`}>
-      <div className="flex justify-between items-center px-8 py-5">
+      <div className="flex justify-between items-center gap-4 px-8 py-5">
         <Link href="/" className="relative h-10 w-32 overflow-visible">
           <Image
             src="/logo/kom-fort-logga.svg"
@@ -48,7 +49,8 @@ export default function Navbar() {
         </Link>
 
         {/* Datormenyn från 1024 px (lg). Under det används mobilmenyn. */}
-        <ul className="hidden lg:flex gap-6 text-sm text-white/60 tracking-widest uppercase">
+        {/* Mindre text mellan 1024 och 1279 px så att menyn får plats på en rad (batch 07). */}
+        <ul className="hidden lg:flex gap-6 text-xs xl:text-sm text-white/60 tracking-widest uppercase whitespace-nowrap">
           {meny.map((m) => (
             <li key={m.href}>
               <Link href={m.href} className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-150 hover:after:w-full">
@@ -61,7 +63,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href={site.phoneHref}
-            className="grain relative overflow-hidden hidden lg:block bg-gold text-black px-8 py-3 text-sm font-bold tracking-widest uppercase rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300 whitespace-nowrap"
+            className="grain relative overflow-hidden hidden lg:block bg-gold text-black px-5 xl:px-8 py-3 text-sm font-bold tracking-widest uppercase rounded-lg transition-all after:absolute after:inset-0 after:bg-white/20 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300 whitespace-nowrap"
           >
             {RING}
           </a>
