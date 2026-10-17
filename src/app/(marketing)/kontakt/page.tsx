@@ -5,6 +5,7 @@ import { Brodsmulor } from "@/components/marketing/Brodsmulor";
 import { Etikett } from "@/components/marketing/Etikett";
 import { Stycke } from "@/components/marketing/Stycke";
 import { BlockRutnat, MarkeratBlock, HittaSektion, FaqSektion } from "@/components/marketing/Sidblock";
+import { Omradeslista } from "@/components/marketing/Omradeslista";
 import { kontaktsida } from "@/data/kontakt";
 import { sidMetadata } from "@/lib/metadata";
 
@@ -47,7 +48,11 @@ export default function KontaktPage() {
       {/* Så bokar du, rekond tar en dag, hämtning, hela Örebro */}
       <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
         <div className="max-w-6xl mx-auto">
-          <BlockRutnat sektioner={k.sektioner} bg="bg-surface-1" />
+          <BlockRutnat
+            sektioner={k.sektioner}
+            bg="bg-surface-1"
+            efter={(s) => (s.h2 === "Vi tar emot bilar från hela Örebro" ? <Omradeslista /> : null)}
+          />
         </div>
       </section>
 

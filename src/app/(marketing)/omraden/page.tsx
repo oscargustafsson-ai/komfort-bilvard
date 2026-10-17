@@ -4,6 +4,7 @@ import { Etikett } from "@/components/marketing/Etikett";
 import { Stycke } from "@/components/marketing/Stycke";
 import { BlockRutnat, MarkeratBlock, HittaSektion, KnappSektion, Knappar } from "@/components/marketing/Sidblock";
 import { omradenHubb } from "@/data/omraden";
+import { Omradeslista } from "@/components/marketing/Omradeslista";
 import { sidMetadata } from "@/lib/metadata";
 
 export const metadata = sidMetadata({
@@ -29,7 +30,8 @@ export default function OmradenPage() {
             <Brodsmulor items={smulor} />
             <Etikett className="mb-5">KOM-fort Bilvård AB · Örebro</Etikett>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">{h.h1}</h1>
-            <Stycke text={h.intro} className="text-white/50 text-lg max-w-2xl leading-relaxed font-light mb-10" />
+            <Stycke text={h.intro} className="text-white/50 text-lg max-w-2xl leading-relaxed font-light" />
+            <Omradeslista className="mt-6 mb-10" />
             <Knappar />
           </FadeIn>
         </div>

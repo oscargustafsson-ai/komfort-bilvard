@@ -390,6 +390,20 @@ export const sidPriser: Record<string, { fran: number; grupper: Prisgrupp[]; fot
       },
     ],
   },
+  "rekonditionering/leasingaterlamning": {
+    fran: franPris(p("helrekond")),
+    grupper: [
+      { rader: rader(p("helrekond")) },
+      { rubrik: "Tillägg", rader: tillaggMedKemtvatt(p("helrekond")) },
+      {
+        rubrik: "Fler tjänster",
+        rader: [
+          { label: p("stralkastarpolering").namn, pris: `${kr(p("stralkastarpolering").pris!)} kr` },
+          { label: p("invandig-rekond").namn, pris: `${kr(p("invandig-rekond").pris!)} kr` },
+        ],
+      },
+    ],
+  },
   "lackskydd/glasforsegling": {
     fran: p("glasforsegling").pris!,
     grupper: [

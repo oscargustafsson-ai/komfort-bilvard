@@ -40,7 +40,16 @@ export function TextBlock({ sektion, rubrikClass = "text-2xl md:text-3xl font-bl
 }
 
 /** Rutnät av textblock (tjänster, stadsdelar). Udda sista block spänner över hela bredden. */
-export function BlockRutnat({ sektioner, bg = "bg-surface-2" }: { sektioner: Sektion[]; bg?: "bg-surface-1" | "bg-surface-2" }) {
+export function BlockRutnat({
+  sektioner,
+  bg = "bg-surface-2",
+  efter,
+}: {
+  sektioner: Sektion[];
+  bg?: "bg-surface-1" | "bg-surface-2";
+  /** Valfritt innehåll direkt under ett blocks text, t.ex. områdeslistan. */
+  efter?: (sektion: Sektion) => React.ReactNode;
+}) {
   const hover = bg === "bg-surface-2" ? "hover:bg-surface-1" : "hover:bg-surface-2";
   const udda = sektioner.length % 2 === 1;
   return (
@@ -53,6 +62,7 @@ export function BlockRutnat({ sektioner, bg = "bg-surface-2" }: { sektioner: Sek
         >
           <div className={`${bg} ${hover} transition-colors p-8 md:p-10 h-full`}>
             <TextBlock sektion={s} />
+            {efter?.(s)}
           </div>
         </FadeIn>
       ))}

@@ -8,9 +8,27 @@ import { site } from "@/lib/site";
  * Uppdatera datumet för de sidor en batch rör. Sidor som inte nämns får
  * STANDARD_DATUM.
  */
-const STANDARD_DATUM = "2026-10-16";
+const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
   // Batch 05 (2026-10-16): menyn, footern och kartan ändrades på alla sidor.
+  // Batch 06 (2026-10-17): nya sidor, områdeslistan och rättelser. Oförändrade sidor behåller 2026-10-16.
+  "/tjanster": "2026-10-16",
+  "/presentkort": "2026-10-16",
+  "/boka": "2026-10-16",
+  "/om-oss": "2026-10-16",
+  "/integritetspolicy": "2026-10-16",
+  "/tjanster/biltvatt": "2026-10-16",
+  "/tjanster/invandig-rekond": "2026-10-16",
+  "/tjanster/biltvatt/motortvatt": "2026-10-16",
+  "/tjanster/biltvatt/asfalt-och-flygrost": "2026-10-16",
+  "/tjanster/polering/repborttagning": "2026-10-16",
+  "/tjanster/polering/stralkastarpolering": "2026-10-16",
+  "/tjanster/lackskydd/glasforsegling": "2026-10-16",
+  "/omraden/marieberg": "2026-10-16",
+  "/omraden/adolfsberg": "2026-10-16",
+  "/omraden/vivalla": "2026-10-16",
+  "/omraden/varberga": "2026-10-16",
+  "/omraden/almby": "2026-10-16",
   // Batch 01 (2026-10-10): alla sidor fick nytt schema, canonical och og-taggar.
   // Batch 02 (2026-10-11): allt utom Marieberg och Adolfsberg ändrades.
   // Batch 02b (2026-10-12): nya priser och rättelser.

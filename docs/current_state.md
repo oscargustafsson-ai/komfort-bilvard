@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-16 (Batch 05: three more service subpages, /om-oss and /integritetspolicy, map loads only after a click, privacy line under the forms, menu and footer links)
+Last updated: 2026-10-17 (Batch 06: four more district pages, leasing return subpage, district link list on /, /kontakt and /omraden)
 
 ---
 
@@ -34,6 +34,12 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 06:** districts Mosås, Brickebacken, Rynninge and Lillån added to `omraden.ts` (nine in
+  total; the hub shows all nine). New subpage rekonditionering/leasingaterlamning in
+  `undersidor.ts` (price list key shares the helrekond values). `Omradeslista.tsx` renders every
+  district in `omraden.ts` as a link row under the "hela Örebro" paragraph on /, on /kontakt
+  (via `BlockRutnat`'s `efter` prop) and in the /omraden hero; it is navigation and not counted
+  as contextual links. Bilrekond and Rekond inför bilförsäljning now sit at the 10-link cap.
 - **Batch 05:** new subpages motortvatt and asfalt-och-flygrost (under biltvatt) and
   infor-bilforsaljning (under rekonditionering), all in `undersidor.ts`. New pages `/om-oss`
   (`data/omoss.ts`) and `/integritetspolicy` (`data/integritetspolicy.ts`, paragraphs + bullet
@@ -171,7 +177,8 @@ src/
       Brodsmulor.tsx           Breadcrumbs (visible + BreadcrumbList)
       Stycke.tsx               Renders copy strings with [text](/path) links as <Link>
       Etikett.tsx              Eyebrow label (CSS dash)
-      Sidblock.tsx             Shared page blocks: text grid, highlighted block, Hitta-till-oss + map, FAQ, buttons
+      Sidblock.tsx             Shared page blocks: text grid (with optional `efter` slot), highlighted block, Hitta-till-oss + map, FAQ, buttons
+      Omradeslista.tsx         Link row with every district from data/omraden.ts
     ui/
       FadeIn.tsx               motion wrapper: fade+rise on whileInView (once, -80px margin)
       HexagonPattern.tsx       SVG hexagon tiling pattern (numbers normalized via fmt() to avoid hydration mismatch)

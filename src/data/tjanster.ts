@@ -122,7 +122,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "När behöver bilen en rekond?",
           stycken: [
-            "En gång om året är ett bra intervall, helst efter vintern när salt och smuts från vintervägarna ska bort, eller inför sommaren. Ska bilen säljas passar en [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning), eftersom en ren och fräsch bil kan höja andrahandsvärdet. Har lacken bara tappat glansen kan [polering](/tjanster/polering) räcka, och behöver bara kupén fräschas upp finns [invändig rekond](/tjanster/invandig-rekond).",
+            "En gång om året är ett bra intervall, helst efter vintern när salt och smuts från vintervägarna ska bort, eller inför sommaren. Ska bilen säljas passar en [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning), eftersom en ren och fräsch bil kan höja andrahandsvärdet. Ska en leasingbil lämnas tillbaka gäller samma sak, se [rekond inför leasingåterlämning](/tjanster/rekonditionering/leasingaterlamning). Har lacken bara tappat glansen kan polering räcka, och behöver bara kupén fräschas upp finns [invändig rekond](/tjanster/invandig-rekond).",
           ],
         },
         {
@@ -202,7 +202,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Polering för hela Örebro",
           stycken: [
-            "Bilar från hela Örebro poleras hos oss. Från [Marieberg](/omraden/marieberg) är det bara några minuter hit, [Varberga](/omraden/varberga) ligger ungefär tio minuter bort via Västerleden och från [Almby](/omraden/almby) kör du hit på runt en kvart. Passar det bättre kan vi också hämta bilen hos dig. Hör av dig, så berättar vi vad som gäller. Vi servar även Adolfsberg, Vivalla, Kumla och Hallsberg.",
+            "Bilar från hela Örebro poleras hos oss. Från [Marieberg](/omraden/marieberg) är det bara några minuter hit, [Varberga](/omraden/varberga) ligger ungefär tio minuter bort via Västerleden och från [Almby](/omraden/almby) kör du hit på runt en kvart. Från [Rynninge](/omraden/rynninge) i nordöstra Örebro tar det ungefär en kvart via Västerleden. Passar det bättre kan vi också hämta bilen hos dig. Hör av dig, så berättar vi vad som gäller. Vi servar även Adolfsberg, Vivalla, Mosås, Brickebacken, Lillån, Kumla och Hallsberg.",
           ],
         },
       ],
@@ -275,7 +275,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Lackskydd för hela Örebro",
           stycken: [
-            "Vi lägger lackskydd på bilar från hela Örebro. Vår lokal ligger i [Adolfsberg](/omraden/adolfsberg). Från [Marieberg](/omraden/marieberg) är det bara några minuter hit och från [Almby](/omraden/almby) tar det runt en kvart. Vi kan också hämta bilen hos dig. Säg till när du bokar, så berättar vi vad som gäller. Vi servar även Vivalla, Varberga, Kumla och Hallsberg.",
+            "Vi lägger lackskydd på bilar från hela Örebro. Vår lokal ligger i [Adolfsberg](/omraden/adolfsberg). Från [Marieberg](/omraden/marieberg) är det bara några minuter hit och från [Almby](/omraden/almby) tar det runt en kvart. Från [Mosås](/omraden/mosas) söder om stan kör du Mosåsvägen hit på tio minuter. Vi kan också hämta bilen hos dig. Säg till när du bokar, så berättar vi vad som gäller. Vi servar även Vivalla, Varberga, Brickebacken, Rynninge, Lillån, Kumla och Hallsberg.",
           ],
         },
       ],

@@ -5,6 +5,7 @@ import OmOss from "@/components/marketing/OmOss";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { JsonLd, faqSchema } from "@/components/marketing/JsonLd";
 import { BlockRutnat, MarkeratBlock, TextBlock, HittaSektion, FaqSektion } from "@/components/marketing/Sidblock";
+import { Omradeslista } from "@/components/marketing/Omradeslista";
 import { startsida } from "@/data/startsida";
 import { sidMetadata } from "@/lib/metadata";
 
@@ -46,6 +47,7 @@ export default function Home() {
           <FadeIn delay={0.1}>
             <div className="p-2 md:p-6">
               <TextBlock sektion={s.omraden} />
+              <Omradeslista />
             </div>
           </FadeIn>
         </div>
