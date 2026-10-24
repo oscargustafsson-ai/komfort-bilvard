@@ -10,7 +10,25 @@ import { site } from "@/lib/site";
  */
 const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
-  // Batch 07 (2026-10-17): menyn och footern ändrades på alla sidor, så alla har byggdatum.
+  // Batch 08 (2026-10-24): fem nya stadsdelar, områdeslistan, hubben och rättelserna R2-R10.
+  "/": "2026-10-24",
+  "/kontakt": "2026-10-24",
+  "/omraden": "2026-10-24",
+  "/omraden/vivalla": "2026-10-24",
+  "/omraden/varberga": "2026-10-24",
+  "/omraden/almby": "2026-10-24",
+  "/omraden/lillan": "2026-10-24",
+  "/omraden/hovsta": "2026-10-24",
+  "/omraden/tybble": "2026-10-24",
+  "/omraden/mellringe": "2026-10-24",
+  "/omraden/oxhagen": "2026-10-24",
+  "/omraden/baronbackarna": "2026-10-24",
+  "/tjanster/polering/repborttagning": "2026-10-24",
+  "/tjanster/polering/stralkastarpolering": "2026-10-24",
+  "/tjanster/lackskydd/glasforsegling": "2026-10-24",
+  "/tjanster/biltvatt/motortvatt": "2026-10-24",
+  "/tjanster/biltvatt/asfalt-och-flygrost": "2026-10-24",
+  // Batch 07 (2026-10-17): menyn och footern ändrades på alla sidor, så övriga har det datumet.
   // Tidigare: batch 01 (2026-10-10) till batch 06 och 05b (2026-10-17).
 };
 

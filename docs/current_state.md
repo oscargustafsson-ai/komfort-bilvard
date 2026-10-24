@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-17 (Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
+Last updated: 2026-10-24 (Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
 
 ---
 
@@ -34,6 +34,9 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 08:** five districts added to `omraden.ts` after Lillån (Hovsta, Tybble, Mellringe,
+  Oxhagen, Baronbackarna) with three service sections each, same template; hub has fourteen
+  sections. New links in district and service-page copy (R2-R10). No new components.
 - **Batch 07:** media in `public/bilder/tjanster`, `public/bilder/fore-och-efter` and `public/video`
   (4:5, plates blurred, no metadata; do not edit or add). `Bild.tsx` (next/image, lazy, exact alt),
   `Loop.tsx` (client; `<video muted loop playsInline preload="none">` with poster and `data-src`,

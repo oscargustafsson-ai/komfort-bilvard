@@ -22,8 +22,9 @@ export type Omrade = {
 
 /** Hubben /omraden. Batch 01, sida 2/5. */
 export const omradenHubb = {
-  title: "Bilvård i Örebros stadsdelar | Från Lillån i norr till Mosås i söder",
-  meta: "Vi tar emot bilar från hela Örebro. Se vägen till KOM-fort Bilvård från nio stadsdelar, från Lillån i norr till Mosås i söder, eller låt oss hämta bilen.",
+  // Batch 08, R1
+  title: "Bilvård i Örebros stadsdelar | Från Hovsta i norr till Mosås i söder",
+  meta: "Vi tar emot bilar från hela Örebro. Se vägen till KOM-fort Bilvård från fjorton stadsdelar och orter, från Hovsta i norr till Mosås i söder, eller låt oss hämta bilen.",
   h1: "Bilvård i Örebros stadsdelar",
   intro:
     "Vår lokal ligger på Lindtorpsvägen 10 i Södra Lindhult, i södra Örebro nära E20. Därifrån når vi hela staden: från vissa stadsdelar har du oss runt hörnet, från andra är det en kvart med bil via Västerleden. Bilen får samma noggranna behandling oavsett var du bor, och all tvätt görs för hand. Alla behandlingar görs i vår lokal, med professionella produkter, oavsett om bilen ska tvättas eller få ett keramiskt lackskydd. Här har vi samlat stadsdelarna vi servar, med vägen till oss och lite om varje område. Hittar du inte din stadsdel tar vi gärna emot bilen ändå.",
@@ -74,6 +75,27 @@ export const omradenHubb = {
     {
       h2: "Lillån",
       stycken: ["Lillån är stadens nordligaste del, fem kilometer norr om centrum vid Riksväg 50, med villor från 1940-talet och framåt, Lillåns torg och Hovsta kyrka från 1100-talet. Riksväg 50 och Västerleden tar dig hit på ungefär en kvart. Läs mer om vår [bilvård i Lillån](/omraden/lillan)."],
+    },
+    // Batch 08 (R1)
+    {
+      h2: "Hovsta",
+      stycken: ["Hovsta är en egen tätort i Örebro kommun vid Riksväg 50, nio kilometer norr om centrum, med villabebyggelse, omkring 2 700 invånare och Kårsta golfklubb en kilometer västerut. Till oss är det cirka 17 kilometer via Riksväg 50 och Västerleden, runt 20 minuter med bil. Läs mer om vår [bilvård i Hovsta](/omraden/hovsta)."],
+    },
+    {
+      h2: "Tybble",
+      stycken: ["Tybble i östra Örebro byggdes i slutet av 1950-talet av Örebrobostäder och har omkring 1 000 bostäder, en del av dem studentbostäder nära Örebro universitet. Stadsdelens centrum ligger vid Tybble torg på Drakenbergsgatan. Till oss är det drygt 9 kilometer via Södra infartsleden och Västerleden, ungefär en kvart med bil. Läs mer om vår [bilvård i Tybble](/omraden/tybble)."],
+    },
+    {
+      h2: "Mellringe",
+      stycken: ["Mellringe i västra Örebro gränsar till Varberga och Hjärsta och har både villor, bostadsrätter och hyresrätter, en egen grundskola och Mellringe idrottsplats. Herrgården med anor från 1700-talet står kvar. Till oss är det cirka 9 kilometer via Ekersvägen och Västerleden, drygt tio minuter med bil. Läs mer om vår [bilvård i Mellringe](/omraden/mellringe)."],
+    },
+    {
+      h2: "Oxhagen",
+      stycken: ["Oxhagen väster om stadskärnan har omkring 900 lägenheter från 1960-talet och ett centrum vid Tornfalkgatan som förnyades 2019, med ny belysning och en renoverad bro. Varbergaskogen, Karlslunds herrgård och Hästhagen ligger nära. Till oss är det knappt 7 kilometer via Karlslundsgatan och Västerleden, under tio minuter med bil. Läs mer om vår [bilvård i Oxhagen](/omraden/oxhagen)."],
+    },
+    {
+      h2: "Baronbackarna",
+      stycken: ["Baronbackarna nordväst om centrum byggdes på 1950-talet med husen samlade kring bilfria gårdar och ett grönområde i mitten. Tillsammans med stjärnhusen i Rosta gjorde området Örebro känt som bostadsbyggandets mönsterstad. I dag finns här knappt 900 lägenheter och ett eget centrum vid Hjalmar Bergmans väg. Till oss är det cirka 10 kilometer via Hedgatan och Västerleden, drygt tio minuter med bil. Läs mer om vår [bilvård i Baronbackarna](/omraden/baronbackarna)."],
     },
   ] satisfies Sektion[],
   lamna: {
@@ -253,7 +275,7 @@ export const omraden: Omrade[] = [
     hitta: {
       h2: "Hitta till oss från Vivalla",
       stycken: [
-        "Från Vivalla centrum vid Poesigatan tar du Hedgatan ut till Västerleden vid avfart 114, som är skyltad Vivalla och Eurostop, och kör söderut. På vägen passerar du avfart 113 mot [Varberga](/omraden/varberga). Vid avfart 110 Adolfsberg kör du av, och därifrån är det ett par minuter till Lindtorpsvägen 10. Hela resan är cirka 10 kilometer och tar runt en kvart, beroende på trafiken.",
+        "Från Vivalla centrum vid Poesigatan tar du Hedgatan ut till Västerleden vid avfart 114, som är skyltad Vivalla och Eurostop, och kör söderut. På vägen passerar du avfart 113 mot [Varberga](/omraden/varberga). Vid avfart 110 Adolfsberg kör du av, och därifrån är det ett par minuter till Lindtorpsvägen 10. Hela resan är cirka 10 kilometer och tar runt en kvart, beroende på trafiken. På andra sidan Västerleden, vid samma avfart, ligger Baronbackarna, som vi beskriver på sidan om [bilvård i Baronbackarna](/omraden/baronbackarna).",
       ],
     },
     faq: {
@@ -312,7 +334,7 @@ export const omraden: Omrade[] = [
     hitta: {
       h2: "Hitta till oss från Varberga",
       stycken: [
-        "Från Varberga centrum tar du Varbergagatan och Ekersvägen ut till Västerleden vid avfart 113 och kör söderut. Följ Västerleden till avfart 110 Adolfsberg och kör av där. Lindtorpsvägen 10 ligger ett par minuter från avfarten. Sträckan från Varbergagatan är cirka 8 kilometer och tar ungefär tio minuter, beroende på trafiken. Längre norrut längs Västerleden, vid avfart 114, ligger Vivalla. Bor du där kan du läsa om vår [bilvård i Vivalla](/omraden/vivalla).",
+        "Från Varberga centrum tar du Varbergagatan och Ekersvägen ut till Västerleden vid avfart 113 och kör söderut. Följ Västerleden till avfart 110 Adolfsberg och kör av där. Lindtorpsvägen 10 ligger ett par minuter från avfarten. Sträckan från Varbergagatan är cirka 8 kilometer och tar ungefär tio minuter, beroende på trafiken. Längre norrut längs Västerleden, vid avfart 114, ligger Vivalla. Bor du där kan du läsa om vår [bilvård i Vivalla](/omraden/vivalla). Grannstadsdelarna [Mellringe](/omraden/mellringe) och [Oxhagen](/omraden/oxhagen) har också egna sidor hos oss.",
       ],
     },
     faq: {
@@ -370,7 +392,7 @@ export const omraden: Omrade[] = [
     hitta: {
       h2: "Hitta till oss från Almby",
       stycken: [
-        "Från Almby kyrka är det cirka 9 kilometer till Lindtorpsvägen 10, och med bil är du här på runt en kvart, lite beroende på trafiken. Lokalen ligger i Södra Lindhult i stadsdelen Adolfsberg, nära E20 avfart 110 Adolfsberg. På kartan ser du exakt var vi finns, så att du hittar rätt redan första gången.",
+        "Från Almby kyrka är det cirka 9 kilometer till Lindtorpsvägen 10, och med bil är du här på runt en kvart, lite beroende på trafiken. Lokalen ligger i Södra Lindhult i stadsdelen Adolfsberg, nära E20 avfart 110 Adolfsberg. På kartan ser du exakt var vi finns, så att du hittar rätt redan första gången. Grannstadsdelen Tybble har en egen sida om [bilvård i Tybble](/omraden/tybble).",
       ],
     },
     faq: {
@@ -480,13 +502,148 @@ export const omraden: Omrade[] = [
       { h2: "Handtvätt efter vintervägarna", stycken: ["Riksväg 50 saltas och grusas hela vintern, och saltet sliter på lacken om det får sitta kvar. Vår [biltvätt](/tjanster/biltvatt) görs för hand med tvåhinkmetoden och pH-neutralt schampo, så att grus och sand inte dras över lacken. Hjul och hjulhus tvättas separat, och flygrost och asfalt tar vi bort som tillägg. En tvätt i månaden är en bra tumregel, oftare under saltsäsongen. En enklare handtvätt tar 30-40 minuter, så den kan du vänta på plats under."] },
     ],
     hamtning: { h2: "Hämtning och lämning i Lillån", stycken: ["Lillån ligger i andra änden av stan, så när rekonden eller poleringen tar en hel dag är det bekvämt att vi hämtar bilen hos dig och kör tillbaka den efteråt. Kryssa i rutan för [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) på bokningssidan, eller säg det när du ringer."] },
-    hitta: { h2: "Hitta till oss från Lillån", stycken: ["Kör Faluvägen, alltså Riksväg 50, söderut och ta avfarten mot Oslo och Göteborg ut på Västerleden. Följ Västerleden runt staden i åtta kilometer till avfart 110 Adolfsberg. Efter avfarten håller du vänster mot Adolfsberg på Karlskogavägen, kör in på Gränsrösevägen i rondellen och svänger höger in på Lindtorpsvägen efter 600 meter. Sträckan är cirka 12 kilometer och tar ungefär en kvart. Söderut längs ån ligger Rynninge, som har en egen sida om vår [bilvård i Rynninge](/omraden/rynninge)."] },
+    hitta: { h2: "Hitta till oss från Lillån", stycken: ["Kör Faluvägen, alltså Riksväg 50, söderut och ta avfarten mot Oslo och Göteborg ut på Västerleden. Följ Västerleden runt staden i åtta kilometer till avfart 110 Adolfsberg. Efter avfarten håller du vänster mot Adolfsberg på Karlskogavägen, kör in på Gränsrösevägen i rondellen och svänger höger in på Lindtorpsvägen efter 600 meter. Sträckan är cirka 12 kilometer och tar ungefär en kvart. Söderut längs ån ligger Rynninge, som har en egen sida om vår [bilvård i Rynninge](/omraden/rynninge). Längre norrut längs Riksväg 50 ligger Hovsta, där vi också har en sida om [bilvård i Hovsta](/omraden/hovsta)."] },
     faq: {
       h2: "Vanliga frågor från Lillån",
       fragor: [
         { q: "Hur långt är det från Lillån?", a: "Cirka 12 kilometer, ungefär en kvart via Riksväg 50 och Västerleden." },
         { q: "Hämtar ni bilen i Lillån?", a: "Ja, vid rekond, polering och annat som tar mer än ett par timmar. Hämtningssidan har prislistan." },
         { q: "Ingår bakrutan i glasförseglingen?", a: "Nej, bakrutan är ett tillägg. Vindrutan och sidorutorna fram och bak ingår." },
+      ],
+    },
+  },
+  // Batch 08, sida 1/5
+  {
+    slug: "hovsta",
+    namn: "Hovsta",
+    title: "Bilvård Hovsta | Motortvätt, invändig rekond & hämtning för dig i Hovsta, Örebro",
+    meta: "Från Hovsta kör du Riksväg 50 och Västerleden till oss på runt 20 minuter. Motortvätt, invändig rekond och rekond inför leasingåterlämning. Ring 076-035 38 08.",
+    h1: "Bilvård Hovsta",
+    intro: [
+      "Från Hovsta norr om Örebro tar du Riksväg 50 och Västerleden ner till oss och är framme på runt 20 minuter. Vår lokal finns på Lindtorpsvägen 10 i Södra Lindhult, strax efter avfart 110 Adolfsberg. Vill du slippa resan kan vi hämta bilen hos dig, och hos oss får den allt från motortvätt till invändig rekond.",
+      "Som egen tätort i Örebro kommun ligger Hovsta cirka nio kilometer norr om centrum längs Riksväg 50, med sjön Lången två kilometer västerut. Samhället växte fram som stationssamhälle när Köping-Hults järnväg drogs fram mellan Örebro och Ervalla 1856, och de gamla gårdarna Kumla, Lund, Mellangården och Lillgården blev grunden. På 1970-talet byggdes orten ut, och 1976 invigdes skolan och centrumanläggningen, där det i dag finns frisör, butik och pizzeria. Samma år bildades Hovsta IF. Läs gärna mer om [KOM-fort Bilvård](/), eller se [alla stadsdelar och orter vi servar](/omraden).",
+    ],
+    tjanster: [
+      { h2: "Rekond inför leasingåterlämning", stycken: ["Ska leasingbilen lämnas tillbaka efter några år av pendling på Riksväg 50, lönar det sig att ge den en ordentlig genomgång först. Vid en [rekond inför leasingåterlämning](/tjanster/rekonditionering/leasingaterlamning) tvättar vi bilen för hand, avfettar den, ger lacken 12 månaders lackförsegling och rengör hela kupén. Repor och fläckar kan du ta bort med tillägg, och före överlämningen gör vi en slutkontroll där hela bilen fotograferas. Lägg in rekonden några dagar före återlämningen, så finns det tid för det som behövs."] },
+      { h2: "Motortvätt när bilen ändå är inne", stycken: ["[Motortvätt](/tjanster/biltvatt/motortvatt) gör vi som tillägg till handtvätten eller helrekonden, och hittills har vi gjort fler än 100 motortvättar, utan problem. Motorrummet tvättas vid samma besök som resten av bilen, så att du inte behöver boka en extra tid. Själva [biltvätten](/tjanster/biltvatt) gör vi alltid för hand, aldrig i automattvätt."] },
+      { h2: "Invändig rekond efter skog och fält", stycken: ["Hunden i bagaget, lera på mattorna och barr i fotutrymmet följer med hem efter promenaderna i skogen och på fälten runt Hovsta. En [invändig rekond](/tjanster/invandig-rekond) börjar med en grundlig dammsugning. Sedan tvättar vi klädseln och mattorna, torkar av instrumentbräda, dörrsidor och övriga ytor och putsar glaset invändigt. Där tyget behöver mer tar ångmaskinen bort smuts och lukt, och mot husdjurslukt använder vi enzymatiska medel, som klarar det i de flesta fall. Lädersäten får läderserum. Räkna med 2-4 timmar."] },
+    ],
+    hamtning: { h2: "Hämtning och lämning i Hovsta", stycken: ["Hovsta ligger en bra bit norr om stan, och vid en rekond står bilen här större delen av dagen. Då är det smidigt att vi hämtar den hos dig och kör tillbaka den när den är klar, så att du slipper två resor. Du kan lägga till [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) direkt i förfrågan. Avgiften ser du i [prislistan](/priser)."] },
+    hitta: { h2: "Hitta till oss från Hovsta", stycken: ["Kör ut på Riksväg 50 och följ den söderut förbi Lillån. Strax norr om centrum svänger du av mot Oslo och Göteborg och fortsätter på Västerleden i cirka åtta kilometer. Ta avfart 110 Adolfsberg, sväng vänster på Karlskogavägen och fortsätt in på Gränsrösevägen i rondellen. Lindtorpsvägen kommer efter en dryg halvkilometer, på höger sida. Hela sträckan är cirka 17 kilometer och tar runt 20 minuter. Lillån, som du passerar på vägen, har en egen sida om [bilvård i Lillån](/omraden/lillan)."] },
+    faq: {
+      h2: "Vanliga frågor från Hovsta",
+      fragor: [
+        { q: "Hur långt är det från Hovsta?", a: "Cirka 17 kilometer. Via Riksväg 50 och Västerleden tar det runt 20 minuter med bil." },
+        { q: "Behöver motorn täckas vid motortvätten?", a: "Nej, inte allt. Medlet bildar ett skydd runt elektroniken och kablarna." },
+        { q: "Hämtar ni bilen i Hovsta?", a: "Ja, för rekond, polering och andra behandlingar som tar en stor del av dagen. Tiderna bestämmer vi tillsammans med dig." },
+      ],
+    },
+  },
+  // Batch 08, sida 2/5
+  {
+    slug: "tybble",
+    namn: "Tybble",
+    title: "Bilvård Tybble | Strålkastarpolering, presentkort & rekond för dig i Tybble, Örebro",
+    meta: "Från Tybble i östra Örebro är du hos oss på ungefär en kvart. Strålkastarpolering, rekond inför bilförsäljning och presentkort på bilvård. Ring 076-035 38 08.",
+    h1: "Bilvård Tybble",
+    intro: [
+      "Tybble ligger i östra Örebro, och via centrum och Västerleden når du oss på ungefär en kvart. Hos KOM-fort Bilvård på Lindtorpsvägen 10 tvättas allt för hand. Hit kommer du med gulnade strålkastare, med bilen som ska säljas eller med ett presentkort i fickan.",
+      "Tybble var förr en by och den södra av Almby sockens två kyrkbyar. Fram till 1943 hörde området till Almby landskommun, och med Tybble menas i dag området väster om Norrköpingsvägen, med Almby, Sörby och Sörbyängen runt omkring. Gården Tybble låg på andra sidan vägen, och en del av dess mark hör i dag till Almby kyrkogård. Härifrån kom författaren Levi Rickson, känd som Jeremias i Tröstlösa, och hans diktarstuga står numera i Wadköping. Vad vi gör inom [bilvård i Örebro](/) ser du på startsidan, och på områdessidan finns [fler stadsdelar](/omraden).",
+    ],
+    tjanster: [
+      { h2: "Strålkastarpolering när plasten har gulnat", stycken: ["Med åren blir strålkastarnas plast gul och matt, och ljuset når inte lika långt i mörkret. Vid en [strålkastarpolering](/tjanster/polering/stralkastarpolering) våtslipar vi plasten, polerar den klar och avslutar med ett UV-skydd, så att strålkastarna håller sig klara längre. Båda strålkastarna ingår. Behandlingen tar kortare tid än en rekond, och därför passar den bra att lägga till när bilen ändå är hos oss."] },
+      { h2: "Presentkort på bilvård", stycken: ["Känner du någon som pluggar vid universitetet eller nyss har fått sin första bil? Ett [presentkort](/presentkort) hos oss gäller alla våra tjänster, från en handtvätt till ett keramiskt lackskydd, och beloppet väljer du själv. Presentkortet skickas till mottagarens e-post."] },
+      { h2: "Rekond inför bilförsäljning", stycken: ["Ska bilen säljas när studierna är klara eller familjen behöver en större bil, gör en ren bil stor skillnad på bilderna i annonsen och vid visningen. Vid en [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning) gör vi samma behandling som vid en [bilrekond](/tjanster/rekonditionering): bilen handtvättas, lacken får en lackförsegling för 12 månader framåt och hela kupén rengörs. Det kan höja andrahandsvärdet, och köparen ser direkt att bilen har skötts. Lägg rekonden innan du fotograferar bilen till annonsen."] },
+    ],
+    hamtning: { h2: "Hämtning och lämning i Tybble", stycken: ["Slipp resan hit: vi kan hämta bilen hos dig i Tybble och köra hem den när den är klar. Det gäller längre behandlingar som rekond och polering. Boka [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) samtidigt som behandlingen, så ordnar vi en tid som passar."] },
+    hitta: { h2: "Hitta till oss från Tybble", stycken: ["Från Tybble torg vid Drakenbergsgatan kör du Rudbecksgatan in mot centrum och fortsätter via Borgmästargatan och Kungsgatan till Oscariarondellen. Där tar du Södra infartsleden västerut till Västerleden och kör söderut till avfart 110 Adolfsberg. Efter avfarten tar Karlskogavägen och Gränsrösevägen dig fram till Lindtorpsvägen 10 på ett par minuter. Sträckan är drygt 9 kilometer och tar ungefär en kvart. Grannstadsdelen Almby har vi skrivit om på sidan om [bilvård i Almby](/omraden/almby)."] },
+    faq: {
+      h2: "Vanliga frågor från Tybble",
+      fragor: [
+        { q: "Hämtar ni bilen för en strålkastarpolering?", a: "Inte när den görs för sig, eftersom den går fort. Bokar du den tillsammans med en rekond eller polering hämtar vi bilen." },
+        { q: "Kan presentkortet användas flera gånger?", a: "Ja. Saldot räcker till flera besök, tills det är slut." },
+        { q: "Hur långt är det från Tybble?", a: "Drygt 9 kilometer, ungefär en kvart via Södra infartsleden och Västerleden." },
+      ],
+    },
+  },
+  // Batch 08, sida 3/5
+  {
+    slug: "mellringe",
+    namn: "Mellringe",
+    title: "Bilvård Mellringe | Polering, lackskydd & glasförsegling för dig i Mellringe, Örebro",
+    meta: "Från Mellringe kör du Ekersvägen och Västerleden till oss på drygt tio minuter. Polering, keramiskt lackskydd och glasförsegling. Ring 076-035 38 08.",
+    h1: "Bilvård Mellringe",
+    intro: [
+      "Från Mellringe i västra Örebro är du hos oss på drygt tio minuter via Ekersvägen och Västerleden. Vi håller till på Lindtorpsvägen 10 i Södra Lindhult, nära Västerledens avfart 110. Här ger vi lacken ny glans med polering, skyddar den med keramiskt lackskydd och förseglar rutorna.",
+      "Mellringe var en by redan på 1500-talet. Under 1600-talet ägdes två av gårdarna först av riksdrotsen Per Brahe den yngre och sedan av riksmarsken Jakob De la Gardie. Herrgårdens bottenvåning är från 1700-talet, och byggnaden fick sitt nuvarande utseende 1878. När en rivning diskuterades 1951 lyfte landsantikvarien Bertil Waldén fram byggnadens ålder och värde, och i dag står herrgården kvar, renoverad. Fram till 1937 hörde Mellringe till Längbro landskommun. Mer om företaget finns hos [KOM-fort Bilvård i Örebro](/), och vägen hit från andra delar av stan hittar du under [stadsdelarna i Örebro](/omraden).",
+    ],
+    tjanster: [
+      { h2: "Polering som tar bort repor och swirlmärken", stycken: ["Tvättrepor, swirlmärken och oxidering gör att lacken tappar sin glans med åren. Inför en [polering](/tjanster/polering) rengör vi lacken med rengöringslera, tejpar lister och plast och mäter lacktjockleken. Därefter maskinpolerar vi lacken, i ett, två eller tre steg beroende på skicket, och tar bort det mesta av skadorna. Polering kostar en bråkdel av en omlackering."] },
+      { h2: "Keramiskt lackskydd eller komplett paket", stycken: ["Vill du att glansen ska stanna kvar väljer du ett keramiskt [lackskydd](/tjanster/lackskydd), som läggs på direkt efter poleringen. Skiktet är hårdare än vax och tål mer, gör lacken vattenavvisande, och du väljer själv om skyddet ska räcka i 2, 3 eller 5 år. Vill du ha allt på en gång finns ett komplett paket, där lackkorrigering och 3 års lackskydd ingår. Bilen står kvar i vår lokal i 12 timmar medan skiktet härdar, och den första veckan ska den inte tvättas."] },
+      { h2: "Glasförsegling för höstregn och snöslask", stycken: ["Höstregn och snöslask gör snabbt vindrutan svår att se igenom. Med [glasförsegling](/tjanster/lackskydd/glasforsegling) får rutorna ett tunt keramiskt skikt som vattnet inte fastnar på: dropparna samlas och rinner av i stället för att lägga sig som en hinna. Glasförseglingen går att boka för sig, men lägger du till den vid en rekond blir den billigare."] },
+    ],
+    hamtning: { h2: "Hämtning och lämning i Mellringe", stycken: ["En polering med lackskydd tar mer än en dag, eftersom skiktet ska härda i lokalen innan bilen får köra. Därför kan vi hämta bilen hos dig i Mellringe och köra tillbaka den efteråt. Önskar du [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning), skriv det i förfrågan, så bestämmer vi tiderna tillsammans."] },
+    hitta: { h2: "Hitta till oss från Mellringe", stycken: ["Från Mellringevägen kör du ut på Ekersvägen och tar andra avfarten i Mellringerondellen. Ekersvägen leder dig till Västerleden vid avfart 113, och där kör du söderut. Efter drygt fem kilometer tar du avfart 110 Adolfsberg, och därifrån är du framme på Lindtorpsvägen 10 efter en dryg kilometer, via Karlskogavägen och Gränsrösevägen. Hela sträckan är cirka 9 kilometer och tar drygt tio minuter. Mellringe gränsar till Varberga, och vägen därifrån beskriver vi på sidan om [bilvård i Varberga](/omraden/varberga)."] },
+    faq: {
+      h2: "Vanliga frågor från Mellringe",
+      fragor: [
+        { q: "Hur många steg behöver lacken poleras?", a: "Det beror på lacken. Ofta räcker ett steg, men har lacken många repor kan den behöva två eller tre. Lacktjockleken mäter vi alltid först." },
+        { q: "Hur länge håller glasförseglingen?", a: "I 2 år. Vindruta och sidorutor ingår, och bakrutan är ett tillval." },
+        { q: "Kan jag se bilder på resultatet?", a: "Ja. Bilder från några av våra jobb finns under [före och efter](/fore-och-efter)." },
+      ],
+    },
+  },
+  // Batch 08, sida 4/5
+  {
+    slug: "oxhagen",
+    namn: "Oxhagen",
+    title: "Bilvård Oxhagen | Repborttagning, kemtvätt & handtvätt för dig i Oxhagen, Örebro",
+    meta: "Från Oxhagen är du hos oss på under tio minuter via Karlslundsgatan och Västerleden. Repborttagning, kemtvätt av sätena och handtvätt. Ring 076-035 38 08.",
+    h1: "Bilvård Oxhagen",
+    intro: [
+      "Oxhagen ligger nära oss: via Karlslundsgatan och Västerleden är du framme på under tio minuter. På Lindtorpsvägen 10 i Södra Lindhult tar vi bort repor och kemtvättar sätena, och en handtvätt kan du vänta på.",
+      "Namnet kommer från en oxhage som förr hörde till Karlslunds herrgård. Oxhagen ligger väster om stadskärnan och avgränsas av Västerleden i öster, Karlslundsgatan i söder, Björkhaga, Varberga och Varbergaskogen i norr och Karlslundsskogen och Längbro kyrka i väster. Örebrobostäder byggde området i etapper under 1960-talet, med hus i två och tre våningar kring bilfria gårdar. Väster om Tornfalkgatan ligger radhusen vid Grönsångaregatan, och närmare Björkhaga finns villor. Vill du veta mer om vår [bilvård](/) finns allt på startsidan, och grannarna hittar du bland [Örebros stadsdelar](/omraden).",
+    ],
+    tjanster: [
+      { h2: "Repborttagning efter trånga parkeringar", stycken: ["I ett trångt garage eller på en full parkering räcker det med en dörr eller en cykel för att lacken ska få en repa. En repa som bara gått genom klarlacket brukar vi kunna ta bort helt med [repborttagning](/tjanster/polering/repborttagning), och då behöver inte hela bilen poleras. Vad det kostar beror på hur stor repan är och hur lång tid arbetet tar. Har bilen många små repor är en [polering](/tjanster/polering) i minst ett steg bättre."] },
+      { h2: "Kemtvätt av sätena", stycken: ["Spill, smuts och fläckar som trängt djupt in i tygsätena går inte bort med en vanlig dammsugning. Med en [kemtvätt av bilklädsel](/tjanster/invandig-rekond/kemtvatt-kladsel) och en våtdammsugare lyfter vi ut det som sitter djupt i sätena. Du väljer ett säte eller alla fyra, och kemtvätten går också att lägga till en [invändig rekond](/tjanster/invandig-rekond). Efteråt får bilen gärna stanna en natt hos oss, så att den sista fukten hinner torka ur tyget."] },
+      { h2: "Handtvätt som du kan vänta på", stycken: ["Bor du så nära som i Oxhagen är det enkelt att svänga förbi för en tvätt. En enklare handtvätt tar cirka 30-40 minuter, och under tiden kan du vänta hos oss. [Biltvätten](/tjanster/biltvatt) görs alltid för hand: förtvätt och avfettning, tvåhinkstvätt med mjuka tvätthandskar, hjul och hjulhus för sig och torkning med mikrofiberdukar."] },
+    ],
+    hamtning: { h2: "Hämtning och lämning i Oxhagen", stycken: ["En tvätt hinner du vänta på, men en kemtvätt eller rekond tar längre tid. Då kan vi hämta bilen hos dig i Oxhagen och ställa den på plats igen efteråt. Ring eller skriv till oss, så bokar vi in [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning). Avgiften står i [prislistan](/priser)."] },
+    hitta: { h2: "Hitta till oss från Oxhagen", stycken: ["Från Tornfalkgatan kör du ut på Karlslundsgatan österut och tar påfarten till Västerleden vid avfart 112. Kör söderut i drygt fyra kilometer till avfart 110 Adolfsberg. Sväng vänster mot Adolfsberg på Karlskogavägen och ta Gränsrösevägen i rondellen, så kommer Lindtorpsvägen på höger hand. Det är knappt 7 kilometer, under tio minuter med bil. Strax norr om Oxhagen ligger Varberga med Varbergaskogen, och hur du kör därifrån står under [bilvård i Varberga](/omraden/varberga)."] },
+    faq: {
+      h2: "Vanliga frågor från Oxhagen",
+      fragor: [
+        { q: "Hur vet ni om en repa går att ta bort?", a: "Vi mäter lacktjockleken och ser hur djupt repan går. Är skadan så djup att grundfärgen eller plåten syns, räcker inte polering, och lackering erbjuder vi inte." },
+        { q: "Varför ska bilen stå kvar efter kemtvätten?", a: "Sätena är fuktiga efteråt och behöver natten på sig för att torka helt. Det är också skälet till att helrekonden görs med ånga och inte med kemtvätt." },
+        { q: "Lagar ni stenskott?", a: "Ja, stenskott lagar vi. Säg till när du bokar, så tittar vi på skadan." },
+      ],
+    },
+  },
+  // Batch 08, sida 5/5
+  {
+    slug: "baronbackarna",
+    namn: "Baronbackarna",
+    title: "Bilvård Baronbackarna | Lackskydd, bilrekond & invändig rekond för dig i Baronbackarna, Örebro",
+    meta: "Från Baronbackarna kör du Hedgatan och Västerleden till oss på drygt tio minuter. Keramiskt lackskydd, bilrekond och invändig rekond. Ring 076-035 38 08.",
+    h1: "Bilvård Baronbackarna",
+    intro: [
+      "Från Baronbackarna nordväst om centrum kör du Hedgatan ut till Västerleden och är hos oss på drygt tio minuter. Lokalen ligger på Lindtorpsvägen 10 i Södra Lindhult. Här får bilen ett keramiskt lackskydd, en bilrekond eller en invändig rekond, och vi tvättar alltid för hand.",
+      "Baronbackarna byggdes 1953-1957 efter ritningar av arkitekterna Ekholm och White, som vann en tävling 1950 med förslaget \"Du får leka på våran gård\". Barnfamiljernas behov stod i centrum: innergårdarna med lekplatserna skulle vara bilfria, och skolor och affärer skulle finnas nära. En fjärdedel av lägenheterna var experimentlägenheter med flyttbara väggar och garderober, och området blev en milstolpe i svenskt bostadsbyggande. I dag är Baronbackarna av riksintresse för kulturmiljövården. På kullen mitt i området finns ett gravfält där människor begravdes för 1 000 till 1 600 år sedan. Det mesta om oss står hos [KOM-fort Bilvård](/), och resten av staden finns under [våra områden](/omraden).",
+    ],
+    tjanster: [
+      { h2: "Lackskydd för bilen på parkeringen", stycken: ["Gårdarna i Baronbackarna är bilfria, och bilen står på parkeringen i sol, regn och vägsalt året om. Det sliter på lacken, och därför är ett keramiskt [lackskydd](/tjanster/lackskydd) värt att tänka på. Skyddet läggs på efter en polering och sitter kvar i flera år, medan vax är borta efter några månader. Vatten och smuts får svårare att fästa, och bilen blir lättare att tvätta."] },
+      { h2: "Bilrekond efter vintern", stycken: ["När vintern är över sitter salt, grus och vägsmuts kvar både på lacken och i kupén. Vid en [bilrekond](/tjanster/rekonditionering) får hela bilen hjälp på en gång: handtvätt och avfettning, asfalt och flygrost bort, 12 månaders lackförsegling och rengöring av kupén. De flesta bilar klarar sig fint med en rekond om året, och bilen stannar hos oss i ungefär fem timmar."] },
+      { h2: "Invändig rekond för hela kupén", stycken: ["Sand från lekplatserna och smulor från utflykterna sätter sina spår i kupén. När bilen är inne för [invändig rekond](/tjanster/invandig-rekond) får mattor och klädsel rengöringsmedel och borste, och ångmaskinen tar vid där smutsen sitter hårt. Alla ytor torkas av och rutorna putsas på insidan. Innertaket är känsligt och får bara en försiktig avtorkning, och sitter fläckarna djupt i sätena kan du lägga till kemtvätt."] },
+    ],
+    hamtning: { h2: "Hämtning och lämning i Baronbackarna", stycken: ["Vid en rekond står bilen hos oss det mesta av dagen. I stället för att köra fram och tillbaka kan du låta oss hämta den hos dig i Baronbackarna och köra hem den när vi är klara. Nämn [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) i förfrågan, så hittar vi tider som passar dig."] },
+    hitta: { h2: "Hitta till oss från Baronbackarna", stycken: ["Från Hjalmar Bergmans väg kör du ut på Hedgatan och norrut till Västerleden vid avfart 114. Följ Västerleden söderut förbi avfarterna mot Varberga och Oxhagen, och kör av vid avfart 110 Adolfsberg. Därifrån är det bara ett par minuter kvar, via Karlskogavägen och Gränsrösevägen. Sträckan är cirka 10 kilometer och tar drygt tio minuter. På andra sidan trafikplatsen ligger Vivalla, med sin egen sida om [bilvård i Vivalla](/omraden/vivalla)."] },
+    faq: {
+      h2: "Vanliga frågor från Baronbackarna",
+      fragor: [
+        { q: "När får bilen åka hem efter lackskyddet?", a: "När skiktet har härdat 12 timmar i vår lokal. Därefter härdar det vidare i minst en vecka, så vänta med första tvätten." },
+        { q: "Får ni bort lukt ur kupén?", a: "I de flesta fall. Ångmaskinen tar bort lukt ur tyg och mattor, och husdjurslukt bryter vi ner med enzymatiska medel." },
+        { q: "Hämtar ni bilen i Baronbackarna?", a: "Ja, vid de längre behandlingarna. Den som hämtar bilen lämnar vår egen bil hos dig under tiden, utan nycklar." },
       ],
     },
   },
