@@ -34,6 +34,8 @@ export const priserSida = {
       { q: "Vad räknas som liten bil?", a: "Till exempel Polo, Golf och Clio. Sedan och SUV, 7-sitsiga bilar och pickup eller van har egna priser för helrekonden." },
       { q: "Kostar det mer för pickup och van?", a: "Ja. Pickup och van har egna priser för tvätt och helrekond, och för polering och det kompletta paketet tillkommer ett tillägg. På poleringen räknas tillägget en gång per jobb, även med lackskydd." },
       { q: "Vad avgör slutpriset?", a: "Bilens storlek och skick och de tillägg du väljer. Därför har listorna priser per bilstorlek, och ett uppskattat pris för din bil får du när du väljer tjänst och tillägg på bokningssidan." },
+      // Batch 09, R2
+      { q: "Vad gäller för företag?", a: "Företag kan betala mot faktura. Gäller det flera bilar eller jobb som återkommer kommer vi överens om ett avtal, och paketpris finns. Läs mer om [bilvård för företag](/tjanster/foretag)." },
     ] satisfies Fraga[],
   },
   hitta: {

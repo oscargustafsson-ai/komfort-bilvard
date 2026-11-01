@@ -24,7 +24,7 @@ export const omoss = {
   } satisfies Sektion,
   foretaget: {
     h2: "Företaget",
-    stycken: ["KOM-fort Bilvård AB har organisationsnummer 559539-8958. Vårt serviceområde är Örebro, Kumla och Hallsberg. Du når oss på 076-035 38 08, på Komfort802@gmail.com eller via [kontaktsidan](/kontakt)."],
+    stycken: ["KOM-fort Bilvård AB har organisationsnummer 559539-8958. Vårt serviceområde är Örebro, Kumla och Hallsberg. Du når oss på 076-035 38 08, på Komfort802@gmail.com eller via [kontaktsidan](/kontakt). Vi har F-skatt, och företag betalar mot faktura. Läs mer om [bilvård för företag](/tjanster/foretag)."],
   } satisfies Sektion,
   faq: {
     h2: "Vanliga frågor om KOM-fort Bilvård",

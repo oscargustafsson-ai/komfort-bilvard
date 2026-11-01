@@ -72,6 +72,17 @@ export const tjansterSida = {
       { namn: "Keramiskt lackskydd", href: "/tjanster/lackskydd", etikett: "Tillägg till polering", text: "Läggs på efter en polering och skyddar lacken i 2, 3 eller 5 år. Skiktet stöter bort vatten och smuts och gör bilen enklare att hålla ren.", prisPrefix: "Tillägg fr", pris: kr(sidPriser["lackskydd"].fran) },
     ] satisfies Tjanstkort[],
   },
+  // Batch 09, R1: korten utan pris och etikett, bara namnet är länk.
+  foretag: {
+    h2: "För företag",
+    stycken: ["Har företaget en eller flera bilar som behöver skötas tar vi hand om dem. Företaget betalar mot faktura, och för flera bilar eller återkommande jobb gör vi ett avtal. Paketpris finns. På sidorna nedan ser du hur det går till för firmabilar, bilhandlare och leasingbolag."],
+    kort: [
+      { namn: "Bilvård för företag", href: "/tjanster/foretag", text: "Så går det till när företagets bilar behöver tvätt, rekond eller polering, och vad som gäller för faktura och avtal." },
+      { namn: "Firmabilar och företagsavtal", href: "/tjanster/foretag/firmabilar", text: "Handtvätt, invändig rekond och helrekond för företagets bilar, med ett avtal om vad de ska få och hur ofta." },
+      { namn: "Rekond för bilhandlare", href: "/tjanster/foretag/bilhandlare", text: "Helrekond, polering, repborttagning och strålkastarpolering när begagnade bilar ska bli klara för försäljning." },
+      { namn: "Bilvård för leasingbolag", href: "/tjanster/foretag/leasingbolag", text: "Rekond av leasingbilar som kommer tillbaka efter avtalstiden, med tillägg för repor, stenskott och fläckar i klädseln." },
+    ] satisfies Tjanstkort[],
+  },
   hamtning: {
     h2: "Hämtning och lämning av bilen",
     stycken: [

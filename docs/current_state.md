@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-10-24 (Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
+Last updated: 2026-11-01 (Batch 09: company pages /tjanster/foretag with three subpages, "För företag" cards on /tjanster, "Företag och avtal" in the contact form; before that Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
 
 ---
 
@@ -34,6 +34,11 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 09:** four company pages in `undersidor.ts`: `foretag` (no parent, so /tjanster/foretag) and
+  `firmabilar`, `bilhandlare`, `leasingbolag` with `foralder: "foretag"` (the [under] route finds the
+  parent among undersidor too). No `pricing` and no `sidPriser` key, so the hero shows the buttons and
+  the price section has no list. `tjansterSida.ts` has a third card section `foretag` rendered with
+  `Kortavsnitt` after Tilläggstjänster.
 - **Batch 08:** five districts added to `omraden.ts` after Lillån (Hovsta, Tybble, Mellringe,
   Oxhagen, Baronbackarna) with three service sections each, same template; hub has fourteen
   sections. New links in district and service-page copy (R2-R10). No new components.

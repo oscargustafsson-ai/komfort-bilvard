@@ -10,9 +10,21 @@ import { site } from "@/lib/site";
  */
 const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
+  // Batch 09 (2026-11-01): fyra företagssidor, För företag på /tjanster, kontaktformuläret och R2-R7.
+  "/tjanster/foretag": "2026-11-01",
+  "/tjanster/foretag/firmabilar": "2026-11-01",
+  "/tjanster/foretag/bilhandlare": "2026-11-01",
+  "/tjanster/foretag/leasingbolag": "2026-11-01",
+  "/tjanster": "2026-11-01",
+  "/kontakt": "2026-11-01",
+  "/priser": "2026-11-01",
+  "/om-oss": "2026-11-01",
+  "/tjanster/hamtning-och-lamning": "2026-11-01",
+  "/tjanster/biltvatt": "2026-11-01",
+  "/tjanster/rekonditionering/infor-bilforsaljning": "2026-11-01",
+  "/tjanster/rekonditionering/leasingaterlamning": "2026-11-01",
   // Batch 08 (2026-10-24): fem nya stadsdelar, områdeslistan, hubben och rättelserna R2-R10.
   "/": "2026-10-24",
-  "/kontakt": "2026-10-24",
   "/omraden": "2026-10-24",
   "/omraden/vivalla": "2026-10-24",
   "/omraden/varberga": "2026-10-24",

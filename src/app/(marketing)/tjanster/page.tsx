@@ -66,6 +66,7 @@ export default function TjansterPage() {
       {/* Fler tjänster och tilläggstjänster (batch 05b) */}
       <Kortavsnitt sektion={t.flerTjanster} kort={t.flerTjanster.kort} />
       <Kortavsnitt sektion={t.tillaggstjanster} kort={t.tillaggstjanster.kort} />
+      <Kortavsnitt sektion={t.foretag} kort={t.foretag.kort} />
 
       {/* Hämtning + presentkort */}
       <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">

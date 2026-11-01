@@ -372,7 +372,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Hur ofta ska bilen tvättas?",
           stycken: [
-            "Det beror på hur du kör och var bilen står. På vintern, när vägsaltet ligger på, kan det vara värt att tvätta oftare. Handtvätten är också perfekt som underhåll mellan rekonditioneringarna, så att bilen håller sig fin längre.",
+            "Det beror på hur du kör och var bilen står. På vintern, när vägsaltet ligger på, kan det vara värt att tvätta oftare. Handtvätten är också perfekt som underhåll mellan rekonditioneringarna, så att bilen håller sig fin längre. Har företaget flera bilar som ska tvättas regelbundet kan vi göra ett avtal, läs om [firmabilar och företagsavtal](/tjanster/foretag/firmabilar).",
           ],
         },
         {
