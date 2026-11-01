@@ -128,7 +128,7 @@ export const undersidor: Tjanst[] = [
         },
         {
           h2: "Repborttagning i hela Örebro",
-          stycken: ["Har bilen fått repor på en stor parkering, som vid handelsområdet i [Marieberg](/omraden/marieberg), har du bara några minuter hit. Vår lokal ligger i [Adolfsberg](/omraden/adolfsberg), och [Vivalla](/omraden/vivalla) ligger runt en kvart bort längs Västerleden. Från [Oxhagen](/omraden/oxhagen) är du här på under tio minuter via Karlslundsgatan. Vill du inte köra själv kan du låta oss [hämta bilen hos dig](/tjanster/hamtning-och-lamning). Vi servar även Almby och Varberga, liksom Kumla och Hallsberg."],
+          stycken: ["Har bilen fått repor på en stor parkering, som vid handelsområdet i [Marieberg](/omraden/marieberg), har du bara några minuter hit. Vår lokal ligger i Adolfsberg, och [Vivalla](/omraden/vivalla) ligger runt en kvart bort längs Västerleden. Från [Oxhagen](/omraden/oxhagen) är du här på under tio minuter via Karlslundsgatan, och från [Ladugårdsängen](/omraden/ladugardsangen) i södra Örebro tar Glomman dig hit på drygt tio minuter. Vill du inte köra själv kan du låta oss [hämta bilen hos dig](/tjanster/hamtning-och-lamning). Vi servar även Almby och Varberga, liksom Kumla och Hallsberg."],
         },
       ],
       varforH2: "Varför välja KOM-fort?",
@@ -195,7 +195,7 @@ export const undersidor: Tjanst[] = [
         },
         {
           h2: "Kemtvätt av bilklädsel i hela Örebro",
-          stycken: ["I [Adolfsberg](/omraden/adolfsberg) har du oss i samma stadsdel, och från [Varberga](/omraden/varberga) är du här på ungefär tio minuter. [Almby](/omraden/almby) ligger runt en kvart bort, och från [Brickebacken](/omraden/brickebacken) kör du Glomman hit på drygt tio minuter. Passar det bättre kommer vi och [hämtar bilen hos dig](/tjanster/hamtning-och-lamning). Vi servar även Vivalla, Marieberg, Mosås, Rynninge, Lillån, Kumla och Hallsberg."],
+          stycken: ["I Adolfsberg har du oss i samma stadsdel, och från [Varberga](/omraden/varberga) är du här på ungefär tio minuter. Från [Rosta](/omraden/rosta) i västra Örebro tar Västerleden dig hit på ungefär lika lång tid. [Almby](/omraden/almby) ligger runt en kvart bort, och från [Brickebacken](/omraden/brickebacken) kör du Glomman hit på drygt tio minuter. Passar det bättre kommer vi och [hämtar bilen hos dig](/tjanster/hamtning-och-lamning). Vi servar även Vivalla, Marieberg, Mosås, Rynninge, Lillån, Kumla och Hallsberg."],
         },
       ],
       varforH2: "Varför välja KOM-fort?",
@@ -266,7 +266,7 @@ export const undersidor: Tjanst[] = [
         },
         {
           h2: "Strålkastarpolering i hela Örebro",
-          stycken: ["Bor du i [Marieberg](/omraden/marieberg) har du bara några minuters bilväg hit, och från [Vivalla](/omraden/vivalla) och [Almby](/omraden/almby) tar det runt en kvart. Detsamma gäller [Tybble](/omraden/tybble) i östra Örebro. Strålkastarpoleringen går fort, så för den ensam hämtar vi inte bilen. Bokar du den tillsammans med en polering eller helrekond kan vi [hämta bilen hos dig](/tjanster/hamtning-och-lamning). Vi servar även Adolfsberg, Varberga, Kumla och Hallsberg."],
+          stycken: ["Bor du i Marieberg har du bara några minuters bilväg hit, och från [Vivalla](/omraden/vivalla) och [Almby](/omraden/almby) tar det runt en kvart. Detsamma gäller [Tybble](/omraden/tybble) i östra Örebro. Från [Hjärsta](/omraden/hjarsta) i nordväst är du här på drygt tio minuter via Västerleden. Strålkastarpoleringen går fort, så för den ensam hämtar vi inte bilen. Bokar du den tillsammans med en polering eller helrekond kan vi [hämta bilen hos dig](/tjanster/hamtning-och-lamning). Vi servar även Adolfsberg, Varberga, Kumla och Hallsberg."],
         },
       ],
       varforH2: "Varför välja KOM-fort?",

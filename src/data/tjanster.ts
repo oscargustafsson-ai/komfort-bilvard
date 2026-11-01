@@ -217,7 +217,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Polering för hela Örebro",
           stycken: [
-            "Bilar från hela Örebro poleras hos oss. Från [Marieberg](/omraden/marieberg) är det bara några minuter hit, [Varberga](/omraden/varberga) ligger ungefär tio minuter bort via Västerleden och från [Almby](/omraden/almby) kör du hit på runt en kvart. Från [Rynninge](/omraden/rynninge) i nordöstra Örebro tar det ungefär en kvart via Västerleden. Passar det bättre kan vi också hämta bilen hos dig. Hör av dig, så berättar vi vad som gäller. Vi servar även Adolfsberg, Vivalla, Mosås, Brickebacken, Lillån, Kumla och Hallsberg.",
+            "Bilar från hela Örebro poleras hos oss. Från Marieberg är det bara några minuter hit, [Varberga](/omraden/varberga) ligger ungefär tio minuter bort via Västerleden och från [Almby](/omraden/almby) kör du hit på runt en kvart. Bor du i [Björkhaga](/omraden/bjorkhaga) i västra Örebro är du här på knappt en kvart via Karlslundsgatan. Från [Rynninge](/omraden/rynninge) i nordöstra Örebro tar det ungefär en kvart via Västerleden. Passar det bättre kan vi också hämta bilen hos dig. Hör av dig, så berättar vi vad som gäller. Vi servar även Adolfsberg, Vivalla, Mosås, Brickebacken, Lillån, Kumla och Hallsberg.",
           ],
         },
       ],
@@ -378,7 +378,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Biltvätt för hela Örebro",
           stycken: [
-            "Vi tvättar bilar från hela Örebro. Från [Marieberg](/omraden/marieberg) och handelsområdet är det bara några minuter hit, och [Adolfsberg](/omraden/adolfsberg) är vår egen stadsdel. Från [Vivalla](/omraden/vivalla) tar du Västerleden hit på runt en kvart. Vi servar även Almby, Varberga, Kumla och Hallsberg.",
+            "Vi tvättar bilar från hela Örebro. Från Marieberg och handelsområdet är det bara några minuter hit, och [Adolfsberg](/omraden/adolfsberg) är vår egen stadsdel. Från [Vivalla](/omraden/vivalla) tar du Västerleden hit på runt en kvart, och från [Sörbyängen](/omraden/sorbyangen) i sydöstra Örebro kör du Glomman på ungefär lika lång tid. Vi servar även Almby, Varberga, Kumla och Hallsberg.",
           ],
         },
       ],
