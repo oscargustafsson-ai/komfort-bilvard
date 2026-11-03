@@ -10,21 +10,33 @@ import { site } from "@/lib/site";
  */
 const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
+  // Batch 11 (2026-11-03): fem nya stadsdelar, områdeslistan, hubben och rättelserna R2-R11.
+  "/omraden/lundby": "2026-11-03",
+  "/omraden/vasthaga": "2026-11-03",
+  "/omraden/markbacken": "2026-11-03",
+  "/omraden/sorby": "2026-11-03",
+  "/omraden/ormesta": "2026-11-03",
+  "/": "2026-11-03",
+  "/kontakt": "2026-11-03",
+  "/omraden": "2026-11-03",
+  "/omraden/vivalla": "2026-11-03",
+  "/omraden/rosta": "2026-11-03",
+  "/omraden/hjarsta": "2026-11-03",
+  "/omraden/sorbyangen": "2026-11-03",
+  "/omraden/almby": "2026-11-03",
+  "/tjanster/biltvatt/motortvatt": "2026-11-03",
+  "/tjanster/polering/stralkastarpolering": "2026-11-03",
+  "/tjanster/rekonditionering/leasingaterlamning": "2026-11-03",
+  "/tjanster/lackskydd/glasforsegling": "2026-11-03",
+  "/tjanster/biltvatt/asfalt-och-flygrost": "2026-11-03",
   // Batch 10 (2026-11-01): fem nya stadsdelar, områdeslistan, hubben och rättelserna R2-R10.
-  "/omraden/rosta": "2026-11-01",
-  "/omraden/hjarsta": "2026-11-01",
   "/omraden/bjorkhaga": "2026-11-01",
   "/omraden/ladugardsangen": "2026-11-01",
-  "/omraden/sorbyangen": "2026-11-01",
-  "/": "2026-11-01",
-  "/kontakt": "2026-11-01",
-  "/omraden": "2026-11-01",
   "/omraden/baronbackarna": "2026-11-01",
   "/omraden/mellringe": "2026-11-01",
   "/omraden/oxhagen": "2026-11-01",
   "/omraden/tybble": "2026-11-01",
   "/tjanster/invandig-rekond/kemtvatt-kladsel": "2026-11-01",
-  "/tjanster/polering/stralkastarpolering": "2026-11-01",
   "/tjanster/polering": "2026-11-01",
   "/tjanster/polering/repborttagning": "2026-11-01",
   "/tjanster/biltvatt": "2026-11-01",
@@ -38,16 +50,10 @@ const senastAndrad: Record<string, string> = {
   "/om-oss": "2026-11-01",
   "/tjanster/hamtning-och-lamning": "2026-11-01",
   "/tjanster/rekonditionering/infor-bilforsaljning": "2026-11-01",
-  "/tjanster/rekonditionering/leasingaterlamning": "2026-11-01",
   // Batch 08 (2026-10-24): fem nya stadsdelar, områdeslistan, hubben och rättelserna R2-R10.
-  "/omraden/vivalla": "2026-10-24",
   "/omraden/varberga": "2026-10-24",
-  "/omraden/almby": "2026-10-24",
   "/omraden/lillan": "2026-10-24",
   "/omraden/hovsta": "2026-10-24",
-  "/tjanster/lackskydd/glasforsegling": "2026-10-24",
-  "/tjanster/biltvatt/motortvatt": "2026-10-24",
-  "/tjanster/biltvatt/asfalt-och-flygrost": "2026-10-24",
   // Batch 07 (2026-10-17): menyn och footern ändrades på alla sidor, så övriga har det datumet.
   // Tidigare: batch 01 (2026-10-10) till batch 06 och 05b (2026-10-17).
 };
