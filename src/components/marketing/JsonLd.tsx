@@ -18,7 +18,8 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
 /**
  * Företagsschemat (AutoWash). Ligger i layouten, en gång per sida.
  * Innehåll enligt sidregler.md. openingHoursSpecification sedan batch 03
- * (öppettiderna bekräftade 2026-10-14). Aldrig aggregateRating.
+ * (öppettiderna bekräftade 2026-10-14) (lördag 10-16 från 2026-11-05).
+ * Aldrig aggregateRating.
  */
 export function foretagSchema() {
   return {
@@ -45,7 +46,7 @@ export function foretagSchema() {
     // Öppettider bekräftade 2026-10-14 (fakta.md). Söndag stängt, utelämnas.
     openingHoursSpecification: [
       { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "16:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "18:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
     ],
     areaServed: [
       { "@type": "City", name: "Örebro" },
@@ -96,6 +97,22 @@ export function omradeSchema(o: { namn: string; slug: string }) {
     areaServed: { "@type": "Place", name: `${o.namn}, Örebro` },
     provider: { "@id": FORETAG_ID },
     url: `${site.url}/omraden/${o.slug}`,
+  };
+}
+
+/** Article-schema för en guide (batch 12). Författare och utgivare är företaget via @id. */
+export function articleSchema(g: { slug: string; h1: string; meta: string }, datum: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: g.h1,
+    description: g.meta,
+    inLanguage: "sv-SE",
+    datePublished: datum,
+    dateModified: datum,
+    author: { "@id": FORETAG_ID },
+    publisher: { "@id": FORETAG_ID },
+    mainEntityOfPage: `${site.url}/guider/${g.slug}`,
   };
 }
 

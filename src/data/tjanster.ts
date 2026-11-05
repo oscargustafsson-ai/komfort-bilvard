@@ -205,7 +205,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Så går en polering till",
           stycken: [
-            "Du lämnar bilen hos oss, och vi börjar med lackanalysen. Sedan rengör vi lacken med rengöringslera, så att den är fri från föroreningar, och tejpar lister och plast. Därefter maskinpolerar vi i det antal steg vi kommit överens om och tar bort rester med kallavfettning. Sist lägger vi på vax, eller lackskydd om du har valt det. En 1-stegspolering tillsammans med en helrekond tar ungefär åtta timmar. Väljer du två steg stannar bilen hos oss i minst två dygn, och tre steg, som sällan behövs, tar minst tre dygn.",
+            "Du lämnar bilen hos oss, och vi börjar med lackanalysen. Sedan rengör vi lacken med rengöringslera, så att den är fri från föroreningar, och tejpar lister och plast. Därefter maskinpolerar vi i det antal steg vi kommit överens om och tar bort rester med kallavfettning. Sist lägger vi på vax, eller lackskydd om du har valt det. En 1-stegspolering tillsammans med en helrekond tar ungefär åtta timmar. Väljer du två steg stannar bilen hos oss i minst två dygn, och tre steg, som sällan behövs, tar minst tre dygn. Tiderna för våra andra behandlingar hittar du i guiden [hur lång tid tar en rekond](/guider/hur-lang-tid-tar-en-rekond).",
           ],
         },
         {
@@ -283,7 +283,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Lackskydd eller vax?",
           stycken: [
-            "Vax sitter på ytan och tvättas bort efter några månader. Ett lackskydd håller i 2, 3 eller 5 år, beroende på vad du väljer. Ett keramiskt lackskydd binder dessutom kemiskt till lacken och ger ett hårdare och mer reptåligt skikt än vax. Väljer du inget lackskydd avslutar vi poleringen med vax, så lackskyddet är för dig som vill att lacken ska hålla sig fin längre.",
+            "Vax sitter på ytan och tvättas bort efter några månader. Ett lackskydd håller i 2, 3 eller 5 år, beroende på vad du väljer. Ett keramiskt lackskydd binder dessutom kemiskt till lacken och ger ett hårdare och mer reptåligt skikt än vax. Väljer du inget lackskydd avslutar vi poleringen med vax, så lackskyddet är för dig som vill att lacken ska hålla sig fin längre. Vill du jämföra med lackförseglingen i helrekonden finns guiden [keramiskt lackskydd, vax eller lackförsegling](/guider/keramiskt-lackskydd-vax-eller-lackforsegling).",
           ],
         },
         {

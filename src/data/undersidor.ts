@@ -120,7 +120,7 @@ export const undersidor: Tjanst[] = [
       sektioner: [
         {
           h2: "Vilka repor går att ta bort?",
-          stycken: ["Lacken består av flera lager, och överst ligger klarlacket. Repor som bara sitter där kan vi oftast ta bort helt. Går repan djupare, ner till grundfärgen eller plåten, hjälper ingen polering. Då måste ytan lackeras, och det gör vi inte. Därför mäter vi alltid lacken först, så att vi vet hur mycket lack det finns att arbeta med och kan ge dig ett rakt besked."],
+          stycken: ["Lacken består av flera lager, och överst ligger klarlacket. Repor som bara sitter där kan vi oftast ta bort helt. Går repan djupare, ner till grundfärgen eller plåten, hjälper ingen polering. Då måste ytan lackeras, och det gör vi inte. Därför mäter vi alltid lacken först, så att vi vet hur mycket lack det finns att arbeta med och kan ge dig ett rakt besked. Ord som klarlack och 1-stegspolering förklarar vi i vår [ordlista för bilvård](/guider/ordlista)."],
         },
         {
           h2: "En repa eller hela bilen?",
@@ -621,7 +621,7 @@ export const undersidor: Tjanst[] = [
         { h2: "Bilvård för företag i hela Örebro", stycken: ["Från [Mosås](/omraden/mosas) i söder är det cirka tio minuter till oss, och från [Tybble](/omraden/tybble) i östra Örebro ungefär en kvart. Vi servar även Adolfsberg, Marieberg, Hovsta, Mellringe, Oxhagen, Baronbackarna, Kumla och Hallsberg."] },
       ],
       varforH2: "Varför välja KOM-fort?",
-      hitta: { h2: "Hitta till oss", stycken: ["Du hittar oss i Södra Lindhult, på Lindtorpsvägen 10, en kort bit från E20 avfart 110 Adolfsberg. Vi har öppet 08-16 på vardagar och 10-18 på lördagar."] },
+      hitta: { h2: "Hitta till oss", stycken: ["Du hittar oss i Södra Lindhult, på Lindtorpsvägen 10, en kort bit från E20 avfart 110 Adolfsberg. Vi har öppet 08-16 på vardagar och 10-16 på lördagar."] },
       faqH2: "Vanliga frågor om bilvård för företag",
       bokaH2: "Boka bilvård för företaget",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan. Ange hur många bilar det gäller och vad de behöver, så hör vi av oss och kommer överens om resten.",

@@ -18,7 +18,7 @@ export const vanligaFragor = {
         { q: "Kan jag vänta medan bilen tvättas?", a: "Ja, vid en enklare handtvätt går det bra att vänta på plats medan vi tvättar. Tar behandlingen längre tid, som en större rekond, kan vi skjutsa dig till Marieberg medan vi arbetar, utan att det kostar något." },
         { q: "För vilka tjänster kan ni hämta bilen?", a: "När behandlingen tar mer än ett par timmar, som en rekond, en polering eller kemtvätt av sätena. Tvättarna och strålkastarpoleringen går fortare, och för dem hämtar vi inte. Läs mer om [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning)." },
         { q: "Hur långt är det till er?", a: "Det beror på var du bor. Från [Mosås](/omraden/mosas) är det drygt sex kilometer längs Mosåsvägen och från [Brickebacken](/omraden/brickebacken) drygt tio minuter med bil. Från [Rynninge](/omraden/rynninge) och [Lillån](/omraden/lillan) tar det ungefär en kvart, båda via Västerleden." },
-        { q: "Har ni öppet på lördagar?", a: "Ja, på lördagar har vi öppet 10-18. Måndag till fredag har vi öppet 08-16, och på söndagar har vi stängt." },
+        { q: "Har ni öppet på lördagar?", a: "Ja, på lördagar har vi öppet 10-16. Måndag till fredag har vi öppet 08-16, och på söndagar har vi stängt." },
       ] satisfies Fraga[],
     },
     {

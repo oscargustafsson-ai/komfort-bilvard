@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-11-03 (Batch 11: districts Lundby, Västhaga, Markbacken, Sörby and Ormesta, twenty-four in total, new /omraden meta; before that Batch 10: districts Rosta, Hjärsta, Björkhaga, Ladugårdsängen and Sörbyängen, nineteen in total, new /omraden meta; before that Batch 09: company pages /tjanster/foretag with three subpages, "För företag" cards on /tjanster, "Företag och avtal" in the contact form; before that Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
+Last updated: 2026-11-05 (Batch 12: guides hub /guider with four guides, Article schema, "Guider" in the footer, Saturday hours 10-16; before that Batch 11: districts Lundby, Västhaga, Markbacken, Sörby and Ormesta, twenty-four in total, new /omraden meta; before that Batch 10: districts Rosta, Hjärsta, Björkhaga, Ladugårdsängen and Sörbyängen, nineteen in total, new /omraden meta; before that Batch 09: company pages /tjanster/foretag with three subpages, "För företag" cards on /tjanster, "Företag och avtal" in the contact form; before that Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
 
 ---
 
@@ -34,6 +34,13 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 12:** guides. `data/guider.ts` holds the hub (`guiderHubb`) and four guides (`guider`,
+  type `Guide`: intro, sektioner, hitta, optional faq, kontakta). Routes `guider/page.tsx` and
+  `guider/[slug]/page.tsx` are built like `/om-oss` (hero, BlockRutnat, HittaSektion, FaqSektion only
+  when the guide has questions, contact block with Knappar). Guides get `articleSchema()` (author and
+  publisher via the company @id, dates from `GUIDER_DATUM`) and og:type article. Footer has "Guider"
+  after "Vanliga frågor"; the menu is unchanged. Saturday opening hours are 10-16 (footer text and
+  `foretagSchema()`), with the copy on /om-oss, /vanliga-fragor and /tjanster/foretag changed (R6-R9).
 - **Batch 11:** five districts added to `omraden.ts` after Sörbyängen (Lundby, Västhaga, Markbacken,
   Sörby, Ormesta), same template; hub has twenty-four sections and a new meta. New links in
   district and service-page copy (R2-R11), some old links became plain text. No new components.
@@ -105,9 +112,9 @@ outside this repo). The copy there is the single source of truth; do not rewrite
 - **Gift card page (batch 03):** copy in `src/data/presentkort.ts`; `presentkort/page.tsx` renders
   breadcrumbs, h1, intro, Zettle note, "Så beställer du" + the three step boxes, then `<Presentkort>`
   (amount picker + order form + thank-you only), text blocks, map and FAQ (FAQPage JSON-LD).
-- **Opening hours (batch 03, confirmed 2026-10-14):** footer line "Mån-fre 08-16, lör 10-18, sön
-  stängt" on every page and `openingHoursSpecification` (Mon-Fri 08:00-16:00, Sat 10:00-18:00) in
-  `foretagSchema()`. Sunday is omitted.
+- **Opening hours (batch 03, confirmed 2026-10-14; Saturday 10-16 since batch 12, 2026-11-05):**
+  footer line "Mån-fre 08-16, lör 10-16, sön stängt" on every page and `openingHoursSpecification`
+  (Mon-Fri 08:00-16:00, Sat 10:00-16:00) in `foretagSchema()`. Sunday is omitted.
 - **Phone number (batch 02c):** 076-035 38 08 / tel:0760353808 / +46760353808, defined once in
   `src/lib/site.ts` (phoneDisplay, phoneHref, phone) and written out in copy. The old number
   must not reappear anywhere (`grep -r "194 35 19"` and `"761943519"` must be empty).
@@ -176,7 +183,7 @@ src/
                                + .section-divider (soft gold gradient hairline between sections)
                                + .grain / .grain-section / .grain-card (SVG turbulence noise system)
     actions.ts                 Server actions: submitContact(), submitBooking(), submitGiftCard(); email via Resend
-    sitemap.ts                 Generates /sitemap.xml from static pages + tjänster
+    sitemap.ts                 Generates /sitemap.xml from static pages + tjänster + områden + guider
     robots.ts                  Generates /robots.txt (Disallow: / only on localhost / *.vercel.app, see SEO)
     (marketing)/
       layout.tsx               Navbar + Footer wrapper; metadataBase, og defaults, company JSON-LD (no title template)
@@ -186,6 +193,8 @@ src/
       kontakt/page.tsx         Contact page: hero + <Kontakt> (cards/form) + text blocks + map + FAQ (copy from data/kontakt.ts)
       boka/page.tsx            Booking page: hero + <Bokning> + text + map (copy from data/boka.ts)
       om-oss/page.tsx          About page (copy from data/omoss.ts)
+      guider/page.tsx          Guides hub (/guider), built like om-oss (copy from data/guider.ts)
+      guider/[slug]/page.tsx   Guide page: BreadcrumbList + Article JSON-LD, FAQPage when the guide has questions
       priser/page.tsx          Prices page (copy from data/priserSida.ts, lists from prissidan in data/priser.ts)
       vanliga-fragor/page.tsx  FAQ page (copy from data/vanligaFragor.ts)
       fore-och-efter/page.tsx  Before/after page (copy and images from data/foreOchEfter.ts)
@@ -207,7 +216,7 @@ src/
       Bokning.tsx              /boka price picker + booking form (client), prices from data/priser.ts
       Presentkort.tsx          Gift cards: amount picker + Zettle link OR order form (see below);
                                HexagonPattern bg at gold/[0.03] — same as OmOss but fainter (0.04)
-      JsonLd.tsx               JSON-LD helpers: foretagSchema() (AutoWash), serviceSchema(), omradeSchema(), faqSchema(), brodsmulorSchema()
+      JsonLd.tsx               JSON-LD helpers: foretagSchema() (AutoWash), serviceSchema(), omradeSchema(), articleSchema(), faqSchema(), brodsmulorSchema()
       Karta.tsx                Shared Google Maps embed, loads only after "Visa kartan" is clicked (client component)
       Brodsmulor.tsx           Breadcrumbs (visible + BreadcrumbList)
       Stycke.tsx               Renders copy strings with [text](/path) links as <Link>
@@ -234,6 +243,7 @@ src/
     tjansterSida.ts            Services hub copy
     startsida.ts               Home page copy (verbatim from the work-order batch file)
     omraden.ts                 /omraden hub + district pages copy
+    guider.ts                  /guider hub + guide pages copy, GUIDER_DATUM for the Article schema
   lib/
     site.ts                    Central config: base URL, business info, geo, social; hasRealDomain flag
   proxy.ts                     Portal-path auth redirect stub (PORTAL_PATHS -> /logga-in)

@@ -6,6 +6,7 @@ const links = [
   { label: "Områden", href: "/omraden" },
   { label: "Före och efter", href: "/fore-och-efter" },
   { label: "Vanliga frågor", href: "/vanliga-fragor" },
+  { label: "Guider", href: "/guider" },
   { label: "Presentkort", href: "/presentkort" },
   { label: "Om oss", href: "/om-oss" },
   { label: "Kontakt", href: "/kontakt" },
@@ -110,7 +111,7 @@ export default function Footer() {
               Lindtorpsvägen 10{" "}<br />
               702 37 Örebro
             </li>
-            <li className="leading-relaxed">Mån-fre 08-16, lör 10-18, sön stängt</li>
+            <li className="leading-relaxed">Mån-fre 08-16, lör 10-16, sön stängt</li>
           </ul>
         </div>
 

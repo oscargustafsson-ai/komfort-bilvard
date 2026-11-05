@@ -20,7 +20,7 @@ export const omoss = {
   ] satisfies Sektion[],
   hitta: {
     h2: "Hitta till oss",
-    stycken: ["Du hittar verkstaden på Lindtorpsvägen 10 i Södra Lindhult, som hör till stadsdelen [Adolfsberg](/omraden/adolfsberg). Påfarten till E20 vid avfart 110 ligger cirka 1,2 kilometer bort. Vi har öppet måndag till fredag 08-16 och lördag 10-18. På söndagar har vi stängt."],
+    stycken: ["Du hittar verkstaden på Lindtorpsvägen 10 i Södra Lindhult, som hör till stadsdelen [Adolfsberg](/omraden/adolfsberg). Påfarten till E20 vid avfart 110 ligger cirka 1,2 kilometer bort. Vi har öppet måndag till fredag 08-16 och lördag 10-16. På söndagar har vi stängt."],
   } satisfies Sektion,
   foretaget: {
     h2: "Företaget",
@@ -30,7 +30,7 @@ export const omoss = {
     h2: "Vanliga frågor om KOM-fort Bilvård",
     fragor: [
       { q: "Vem driver KOM-fort Bilvård?", a: "Företaget grundades av Goran Ismailovic, som har hållit på med bilvård sedan tonåren." },
-      { q: "När har ni öppet?", a: "Måndag till fredag 08-16 och lördag 10-18. Söndagar har vi stängt." },
+      { q: "När har ni öppet?", a: "Måndag till fredag 08-16 och lördag 10-16. Söndagar har vi stängt." },
       { q: "Tvättar ni bilar i automattvätt?", a: "Nej. Alla bilar tvättas för hand." },
       { q: "Hur betalar jag?", a: "Du betalar via Zettle, och presentkort går att använda till alla tjänster." },
       { q: "Kan jag höra av mig via Instagram?", a: "Ja, du kan skicka ett meddelande till oss på Instagram. Du kan också ringa, skicka en förfrågan eller använda bokningssidan." },
@@ -38,6 +38,6 @@ export const omoss = {
   },
   kontakta: {
     h2: "Kontakta oss",
-    stycken: ["Har du frågor om oss eller om din bil, ring 076-035 38 08 eller skicka en förfrågan. Många svar finns redan under [vanliga frågor om bilvård](/vanliga-fragor)."],
+    stycken: ["Har du frågor om oss eller om din bil, ring 076-035 38 08 eller skicka en förfrågan. Många svar finns redan under [vanliga frågor om bilvård](/vanliga-fragor). Längre svar, till exempel om hur ofta bilen behöver en rekond, finns bland våra [guider om bilvård](/guider)."],
   } satisfies Sektion,
 };
