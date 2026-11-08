@@ -12,6 +12,7 @@ import { site } from "@/lib/site";
 const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
   // Batch 12b (2026-11-08): företagsformuläret på Bilvård för företag, integritetspolicyn och R7-R9 på guiderna.
+  // Batch 12c (2026-11-08): omdömen via Reco i integritetspolicyn, samma byggdatum.
   "/tjanster/foretag": "2026-11-08",
   "/integritetspolicy": "2026-11-08",
   "/guider": "2026-11-08",

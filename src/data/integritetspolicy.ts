@@ -41,6 +41,7 @@ export const integritetspolicy = {
           "För att svara på en förfrågan från ett företag och ingå avtal med företaget. Grunden är vårt berättigade intresse: vi behöver kunna ha kontakt med dig som företräder företaget (artikel 6.1 f).",
           "För att skicka ett presentkort till mottagaren. Grunden är avtalet med dig som köper presentkortet och, för mottagarens e-post, vårt berättigade intresse av att kunna leverera presentkortet (artikel 6.1 b och f).",
           "För att kunna se vilka behandlingar bilen har fått när du hör av dig igen. Grunden är vårt berättigade intresse av att ge dig rätt råd och service (artikel 6.1 f).",
+          "För att skicka en omdömesförfrågan efter utfört arbete. Vi lämnar ditt namn och ditt mobilnummer, din e-postadress eller båda till Reco, som skickar förfrågan via sms eller e-post. Grunden är vårt berättigade intresse av att samla in omdömen om vårt arbete (artikel 6.1 f). Du kan när som helst invända, och då får du inga fler förfrågningar.",
           "För att följa bokföringslagen när du har betalat. Grunden är en rättslig förpliktelse (artikel 6.1 c).",
           "För att visa kartan när du klickar på Visa kartan. Grunden är ditt samtycke (artikel 6.1 a).",
         ),
@@ -51,17 +52,18 @@ export const integritetspolicy = {
       h2: "Vilka som får ta del av uppgifterna",
       delar: [
         p("Förfrågningarna läses bara av oss som arbetar med KOM-fort Bilvård. Vi använder också några leverantörer:"),
-        lista("Vercel driver webbplatsen.", "Resend skickar meddelandena från formulären till vår e-post.", "Google tillhandahåller vår e-post."),
+        lista("Vercel driver webbplatsen.", "Resend skickar meddelandena från formulären till vår e-post.", "Google tillhandahåller vår e-post.", "Reco Sverige AB i Stockholm skickar våra omdömesförfrågningar. Reco är vårt personuppgiftsbiträde.", "Link Mobility AB i Sverige skickar sms:en åt Reco, som underbiträde till Reco.", "Twilio Inc. (SendGrid) i USA skickar e-posten åt Reco, som underbiträde till Reco."),
         p("Betalningar och presentkort hanteras av Zettle, som ansvarar för sin egen behandling enligt Zettles integritetspolicy. Vi ser aldrig dina kortuppgifter. Skriver du till oss på Instagram eller Facebook behandlar Meta uppgifterna enligt sin egen integritetspolicy. Till myndigheter lämnar vi bara ut uppgifter när lagen kräver det."),
+        p("Omdömen som publiceras ligger på [reco.se](https://www.reco.se) och omfattas av Recos egen integritetspolicy."),
       ],
     },
     {
       h2: "Uppgifter utanför EU",
-      delar: [p("Vercel, Resend och Google är amerikanska företag, och uppgifterna kan därför behandlas i USA. Företagen är anslutna till EU-U.S. Data Privacy Framework, som EU-kommissionen har bedömt ger ett tillräckligt skydd för personuppgifter.")],
+      delar: [p("Vercel, Resend, Google och Twilio (SendGrid) är amerikanska företag, och uppgifterna kan därför behandlas i USA. Företagen är anslutna till EU-U.S. Data Privacy Framework, som EU-kommissionen har bedömt ger ett tillräckligt skydd för personuppgifter.")],
     },
     {
       h2: "Hur länge vi sparar uppgifterna",
-      delar: [p("Vi sparar dina uppgifter så länge du är kund hos oss, så att vi kan se vilka behandlingar bilen har fått när du hör av dig igen. Blir en förfrågan ingen bokning raderar vi den när ärendet är avslutat. Vill du att vi raderar dina uppgifter räcker det att du säger till. Kvitton och bokföring sparar vi så länge bokföringslagen kräver, i dag sju år.")],
+      delar: [p("Vi sparar dina uppgifter så länge du är kund hos oss, så att vi kan se vilka behandlingar bilen har fått när du hör av dig igen. Blir en förfrågan ingen bokning raderar vi den när ärendet är avslutat. Vill du att vi raderar dina uppgifter räcker det att du säger till. Kvitton och bokföring sparar vi så länge bokföringslagen kräver, i dag sju år."), p("Uppgifterna som vi lämnar till Reco sparas hos Reco i ett år, så att samma person inte får flera förfrågningar, och raderas sedan.")],
     },
     {
       h2: "Kakor och kartan",
