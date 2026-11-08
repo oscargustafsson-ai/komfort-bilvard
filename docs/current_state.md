@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-11-05 (Batch 12: guides hub /guider with four guides, Article schema, "Guider" in the footer, Saturday hours 10-16; before that Batch 11: districts Lundby, Västhaga, Markbacken, Sörby and Ormesta, twenty-four in total, new /omraden meta; before that Batch 10: districts Rosta, Hjärsta, Björkhaga, Ladugårdsängen and Sörbyängen, nineteen in total, new /omraden meta; before that Batch 09: company pages /tjanster/foretag with three subpages, "För företag" cards on /tjanster, "Företag och avtal" in the contact form; before that Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
+Last updated: 2026-11-08 (Batch 12b: company request form on /tjanster/foretag, privacy policy additions, guide wording R7-R9; before that Batch 12: guides hub /guider with four guides, Article schema, "Guider" in the footer, Saturday hours 10-16; before that Batch 11: districts Lundby, Västhaga, Markbacken, Sörby and Ormesta, twenty-four in total, new /omraden meta; before that Batch 10: districts Rosta, Hjärsta, Björkhaga, Ladugårdsängen and Sörbyängen, nineteen in total, new /omraden meta; before that Batch 09: company pages /tjanster/foretag with three subpages, "För företag" cards on /tjanster, "Företag och avtal" in the contact form; before that Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
 
 ---
 
@@ -34,6 +34,14 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 12b:** company request form. `data/foretagsformular.ts` holds the choice groups (Däck,
+  Underhåll, Anpassad rekond), read by both `ForetagsFormular.tsx` (client form built like the one in
+  `Kontakt.tsx`: onSubmit + startTransition, same field style, thank-you box and privacy line) and the
+  server action `submitForetag` in `actions.ts` (required company/name/phone, cars 1-999, optional
+  email validated, unknown choices dropped, mail via `skickaMejl`). `TjanstSida` got the optional
+  `foretagsformular: Sektion`; `TjanstSidaMall` renders it after the running sections and before
+  "Varför välja KOM-fort?" (label "Förfrågan", H2 + paragraph left, form right). Only the `foretag` page
+  has it. Privacy policy lists the new form (R3-R6).
 - **Batch 12:** guides. `data/guider.ts` holds the hub (`guiderHubb`) and four guides (`guider`,
   type `Guide`: intro, sektioner, hitta, optional faq, kontakta). Routes `guider/page.tsx` and
   `guider/[slug]/page.tsx` are built like `/om-oss` (hero, BlockRutnat, HittaSektion, FaqSektion only
@@ -182,7 +190,7 @@ src/
                                + .bg-polished / .bg-polished-alt (gold-tinted radial glows for section depth)
                                + .section-divider (soft gold gradient hairline between sections)
                                + .grain / .grain-section / .grain-card (SVG turbulence noise system)
-    actions.ts                 Server actions: submitContact(), submitBooking(), submitGiftCard(); email via Resend
+    actions.ts                 Server actions: submitContact(), submitBooking(), submitForetag(), submitGiftCard(); email via Resend
     sitemap.ts                 Generates /sitemap.xml from static pages + tjänster + områden + guider
     robots.ts                  Generates /robots.txt (Disallow: / only on localhost / *.vercel.app, see SEO)
     (marketing)/
@@ -213,6 +221,7 @@ src/
       tjanstIkoner.tsx         Inline SVG gold icons mapped by slug; no deps
       OmOss.tsx                About section + stats grid; bg-polished bg + faint HexagonPattern + section-divider
       Kontakt.tsx              Contact cards + form (useActionState); map and copy live in the page
+      ForetagsFormular.tsx     Company request form on /tjanster/foretag (client, useActionState); choices from data/foretagsformular.ts
       Bokning.tsx              /boka price picker + booking form (client), prices from data/priser.ts
       Presentkort.tsx          Gift cards: amount picker + Zettle link OR order form (see below);
                                HexagonPattern bg at gold/[0.03] — same as OmOss but fainter (0.04)
@@ -244,6 +253,7 @@ src/
     startsida.ts               Home page copy (verbatim from the work-order batch file)
     omraden.ts                 /omraden hub + district pages copy
     guider.ts                  /guider hub + guide pages copy, GUIDER_DATUM for the Article schema
+    foretagsformular.ts        Choice groups for the company form, read by the form and submitForetag
   lib/
     site.ts                    Central config: base URL, business info, geo, social; hasRealDomain flag
   proxy.ts                     Portal-path auth redirect stub (PORTAL_PATHS -> /logga-in)

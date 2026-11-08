@@ -25,11 +25,12 @@ export const integritetspolicy = {
         lista(
           "Kontaktformuläret: namn, telefonnummer, vilken tjänst det gäller och ditt meddelande.",
           "Bokningssidan: namn, telefonnummer, e-post om du fyller i den, önskad dag, tjänst, bilstorlek och tillägg, om du vill att vi hämtar bilen och ditt meddelande.",
+          "Företagsformuläret på sidan Bilvård för företag: företagets namn, ditt namn, telefonnummer, e-post om du fyller i den, vilka tjänster det gäller, hur många bilar och ditt meddelande.",
           "Presentkort: ditt namn, din e-post och beloppet, samt telefonnummer, mottagarens e-post och en hälsning om du fyller i dem.",
           "Telefon, sms, e-post, Instagram och Facebook: det du berättar för oss.",
           "När du är kund hos oss: vilka behandlingar bilen har fått, och kvitton och underlag till bokföringen.",
         ),
-        p("I kontaktformuläret och på bokningssidan behövs namn och telefonnummer, och för presentkort namn och e-post, för att vi ska kunna svara dig. Övriga fält är frivilliga."),
+        p("I kontaktformuläret och på bokningssidan behövs namn och telefonnummer, i företagsformuläret även företagets namn och antal bilar, och för presentkort namn och e-post, för att vi ska kunna svara dig. Övriga fält är frivilliga."),
       ],
     },
     {
@@ -37,6 +38,7 @@ export const integritetspolicy = {
       delar: [
         lista(
           "För att svara på din förfrågan, boka in bilen och utföra tjänsten. Grunden är avtal: uppgifterna behövs för att vi ska kunna ingå och fullgöra avtalet med dig (artikel 6.1 b i dataskyddsförordningen).",
+          "För att svara på en förfrågan från ett företag och ingå avtal med företaget. Grunden är vårt berättigade intresse: vi behöver kunna ha kontakt med dig som företräder företaget (artikel 6.1 f).",
           "För att skicka ett presentkort till mottagaren. Grunden är avtalet med dig som köper presentkortet och, för mottagarens e-post, vårt berättigade intresse av att kunna leverera presentkortet (artikel 6.1 b och f).",
           "För att kunna se vilka behandlingar bilen har fått när du hör av dig igen. Grunden är vårt berättigade intresse av att ge dig rätt råd och service (artikel 6.1 f).",
           "För att följa bokföringslagen när du har betalat. Grunden är en rättslig förpliktelse (artikel 6.1 c).",
@@ -87,7 +89,7 @@ export const integritetspolicy = {
     },
     {
       h2: "Ändringar i policyn",
-      delar: [p("Ändrar vi hur vi behandlar personuppgifter uppdaterar vi den här sidan. Policyn uppdaterades senast i oktober 2026.")],
+      delar: [p("Ändrar vi hur vi behandlar personuppgifter uppdaterar vi den här sidan. Policyn uppdaterades senast i november 2026.")],
     },
   ] satisfies PolicyAvsnitt[],
 };

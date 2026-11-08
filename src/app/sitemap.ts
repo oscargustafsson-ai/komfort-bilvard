@@ -11,11 +11,14 @@ import { site } from "@/lib/site";
  */
 const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
+  // Batch 12b (2026-11-08): företagsformuläret på Bilvård för företag, integritetspolicyn och R7-R9 på guiderna.
+  "/tjanster/foretag": "2026-11-08",
+  "/integritetspolicy": "2026-11-08",
+  "/guider": "2026-11-08",
+  "/guider/hur-ofta-ska-man-rekonda-bilen": "2026-11-08",
+  "/guider/hur-lang-tid-tar-en-rekond": "2026-11-08",
   // Batch 12 (2026-11-05): hubben /guider och fyra guider, rättelserna R1-R5 och öppettiderna i R6-R9.
-  "/guider": "2026-11-05",
-  "/guider/hur-ofta-ska-man-rekonda-bilen": "2026-11-05",
   "/guider/keramiskt-lackskydd-vax-eller-lackforsegling": "2026-11-05",
-  "/guider/hur-lang-tid-tar-en-rekond": "2026-11-05",
   "/guider/ordlista": "2026-11-05",
   "/om-oss": "2026-11-05",
   "/priser": "2026-11-05",
@@ -23,7 +26,6 @@ const senastAndrad: Record<string, string> = {
   "/tjanster/polering": "2026-11-05",
   "/tjanster/polering/repborttagning": "2026-11-05",
   "/vanliga-fragor": "2026-11-05",
-  "/tjanster/foretag": "2026-11-05",
   // Batch 11 (2026-11-03): fem nya stadsdelar, områdeslistan, hubben och rättelserna R2-R11.
   "/omraden/lundby": "2026-11-03",
   "/omraden/vasthaga": "2026-11-03",

@@ -38,6 +38,8 @@ export type TjanstSida = {
   bokaText: string;
   /** Bildraden efter de löpande avsnitten (batch 07), i sidpaketets ordning. */
   media?: Media[];
+  /** Företagsformuläret efter de löpande avsnitten (batch 12b). Bara /tjanster/foretag. */
+  foretagsformular?: Sektion;
 };
 
 export type Tjanst = {

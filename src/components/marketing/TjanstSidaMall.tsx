@@ -7,6 +7,7 @@ import { BlockRutnat, HittaSektion, FaqSektion, Knappar } from "@/components/mar
 import { sidPriser } from "@/data/priser";
 import { Prislista } from "@/components/marketing/Prislista";
 import { Bildrad } from "@/components/marketing/Bildrad";
+import ForetagsFormular from "@/components/marketing/ForetagsFormular";
 import { tjanstPrisNyckel, type Tjanst } from "@/data/tjanster";
 
 /** Citatrutan, samma på alla tjänstesidor. */
@@ -144,6 +145,24 @@ export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }
 
       {/* Bildrad (batch 07): bara sidor med media */}
       {sida.media && sida.media.length > 0 && <Bildrad media={sida.media} />}
+
+      {/* Företagsformuläret (batch 12b): bara sidor med foretagsformular, i dag /tjanster/foretag */}
+      {sida.foretagsformular && (
+        <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <FadeIn>
+              <Etikett>Förfrågan</Etikett>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-6">{sida.foretagsformular.h2}</h2>
+              {sida.foretagsformular.stycken.map((s) => (
+                <Stycke key={s.slice(0, 40)} text={s} className="text-white/50 leading-relaxed max-w-md" />
+              ))}
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <ForetagsFormular />
+            </FadeIn>
+          </div>
+        </section>
+      )}
 
       {/* Varför välja oss */}
       <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">

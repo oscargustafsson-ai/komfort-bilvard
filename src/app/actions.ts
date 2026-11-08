@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { giftCardLimits } from "@/lib/site";
 import { getTjanstpris, beraknaPris, beskrivVal, kr, type Val } from "@/data/priser";
+import { allaForetagsval } from "@/data/foretagsformular";
 
 export type ContactState = {
   success: boolean;
@@ -151,6 +152,58 @@ export async function submitBooking(
     text: rader.join("\n"),
     replyTo: email || undefined,
     logg: { name, phone, email, day, pickup, val, pris },
+  });
+}
+
+export type ForetagState = {
+  success: boolean;
+  error: string | null;
+} | null;
+
+/**
+ * Företagsförfrågan från /tjanster/foretag (batch 12b). Byggd som submitContact
+ * och skickad med skickaMejl. Valen rensas mot listan i foretagsformular.ts.
+ */
+export async function submitForetag(
+  _prevState: ForetagState,
+  formData: FormData
+): Promise<ForetagState> {
+  const f = (k: string) => ((formData.get(k) as string) ?? "").trim();
+  const foretag = f("foretag");
+  const name = f("name");
+  const phone = f("phone");
+  const email = f("email");
+  const bilarRaw = f("bilar");
+  const message = f("message");
+  const val = formData.getAll("val").map((x) => String(x)).filter((x) => allaForetagsval.includes(x));
+
+  if (!foretag || !name || !phone) {
+    return { success: false, error: "Fyll i företag, namn och telefonnummer." };
+  }
+  const bilar = Number(bilarRaw);
+  if (!/^\d+$/.test(bilarRaw) || bilar < 1 || bilar > 999) {
+    return { success: false, error: "Fyll i hur många bilar det gäller." };
+  }
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { success: false, error: "Kontrollera e-postadressen." };
+  }
+
+  return skickaMejl({
+    tagg: "foretag",
+    subject: `Ny företagsförfrågan från ${foretag}`,
+    text: [
+      `Företag: ${foretag}`,
+      `Namn: ${name}`,
+      `Telefon: ${phone}`,
+      `E-post: ${email || "-"}`,
+      `Behöver: ${val.length ? val.join(", ") : "-"}`,
+      `Antal bilar: ${bilar}`,
+      "",
+      "Meddelande:",
+      message || "-",
+    ].join("\n"),
+    replyTo: email || undefined,
+    logg: { foretag, name, phone, email, val, bilar },
   });
 }
 
