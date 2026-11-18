@@ -3,7 +3,7 @@
 Living documentation of the codebase. Update this after every change set so context
 is not lost between sessions. Written in English on purpose (easier for AI to parse).
 
-Last updated: 2026-11-08 (Batch 12c: privacy policy mentions review requests via Reco; before that Batch 12b: company request form on /tjanster/foretag, privacy policy additions, guide wording R7-R9; before that Batch 12: guides hub /guider with four guides, Article schema, "Guider" in the footer, Saturday hours 10-16; before that Batch 11: districts Lundby, Västhaga, Markbacken, Sörby and Ormesta, twenty-four in total, new /omraden meta; before that Batch 10: districts Rosta, Hjärsta, Björkhaga, Ladugårdsängen and Sörbyängen, nineteen in total, new /omraden meta; before that Batch 09: company pages /tjanster/foretag with three subpages, "För företag" cards on /tjanster, "Företag och avtal" in the contact form; before that Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
+Last updated: 2026-11-18 (Batch 12d: opening hours Mon-Fri 08-18 and Sat 09-16, 6-month paint sealant and up-to-4-hour helrekond across the copy, "Skicka förfrågan" scrolls to the company form on /tjanster/foretag, two more form choices; before that Batch 12c: privacy policy mentions review requests via Reco; before that Batch 12b: company request form on /tjanster/foretag, privacy policy additions, guide wording R7-R9; before that Batch 12: guides hub /guider with four guides, Article schema, "Guider" in the footer, Saturday hours 10-16; before that Batch 11: districts Lundby, Västhaga, Markbacken, Sörby and Ormesta, twenty-four in total, new /omraden meta; before that Batch 10: districts Rosta, Hjärsta, Björkhaga, Ladugårdsängen and Sörbyängen, nineteen in total, new /omraden meta; before that Batch 09: company pages /tjanster/foretag with three subpages, "För företag" cards on /tjanster, "Företag och avtal" in the contact form; before that Batch 08: districts Hovsta, Tybble, Mellringe, Oxhagen and Baronbackarna, fourteen in total, new /omraden title and meta; before that Batch 07: /priser, /vanliga-fragor and /fore-och-efter, photos and muted video loops on the five pillar service pages, shared Prislista, district template moves the area paragraph to "Hitta till oss", Priser in the menu)
 
 ---
 
@@ -34,6 +34,14 @@ outside this repo). The copy there is the single source of truth; do not rewrite
   for pages a batch touches.
 - Root layout carries the Google Search Console `verification.google` tag.
 - Menu: "Områden" (/omraden) added to navbar (desktop + mobile) and footer.
+- **Batch 12d:** copy and small UI. Opening hours Mon-Fri 08-18 and Sat 09-16 (footer, `foretagSchema()`,
+  R1-R4). Helrekond now has a 6-month paint sealant and takes up to 4 hours (R5-R91, text only in `src/data`;
+  the price list name is "Helrekond med 6 månaders lackförsegling", id and prices unchanged). `Knappar` got an
+  optional `forfragan` prop (default /kontakt; a `#` target renders a plain `<a>`); `TjanstSidaMall` passes
+  `#foretagsformular` on pages with the company form, whose section has `id="foretagsformular"`. Smooth scroll
+  only there via `html:has(#foretagsformular)` in globals.css (not with reduced motion), and `<html>` has
+  `data-scroll-behavior="smooth"` so Next 16 does not smooth-scroll on navigation. Company form choices under
+  Anpassad rekond: Invändig rekond, Utvändig rekond, Polering, Vaxning.
 - **Batch 12c:** privacy policy only (`data/integritetspolicy.ts`): review requests via Reco Sverige AB
   (purpose, Reco/Link Mobility/Twilio as recipients, Twilio among the US companies, one-year retention at
   Reco, link to https://www.reco.se). No code changes.
@@ -123,9 +131,9 @@ outside this repo). The copy there is the single source of truth; do not rewrite
 - **Gift card page (batch 03):** copy in `src/data/presentkort.ts`; `presentkort/page.tsx` renders
   breadcrumbs, h1, intro, Zettle note, "Så beställer du" + the three step boxes, then `<Presentkort>`
   (amount picker + order form + thank-you only), text blocks, map and FAQ (FAQPage JSON-LD).
-- **Opening hours (batch 03, confirmed 2026-10-14; Saturday 10-16 since batch 12, 2026-11-05):**
-  footer line "Mån-fre 08-16, lör 10-16, sön stängt" on every page and `openingHoursSpecification`
-  (Mon-Fri 08:00-16:00, Sat 10:00-16:00) in `foretagSchema()`. Sunday is omitted.
+- **Opening hours (batch 03, confirmed 2026-10-14; Saturday 10-16 since batch 12, 2026-11-05; Mon-Fri 08-18
+  and Saturday 09-16 since batch 12d, 2026-11-17):** footer line "Mån-fre 08-18, lör 09-16, sön stängt" on every
+  page and `openingHoursSpecification` (Mon-Fri 08:00-18:00, Sat 09:00-16:00) in `foretagSchema()`. Sunday is omitted.
 - **Phone number (batch 02c):** 076-035 38 08 / tel:0760353808 / +46760353808, defined once in
   `src/lib/site.ts` (phoneDisplay, phoneHref, phone) and written out in copy. The old number
   must not reappear anywhere (`grep -r "194 35 19"` and `"761943519"` must be empty).

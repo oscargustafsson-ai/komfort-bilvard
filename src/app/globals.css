@@ -148,3 +148,10 @@ h3 {
     hyphens: auto;
   }
 }
+
+/* Mjuk skrollning till företagsformuläret (batch 12d, grundfix 3): bara på sidor som har det, inte vid minskad rörelse. */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(#foretagsformular) {
+    scroll-behavior: smooth;
+  }
+}

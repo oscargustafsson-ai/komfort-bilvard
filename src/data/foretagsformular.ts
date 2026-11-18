@@ -8,7 +8,7 @@ export type ValGrupp = { grupp: string; val: string[] };
 export const foretagsval: ValGrupp[] = [
   { grupp: "Däck", val: ["Däckskifte", "Däckhotell"] },
   { grupp: "Underhåll", val: ["Tvätt in- och utvändigt"] },
-  { grupp: "Anpassad rekond", val: ["Invändig rekond", "Polering"] },
+  { grupp: "Anpassad rekond", val: ["Invändig rekond", "Utvändig rekond", "Polering", "Vaxning"] },
 ];
 
 /** Alla val i ordning. Serveråtgärden tar bort val som inte står här. */

@@ -79,12 +79,12 @@ export const tjanster: Tjanst[] = [
     num: "01",
     title: "Bilrekond",
     shortDesc: "Komplett invändig och utvändig behandling. Din bil återfår nybilskänslan.",
-    metaDesc: "Bilrekond i Örebro: handtvätt, 12 månaders lackförsegling och rengöring av hela kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-035 38 08.",
+    metaDesc: "Bilrekond i Örebro: handtvätt, 6 månaders lackförsegling och rengöring av hela kupén i en och samma behandling. Vi kan hämta bilen. Ring 076-035 38 08.",
     hero: "Bilrekond Örebro",
-    intro: "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och vi går igenom kupén från mattor till instrumentbräda. Resultatet är en bil som känns och luktar ny igen.",
+    intro: "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 6 månader, och vi går igenom kupén från mattor till instrumentbräda. Resultatet är en bil som känns och luktar ny igen.",
     included: [
       { heading: "Utvändig handtvätt och avfettning", text: "Bilen handtvättas med pH-neutrala medel, och alla ytor avfettas så att lacken är ren inför lackförseglingen." },
-      { heading: "Lackförsegling som håller i 12 månader", text: "Vi avslutar med en lackförsegling som skyddar lacken mot smuts, vatten och UV-strålning i 12 månader." },
+      { heading: "Lackförsegling som håller i 6 månader", text: "Vi avslutar med en lackförsegling som skyddar lacken mot smuts, vatten och UV-strålning i 6 månader." },
       { heading: "Hjul och däck", text: "Fälgar och däck rengörs grundligt och behandlas med skyddande produkter." },
       { heading: "Rengöring av klädsel och mattor", text: "Klädsel och mattor rengörs efter hur kupén ser ut, och när det behövs tar vi till rengöringsmedel och ångmaskin mot lukt och fläckar. Innertaket torkar vi bara av försiktigt, eftersom tyget är känsligt." },
       { heading: "Rengöring av alla ytor", text: "Instrumentbräda, dörrsidor, luftventiler och plastdetaljer rengörs och får ett skyddande medel." },
@@ -96,8 +96,8 @@ export const tjanster: Tjanst[] = [
       "En rekond kan höja bilens andrahandsvärde",
     ],
     faq: [
-      { q: "Är bilrekond och helrekond samma sak?", a: "Ja. Hos oss betyder båda att hela bilen tas om hand, ut- och invändigt, vid samma besök, och att lacken får en lackförsegling som håller i 12 månader. Vill du bara ha kupén rengjord passar en invändig rekond." },
-      { q: "Hur lång tid tar en bilrekond?", a: "Mellan fyra och åtta timmar, beroende på bilens storlek och skick." },
+      { q: "Är bilrekond och helrekond samma sak?", a: "Ja. Hos oss betyder båda att hela bilen tas om hand, ut- och invändigt, vid samma besök, och att lacken får en lackförsegling som håller i 6 månader. Vill du bara ha kupén rengjord passar en invändig rekond." },
+      { q: "Hur lång tid tar en bilrekond?", a: "Upp till 4 timmar, beroende på bilens storlek och skick." },
       { q: "Vad kostar en bilrekond?", a: "Det beror på bilens storlek och skick. Alla priser ser du i prislistan, och på bokningssidan får du ett uppskattat pris för din bil med tillägg." },
       { q: "Ingår polering i rekonden?", a: "Nej, polering är ett tillägg. Du väljer mellan lätt polering, som bara ger lacken glansen tillbaka, och 1-stegspolering, som tar bort det mesta av fina repor och swirlmärken. Behöver lacken mer passar vår polering med vax i upp till tre steg." },
       { q: "Kan ni hämta bilen?", a: "Ja, vi kan hämta bilen hos dig och köra hem den igen efter rekonden. Säg till när du bokar, så berättar vi vad som gäller." },
@@ -105,30 +105,30 @@ export const tjanster: Tjanst[] = [
     pricing: {
       fromPrice: fran("rekonditionering"),
       unit: "kr",
-      note: "Vår mest sålda tjänst. 12 månaders lackförsegling ingår.",
+      note: "Vår mest sålda tjänst. 6 månaders lackförsegling ingår.",
       popular: true,
     },
     sida: {
       title: "Bilrekond Örebro | Helrekond och rekond av bil i Örebro",
       h1: "Bilrekond Örebro",
       intro: [
-        "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 12 månader, och vi går igenom kupén från mattor till instrumentbräda. Resultatet är en bil som känns och luktar ny igen.",
+        "En bilrekond är vår mest sålda tjänst. Vi tar hand om hela bilen, utvändigt och invändigt, vid ett och samma tillfälle: lacken tvättas och får en lackförsegling som håller i 6 månader, och vi går igenom kupén från mattor till instrumentbräda. Resultatet är en bil som känns och luktar ny igen.",
         "Bilen tvättas alltid för hand, och du kan lämna den hos oss eller låta oss hämta den hos dig. Vill du se allt vi gör, läs om [vår bilvård](/).",
       ],
       ingarH2: "Vad ingår i en helrekond?",
       prisH2: "Pris och tillägg",
-      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 12 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, [glasförsegling](/tjanster/lackskydd/glasforsegling) med 2 års skydd, lätt polering eller 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
+      prisText: "Priset för en bilrekond beror på bilens storlek, från små bilar till pickup och van, och 6 månaders lackförsegling ingår. Som tillägg kan du välja motortvätt, [glasförsegling](/tjanster/lackskydd/glasforsegling) med 2 års skydd, lätt polering eller 1-stegspolering och kemtvätt av sätena. Vill du ha lackkorrigering och ett [lackskydd](/tjanster/lackskydd) som håller i 3 år finns det i vårt kompletta paket. Alla priser ser du i prislistan, och på [bokningssidan](/boka) får du ett uppskattat pris för din bil.",
       sektioner: [
         {
           h2: "Lätt polering eller 1-stegspolering?",
           stycken: [
-            "Vill du ha mer glans på lacken kan du lägga till en lätt polering. OBS: den korrigerar inte lacken, så repor och swirlmärken blir kvar, och väljer du lätt polering håller skyddet i 6 månader i stället för 12. Vill du bli av med fina repor och swirlmärken behövs en 1-stegspolering. Då mäter vi först lackens tjocklek, tar bort föroreningar med rengöringslera och maskinpolerar sedan lacken, och en helrekond med 1-stegspolering tar ungefär åtta timmar. Du väljer den ena eller den andra.",
+            "Vill du ha mer glans på lacken kan du lägga till en lätt polering. OBS: den korrigerar inte lacken, så repor och swirlmärken blir kvar, och väljer du lätt polering håller skyddet i 6 månader. Vill du bli av med fina repor och swirlmärken behövs en 1-stegspolering. Då mäter vi först lackens tjocklek, tar bort föroreningar med rengöringslera och maskinpolerar sedan lacken, och en helrekond med 1-stegspolering tar ungefär åtta timmar. Du väljer den ena eller den andra.",
           ],
         },
         {
           h2: "Så går en bilrekond till",
           stycken: [
-            "Du bokar genom att ringa eller skicka en förfrågan. Hur lång tid rekonden tar beror på bilens storlek och skick, men räkna med 4-8 timmar, så bilen stannar hos oss hela dagen. Under dagen tvättar och skyddar vi utsidan och går igenom kupén med dammsugning och rengöring av alla ytor. När vi är klara luftar vi bilen ordentligt, så att du kan köra hem direkt. Har du möjlighet kan du låta dörrar och fönster stå öppna en stund till när du kommer hem.",
+            "Du bokar genom att ringa eller skicka en förfrågan. Hur lång tid rekonden tar beror på bilens storlek och skick, men räkna med upp till 4 timmar. Under tiden tvättar och skyddar vi utsidan och går igenom kupén med dammsugning och rengöring av alla ytor. När vi är klara luftar vi bilen ordentligt, så att du kan köra hem direkt. Har du möjlighet kan du låta dörrar och fönster stå öppna en stund till när du kommer hem.",
           ],
         },
         {
@@ -291,7 +291,7 @@ export const tjanster: Tjanst[] = [
         {
           h2: "Ny bil eller begagnad?",
           stycken: [
-            "Det är optimalt att skydda en ny bil direkt, innan lacken hunnit samla på sig repor och smuts. Även en ny bil poleras först, och på en begagnad bil tar poleringen dessutom bort repor och oxidering, så att skyddet läggs på en fin yta. Vill du ha ett enklare skydd finns lackförsegling, som ingår i vår [bilrekond](/tjanster/rekonditionering) och håller i 12 månader.",
+            "Det är optimalt att skydda en ny bil direkt, innan lacken hunnit samla på sig repor och smuts. Även en ny bil poleras först, och på en begagnad bil tar poleringen dessutom bort repor och oxidering, så att skyddet läggs på en fin yta. Vill du ha ett enklare skydd finns lackförsegling, som ingår i vår [bilrekond](/tjanster/rekonditionering) och håller i 6 månader.",
           ],
         },
         {

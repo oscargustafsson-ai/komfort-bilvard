@@ -20,7 +20,7 @@ export const tjansterSida = {
     {
       h2: "Bilrekond",
       stycken: [
-        "En [bilrekond](/tjanster/rekonditionering) är vår mest sålda tjänst och omfattar hela bilen. Utsidan tvättas och får en lackförsegling som håller i 12 månader, och kupén rengörs från mattor till instrumentbräda. Räkna med att bilen är hos oss en hel dag. Som tillägg kan du välja polering, glasförsegling, motortvätt och kemtvätt av sätena. Vill du dessutom ha lackkorrigering och 3 års lackskydd finns vårt kompletta paket.",
+        "En [bilrekond](/tjanster/rekonditionering) är vår mest sålda tjänst och omfattar hela bilen. Utsidan tvättas och får en lackförsegling som håller i 6 månader, och kupén rengörs från mattor till instrumentbräda. Räkna med att bilen är hos oss i upp till 4 timmar. Som tillägg kan du välja polering, glasförsegling, motortvätt och kemtvätt av sätena. Vill du dessutom ha lackkorrigering och 3 års lackskydd finns vårt kompletta paket.",
       ],
     },
     {
@@ -63,7 +63,7 @@ export const tjansterSida = {
     h2: "Tilläggstjänster",
     stycken: ["Tilläggen bokar du tillsammans med en annan tjänst, och på varje kort står vilken tjänst tillägget hör till. Lätt polering och 1-stegspolering väljer du mellan, du kan inte ta båda."],
     kort: [
-      { namn: "Lätt polering", etikett: "Tillägg till helrekond", text: "Ger lacken glansen tillbaka. OBS: lätt polering korrigerar inte lacken, så repor och swirlmärken blir kvar, och skyddet håller i 6 månader i stället för 12.", prisPrefix: "Tillägg", pris: helrekondTillagg("latt-polering") },
+      { namn: "Lätt polering", etikett: "Tillägg till helrekond", text: "Ger lacken glansen tillbaka. OBS: lätt polering korrigerar inte lacken, så repor och swirlmärken blir kvar, och skyddet håller i 6 månader.", prisPrefix: "Tillägg", pris: helrekondTillagg("latt-polering") },
       { namn: "1-stegspolering", href: "/tjanster/polering", etikett: "Tillägg till helrekond", text: "Tar bort det mesta av fina repor och swirlmärken. Innan vi polerar mäter vi lacktjockleken och rengör lacken med rengöringslera.", prisPrefix: "Tillägg", pris: helrekondTillagg("1-stegspolering") },
       { namn: "Kemtvätt av säten", href: "/tjanster/invandig-rekond/kemtvatt-kladsel", etikett: "Tillägg till helrekond och invändig rekond", text: "Kemtvätt med våtdammsugare lyfter fläckar som sitter djupt i tyget. Efter kemtvätten stannar bilen helst hos oss till dagen efter, eftersom sätena behöver torka.", prisPrefix: "Fr", pris: kr(KEMTVATT_PER_SATE.pris), prisSuffix: "per säte" },
       { namn: "Glasförsegling", href: "/tjanster/lackskydd/glasforsegling", etikett: "Tillägg till helrekond", text: "Keramiskt skydd för vindrutan och sidorutorna i 2 år. Bakrutan är ett tillägg, och glasförseglingen går också att boka för sig.", prisPrefix: "Tillägg", pris: helrekondTillagg("glasforsegling") },

@@ -20,9 +20,9 @@ export const kontaktsida = {
       ],
     },
     {
-      h2: "Räkna med en dag för en rekond",
+      h2: "Räkna med upp till 4 timmar för en rekond",
       stycken: [
-        "En komplett rekond tar 4-8 timmar, och då blir bilen kvar hos oss över dagen. En invändig rekond tar 2-4 timmar, och även då är det smidigast att lämna bilen för dagen.",
+        "En komplett rekond tar upp till 4 timmar och en invändig rekond 2-4 timmar, så det är smidigast att lämna bilen hos oss medan vi arbetar.",
       ],
     },
     {

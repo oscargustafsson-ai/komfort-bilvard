@@ -45,7 +45,7 @@ export default function KontaktPage() {
       {/* Kontaktkort + formulär */}
       <Kontakt />
 
-      {/* Så bokar du, rekond tar en dag, hämtning, hela Örebro */}
+      {/* Så bokar du, rekond tar upp till 4 timmar, hämtning, hela Örebro */}
       <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
         <div className="max-w-6xl mx-auto">
           <BlockRutnat

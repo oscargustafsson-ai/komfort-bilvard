@@ -33,9 +33,12 @@ const instrumentSans = Instrument_Sans({
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // data-scroll-behavior="smooth": Next 16 stänger då av den mjuka skrollningen vid sidbyte,
+  // så att bara hoppet till företagsformuläret glider (batch 12d, grundfix 4).
   return (
     <html
       lang="sv"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} ${instrumentSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-surface-1 font-[family-name:var(--font-instrument)]">{children}</body>

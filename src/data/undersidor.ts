@@ -58,7 +58,7 @@ export const undersidor: Tjanst[] = [
         },
         {
           h2: "När passar hämtning bäst?",
-          stycken: ["Hämtning erbjuder vi för det mesta vi gör, till exempel bilrekond, invändig rekond, polering och kemtvätt av sätena, i princip allt som tar mer än ett par timmar. En bilrekond tar 4-8 timmar, och en polering i två eller tre steg betyder att bilen stannar i minst två dygn. Då är det skönt att slippa köra fram och tillbaka. Undantagen är en enklare handtvätt, som tar 30-40 minuter och som du kan vänta på plats under, och strålkastarpolering. För dem hämtar vi inte bilen."],
+          stycken: ["Hämtning erbjuder vi för det mesta vi gör, till exempel bilrekond, invändig rekond, polering och kemtvätt av sätena, i princip allt som tar mer än ett par timmar. En bilrekond tar upp till 4 timmar, och en polering i två eller tre steg betyder att bilen stannar i minst två dygn. Då är det skönt att slippa köra fram och tillbaka. Undantagen är en enklare handtvätt, som tar 30-40 minuter och som du kan vänta på plats under, och strålkastarpolering. För dem hämtar vi inte bilen."],
         },
         {
           h2: "Lämnar du hellre bilen själv?",
@@ -470,17 +470,17 @@ export const undersidor: Tjanst[] = [
     foralder: "rekonditionering",
     num: "01",
     title: "Rekond inför bilförsäljning",
-    metaDesc: "Ska bilen säljas? Vid en rekond inför bilförsäljning i Örebro handtvättar vi bilen, ger lacken 12 månaders lackförsegling och rengör kupén. Ring 076-035 38 08.",
+    metaDesc: "Ska bilen säljas? Vid en rekond inför bilförsäljning i Örebro handtvättar vi bilen, ger lacken 6 månaders lackförsegling och rengör kupén. Ring 076-035 38 08.",
     hero: "Rekond inför bilförsäljning Örebro",
     intro: "När bilen ska säljas är första intrycket viktigt, både på bilderna i annonsen och när köparen kommer och tittar. Vid en rekond inför bilförsäljning får bilen en ren och blank lack och en fräsch kupé, och en välskött bil kan höja andrahandsvärdet.",
     included: [
-      { heading: "Handtvätt och lackförsegling", text: "Bilen handtvättas, asfalt och flygrost tas bort och lacken skyddas med 12 månaders lackförsegling." },
+      { heading: "Handtvätt och lackförsegling", text: "Bilen handtvättas, asfalt och flygrost tas bort och lacken skyddas med 6 månaders lackförsegling." },
       { heading: "Rengöring av kupén", text: "Mattor, säten, paneler och detaljer rengörs, och vid behov tar ångmaskinen bort lukt och fläckar." },
       { heading: "Tillägg efter behov", text: "Polering, kemtvätt av sätena, motortvätt och glasförsegling lägger du till om bilen behöver det." },
       { heading: "Slutkontroll", text: "Vi går igenom och fotograferar hela bilen innan du hämtar den, och hittar vi något åtgärdar vi det." },
     ],
     why: [
-      "Helrekond med 12 månaders lackförsegling",
+      "Helrekond med 6 månaders lackförsegling",
       "Tillägg efter vad bilen behöver",
       "Slutkontroll innan du hämtar bilen",
       "Vi kan hämta bilen hos dig",
@@ -495,7 +495,7 @@ export const undersidor: Tjanst[] = [
     pricing: {
       fromPrice: fran("rekonditionering/infor-bilforsaljning"),
       unit: "kr",
-      note: "Helrekond med 12 månaders lackförsegling.",
+      note: "Helrekond med 6 månaders lackförsegling.",
     },
     sida: {
       title: "Rekond inför bilförsäljning Örebro | Rekond innan du säljer bilen i Örebro",
@@ -510,7 +510,7 @@ export const undersidor: Tjanst[] = [
       sektioner: [
         { h2: "Det här märker köparen först", stycken: ["Fläckar på sätena, lukt i kupén, matt lack med repor och gula strålkastare drar ner intrycket, även när bilen är i bra skick tekniskt. Mycket av det går att åtgärda. Kemtvätt hjälper mot fläckar i tyget, [polering](/tjanster/polering) ger lacken glansen tillbaka och vid en strålkastarpolering blir strålkastarna klara igen. Husdjurslukt försvinner i de flesta fall med enzymatiska medel."] },
         { h2: "Helrekond eller invändig rekond?", stycken: ["Ska bilen säljas rekommenderar vi helrekonden, eftersom köparen ser både lacken och kupén. Är utsidan redan i fint skick och det bara är insidan som behöver fräschas upp räcker det med en [invändig rekond](/tjanster/invandig-rekond). Ska en leasingbil lämnas tillbaka passar [rekond inför leasingåterlämning](/tjanster/rekonditionering/leasingaterlamning). Har du en bilhandel och vill få flera bilar klara för försäljning, se [rekond för bilhandlare](/tjanster/foretag/bilhandlare)."] },
-        { h2: "Gör rekonden innan du fotograferar bilen", stycken: ["Boka rekonden innan du tar bilderna till annonsen, så att bilen ser likadan ut på bild som när köparen kommer. En helrekond tar runt fem timmar, och med en 1-stegspolering blir det ungefär åtta. Lägger du till kemtvätt av sätena står bilen helst kvar över natten, så att sätena hinner torka. Med en polering i två steg blir bilen kvar hos oss i minst två dygn, så planera in det i god tid."] },
+        { h2: "Gör rekonden innan du fotograferar bilen", stycken: ["Boka rekonden innan du tar bilderna till annonsen, så att bilen ser likadan ut på bild som när köparen kommer. En helrekond tar upp till 4 timmar, och med en 1-stegspolering blir det ungefär åtta. Lägger du till kemtvätt av sätena står bilen helst kvar över natten, så att sätena hinner torka. Med en polering i två steg blir bilen kvar hos oss i minst två dygn, så planera in det i god tid."] },
         { h2: "Rekond inför bilförsäljning i hela Örebro", stycken: ["[Almby](/omraden/almby) ligger runt en kvarts bilresa bort, och från handelsområdet i [Marieberg](/omraden/marieberg) tar det ungefär sju minuter. Vår lokal ligger i Adolfsberg, så bor du där är det bara några minuter. Vill du slippa köra kan vi [hämta bilen hos dig](/tjanster/hamtning-och-lamning). Kumla, Hallsberg, Vivalla och Varberga servar vi också."] },
       ],
       varforH2: "Varför välja KOM-fort?",
@@ -530,13 +530,13 @@ export const undersidor: Tjanst[] = [
     hero: "Rekond inför leasingåterlämning Örebro",
     intro: "När leasingperioden är slut går leasingbolaget igenom bilen innan den tas tillbaka, och slitage utöver det normala kan hamna på slutnotan. Vid en rekond inför leasingåterlämning gör vi bilen ren och fin igen, utvändigt och invändigt, så att den lämnas tillbaka i bästa möjliga skick.",
     included: [
-      { heading: "Handtvätt och lackförsegling", text: "Bilen handtvättas, asfalt, flygrost och fågelspill tas bort och lacken får 12 månaders lackförsegling." },
+      { heading: "Handtvätt och lackförsegling", text: "Bilen handtvättas, asfalt, flygrost och fågelspill tas bort och lacken får 6 månaders lackförsegling." },
       { heading: "Rengöring av hela kupén", text: "Mattor, säten, paneler, instrumentbräda och rutor rengörs, och behöver kupén mer tar ångmaskinen hand om lukt och fläckar." },
       { heading: "Tillägg för repor och fläckar", text: "Repborttagning, polering, kemtvätt av sätena, strålkastarpolering och motortvätt lägger du till efter behov." },
       { heading: "Slutkontroll med foton", text: "Innan du hämtar bilen går vi igenom den och fotograferar den. Hittar vi en miss rättar vi till den." },
     ],
     why: [
-      "Helrekonden med 12 månaders lackförsegling som grund",
+      "Helrekonden med 6 månaders lackförsegling som grund",
       "Repor, fläckar och lukt som tillägg",
       "Vi fotograferar bilen vid slutkontrollen",
       "Vi kan hämta bilen hos dig",
@@ -544,14 +544,14 @@ export const undersidor: Tjanst[] = [
     faq: [
       { q: "Är det värt att rekonda bilen före återlämningen?", a: "Ofta, ja. Smuts, fläckar och lätta repor kan kosta extra vid återlämningen, och det mesta av det går att åtgärda i förväg. Vad som räknas som normalt slitage står i ditt leasingavtal." },
       { q: "Kan ni ta bort repor innan bilen lämnas tillbaka?", a: "Repor i klarlacket kan vi i de flesta fall ta bort, och stenskott lagar vi. Repor ner till plåten kräver lackering, och det gör vi inte." },
-      { q: "Hur lång tid tar det?", a: "En helrekond tar runt fem timmar. Lägger du till kemtvätt står bilen kvar över natten, och en polering i två steg tar minst två dygn." },
+      { q: "Hur lång tid tar det?", a: "En helrekond tar upp till 4 timmar. Lägger du till kemtvätt står bilen kvar över natten, och en polering i två steg tar minst två dygn." },
       { q: "Ingår polering i priset?", a: "Nej, polering lägger du till. Har lacken många fina repor passar en 1-stegspolering, och en enstaka repa tar vi bort för sig." },
       { q: "Kan ni hämta bilen hos mig?", a: "Ja. Nämn det när du bokar, så hämtar vi bilen och kör tillbaka den när den är klar. Avgiften styrs av var du bor." },
     ],
     pricing: {
       fromPrice: fran("rekonditionering/leasingaterlamning"),
       unit: "kr",
-      note: "Helrekond med 12 månaders lackförsegling.",
+      note: "Helrekond med 6 månaders lackförsegling.",
     },
     sida: {
       title: "Rekond inför leasingåterlämning Örebro | Rekond innan leasingbilen lämnas tillbaka",
@@ -567,7 +567,7 @@ export const undersidor: Tjanst[] = [
         { h2: "Det här tittar leasingbolaget på", stycken: ["Vid återlämningen bedöms bilen mot det som står i ditt avtal om normalt slitage. Små stenskott och lätta repor brukar räknas som normalt, medan djupare repor, fläckar i klädseln, rök- eller djurlukt och skador på fälgarna ofta kostar extra. Läs vad som gäller i ditt avtal, så vet du vad som är värt att åtgärda innan bilen lämnas tillbaka."] },
         { h2: "Repor och stenskott före återlämningen", stycken: ["Repor som bara sitter i klarlacket kan vi i de flesta fall polera bort: en enstaka repa med [repborttagning](/tjanster/polering/repborttagning) och många fina repor med en polering av hela lacken. Stenskott lagar vi också. Går en repa ner till grundfärgen eller plåten behöver ytan lackeras, och det gör vi inte, men du får ett rakt besked när vi har mätt lacken."] },
         { h2: "Fläckar och lukt i kupén", stycken: ["Fläckar som sitter djupt i sätena tar vi med [kemtvätt av bilklädsel](/tjanster/invandig-rekond/kemtvatt-kladsel), och då får bilen gärna stå kvar hos oss över natten så att sätena torkar ordentligt. Mot lukt från husdjur använder vi enzymatiska medel, som tar bort lukten i de flesta fall. Innertaket torkar vi bara av försiktigt, eftersom tyget är lätt att skada."] },
-        { h2: "Planera in rekonden i tid", stycken: ["En helrekond tar runt fem timmar. Med kemtvätt står bilen kvar över natten, och en 2-stegspolering tar minst två dygn. Boka därför rekonden någon vecka innan bilen ska lämnas tillbaka, så hinner vi med tilläggen utan stress. Ska bilen i stället säljas privat gäller samma upplägg, se [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning). Leasingbolag som vill ha hjälp med bilarna som kommer tillbaka hittar mer under [bilvård för leasingbolag](/tjanster/foretag/leasingbolag)."] },
+        { h2: "Planera in rekonden i tid", stycken: ["En helrekond tar upp till 4 timmar. Med kemtvätt står bilen kvar över natten, och en 2-stegspolering tar minst två dygn. Boka därför rekonden någon vecka innan bilen ska lämnas tillbaka, så hinner vi med tilläggen utan stress. Ska bilen i stället säljas privat gäller samma upplägg, se [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning). Leasingbolag som vill ha hjälp med bilarna som kommer tillbaka hittar mer under [bilvård för leasingbolag](/tjanster/foretag/leasingbolag)."] },
         { h2: "Rekond inför leasingåterlämning i hela Örebro", stycken: ["Från Marieberg är det bara några minuter hit, och från [Brickebacken](/omraden/brickebacken) kör du Glomman till Adolfsberg på drygt tio minuter. Från [Markbacken](/omraden/markbacken) i västra Örebro är det drygt tio minuter via Karlslundsgatan och Västerleden. Har du inte tid att köra hit kan vi [hämta bilen hos dig](/tjanster/hamtning-och-lamning) och ställa tillbaka den när rekonden är klar. Vi servar även Lillån, Rynninge, Mosås, Kumla och Hallsberg."] },
       ],
       varforH2: "Varför välja KOM-fort?",
@@ -619,11 +619,11 @@ export const undersidor: Tjanst[] = [
       sektioner: [
         { h2: "Vilka företag tar vi emot?", stycken: ["Alla. Det kan vara en hantverkare med en pickup eller van, ett kontor med några tjänstebilar, en bilhandlare som ska sälja eller ett leasingbolag som får tillbaka bilar. Vi har redan företagskunder, och deras bilar får samma noggranna behandling som alla andra. Hela vår bilvård i Örebro går att boka för företagets bilar."] },
         { h2: "Så går det till", stycken: ["Ring eller skicka en förfrågan och berätta vilka bilar det gäller och vad de behöver, så bestämmer vi tider tillsammans. Bilarna kan du lämna själv, men vi kan också [hämta bilen hos dig](/tjanster/hamtning-och-lamning). Ska flera bilar hämtas kommer vi överens om upplägget."] },
-        { h2: "Hur snabbt är bilarna klara?", stycken: ["Det beror på vad som ska göras. En utvändig [handtvätt](/tjanster/biltvatt) tar 30-40 minuter, en invändig rekond 2-4 timmar och en [bilrekond](/tjanster/rekonditionering) runt fem timmar. Med kemtvätt av sätena bör bilen stå kvar till dagen efter, eftersom tyget behöver torka. Även den största behandlingen är klar på högst 72 timmar."] },
+        { h2: "Hur snabbt är bilarna klara?", stycken: ["Det beror på vad som ska göras. En utvändig [handtvätt](/tjanster/biltvatt) tar 30-40 minuter, en invändig rekond 2-4 timmar och en [bilrekond](/tjanster/rekonditionering) upp till 4 timmar. Med kemtvätt av sätena bör bilen stå kvar till dagen efter, eftersom tyget behöver torka. Även den största behandlingen är klar på högst 72 timmar."] },
         { h2: "Bilvård för företag i hela Örebro", stycken: ["Från [Mosås](/omraden/mosas) i söder är det cirka tio minuter till oss, och från [Tybble](/omraden/tybble) i östra Örebro ungefär en kvart. Vi servar även Adolfsberg, Marieberg, Hovsta, Mellringe, Oxhagen, Baronbackarna, Kumla och Hallsberg."] },
       ],
       varforH2: "Varför välja KOM-fort?",
-      hitta: { h2: "Hitta till oss", stycken: ["Du hittar oss i Södra Lindhult, på Lindtorpsvägen 10, en kort bit från E20 avfart 110 Adolfsberg. Vi har öppet 08-16 på vardagar och 10-16 på lördagar."] },
+      hitta: { h2: "Hitta till oss", stycken: ["Du hittar oss i Södra Lindhult, på Lindtorpsvägen 10, en kort bit från E20 avfart 110 Adolfsberg. Vi har öppet 08-18 på vardagar och 09-16 på lördagar."] },
       faqH2: "Vanliga frågor om bilvård för företag",
       bokaH2: "Boka bilvård för företaget",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan. Ange hur många bilar det gäller och vad de behöver, så hör vi av oss och kommer överens om resten.",
@@ -669,7 +669,7 @@ export const undersidor: Tjanst[] = [
       sektioner: [
         { h2: "Handtvätt som håller bilarna rena", stycken: ["För en bil som används mycket är en [handtvätt](/tjanster/biltvatt) i månaden en bra tumregel, och på vintern kan det behövas oftare. Vi blötlägger och avfettar, tvättar med två hinkar och tar hjul och hjulhus för sig. En utvändig handtvätt tar 30-40 minuter, så den som lämnar bilen kan vänta på plats."] },
         { h2: "Invändig rekond när flera delar på bilen", stycken: ["Delar flera anställda på samma bil märks det i kupén. Vid en [invändig rekond](/tjanster/invandig-rekond) dammsuger vi kupén, gör säten, golv och paneler rena och putsar glasen invändigt. Ångmaskinen löser upp smuts och lukt i tyget, och för fläckar som inte släpper finns kemtvätt av sätena som tillägg. Räkna med 2-4 timmar."] },
-        { h2: "Helrekond och lackskydd", stycken: ["En [helrekond](/tjanster/rekonditionering) varje år, helst när vintern är över, tar hand om hela bilen och ger lacken 12 månaders lackförsegling. Lacken på en ny firmabil skyddas bäst direkt. Keramiskt [lackskydd](/tjanster/lackskydd) lägger vi på efter en polering, med en hållbarhet på 2, 3 eller 5 år."] },
+        { h2: "Helrekond och lackskydd", stycken: ["En [helrekond](/tjanster/rekonditionering) varje år, helst när vintern är över, tar hand om hela bilen och ger lacken 6 månaders lackförsegling. Lacken på en ny firmabil skyddas bäst direkt. Keramiskt [lackskydd](/tjanster/lackskydd) lägger vi på efter en polering, med en hållbarhet på 2, 3 eller 5 år."] },
         { h2: "Leasade firmabilar", stycken: ["Är firmabilarna leasade och ska tillbaka när avtalet löper ut, boka en [rekond inför leasingåterlämning](/tjanster/rekonditionering/leasingaterlamning) i god tid. Då hinner vi ta bort repor i klarlacket och fläckar i klädseln innan leasingbolaget bedömer bilen."] },
         { h2: "Firmabilar i hela Örebro", stycken: ["Har företaget sin bas i [Oxhagen](/omraden/oxhagen) är det under tio minuter hit, och från [Hovsta](/omraden/hovsta) i norr runt 20 minuter. Vi kan [hämta bilen hos dig](/tjanster/hamtning-och-lamning), och för flera bilar gör vi upp om tider och upplägg i avtalet. Vi servar även Kumla, Hallsberg, Tybble, Mellringe, Baronbackarna och Mosås."] },
       ],
@@ -690,19 +690,19 @@ export const undersidor: Tjanst[] = [
     hero: "Rekond för bilhandlare Örebro",
     intro: "En begagnad bil gör ett bättre intryck när lacken är blank och kupén fräsch, i annonsen lika väl som när kunden provsitter den. Vid en rekond för bilhandlare gör vi bilarna klara för försäljning, och repor, gula strålkastare och ett smutsigt motorrum åtgärdar vi med tillägg.",
     included: [
-      { heading: "Helrekond med lackförsegling", text: "Vi handtvättar och avfettar bilen, tar bort asfalt och flygrost och förseglar lacken, ett skydd som räcker i 12 månader." },
+      { heading: "Helrekond med lackförsegling", text: "Vi handtvättar och avfettar bilen, tar bort asfalt och flygrost och förseglar lacken, ett skydd som räcker i 6 månader." },
       { heading: "Hela kupén rengörs", text: "Säten, golv, paneler och instrumentbräda görs rena, och ångmaskinen tar hand om lukt och fläckar där det behövs." },
       { heading: "Tillägg per bil", text: "Polering, repborttagning, strålkastarpolering, motortvätt och kemtvätt av sätena lägger du till för de bilar som behöver det." },
       { heading: "Slutkontroll med bilder", text: "Varje bil gås igenom och fotograferas innan den hämtas. Missar vi något åtgärdar vi det innan bilen går." },
     ],
     why: [
-      "Lackförsegling som håller i 12 månader",
+      "Lackförsegling som håller i 6 månader",
       "Tillägg för repor, strålkastare och motorrum",
       "Faktura, F-skatt och avtal",
       "Varje bil fotograferas vid slutkontrollen",
     ],
     faq: [
-      { q: "Hur snabbt är en bil klar?", a: "Utan tillägg tar en helrekond runt fem timmar. Den största behandlingen är klar inom 72 timmar." },
+      { q: "Hur snabbt är en bil klar?", a: "Utan tillägg tar en helrekond upp till 4 timmar. Den största behandlingen är klar inom 72 timmar." },
       { q: "Kan ni ta bort repor och stenskott?", a: "De flesta repor i klarlacket kan tas bort, och stenskott lagar vi. Går repan ner till plåten behöver ytan lackeras, och lackering gör vi inte." },
       { q: "Ingår polering i rekonden?", a: "Nej, den lägger du till. En 1-stegspolering passar när lacken är matt eller har många fina repor." },
       { q: "Kan vi betala mot faktura?", a: "Ja, det går bra för bilhandlare och andra företag. Vi har också F-skatt." },
@@ -720,7 +720,7 @@ export const undersidor: Tjanst[] = [
       sektioner: [
         { h2: "Lack, repor och strålkastare", stycken: ["Matt lack med fina repor och swirlmärken blir blank igen med en [polering](/tjanster/polering). Har bilen bara en eller ett par repor i klarlacket räcker [repborttagning](/tjanster/polering/repborttagning), så slipper du polera hela lacken, och stenskott lagar vi också. Gula strålkastare blir klara igen med en [strålkastarpolering](/tjanster/polering/stralkastarpolering), där vi våtslipar, polerar och avslutar med UV-skydd."] },
         { h2: "Motorrum och kupé", stycken: ["Ett rent motorrum gör intryck när kunden öppnar huven. Vid en [motortvätt](/tjanster/biltvatt/motortvatt) skyddar själva medlet elektroniken och kablarna, och vi har tvättat över 100 motorer utan problem. I kupén lyfter kemtvätt djupa fläckar ur sätena, och enzymatiska medel hjälper mot husdjurslukt i de flesta fall."] },
-        { h2: "Hur snabbt är bilen klar?", stycken: ["Det beror på vad bilen behöver. Räkna med runt fem timmar för en helrekond och ungefär åtta med 1-stegspolering. Efter kemtvätt av sätena står bilen kvar till nästa dag, och en 2-stegspolering kräver minst två dygn. Den mest omfattande behandlingen tar som längst 72 timmar, så du vet när bilen kan ställas ut."] },
+        { h2: "Hur snabbt är bilen klar?", stycken: ["Det beror på vad bilen behöver. Räkna med upp till 4 timmar för en helrekond och ungefär åtta med 1-stegspolering. Efter kemtvätt av sätena står bilen kvar till nästa dag, och en 2-stegspolering kräver minst två dygn. Den mest omfattande behandlingen tar som längst 72 timmar, så du vet när bilen kan ställas ut."] },
         { h2: "Rekond för bilhandlare i hela Örebro", stycken: ["Från [Baronbackarna](/omraden/baronbackarna) och [Mellringe](/omraden/mellringe) är det drygt tio minuter hit via Västerleden. Vi kan hämta bilen hos dig, och hämtning av flera bilar sker efter överenskommelse. Säljer du i stället din egen bil privat passar [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning). Vi servar även Adolfsberg, Marieberg, Hovsta, Tybble, Oxhagen och Mosås, liksom Kumla och Hallsberg."] },
       ],
       varforH2: "Varför välja KOM-fort?",
@@ -740,7 +740,7 @@ export const undersidor: Tjanst[] = [
     hero: "Bilvård för leasingbolag Örebro",
     intro: "När en leasingbil kommer tillbaka efter avtalstiden behöver den ofta mer än en tvätt innan den kan leasas ut igen eller säljas. Vi gör bilarna rena och fina, utvändigt och invändigt, och tar hand om repor i klarlacket, stenskott och fläckar i klädseln.",
     included: [
-      { heading: "Rekond av hela bilen", text: "Bilen handtvättas och lacken förseglas för 12 månader, och hela kupén rengörs, med ångmaskin där det behövs." },
+      { heading: "Rekond av hela bilen", text: "Bilen handtvättas och lacken förseglas för 6 månader, och hela kupén rengörs, med ångmaskin där det behövs." },
       { heading: "Repor och stenskott", text: "Repor i klarlacket tar vi bort med repborttagning eller polering, och stenskott lagar vi." },
       { heading: "Fläckar och lukt i kupén", text: "Kemtvätt tar fläckar som sitter djupt i sätena, och mot husdjurslukt har vi enzymatiska medel som fungerar i de flesta fall." },
       { heading: "Faktura och F-skatt", text: "Fakturan går till leasingbolaget, och vi har F-skatt." },
@@ -770,7 +770,7 @@ export const undersidor: Tjanst[] = [
       sektioner: [
         { h2: "När bilen kommer tillbaka", stycken: ["Efter några år på vägen har en leasingbil ofta fina repor i lacken, stenskott, fläckar i sätena och ibland lukt i kupén. Mycket av det går att åtgärda. Vi mäter lacken innan vi polerar. Går en repa ner till plåten säger vi till direkt, för den behöver då lackeras, vilket vi inte gör. Vill leasingtagaren själv fräscha upp bilen innan den lämnas tillbaka finns [rekond inför leasingåterlämning](/tjanster/rekonditionering/leasingaterlamning)."] },
         { h2: "Repor, fläckar och lukt", stycken: ["En enstaka repa tar vi bort med [repborttagning](/tjanster/polering/repborttagning), och har lacken många fina repor behövs minst en 1-stegspolering. Djupa fläckar i sätena lyfter [kemtvätt av bilklädsel](/tjanster/invandig-rekond/kemtvatt-kladsel) med våtdammsugare, och efteråt behöver tyget torka över natten. Innertaket torkas bara av lätt, så att tyget inte skadas."] },
-        { h2: "Så länge stannar bilen hos oss", stycken: ["Det avgör bilens skick. En bilrekond tar runt fem timmar, och polering i flera steg tar längre. Ingen behandling tar mer än 72 timmar."] },
+        { h2: "Så länge stannar bilen hos oss", stycken: ["Det avgör bilens skick. En bilrekond tar upp till 4 timmar, och polering i flera steg tar längre. Ingen behandling tar mer än 72 timmar."] },
         { h2: "Bilvård för leasingbolag i hela Örebro", stycken: ["Från [Hovsta](/omraden/hovsta) i norr är det runt 20 minuter hit och från [Baronbackarna](/omraden/baronbackarna) drygt tio minuter. Behövs det kan vi också [hämta bilen hos dig](/tjanster/hamtning-och-lamning). Hur hämtningen går till för flera bilar kommer vi överens om. Ska bilarna säljas vidare, läs om [rekond för bilhandlare](/tjanster/foretag/bilhandlare). Kumla och Hallsberg servar vi också, liksom Tybble, Mellringe, Oxhagen och Mosås."] },
       ],
       varforH2: "Varför välja KOM-fort?",

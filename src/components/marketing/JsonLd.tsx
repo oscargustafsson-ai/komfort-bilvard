@@ -18,7 +18,8 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
 /**
  * Företagsschemat (AutoWash). Ligger i layouten, en gång per sida.
  * Innehåll enligt sidregler.md. openingHoursSpecification sedan batch 03
- * (öppettiderna bekräftade 2026-10-14) (lördag 10-16 från 2026-11-05).
+ * (öppettiderna bekräftade 2026-10-14) (lördag 10-16 från 2026-11-05)
+ * (vardagar 08-18 och lördag 09-16 från 2026-11-17, batch 12d).
  * Aldrig aggregateRating.
  */
 export function foretagSchema() {
@@ -45,8 +46,8 @@ export function foretagSchema() {
     geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
     // Öppettider bekräftade 2026-10-14 (fakta.md). Söndag stängt, utelämnas.
     openingHoursSpecification: [
-      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "16:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "18:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "16:00" },
     ],
     areaServed: [
       { "@type": "City", name: "Örebro" },

@@ -71,7 +71,7 @@ export const tjanstpriser: Tjanstpris[] = [
   },
   {
     id: "helrekond",
-    namn: "Helrekond med 12 månaders lackförsegling",
+    namn: "Helrekond med 6 månaders lackförsegling",
     val: {
       etikett: "Bilstorlek",
       rader: [

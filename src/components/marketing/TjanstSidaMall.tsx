@@ -66,6 +66,8 @@ function PrisRuta({ t }: { t: Tjanst }) {
  */
 export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }) {
   const sida = t.sida;
+  // Batch 12d: på sidan med företagsformuläret skrollar "Skicka förfrågan" ned till formuläret i stället för /kontakt.
+  const forfragan = sida.foretagsformular ? "#foretagsformular" : undefined;
   return (
     <main className="min-h-screen overflow-x-hidden">
       {serviceSchema(t).map((schema, i) => (
@@ -84,7 +86,7 @@ export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }
                 <Stycke key={s.slice(0, 40)} text={s} className="text-white/50 text-lg leading-relaxed font-light" />
               ))}
             </div>
-            {t.pricing ? <PrisRuta t={t} /> : <Knappar />}
+            {t.pricing ? <PrisRuta t={t} /> : <Knappar forfragan={forfragan} />}
           </FadeIn>
         </div>
       </section>
@@ -148,7 +150,7 @@ export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }
 
       {/* Företagsformuläret (batch 12b): bara sidor med foretagsformular, i dag /tjanster/foretag */}
       {sida.foretagsformular && (
-        <section className="py-24 px-8 bg-surface-1 border-t border-gold/10">
+        <section id="foretagsformular" className="py-24 px-8 bg-surface-1 border-t border-gold/10">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <FadeIn>
               <Etikett>Förfrågan</Etikett>
@@ -190,7 +192,7 @@ export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }
               <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-2">{sida.bokaH2}</h2>
               <Stycke text={sida.bokaText} className="text-white/50" />
             </div>
-            <Knappar className="shrink-0" />
+            <Knappar className="shrink-0" forfragan={forfragan} />
           </div>
         </FadeIn>
       </section>

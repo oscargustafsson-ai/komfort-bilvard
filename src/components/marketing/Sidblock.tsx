@@ -5,8 +5,14 @@ import { Karta } from "./Karta";
 import { site } from "@/lib/site";
 import type { Sektion, Fraga } from "@/data/startsida";
 
-/** Sajtens två befintliga knappar: ring (tel-länk) och skicka förfrågan (/kontakt). */
-export function Knappar({ className = "" }: { className?: string }) {
+const FORFRAGAN_KLASS = "grain-card relative overflow-hidden border border-white/20 text-white/70 px-8 py-3 tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300";
+
+/**
+ * Sajtens två befintliga knappar: ring (tel-länk) och skicka förfrågan (/kontakt).
+ * `forfragan` byter adressen för "Skicka förfrågan" (batch 12d): börjar den med #
+ * blir knappen en vanlig länk på samma sida, annars Link som förut.
+ */
+export function Knappar({ className = "", forfragan = "/kontakt" }: { className?: string; forfragan?: string }) {
   return (
     <div className={`flex gap-4 flex-wrap ${className}`}>
       <a
@@ -15,12 +21,15 @@ export function Knappar({ className = "" }: { className?: string }) {
       >
         Ring {site.phoneDisplay}
       </a>
-      <Link
-        href="/kontakt"
-        className="grain-card relative overflow-hidden border border-white/20 text-white/70 px-8 py-3 tracking-widest uppercase text-sm rounded-lg transition-all hover:border-gold hover:text-gold after:absolute after:inset-0 after:bg-gold/10 after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300"
-      >
-        Skicka förfrågan
-      </Link>
+      {forfragan.startsWith("#") ? (
+        <a href={forfragan} className={FORFRAGAN_KLASS}>
+          Skicka förfrågan
+        </a>
+      ) : (
+        <Link href={forfragan} className={FORFRAGAN_KLASS}>
+          Skicka förfrågan
+        </Link>
+      )}
     </div>
   );
 }
