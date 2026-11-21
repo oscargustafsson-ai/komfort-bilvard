@@ -19,7 +19,8 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
  * Företagsschemat (AutoWash). Ligger i layouten, en gång per sida.
  * Innehåll enligt sidregler.md. openingHoursSpecification sedan batch 03
  * (öppettiderna bekräftade 2026-10-14) (lördag 10-16 från 2026-11-05)
- * (vardagar 08-18 och lördag 09-16 från 2026-11-17, batch 12d).
+ * (vardagar 08-18 och lördag 09-16 från 2026-11-17, batch 12d)
+ * (lördag 10-16 igen från 2026-11-21, batch 13).
  * Aldrig aggregateRating.
  */
 export function foretagSchema() {
@@ -47,7 +48,7 @@ export function foretagSchema() {
     // Öppettider bekräftade 2026-10-14 (fakta.md). Söndag stängt, utelämnas.
     openingHoursSpecification: [
       { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "16:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
     ],
     areaServed: [
       { "@type": "City", name: "Örebro" },
@@ -88,14 +89,14 @@ export function faqSchema(fragor: { q: string; a: string }[]) {
   };
 }
 
-/** Service-schema för en stadsdelssida. */
-export function omradeSchema(o: { namn: string; slug: string }) {
+/** Service-schema för en stadsdelssida, eller en egen ort när `stad` är satt (batch 13). */
+export function omradeSchema(o: { namn: string; slug: string; stad?: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `Bilvård i ${o.namn}`,
     serviceType: "Bilvård",
-    areaServed: { "@type": "Place", name: `${o.namn}, Örebro` },
+    areaServed: o.stad ? { "@type": "City", name: o.stad } : { "@type": "Place", name: `${o.namn}, Örebro` },
     provider: { "@id": FORETAG_ID },
     url: `${site.url}/omraden/${o.slug}`,
   };

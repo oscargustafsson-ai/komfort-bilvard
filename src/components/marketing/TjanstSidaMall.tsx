@@ -67,7 +67,8 @@ function PrisRuta({ t }: { t: Tjanst }) {
 export function TjanstSidaMall({ t, smulor }: { t: Tjanst; smulor: Brodsmula[] }) {
   const sida = t.sida;
   // Batch 12d: på sidan med företagsformuläret skrollar "Skicka förfrågan" ned till formuläret i stället för /kontakt.
-  const forfragan = sida.foretagsformular ? "#foretagsformular" : undefined;
+  // Batch 13: på företagsundersidorna (foralder "foretag") går knappen till formuläret på /tjanster/foretag.
+  const forfragan = sida.foretagsformular ? "#foretagsformular" : t.foralder === "foretag" ? "/tjanster/foretag#foretagsformular" : undefined;
   return (
     <main className="min-h-screen overflow-x-hidden">
       {serviceSchema(t).map((schema, i) => (

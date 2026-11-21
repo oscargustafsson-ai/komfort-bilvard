@@ -33,7 +33,7 @@ export const undersidor: Tjanst[] = [
       { q: "Vad kostar hämtning och lämning?", a: "Inom centrala Örebro är priset fast, och utanför Örebro beror det på avståndet. Priserna står i prislistan, och vi bekräftar alltid priset när vi bokar in dig." },
       { q: "Kan ni göra jobbet hemma hos mig?", a: "Nej. Allt arbete görs i vår lokal, där vi har utrustningen. Det vi erbjuder är att hämta bilen och köra tillbaka den när jobbet är gjort." },
       { q: "Hur går överlämningen till?", a: "Den som hämtar din bil kommer i sin egen bil och låter den stå hos dig, utan nycklar, tills din bil är tillbaka. Du lämnar dina nycklar till oss, och tiderna bestämmer vi tillsammans." },
-      { q: "Hämtar ni utanför Örebro?", a: "Ja. Utanför Örebro tar vi en startavgift och en avgift per mil, och priset avrundas till närmaste tiotal. Vi servar bland annat Kumla och Hallsberg." },
+      { q: "Hämtar ni utanför Örebro?", a: "Ja. Utanför Örebro tar vi en startavgift och en avgift per mil, och priset avrundas till närmaste tiotal. Vi servar bland annat [Kumla](/omraden/kumla) och [Hallsberg](/omraden/hallsberg)." },
       { q: "Hur bokar jag hämtning?", a: "Kryssa i rutan för hämtning på bokningssidan, skriv det i kontaktformuläret eller säg det när du ringer 076-035 38 08." },
     ],
     pricing: {
@@ -66,7 +66,7 @@ export const undersidor: Tjanst[] = [
         },
         {
           h2: "Hämtning i hela Örebro",
-          stycken: ["Bor du i [Vivalla](/omraden/vivalla) eller [Almby](/omraden/almby) tar det runt en kvart att köra till oss, och från [Varberga](/omraden/varberga) ungefär tio minuter. Där kan hämtning spara dig en hel del tid, och detsamma gäller [Lillån](/omraden/lillan) längst i norr, där resan hit tar en kvart. Utanför Örebro hämtar vi också, och då beror priset på avståndet. Vi servar även Marieberg, Adolfsberg, Mosås, Brickebacken, Rynninge, Kumla och Hallsberg."],
+          stycken: ["Bor du i Vivalla eller Almby tar det runt en kvart att köra till oss, och från [Varberga](/omraden/varberga) ungefär tio minuter. Där kan hämtning spara dig en hel del tid, och detsamma gäller [Lillån](/omraden/lillan) längst i norr, där resan hit tar en kvart. Utanför Örebro hämtar vi också, och då beror priset på avståndet. Vi servar även Marieberg, Adolfsberg, Mosås, Brickebacken, Rynninge, Kumla och Hallsberg."],
         },
       ],
       varforH2: "Varför välja KOM-fort?",
@@ -623,7 +623,7 @@ export const undersidor: Tjanst[] = [
         { h2: "Bilvård för företag i hela Örebro", stycken: ["Från [Mosås](/omraden/mosas) i söder är det cirka tio minuter till oss, och från [Tybble](/omraden/tybble) i östra Örebro ungefär en kvart. Vi servar även Adolfsberg, Marieberg, Hovsta, Mellringe, Oxhagen, Baronbackarna, Kumla och Hallsberg."] },
       ],
       varforH2: "Varför välja KOM-fort?",
-      hitta: { h2: "Hitta till oss", stycken: ["Du hittar oss i Södra Lindhult, på Lindtorpsvägen 10, en kort bit från E20 avfart 110 Adolfsberg. Vi har öppet 08-18 på vardagar och 09-16 på lördagar."] },
+      hitta: { h2: "Hitta till oss", stycken: ["Du hittar oss i Södra Lindhult, på Lindtorpsvägen 10, en kort bit från E20 avfart 110 Adolfsberg. Vi har öppet 08-18 på vardagar och 10-16 på lördagar."] },
       faqH2: "Vanliga frågor om bilvård för företag",
       bokaH2: "Boka bilvård för företaget",
       bokaText: "Ring 076-035 38 08 eller skicka en förfrågan. Ange hur många bilar det gäller och vad de behöver, så hör vi av oss och kommer överens om resten.",

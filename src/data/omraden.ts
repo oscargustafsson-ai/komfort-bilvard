@@ -9,6 +9,8 @@ import type { Sektion, Fraga } from "./startsida";
 export type Omrade = {
   slug: string;
   namn: string;
+  /** Egen ort utanför Örebro (batch 13). Service-schemat får då City i stället för Place "<namn>, Örebro". */
+  stad?: string;
   title: string;
   meta: string;
   h1: string;
@@ -138,6 +140,15 @@ export const omradenHubb = {
     {
       h2: "Ormesta",
       stycken: ["Ormesta sydost om Almby är en medeltida radby som var en egen småort fram till 2015, och i närheten har nya villor och radhus byggts sedan början av 2000-talet. Till oss är det cirka 10 kilometer via Universitetsgatan och Glomman, 15-20 minuter med bil. Läs mer om vår [bilvård i Ormesta](/omraden/ormesta)."],
+    },
+    // Batch 13, R1
+    {
+      h2: "Kumla",
+      stycken: ["Kumla är centralort i Kumla kommun och har knappt 18 000 invånare. Orten var länge känd för sina skofabriker. Från Kumla kör du E20 norrut till avfart 110 Adolfsberg, cirka 15 kilometer och 15-20 minuter. Läs mer om vår [bilvård i Kumla](/omraden/kumla)."],
+    },
+    {
+      h2: "Hallsberg",
+      stycken: ["Hallsberg är centralort i Hallsbergs kommun och känt som järnvägsknut, där Västra stambanan möter godsstråket genom Bergslagen, och orten har drygt 8 000 invånare. Till oss kör du riksväg 50 och E20, cirka 30 kilometer eller knappt en halvtimme. Läs mer om vår [bilvård i Hallsberg](/omraden/hallsberg)."],
     },
   ] satisfies Sektion[],
   lamna: {
@@ -455,7 +466,7 @@ export const omraden: Omrade[] = [
     h1: "Bilvård Mosås",
     intro: [
       "Från Mosås är det bara några minuter till oss. Du kör Mosåsvägen norrut genom Adolfsberg, och efter drygt sex kilometer är du framme på Lindtorpsvägen 10 i Södra Lindhult. Här tvättar vi bilen för hand, gör rekond när den ska säljas och lägger lackskydd som håller i flera år.",
-      "Mosås är kyrkbyn i gamla Mosjö socken, söder om Örebro och norr om Kumla. Samhället och Mosjö kyrka från 1100-talet ligger på rullstensåsen som löper från Hallsberg genom Kumla och Örebro, med den gamla landsvägen och järnvägen tätt intill. Runt omkring breder Närkeslättens åkrar ut sig, där Mosjön låg innan den torrlades på 1800-talet. Väster om byn ligger Mosjö golfklubb och längre bort E20. Sedan 2010 räknas Mosås som en del av Örebro tätort. Här kan du läsa mer om [KOM-fort Bilvård](/) och hitta [alla stadsdelar vi servar](/omraden).",
+      "Mosås är kyrkbyn i gamla Mosjö socken, söder om Örebro och norr om [Kumla](/omraden/kumla). Samhället och Mosjö kyrka från 1100-talet ligger på rullstensåsen som löper från [Hallsberg](/omraden/hallsberg) genom Kumla och Örebro, med den gamla landsvägen och järnvägen tätt intill. Runt omkring breder Närkeslättens åkrar ut sig, där Mosjön låg innan den torrlades på 1800-talet. Väster om byn ligger Mosjö golfklubb och längre bort E20. Sedan 2010 räknas Mosås som en del av Örebro tätort. Här kan du läsa mer om [KOM-fort Bilvård](/) och hitta [alla stadsdelar vi servar](/omraden).",
     ],
     tjanster: [
       { h2: "Bilrekond när bilen ska vara som ny", stycken: ["En [bilrekond](/tjanster/rekonditionering) är vår mest sålda tjänst. Bilen handtvättas och avfettas, lacken får en lackförsegling som håller i 6 månader och kupén rengörs från mattor till instrumentbräda. En gång om året är ett bra intervall, gärna efter vintern när saltet ska bort från vägarna runt Mosås, eller inför en försäljning. Bilen stannar hos oss i upp till 4 timmar, så lämna den gärna på morgonen."] },
@@ -956,6 +967,62 @@ export const omraden: Omrade[] = [
         { q: "Kan asfaltsborttagningen bokas för sig?", a: "Den är ett tillägg till tvätten, och i bilrekonden ingår den redan." },
         { q: "Kan jag åka med till Marieberg under rekonden?", a: "Ja. Medan bilen får en större rekond kör vi dig till Marieberg, och det kostar inget extra." },
         { q: "Hur lång tid tar rekonden?", a: "Upp till 4 timmar. Med tillägget kemtvätt är det bäst om bilen får stanna hos oss till nästa dag." },
+      ],
+    },
+  },
+  // Batch 13, sida 1/2 (egen ort: stad ger City i Service-schemat)
+  {
+    slug: "kumla",
+    namn: "Kumla",
+    stad: "Kumla",
+    title: "Bilvård Kumla | Bilrekond, polering & handtvätt för dig i Kumla",
+    meta: "Från Kumla kör du E20 norrut till avfart 110 Adolfsberg, cirka 15 kilometer. Bilrekond, polering och handtvätt, och vi kan hämta bilen. Ring 076-035 38 08.",
+    h1: "Bilvård Kumla",
+    intro: [
+      "Kumla ligger cirka 15 kilometer söder om Örebro. Vår lokal i Örebros södra utkant, på Lindtorpsvägen 10, har nära till E20, så du behöver aldrig köra genom stan för att komma hit. Hos oss får bilen en bilrekond, en polering eller en handtvätt, och allt arbete görs i vår lokal.",
+      "När järnvägen mellan Örebro och Hallsberg öppnade 1862 fick Kumla en station, och runt den växte dagens tätort fram. Under 1900-talet blev orten en av de viktigaste i landet för skotillverkning. \"I Kumla bor det mer skomakare än folk\" är ett gammalt talesätt i Närke, och Skoindustrimuseet i en före detta skofabrik berättar om den tiden. Sveriges enda kvarvarande skofabrik finns fortfarande i Kumla. I tätorten bor knappt 18 000 personer. Strax öster om den ligger Kvarntorpshögen, som är över 100 meter hög och i dag ett friluftsområde med skulpturer och utsikt över Närkeslätten. På startsidan står mer om vår [bilvård i Örebro](/), och på en egen sida har vi samlat [alla orter och stadsdelar vi servar](/omraden).",
+    ],
+    tjanster: [
+      { h2: "Bilrekond för både lack och kupé", stycken: ["Vår mest sålda tjänst är [bilrekond](/tjanster/rekonditionering), en behandling på upp till 4 timmar. Utvändigt tvättas och avfettas bilen, och fågelspill, flygrost, asfaltstänk och ingrodd smuts försvinner innan lacken förseglas för sex månader. Hur mycket kupén behöver avgör vad vi gör där: smutsiga ytor får borste och rengöringsmedel, och mot lukt och fläckar använder vi ångmaskinen. Innertaket torkas bara av försiktigt, eftersom det skadas lätt. Polering ingår inte, men du kan välja till den."] },
+      { h2: "Polering som tar fram glansen", stycken: ["Har lacken mattats eller fått swirlmärken kan en [polering](/tjanster/polering) ge den djup och glans igen. Först rengör vi lacken med lera och mäter hur tjock den är, och lister och plast tejpas. Sedan polerar vi med maskin i upp till tre steg. Efter poleringen skyddas lacken med vax, eller med ett keramiskt lackskydd om du har beställt det. Sitter det bara en enstaka repa i en lack som annars är fin kan [repborttagning](/tjanster/polering/repborttagning) på just det stället vara nog, och resten av bilen slipper polering."] },
+      { h2: "Handtvätt medan du väntar", stycken: ["Den utvändiga [handtvätten](/tjanster/biltvatt) är klar efter 30-40 minuter, och medan den pågår kan du vänta på plats. Bilen blötläggs och avfettas först, lacken tvättas med två hinkar, mjuka tvätthandskar och pH-neutrala medel, och hjul och hjulhus får egna produkter. Sist torkar vi bilen med mikrofiberdukar. Automattvätt använder vi aldrig."] },
+    ],
+    hamtning: { h2: "Hämtning och lämning i Kumla", stycken: ["När bilen ska stå hos oss i flera timmar, som vid en rekond eller en polering, kan vi hämta bilen hos dig i Kumla och köra tillbaka den när arbetet är gjort. Vår egen bil blir stående hos dig, utan nycklar, så länge din är hos oss. Eftersom Kumla ligger utanför Örebro räknar vi en startavgift och en summa per mil, och beloppen står i prislistan. Läs mer om [hämtning och lämning](/tjanster/hamtning-och-lamning)."] },
+    hitta: { h2: "Hitta till oss från Kumla", stycken: ["Från centrala Kumla kör du Norra Kungsvägen och Örebrovägen norrut till E20. Följ E20 mot Örebro i drygt åtta kilometer och ta avfart 110 Adolfsberg, där du svänger höger in på Karlskogavägen. I Lindhultsrondellen tar du Gränsrösevägen, som leder fram till Lindtorpsvägen. Räkna med cirka 15 kilometer och 15-20 minuter. Mellan Kumla och Örebro ligger [Mosås](/omraden/mosas), och från [Hallsberg](/omraden/hallsberg) längre söderut tar resan knappt en halvtimme."] },
+    faq: {
+      h2: "Vanliga frågor från Kumla",
+      fragor: [
+        { q: "Hämtar ni bilar i Kumla?", a: "Ja, om bilen ska stanna hos oss en längre stund, som vid en rekond eller en polering. Tiderna bestämmer vi tillsammans med dig." },
+        { q: "Hur länge stannar bilen hos er?", a: "En bilrekond tar upp till 4 timmar. Polering i två steg innebär att du får vara utan bilen i minst två dygn, medan tre steg tar minst tre dygn." },
+        { q: "Vad gör jag medan bilen står hos er?", a: "Ska bilen få en större rekond kör vi dig gärna till Marieberg, utan kostnad. Vid en handtvätt stannar du helt enkelt kvar tills den är klar." },
+      ],
+    },
+  },
+  // Batch 13, sida 2/2 (egen ort: stad ger City i Service-schemat)
+  {
+    slug: "hallsberg",
+    namn: "Hallsberg",
+    stad: "Hallsberg",
+    title: "Bilvård Hallsberg | Invändig rekond, keramiskt lackskydd & hämtning för dig i Hallsberg",
+    meta: "Från Hallsberg är det cirka 30 kilometer till oss via riksväg 50 och E20. Invändig rekond, keramiskt lackskydd och rekond inför bilförsäljning. Ring 076-035 38 08.",
+    h1: "Bilvård Hallsberg",
+    intro: [
+      "Från Hallsberg är det cirka 30 kilometer till oss, och via riksväg 50 och E20 tar resan knappt en halvtimme. På Lindtorpsvägen 10 i södra Örebro gör vi invändig rekond, lägger keramiskt lackskydd och rekondar bilar inför försäljning, och vi kan hämta bilen hos dig i Hallsberg.",
+      "Hallsberg fick sin station 1862, ungefär en kilometer från kyrkan, och samhället har vuxit fram runt den. I dag är orten mest känd som järnvägsknut: här möts Västra stambanan och godsstråket genom Bergslagen. Större delen av samhället ligger på Örebroåsen, samma rullstensås som löper vidare genom Kumla och Örebro. År 1868 flyttade Johan Thermænius sin verkstad hit, och tröskverken därifrån blev kända även utomlands. Textilkonstnären Karin Larsson, född Bergöö, växte upp i Hallsberg. I tätorten bor drygt 8 000 personer, och längs Västra Storgatan söder om stationen finns butiker och restauranger. På startsidan kan du läsa mer om [vår bilvård](/), och [orterna och stadsdelarna vi servar](/omraden) har vi samlat på en sida.",
+    ],
+    tjanster: [
+      { h2: "Invändig rekond för en fräsch kupé", stycken: ["En [invändig rekond](/tjanster/invandig-rekond) tar mellan två och fyra timmar. Vi dammsuger, rengör klädsel och mattor med borste och rengöringsmedel, torkar av alla ytor och putsar rutorna inifrån, och lukt eller fläckar i tyget tar ångmaskinen hand om när det behövs. Mot lukt från husdjur hjälper enzymatiska medel i de flesta fall. Sitter fläckar kvar i tyget kan du välja till [kemtvätt av sätena](/tjanster/invandig-rekond/kemtvatt-kladsel), och då är det bäst att bilen får stå kvar en natt, så att sätena hinner torka."] },
+      { h2: "Keramiskt lackskydd efter polering", stycken: ["Vi lägger [keramiskt lackskydd](/tjanster/lackskydd) på lacken när den först har fått en [polering](/tjanster/polering), och du kan välja ett skydd på två, tre eller fem år. Skiktet binder till lacken och håller borta vatten och smuts, och det skyddar också mot oxidering, lätta repor och UV-strålning, så det går lättare att hålla bilen ren. Efter behandlingen får skiktet härda tolv timmar hos oss innan du kör hem, och härdningen fortsätter sedan i minst en vecka."] },
+      { h2: "Rekond inför bilförsäljning", stycken: ["Ska bilen säljas kan en [rekond inför bilförsäljning](/tjanster/rekonditionering/infor-bilforsaljning) ge ett bättre första intryck, när köpare ser annonsen och kommer för att titta på bilen. Grunden är en helrekond in- och utvändigt, och strålkastarpolering och kemtvätt av sätena kan läggas till. Rekonden kan också höja andrahandsvärdet. Sist granskar vi hela bilen en gång till och fotograferar den, och om något har missats åtgärdar vi det innan du hämtar den."] },
+    ],
+    hamtning: { h2: "Hämtning och lämning i Hallsberg", stycken: ["Tycker du att resan hit är lång kan vi hämta bilen hos dig i Hallsberg och lämna tillbaka den efteråt, om den ska vara hos oss i flera timmar. Under tiden står vår bil parkerad hos dig, och den lämnar vi utan nycklar. Dina nycklar tar vi med oss. För en tvätt hämtar vi inte. Hallsberg ligger utanför Örebro, så avgiften beror på hur långt vi kör. På sidan om [hämtning och lämning av bilen](/tjanster/hamtning-och-lamning) beskriver vi hela upplägget."] },
+    hitta: { h2: "Hitta till oss från Hallsberg", stycken: ["Från centrala Hallsberg tar du Västra Storgatan ut ur samhället till riksväg 50 och fortsätter norrut. Efter ett par kilometer kör du upp på E20 och följer den mot Örebro i drygt 20 kilometer, till avfart 110 Adolfsberg. Där svänger du höger in på Karlskogavägen, och från Lindhultsrondellen går Gränsrösevägen till Lindtorpsvägen. Räkna med cirka 30 kilometer och knappt en halvtimme. Ungefär halvvägs ligger [Kumla](/omraden/kumla)."] },
+    faq: {
+      h2: "Vanliga frågor från Hallsberg",
+      fragor: [
+        { q: "Kan ni hämta bilen i Hallsberg?", a: "Ja, när den ska få en invändig rekond, ett lackskydd eller en annan behandling där bilen blir kvar hos oss i flera timmar. Säg till när du bokar." },
+        { q: "Kan lackskyddet läggas på rutorna?", a: "Nej. Rutorna kan bli immiga av ett keramiskt lackskydd, och torkarna kan dra en hinna över glaset, så där lägger vi glasförsegling i stället." },
+        { q: "Hur sköter jag bilen efter lackskyddet?", a: "Låt bilen vara otvättad minst en vecka efter behandlingen, gärna längre. Välj sedan pH-neutrala medel när du tvättar den, och avfetta bara ungefär varannan månad." },
       ],
     },
   },
