@@ -7,7 +7,7 @@ export type Sektion = { h2: string; stycken: string[] };
 export type Fraga = { q: string; a: string };
 
 export const startsida = {
-  title: "Bilvård Örebro | Biltvätt & bilrekond i Örebro",
+  title: "BÄSTA Bilvård Örebro - letar du efter bilrekond nära mig eller biltvätt, invändig rekond, polering och keramiskt lackskydd nära mig är KOM-fort Bilvård rätt ställe för din bil",
   meta: "Bilvård i Örebro med handtvätt, bilrekond, polering och keramiskt lackskydd. Vi finns nära E20 avfart 110 Adolfsberg och kan hämta bilen. Ring 076-035 38 08.",
   h1: "Bilvård Örebro",
   intro: [

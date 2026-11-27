@@ -11,10 +11,11 @@ import { site } from "@/lib/site";
  */
 const STANDARD_DATUM = "2026-10-17";
 const senastAndrad: Record<string, string> = {
+  // Batch 13b (2026-11-27): startsidans title enligt SOP:en (R1).
+  "/": "2026-11-27",
   // Batch 13 (2026-11-21): Kumla och Hallsberg, områdeslistan, hubben och rättelserna R2-R5; lördag 10-16 i texten (R6-R9) och knapparna på företagsundersidorna.
   "/omraden/kumla": "2026-11-21",
   "/omraden/hallsberg": "2026-11-21",
-  "/": "2026-11-21",
   "/kontakt": "2026-11-21",
   "/omraden": "2026-11-21",
   "/omraden/mosas": "2026-11-21",
